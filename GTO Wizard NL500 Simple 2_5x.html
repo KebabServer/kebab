@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker strategy</title>
+    <meta name="description" content="A brief description of your article">
+    <meta name="author" content="Your Name">
+    <!-- Add any additional meta tags, stylesheets, or scripts here -->
+</head>
+<style>
+    /* Reset some default margin and padding */
+    body,
+    h1,
+    h2,
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Style the header */
+    header {
+        background-color: #f0f0f0;
+        padding: 20px;
+        text-align: center;
+    }
+
+    /* Style the article content */
+    article {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+    }
+
+    /* Style section headings */
+    h2 {
+        margin-top: 20px;
+        font-size: 1.2em;
+    }
+
+    /* Style footer */
+    footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #f0f0f0;
+    }
+
+    /* Add additional styles as needed */
+    /* Apply styles to the entire table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid #ddd;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Style table header */
+    th {
+        background-color: #f2f2f2;
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    /* Style alternating rows */
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    /* Style table cells */
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    /* Hover effect on rows */
+    tr:hover {
+        background-color: #e0e0e0;
+    }
+
+    /* Responsive table */
+    @media (max-width: 600px) {
+        table {
+            border: 0;
+        }
+
+        table thead {
+            display: none;
+        }
+
+        table tr {
+            margin-bottom: 10px;
+            display: block;
+            border: 1px solid #ddd;
+        }
+
+        table td {
+            display: block;
+            text-align: right;
+            position: relative;
+            padding-left: 50%;
+            white-space: normal;
+        }
+
+        table td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 0;
+            width: 50%;
+            padding-left: 15px;
+            font-weight: bold;
+            text-align: left;
+        }
+    }
+
+    table+table {
+        margin-top: 20px;
+        /* Adjust the value as needed */
+    }
+
+    th:first-child,
+    td:first-child {
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <header>
+        <h1>GTO Wizard NL500 Simple 2.5x</h1>
+    </header>
+
+    <article>
+        <h2>Sizes</h2>
+        <table class="table table-bordered table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th title="Field #1"> Sizes </th>
+                    <th title="Field #2">UTG</th>
+                    <th title="Field #3">MP</th>
+                    <th title="Field #4">CO</th>
+                    <th title="Field #5">BTN</th>
+                    <th title="Field #6">SB</th>
+                    <th title="Field #7">BB</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>UTG</td>
+                    <td>2.5</td>
+                    <td>7.5</td>
+                    <td>7.5</td>
+                    <td>7.5</td>
+                    <td>11</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>MP</td>
+                    <td>20</td>
+                    <td>2.5</td>
+                    <td>7.5</td>
+                    <td>7.5</td>
+                    <td>11</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>CO</td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td>2.5</td>
+                    <td>7.5</td>
+                    <td>12</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td>BTN</td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td>2.5</td>
+                    <td>12</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td>SB</td>
+                    <td>21</td>
+                    <td>21</td>
+                    <td>24</td>
+                    <td>26</td>
+                    <td>2.5</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>BB</td>
+                    <td>22</td>
+                    <td>22</td>
+                    <td>27</td>
+                    <td>27</td>
+                    <td>21 / ALL IN</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Combos and Frequencies</h2>
+        <br>
+
+        <!-- Add more sections as needed -->
+
+        <table class="table table-bordered table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th title="Field #1">Combos </th>
+                    <th title="Field #2">UTG</th>
+                    <th title="Field #3">MP</th>
+                    <th title="Field #4">CO</th>
+                    <th title="Field #5">BTN</th>
+                    <th title="Field #6">SB</th>
+                    <th title="Field #7">BB</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>UTG</td>
+                    <td>238.2</td>
+                    <td>109.6</td>
+                    <td>115.2</td>
+                    <td>122.6</td>
+                    <td>98.72</td>
+                    <td>82.12</td>
+                </tr>
+                <tr>
+                    <td>MP</td>
+                    <td>48.5</td>
+                    <td>292.6</td>
+                    <td>135</td>
+                    <td>147.2</td>
+                    <td>117.2</td>
+                    <td>100.4</td>
+                </tr>
+                <tr>
+                    <td>CO</td>
+                    <td>52.5</td>
+                    <td>61.4</td>
+                    <td>387.4</td>
+                    <td>175.7</td>
+                    <td>148.6</td>
+                    <td>128.5</td>
+                </tr>
+                <tr>
+                    <td>BTN</td>
+                    <td>56.6</td>
+                    <td>67.2</td>
+                    <td>81.4</td>
+                    <td>563.4</td>
+                    <td>199.6</td>
+                    <td>187.8</td>
+                </tr>
+                <tr>
+                    <td>SB</td>
+                    <td>28.2</td>
+                    <td>38.4</td>
+                    <td>50.4</td>
+                    <td>63.7</td>
+                    <td>575.1</td>
+                    <td>228.4</td>
+                </tr>
+                <tr>
+                    <td>BB</td>
+                    <td>26.2</td>
+                    <td>31.6</td>
+                    <td>44.6</td>
+                    <td>64</td>
+                    <td>93.22 / 27.3</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+        <table class="table table-bordered table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th title="Field #1">Frequencies</th>
+                    <th title="Field #2">UTG</th>
+                    <th title="Field #3">MP</th>
+                    <th title="Field #4">CO</th>
+                    <th title="Field #5">BTN</th>
+                    <th title="Field #6">SB</th>
+                    <th title="Field #7">BB</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>UTG</td>
+                    <td>18.0%</td>
+                    <td>8.3%</td>
+                    <td>8.7%</td>
+                    <td>9.2%</td>
+                    <td>7.4%</td>
+                    <td>6.2%</td>
+                </tr>
+                <tr>
+                    <td>MP</td>
+                    <td>3.7%</td>
+                    <td>22.1%</td>
+                    <td>10.2%</td>
+                    <td>11.1%</td>
+                    <td>8.8%</td>
+                    <td>7.6%</td>
+                </tr>
+                <tr>
+                    <td>CO</td>
+                    <td>4.0%</td>
+                    <td>4.6%</td>
+                    <td>29.2%</td>
+                    <td>13.3%</td>
+                    <td>11.2%</td>
+                    <td>9.7%</td>
+                </tr>
+                <tr>
+                    <td>BTN</td>
+                    <td>4.3%</td>
+                    <td>5.1%</td>
+                    <td>6.1%</td>
+                    <td>42.5%</td>
+                    <td>15.1%</td>
+                    <td>14.2%</td>
+                </tr>
+                <tr>
+                    <td>SB</td>
+                    <td>2.1%</td>
+                    <td>2.9%</td>
+                    <td>3.8%</td>
+                    <td>4.8%</td>
+                    <td>43.4%</td>
+                    <td>17.2%</td>
+                </tr>
+                <tr>
+                    <td>BB</td>
+                    <td>2.0%</td>
+                    <td>2.4%</td>
+                    <td>3.4%</td>
+                    <td>4.8%</td>
+                    <td>7.0% / 2.1%</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+
+        
+
+
+
+    </article>
+</body>
+
+</html>
