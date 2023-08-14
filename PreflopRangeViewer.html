@@ -270,13 +270,13 @@
                             <button class="range_chooser_dropbtn" id="range_chooser_btn">Ranges</button>
                             <div class="range_chooser_dropdownmenu-content">
                                 <input type="radio" name="rangeChooser" id="BTSbiblerange" checked>
-                                <label for="BTSbiblerange" class="rangeChooserRadio">BTS bible</label>
+                                <label for="BTSbiblerange" class="rangeChooserRadio">BTS Bible</label>
 
                                 <input type="radio" name="rangeChooser" id="UpswingMonkerRange">
-                                <label for="UpswingMonkerRange" class="rangeChooserRadio">Upswing monker</label>
+                                <label for="UpswingMonkerRange" class="rangeChooserRadio">Upswing Monker</label>
 
                                 <input type="radio" name="rangeChooser" id="GTOwizardRange">
-                                <label for="GTOwizardRange" class="rangeChooserRadio">GTOw 2.5x gen</label>
+                                <label for="GTOwizardRange" class="rangeChooserRadio">GTOw 500NL 2.5x General</label>
                             </div>
                         </div>
                     </td>
@@ -533,7 +533,7 @@
                     chosenPositionJson = BBSB;
                     swapPosition = "SBBB";
                 } else if (btnId === "GTOwizardRange") {
-                    chosenRange = "GTOw 2.5x gen";
+                    chosenRange = "GTOw 500NL 2.5x General";
                     range_chooser_btn.innerHTML = "GTOw general";
                 } else if (btnId === "UpswingMonkerRange") {
                     chosenRange = "Upswing monker";
@@ -628,7 +628,7 @@
             if (chosenRange === "Upswing monker") {
                 rr = range.upswing_ranges;
                 rs = range.upswing_sizes;
-            } else if (chosenRange === "GTOw 2.5x gen") {
+            } else if (chosenRange === "GTOw 500NL 2.5x General") {
                 rr = range.ranges;
                 rs = range.sizes;
             } else if (chosenRange === "BTS bible") {
