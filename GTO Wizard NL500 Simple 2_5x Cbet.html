@@ -388,8 +388,6 @@
                 .then(response => response.json())
                 .then(simplecbet => {
                     var tempRangeDiv = document.getElementById("range_div");
-                    console.log(simplecbet);
-                    console.log(simplecbet.lol);
                     var colors = simplecbet.lol.colors.split(",");
                     var ranges = simplecbet.lol.ranges.split(",");
                     drawFreqs(tempRangeDiv, colors, ranges);
