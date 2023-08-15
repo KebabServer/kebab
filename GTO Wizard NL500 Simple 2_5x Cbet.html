@@ -178,11 +178,11 @@
         </div>
         <div id="situationChooser">
             <form>
-                <input type="radio" name="positionInputs" id="SRPUTGBBB" onchange="drawFlops()">
+                <input type="radio" name="positionInputs" id="SRPUTGBBB" >
                 <label for="UTGBBB" class="situationChooserRadio">SRP UTGvsBB</label>
-                <input type="radio" name="positionInputs" id="SRPBTNBB" onchange="drawFlops()" Checked>
+                <input type="radio" name="positionInputs" id="SRPBTNBB" Checked>
                 <label for="BTNBB" class="situationChooserRadio">SRP BTNvsBB</label>
-                <input type="radio" name="positionInputs" id="SRPSBBB" onchange="drawFlops()">
+                <input type="radio" name="positionInputs" id="SRPSBBB">
                 <label for="SBBB" class="situationChooserRadio">SRP SBvsBB</label>
             </form>
         </div>
@@ -208,7 +208,7 @@
         let gridy = 30;
 
         function getBoard(){
-
+            return "2s2s2s";
         }
 
         function getSituation() {
