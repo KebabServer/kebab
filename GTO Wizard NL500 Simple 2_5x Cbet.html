@@ -178,9 +178,9 @@
         </div>
         <div id="situationChooser">
             <form>
-                <input type="radio" name="positionInputs" id="SRPUTGBBB" >
+                <input type="radio" name="positionInputs" id="SRPUTGBBB">
                 <label for="UTGBBB" class="situationChooserRadio">SRP UTGvsBB</label>
-                <input type="radio" name="positionInputs" id="SRPBTNBB"Checked>
+                <input type="radio" name="positionInputs" id="SRPBTNBB" Checked>
                 <label for="BTNBB" class="situationChooserRadio">SRP BTNvsBB</label>
                 <input type="radio" name="positionInputs" id="SRPSBBB">
                 <label for="SBBB" class="situationChooserRadio">SRP SBvsBB</label>
@@ -209,17 +209,18 @@
 
         function getSituation() {
             const radioButtons = document.querySelectorAll('input[name="positionInputs"]');
-
+            let selectedId = null;
             radioButtons.forEach(function (radioButton) {
                 if (radioButton.checked) {
-                    return radioButton.id;
+                    console.log(radioButton.id);
+                    selectedId = radioButton.id;
                 }
             });
-
+            return selectedId;
         }
 
         function drawFlops() {
-            var situation = getSituation();
+            let situation = getSituation();
             console.log(situation);
             fetch('simplecbet.json')
                 .then(response => response.json())
