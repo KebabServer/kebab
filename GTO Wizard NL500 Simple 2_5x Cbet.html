@@ -211,13 +211,15 @@
         }
 
         function drawFlops() {
+            var tempFlopChooser = document.getElementById("flopChooser");
+            tempFlopChooser.innerHTML = "";
             let situation = getSituation();
             fetch('simplecbet.json')
                 .then(response => response.json())
                 .then(simplecbet => {
 
                     var flops = simplecbet[situation];
-                    var tempFlopChooser = document.getElementById("flopChooser");
+                    
                     var mytable = "";
                     for (var index = 0; index < flops.length;) {
                         mytable += "<tr>";
