@@ -217,9 +217,7 @@
             fetch('simplecbet.json')
                 .then(response => response.json())
                 .then(simplecbet => {
-
                     var flops = simplecbet[situation];
-                    
                     var mytable = "";
                     for (var index = 0; index < flops.length;) {
                         mytable += "<tr>";
