@@ -341,10 +341,10 @@
                 .then(response => response.json())
                 .then(simplecbet => {
                     var tempRangeDiv = document.getElementById("range_div");
-
+                    console.log(simplecbet.test);
 
                     var colors = simplecbet.test.colors.split(",");
-                    console.log(simplecbet.test.colors);
+                    
                     var ranges =  simplecbet.test.ranges.split(",");
 
 
