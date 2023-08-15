@@ -178,11 +178,11 @@
         </div>
         <div id="situationChooser">
             <form>
-                <input type="radio" name="positionInputs" id="SRPUTGBBB" >
+                <input type="radio" name="positionInputs" id="SRPUTGBBB" onchange="drawFlops()">
                 <label for="UTGBBB" class="situationChooserRadio">SRP UTGvsBB</label>
-                <input type="radio" name="positionInputs" id="SRPBTNBB" Checked>
+                <input type="radio" name="positionInputs" id="SRPBTNBB" onchange="drawFlops()" Checked>
                 <label for="BTNBB" class="situationChooserRadio">SRP BTNvsBB</label>
-                <input type="radio" name="positionInputs" id="SRPSBBB">
+                <input type="radio" name="positionInputs" id="SRPSBBB" onchange="drawFlops()">
                 <label for="SBBB" class="situationChooserRadio">SRP SBvsBB</label>
             </form>
         </div>
@@ -387,8 +387,8 @@
                 .then(simplecbet => {
                     var tempRangeDiv = document.getElementById("range_div");
                     
-                    var colors = simplecbet[getSituation()][getBoard()].colors.split(",");
-                    var ranges = simplecbet[getSituation()][getBoard()].ranges.split(",");
+                    var colors = simplecbet[getSituation()][getBoard()][colors].split(",");
+                    var ranges = simplecbet[getSituation()][getBoard()][ranges].split(",");
                     drawFreqs(tempRangeDiv, colors, ranges);
                     var tip = document.createElement("span");
                     tip.className = "tooltip";
