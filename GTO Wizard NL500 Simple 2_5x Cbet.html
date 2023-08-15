@@ -341,8 +341,8 @@
                 .then(response => response.json())
                 .then(simplecbet => {
                     var tempRangeDiv = document.getElementById("range_div");
-                    console.log(simplecbet.flops[0]);
-
+                    console.log(simplecbet);
+                    console.log(simplecbet.lol);
                     var colors = simplecbet.flops[0].colors.split(",");
                     
                     var ranges =  simplecbet.flops[0].ranges.split(",");
