@@ -223,13 +223,8 @@
             fetch('simplecbet.json')
                 .then(response => response.json())
                 .then(simplecbet => {
-                    console.log(typeof situation);
-                    console.log(simplecbet + " " + situation);
-                    console.log(simplecbet.SRPBTNBB);
-                    console.log(simplecbet[situation]);
-                    console.log(simplecbet.parseJSON.situation);
                     var tempRangeDiv = document.getElementById("range_div");
-                    var colors = simplecbet.parseJSON.situation.colors;
+                    var colors = simplecbet[situation].colors;
                     var tempFlopChooser = document.getElementById("flopChooser");
                     var mytable = "";
 
