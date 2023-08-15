@@ -339,12 +339,12 @@
 
             fetch('simplecbet.json')
                 .then(response => response.json())
-                .then(data => {
+                .then(simplecbet => {
                     var tempRangeDiv = document.getElementById("range_div");
 
 
-                    var colors = data.test.colors.split(",");
-                    var ranges =  data.test.ranges.split(",");
+                    var colors = simplecbet.test.colors.split(",");
+                    var ranges =  simplecbet.test.ranges.split(",");
 
 
                     drawFreqs(tempRangeDiv, colors, ranges);
