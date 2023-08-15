@@ -143,6 +143,31 @@
             border: 1px solid black;
             font-weight: 600;
         }
+
+
+
+
+        .situationChooserRadio {
+            letter-spacing: 1px;
+            width: 14.285vw;
+            height: 5vh;
+            padding: 5px, 2px;
+            font-size: xx-large;
+            font-weight: bold;
+            background-color: dimgray;
+            display: inline-block;
+            text-align: center;
+            border: 1px solid black;
+            user-select: none;
+        }
+
+        #situationChooser input[type=radio] {
+            display: none;
+        }
+
+        #situationChooser input[type=radio]:checked+label {
+            background-color: #76cf9f;
+        }
     </style>
 </head>
 
@@ -151,18 +176,19 @@
         <div class="header">
             <h1>GTO Wizard 500nl 2.5x Simple 3b: GTO</h1>
         </div>
+        <div id="situationChooser">
+            <form>
+                <input type="radio" name="positionInputs" id="SRPUTGBBB" Checked>
+                <label for="UTGBBB" class="situationChooserRadio">SRP UTGvsBB</label>
+                <input type="radio" name="positionInputs" id="SRPBTNBB">
+                <label for="BTNBB" class="situationChooserRadio">SRP BTNvsBB</label>
+                <input type="radio" name="positionInputs" id="SRPSBBB">
+                <label for="SBBB" class="situationChooserRadio">SRP SBvsBB</label>
+            </form>
+        </div>
 
         <div class="row">
-            <div class="col-2 menu">
-                <ul>
-                    <li>The Flight</li>
-                    <li>The City</li>
-                </ul>
-            </div>
-            <div class="col-10">
-                <table id="flopChooser"></table>
-            </div>
-
+            <table id="flopChooser"></table>
         </div>
         <div class="row">
             <div class="col-12">
@@ -181,25 +207,44 @@
         let gridx = 30;
         let gridy = 30;
 
+        function getSituation() {
+            const radioButtons = document.querySelectorAll('input[name="positionInputs"]');
 
+            radioButtons.forEach(function (radioButton) {
+                if (radioButton.checked) {
+                    return radioButton.id;
+                }
+            });
+
+        }
 
         function drawFlops() {
-            var tempFlopChooser = document.getElementById("flopChooser");
+            var situation = getSituation();
 
-            var mytable = "";
+            fetch('simplecbet.json')
+                .then(response => response.json())
+                .then(simplecbet => {
+                    var tempRangeDiv = document.getElementById("range_div");
+                    var colors = simplecbet.situation;
+                    var tempFlopChooser = document.getElementById("flopChooser");
+                    var mytable = "";
 
-            for (var index = 0; index < flops.length;) {
-                mytable += "<tr>";
-                for (var c = 0; c < 16 && index < flops.length; c++) {
-                    mytable += "<td>" + flops[index] + "</td>";
-                    index++;
-                }
-                mytable += "</tr>";
+                    for (var index = 0; index < colors.length;) {
+                        mytable += "<tr>";
+                        for (var c = 0; c < 16 && index < flops.length; c++) {
+                            mytable += "<td>" + flops[index] + "</td>";
+                            index++;
+                        }
+                        mytable += "</tr>";
 
-            }
+                    }
 
-            tempFlopChooser.innerHTML = mytable;
-            console.log(flops.length);
+                    tempFlopChooser.innerHTML = mytable;
+                    console.log(flops.length);
+                })
+                .catch(error => console.error('Error loading JSON:', error));
+
+
         }
 
         function drawFreqs(mainDiv, colors, ranges) {
@@ -336,7 +381,6 @@
 
 
         function drawRangeDiv() {
-
             fetch('simplecbet.json')
                 .then(response => response.json())
                 .then(simplecbet => {
@@ -344,12 +388,8 @@
                     console.log(simplecbet);
                     console.log(simplecbet.lol);
                     var colors = simplecbet.lol.colors.split(",");
-                    
-                    var ranges =  simplecbet.lol.ranges.split(",");
-
-
+                    var ranges = simplecbet.lol.ranges.split(",");
                     drawFreqs(tempRangeDiv, colors, ranges);
-
                     var tip = document.createElement("span");
                     tip.className = "tooltip";
                     tempRangeDiv.addEventListener("mouseout", function (event) {
