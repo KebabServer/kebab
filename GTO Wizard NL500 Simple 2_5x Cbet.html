@@ -225,7 +225,7 @@
                 .then(response => response.json())
                 .then(simplecbet => {
                     var tempRangeDiv = document.getElementById("range_div");
-                    var colors = simplecbet.situation;
+                    var colors = simplecbet.situation.colors;
                     var tempFlopChooser = document.getElementById("flopChooser");
                     var mytable = "";
 
