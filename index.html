@@ -6,17 +6,149 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+<style>
+    /* Reset some default margin and padding */
+    body,
+    h1,
+    h2,
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Style the header */
+    header {
+        background-color: #f0f0f0;
+        padding: 20px;
+        text-align: center;
+    }
+
+    /* Style the article content */
+    article {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+    }
+
+    /* Style section headings */
+    h2 {
+        margin-top: 20px;
+        font-size: 1.2em;
+    }
+
+    /* Style footer */
+    footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #f0f0f0;
+    }
+
+    /* Add additional styles as needed */
+    /* Apply styles to the entire table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid #ddd;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Style table header */
+    th {
+        background-color: #f2f2f2;
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    /* Style alternating rows */
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    /* Style table cells */
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    /* Hover effect on rows */
+    tr:hover {
+        background-color: #e0e0e0;
+    }
+
+    /* Responsive table */
+    @media (max-width: 600px) {
+        table {
+            border: 0;
+        }
+
+        table thead {
+            display: none;
+        }
+
+        table tr {
+            margin-bottom: 10px;
+            display: block;
+            border: 1px solid #ddd;
+        }
+
+        table td {
+            display: block;
+            text-align: right;
+            position: relative;
+            padding-left: 50%;
+            white-space: normal;
+        }
+
+        table td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 0;
+            width: 50%;
+            padding-left: 15px;
+            font-weight: bold;
+            text-align: left;
+        }
+    }
+
+    table+table {
+        margin-top: 20px;
+        /* Adjust the value as needed */
+    }
+
+    th:first-child,
+    td:first-child {
+        font-weight: bold;
+    }
+</style>
 
 <body>
-    <div>Kebab</div>
+    <header>
+        <h1>GTO Wizard NL500 Simple 2.5x</h1>
+    </header>
 
-    <a href="PreflopRangeViewer.html">Preflop range viewer</a>
-    <br>
-    <a href="GTO Wizard NL500 Simple 2_5x.html">GTO Wizard NL500 Simple 2_5x.html</a>
+    <article>
+        <h2>Links</h2>
+        <table class="table table-bordered table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th title="Field #1"> Sizes </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="PreflopRangeViewer.html">Preflop range viewer</a></td>
+                </tr>
+                <tr>
+                    <td> <a href="GTO Wizard NL500 Simple 2_5x.html">GTO Wizard NL500 Simple 2_5x.html</a></td>
+                    
+                </tr>
+            
+            </tbody>
+        </table>
 
-    
-
-
+    </article>
 </body>
 
 </html>
