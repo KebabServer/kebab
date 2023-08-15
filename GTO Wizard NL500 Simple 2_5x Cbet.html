@@ -212,7 +212,6 @@
             let selectedId = null;
             radioButtons.forEach(function (radioButton) {
                 if (radioButton.checked) {
-                    console.log(radioButton.id);
                     selectedId = radioButton.id;
                 }
             });
@@ -221,13 +220,11 @@
 
         function drawFlops() {
             let situation = getSituation();
-            console.log(situation);
             fetch('simplecbet.json')
                 .then(response => response.json())
                 .then(simplecbet => {
                     console.log(simplecbet);
                     console.log(simplecbet.situation);
-                    console.log(simplecbet.situation.colors);
                     var tempRangeDiv = document.getElementById("range_div");
                     var colors = simplecbet.situation.colors;
                     var tempFlopChooser = document.getElementById("flopChooser");
