@@ -392,8 +392,10 @@
                     var boardName = getBoard();
                     console.log(getBoard());
                     console.log(boardName);
-                    var jsonBoard = simplecbet[getSituation()].find(item => item.name === boardName);
-                    console.log(simplecbet[getSituation()].find(item => item.name === boardName));
+                    
+                    console.log(simplecbet[getSituation()].find(item => item.board === boardName));
+                    var jsonBoard = simplecbet[getSituation()].find(item => item.board === boardName);
+                    
                     console.log(jsonBoard);
                     var colors = jsonBoard[colors].split(",");
                     console.log(colors);
