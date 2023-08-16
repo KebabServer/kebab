@@ -390,10 +390,15 @@
                 .then(response => response.json())
                 .then(simplecbet => {
                     var boardName = getBoard();
+                    console.log(getBoard());
+                    console.log(boardName);
                     var jsonBoard = simplecbet[getSituation()].find(item => item.name === boardName);
-
+                    console.log(simplecbet[getSituation()].find(item => item.name === boardName));
+                    console.log(jsonBoard);
                     var colors = jsonBoard[colors].split(",");
+                    console.log(colors);
                     var ranges = jsonBoard[ranges].split(",");
+                    console.log(ranges);
                     drawFreqs(tempRangeDiv, colors, ranges);
                     var tip = document.createElement("span");
                     tip.className = "tooltip";
