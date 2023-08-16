@@ -400,9 +400,9 @@
                     console.log(jsonBoard.board);
                     console.log(jsonBoard.colors);
                     console.log(jsonBoard[colors]);
-                    var colors = jsonBoard[colors].split(",");
+                    var colors = jsonBoard.colors.split(",");
                     console.log(colors);
-                    var ranges = jsonBoard[ranges].split(",");
+                    var ranges = jsonBoard.ranges.split(",");
                     console.log(ranges);
                     drawFreqs(tempRangeDiv, colors, ranges);
                     var tip = document.createElement("span");
