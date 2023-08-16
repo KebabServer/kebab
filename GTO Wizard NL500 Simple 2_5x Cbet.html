@@ -163,6 +163,10 @@
         #situationChooser input[type=radio]:checked+label {
             background-color: #76cf9f;
         }
+        .boardClass {
+            width: 80px;
+            font-size: 4vw; /* Adjust the value as needed */
+        }
     </style>
 </head>
 
@@ -222,7 +226,7 @@
                     for (var index = 0; index < flops.length;) {
                         mytable += "<tr>";
                         for (var c = 0; c < 16 && index < flops.length; c++) {
-                            mytable += "<td class=\"col-1\" onclick=\"alert('lol')\">" + flops[index].board + "</td>";
+                            mytable += "<td class=\"boardClass\" onclick=\"alert('lol')\">" + flops[index].board + "</td>";
                             index++;
                         }
                         mytable += "</tr>";
