@@ -239,6 +239,9 @@
                 .then(response => response.json())
                 .then(simplecbet => {
                     var flops = simplecbet[situation];
+                    if(flops === undefined){
+                        return;
+                    }
                     var mytable = "";
 
                     for (var index = 0; index < flops.length; index++) {
@@ -393,7 +396,7 @@
                 .then(simplecbet => {
                     var boardName = getBoard();
                     var jsonBoard = simplecbet[getSituation()].find(item => item.board === boardName);
-                    
+
                     drawFreqs(tempRangeDiv, jsonBoard.colors, jsonBoard.ranges);
                     var tip = document.createElement("span");
                     tip.className = "tooltip";
