@@ -212,7 +212,7 @@
             let selectedId = null;
             radioButtons.forEach(function (radioButton) {
                 if (radioButton.checked) {
-                    selectedId = radioButton.id;
+                    selectedId = radioButton.innerHTML;
                 }
             });
             return selectedId;
