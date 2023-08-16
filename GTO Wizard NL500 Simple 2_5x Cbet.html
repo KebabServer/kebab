@@ -132,16 +132,6 @@
             border: 1px solid black;
         }
 
-        #flopChooser td,
-        tr {
-            border-collapse: collapse;
-            border: 1px solid black;
-            font-weight: 600;
-        }
-
-
-
-
         .situationChooserRadio {
             letter-spacing: 1px;
             width: 14.285vw;
@@ -163,6 +153,9 @@
         #situationChooser input[type=radio]:checked+label {
             background-color: #76cf9f;
         }
+
+
+
 
         .boardClass {
             width: 6.25%;
@@ -187,8 +180,8 @@
             </form>
         </div>
 
-        <div class="row">
-            <table id="flopChooser"></table>
+        <div id="flopChooser" class="row">
+
         </div>
         <div id="rangeDiv" class="row">
 
@@ -229,7 +222,7 @@
                     var mytable = "";
 
                     for (var index = 0; index < flops.length; index++) {
-                        mytable += "<input type=\"radio\" name=\"boardList\" id=\"board_" + flops[index].board + "\" onchange=\"drawFlops()\">";
+                        mytable += "<input type=\"radio\" name=\"boardList\" id=\"board_" + flops[index].board + "\" onchange=\"drawRangeDiv()\">";
                         mytable += " <label for=\"board_" + flops[index].board + "\" class=\"boardListRadio\">" + flops[index].board + "</label>"
 
                     }
@@ -239,79 +232,79 @@
 
         }
 
-                function drawFreqs(mainDiv, colors, ranges) {
+        function drawFreqs(mainDiv, colors, ranges) {
             var colorsf_multi = [[[], [], [], [], [], [], [], [], [], [], [], [], []],
-                [[], [], [], [], [], [], [], [], [], [], [], [], []],
-                [[], [], [], [], [], [], [], [], [], [], [], [], []],
-                [[], [], [], [], [], [], [], [], [], [], [], [], []],
-                [[], [], [], [], [], [], [], [], [], [], [], [], []],
-                [[], [], [], [], [], [], [], [], [], [], [], [], []],
-                [[], [], [], [], [], [], [], [], [], [], [], [], []],
-                [[], [], [], [], [], [], [], [], [], [], [], [], []],
-                [[], [], [], [], [], [], [], [], [], [], [], [], []],
-                [[], [], [], [], [], [], [], [], [], [], [], [], []],
-                [[], [], [], [], [], [], [], [], [], [], [], [], []],
-                [[], [], [], [], [], [], [], [], [], [], [], [], []],
-                [[], [], [], [], [], [], [], [], [], [], [], [], []]];
-                var colorsf_multi_tooltip = [["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""]];
-                var colorsf_multi_tooltip_temp = [["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-                ["", "", "", "", "", "", "", "", "", "", "", "", ""]];
-                var heights = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
-                let heightsMax = [[6, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-                [12, 6, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-                [12, 12, 6, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-                [12, 12, 12, 6, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-                [12, 12, 12, 12, 6, 4, 4, 4, 4, 4, 4, 4, 4],
-                [12, 12, 12, 12, 12, 6, 4, 4, 4, 4, 4, 4, 4],
-                [12, 12, 12, 12, 12, 12, 6, 4, 4, 4, 4, 4, 4],
-                [12, 12, 12, 12, 12, 12, 12, 6, 4, 4, 4, 4, 4],
-                [12, 12, 12, 12, 12, 12, 12, 12, 6, 4, 4, 4, 4],
-                [12, 12, 12, 12, 12, 12, 12, 12, 12, 6, 4, 4, 4],
-                [12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 6, 4, 4],
-                [12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 6, 4],
-                [12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 6]];
+            [[], [], [], [], [], [], [], [], [], [], [], [], []],
+            [[], [], [], [], [], [], [], [], [], [], [], [], []],
+            [[], [], [], [], [], [], [], [], [], [], [], [], []],
+            [[], [], [], [], [], [], [], [], [], [], [], [], []],
+            [[], [], [], [], [], [], [], [], [], [], [], [], []],
+            [[], [], [], [], [], [], [], [], [], [], [], [], []],
+            [[], [], [], [], [], [], [], [], [], [], [], [], []],
+            [[], [], [], [], [], [], [], [], [], [], [], [], []],
+            [[], [], [], [], [], [], [], [], [], [], [], [], []],
+            [[], [], [], [], [], [], [], [], [], [], [], [], []],
+            [[], [], [], [], [], [], [], [], [], [], [], [], []],
+            [[], [], [], [], [], [], [], [], [], [], [], [], []]];
+            var colorsf_multi_tooltip = [["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""]];
+            var colorsf_multi_tooltip_temp = [["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", "", "", "", "", "", ""]];
+            var heights = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
+            let heightsMax = [[6, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [12, 6, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [12, 12, 6, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [12, 12, 12, 6, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [12, 12, 12, 12, 6, 4, 4, 4, 4, 4, 4, 4, 4],
+            [12, 12, 12, 12, 12, 6, 4, 4, 4, 4, 4, 4, 4],
+            [12, 12, 12, 12, 12, 12, 6, 4, 4, 4, 4, 4, 4],
+            [12, 12, 12, 12, 12, 12, 12, 6, 4, 4, 4, 4, 4],
+            [12, 12, 12, 12, 12, 12, 12, 12, 6, 4, 4, 4, 4],
+            [12, 12, 12, 12, 12, 12, 12, 12, 12, 6, 4, 4, 4],
+            [12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 6, 4, 4],
+            [12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 6, 4],
+            [12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 6]];
 
 
-                let totalraisecombos = 0;
-                for (let n = 0; n < colors.length; n++) {
+            let totalraisecombos = 0;
+            for (let n = 0; n < colors.length; n++) {
                 for (let x = 0; x < 13; x++) {
                     for (let y = 0; y < 13; y++) {
-                    colorsf_multi[y][x].push(0);
+                        colorsf_multi[y][x].push(0);
                     }
                 }
 
@@ -319,89 +312,89 @@
                 let index = 0;
                 for (let i = 0; i < 52; i++) {
                     for (let j = 0; j < i; j++) {
-                    let x = Math.floor(i / 4);
-                let y = Math.floor(j / 4);
-                if ((j - i) % 4 != 0) {
-                    colorsf_multi[y][x][n] += parseFloat(hand[index]) / 1000;
+                        let x = Math.floor(i / 4);
+                        let y = Math.floor(j / 4);
+                        if ((j - i) % 4 != 0) {
+                            colorsf_multi[y][x][n] += parseFloat(hand[index]) / 1000;
 
-                colorsf_multi_tooltip_temp[y][x] += cardOrder[index] + " " + (parseFloat(hand[index]) / 10).toFixed(1) + "% ";
+                            colorsf_multi_tooltip_temp[y][x] += cardOrder[index] + " " + (parseFloat(hand[index]) / 10).toFixed(1) + "% ";
                         } else {
-                    colorsf_multi[x][y][n] += parseFloat(hand[index]) / 1000;
-                colorsf_multi_tooltip_temp[x][y] += cardOrder[index] + " " + (parseFloat(hand[index]) / 10).toFixed(1) + "% ";
+                            colorsf_multi[x][y][n] += parseFloat(hand[index]) / 1000;
+                            colorsf_multi_tooltip_temp[x][y] += cardOrder[index] + " " + (parseFloat(hand[index]) / 10).toFixed(1) + "% ";
                         }
-                // totalraisecombos += parseFloat(hand[index]);
-                index++;
+                        // totalraisecombos += parseFloat(hand[index]);
+                        index++;
                     }
                 }
                 for (let x = 0; x < 13; x++) {
                     for (let y = 0; y < 13; y++) {
-                    colorsf_multi_tooltip[x][y] += "<div style='color:" + colors[n] + "; font-weight: bold;'>" + colorsf_multi_tooltip_temp[x][y] + "</div> ";
-                colorsf_multi_tooltip_temp[x][y] = "";
+                        colorsf_multi_tooltip[x][y] += "<div style='color:" + colors[n] + "; font-weight: bold;'>" + colorsf_multi_tooltip_temp[x][y] + "</div> ";
+                        colorsf_multi_tooltip_temp[x][y] = "";
                     }
                 }
             }
-                for (let i = 0; i < 13; i++) {
+            for (let i = 0; i < 13; i++) {
                 var tempRowDiv = document.createElement("div");
                 tempRowDiv.className = "matrixRowDiv";
                 for (let j = 0; j < 13; j++) {
                     var tempDiv = document.createElement("div");
-                tempDiv.className = "matrixSingleHandDiv";
+                    tempDiv.className = "matrixSingleHandDiv";
                     if (j > i) {
-                    tempDiv.innerHTML = cards[i] + cards[j] + 's';
+                        tempDiv.innerHTML = cards[i] + cards[j] + 's';
                     } else if (i == j) {
-                    tempDiv.innerHTML = cards[j] + cards[i];
+                        tempDiv.innerHTML = cards[j] + cards[i];
                     } else {
-                    tempDiv.innerHTML = cards[j] + cards[i] + 'o';
+                        tempDiv.innerHTML = cards[j] + cards[i] + 'o';
                     }
-                var x = 0;
-                var str = "";
-                for (let n = 0; n < colors.length; n++) {
-                    str += colors[n] + " " + x + "% " + (x + colorsf_multi[12 - i][12 - j][n] / heightsMax[i][j] * 100) + "%,";
-                x += colorsf_multi[12 - i][12 - j][n] / heightsMax[i][j] * 100;
+                    var x = 0;
+                    var str = "";
+                    for (let n = 0; n < colors.length; n++) {
+                        str += colors[n] + " " + x + "% " + (x + colorsf_multi[12 - i][12 - j][n] / heightsMax[i][j] * 100) + "%,";
+                        x += colorsf_multi[12 - i][12 - j][n] / heightsMax[i][j] * 100;
                     }
-                tempDiv.style.backgroundImage = "linear-gradient(to right, " + str + " gray " + x + "% 100%)";
-                tempDiv.setAttribute("tooltipText", colorsf_multi_tooltip[12 - i][12 - j]);
+                    tempDiv.style.backgroundImage = "linear-gradient(to right, " + str + " gray " + x + "% 100%)";
+                    tempDiv.setAttribute("tooltipText", colorsf_multi_tooltip[12 - i][12 - j]);
 
-                tempRowDiv.appendChild(tempDiv);
-                tempDiv.setAttribute("isOnDiv", "false");
-                tempDiv.addEventListener("mouseenter", function () {event.target.classList.add("tipOn"); });
-                tempDiv.addEventListener("mouseout", function () {event.target.classList.remove("tipOn"); });
+                    tempRowDiv.appendChild(tempDiv);
+                    tempDiv.setAttribute("isOnDiv", "false");
+                    tempDiv.addEventListener("mouseenter", function () { event.target.classList.add("tipOn"); });
+                    tempDiv.addEventListener("mouseout", function () { event.target.classList.remove("tipOn"); });
                 }
                 mainDiv.appendChild(tempRowDiv);
             }
         }
 
 
-                function drawRangeDiv(board) {
+        function drawRangeDiv(board) {
             var tempRangeDiv = document.getElementById("rangeDiv");
-                tempRangeDiv.innerHTML = "";
-                fetch('simplecbet.json')
+            tempRangeDiv.innerHTML = "";
+            fetch('simplecbet.json')
                 .then(response => response.json())
                 .then(simplecbet => {
                     var colors = simplecbet[getSituation()][board][colors].split(",");
-                var ranges = simplecbet[getSituation()][board][ranges].split(",");
-                drawFreqs(tempRangeDiv, colors, ranges);
-                var tip = document.createElement("span");
-                tip.className = "tooltip";
-                tempRangeDiv.addEventListener("mouseout", function (event) {
-                    tip.style.visibility = "hidden";
+                    var ranges = simplecbet[getSituation()][board][ranges].split(",");
+                    drawFreqs(tempRangeDiv, colors, ranges);
+                    var tip = document.createElement("span");
+                    tip.className = "tooltip";
+                    tempRangeDiv.addEventListener("mouseout", function (event) {
+                        tip.style.visibility = "hidden";
                     }, false);
-                tempRangeDiv.addEventListener('mousemove', function (event) {
-                    tip.style.visibility = "visible";
-                var collection = document.getElementsByClassName("tipOn");
+                    tempRangeDiv.addEventListener('mousemove', function (event) {
+                        tip.style.visibility = "visible";
+                        var collection = document.getElementsByClassName("tipOn");
                         if (collection.length > 0) {
-                    tip.innerHTML = collection[0].getAttribute("tooltipText");
+                            tip.innerHTML = collection[0].getAttribute("tooltipText");
                         }
 
                     });
-                tempRangeDiv.appendChild(tip);
+                    tempRangeDiv.appendChild(tip);
                 })
                 .catch(error => console.error('Error loading JSON:', error));
 
 
         }
 
-                drawFlops();
+        drawFlops();
         // drawRangeDiv();
     </script>
 </body>
