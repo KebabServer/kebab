@@ -208,7 +208,14 @@
         let gridy = 30;
 
         function getBoard() {
-            return "2s2s2s";
+            const radioButtons = document.querySelectorAll('input[name="boardList"]');
+            let selectedId = null;
+            radioButtons.forEach(function (radioButton) {
+                if (radioButton.checked) {
+                    selectedId = radioButton.id;
+                }
+            });
+            return selectedId;
         }
 
         function getSituation() {
@@ -382,8 +389,8 @@
             fetch('simplecbet.json')
                 .then(response => response.json())
                 .then(simplecbet => {
-                    var colors = simplecbet[getSituation()][board][colors].split(",");
-                    var ranges = simplecbet[getSituation()][board][ranges].split(",");
+                    var colors = simplecbet[getSituation()][getBoard()][colors].split(",");
+                    var ranges = simplecbet[getSituation()][getBoard()][ranges].split(",");
                     drawFreqs(tempRangeDiv, colors, ranges);
                     var tip = document.createElement("span");
                     tip.className = "tooltip";
