@@ -393,11 +393,8 @@
                 .then(simplecbet => {
                     var boardName = getBoard();
                     var jsonBoard = simplecbet[getSituation()].find(item => item.board === boardName);
-
-                    var colors = jsonBoard.colors;
-                    console.log(colors);
-                    var ranges = jsonBoard.ranges;
-                    drawFreqs(tempRangeDiv, colors, ranges);
+                    
+                    drawFreqs(tempRangeDiv, jsonBoard.colors, jsonBoard.ranges);
                     var tip = document.createElement("span");
                     tip.className = "tooltip";
                     tempRangeDiv.addEventListener("mouseout", function (event) {
