@@ -392,11 +392,13 @@
                     var boardName = getBoard();
                     console.log(getBoard());
                     console.log(boardName);
-                    
+
                     console.log(simplecbet[getSituation()].find(item => item.board === boardName));
                     var jsonBoard = simplecbet[getSituation()].find(item => item.board === boardName);
                     
                     console.log(jsonBoard);
+                    console.log(jsonBoard.board);
+                    console.log(jsonBoard[colors]);
                     var colors = jsonBoard[colors].split(",");
                     console.log(colors);
                     var ranges = jsonBoard[ranges].split(",");
