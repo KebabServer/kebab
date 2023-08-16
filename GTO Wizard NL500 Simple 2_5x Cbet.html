@@ -161,7 +161,7 @@
         .boardListRadio {
             font-weight: bold;
             background-color: dimgray;
-
+            user-select: none;
             border-collapse: collapse;
         }
 
@@ -230,6 +230,8 @@
         }
 
         function drawFlops() {
+            var tempRangeDiv = document.getElementById("rangeDiv");
+            tempRangeDiv.innerHTML = "";
             var tempFlopChooser = document.getElementById("flopChooser");
             tempFlopChooser.innerHTML = "";
             let situation = getSituation();
