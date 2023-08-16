@@ -116,6 +116,7 @@
             color: Black;
             display: inline-block;
             width: 7.692%;
+            height: 5.384vh;
             font-size: small;
             font-weight: bold;
             color: black;
@@ -239,7 +240,7 @@
                 .then(response => response.json())
                 .then(simplecbet => {
                     var flops = simplecbet[situation];
-                    if(flops === undefined){
+                    if (flops === undefined) {
                         return;
                     }
                     var mytable = "";
