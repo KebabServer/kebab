@@ -393,6 +393,7 @@
                     var jsonBoard = simplecbet[getSituation()].find(item => item.board === boardName);
 
                     var colors = jsonBoard.colors;
+                    console.log(JSON.parse(colors));
                     var ranges = jsonBoard.ranges;
                     drawFreqs(tempRangeDiv, colors, ranges);
                     var tip = document.createElement("span");
