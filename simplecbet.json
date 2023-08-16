@@ -2,6 +2,12 @@
     "SRPBTNBB": [
         {
             "board": "Js7h5c",
+            "colors": [
+                "#000000",
+                "#333333",
+                "#777777",
+                "#AAAAAA"
+            ],
             "sizings": [
                 "bet7_15.png",
                 "bet3_65.png",
