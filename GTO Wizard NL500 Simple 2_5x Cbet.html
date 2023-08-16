@@ -389,8 +389,11 @@
             fetch('simplecbet.json')
                 .then(response => response.json())
                 .then(simplecbet => {
-                    var colors = simplecbet[getSituation()][getBoard()][colors].split(",");
-                    var ranges = simplecbet[getSituation()][getBoard()][ranges].split(",");
+                    var boardName = getBoard();
+                    var jsonBoard = simplecbet[getSituation()].find(item => item.name === boardName);
+
+                    var colors = jsonBoard.split(",");
+                    var ranges = jsonBoard.split(",");
                     drawFreqs(tempRangeDiv, colors, ranges);
                     var tip = document.createElement("span");
                     tip.className = "tooltip";
