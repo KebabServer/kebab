@@ -230,7 +230,7 @@
                     for (var index = 0; index < flops.length;) {
                         mytable += "<tr>";
                         for (var c = 0; c < 16 && index < flops.length; c++) {
-                            mytable += "<td class=\"boardClass\" onclick=\"drawRangeDiv(+" + flops[index].board + " + )\">" + flops[index].board + "</td>";
+                            mytable += "<td class=\"boardClass\" onclick=\"drawRangeDiv(" + flops[index].board + ")\">" + flops[index].board + "</td>";
                             index++;
                         }
                         mytable += "</tr>";
