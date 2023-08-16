@@ -190,6 +190,9 @@
         <div class="row">
             <table id="flopChooser"></table>
         </div>
+        <div  id="rangeDiv" class="row">
+            
+        </div>
     </div>
     <script>
         const cards = ['A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2'];
@@ -227,7 +230,7 @@
                     for (var index = 0; index < flops.length;) {
                         mytable += "<tr>";
                         for (var c = 0; c < 16 && index < flops.length; c++) {
-                            mytable += "<td class=\"boardClass\" onclick=\"alert('lol')\">" + flops[index].board + "</td>";
+                            mytable += "<td class=\"boardClass\" onclick=\"drawRangeDiv(+" + flops[index].board + " + )\">" + flops[index].board + "</td>";
                             index++;
                         }
                         mytable += "</tr>";
@@ -373,12 +376,14 @@
         }
 
 
-        function drawRangeDiv() {
+        function drawRangeDiv(board) {
+            var tempRangeDiv = document.getElementById("rangeDiv");
+            tempRangeDiv.innerHTML = "";
             fetch('simplecbet.json')
                 .then(response => response.json())
                 .then(simplecbet => {
-                    var colors = simplecbet[getSituation()][getBoard()][colors].split(",");
-                    var ranges = simplecbet[getSituation()][getBoard()][ranges].split(",");
+                    var colors = simplecbet[getSituation()][board][colors].split(",");
+                    var ranges = simplecbet[getSituation()][board][ranges].split(",");
                     drawFreqs(tempRangeDiv, colors, ranges);
                     var tip = document.createElement("span");
                     tip.className = "tooltip";
