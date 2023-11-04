@@ -139,6 +139,23 @@
 .div-button:hover {
     background-color: #495057; /* Darker gray on hover */
 }
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    max-width: 400px; /* Adjust the max width as needed for your design */
+}
+
+@media (max-width: 480px) {
+    .button-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    .button {
+        font-size: 14px;
+    }
+}
 </style>
 
 
@@ -147,6 +164,7 @@
     <header>
         <h1>Detox strategy</h1>
     </header>
+    <div class="button-grid">
     <button id="button1" onclick="showParagraph(div1)" class="div-button">Single Raise IP Aggressor</button>
     <button id="button2" onclick="showParagraph(div2)" class="div-button">Single Raise IP Defender</button>
     <button id="button3" onclick="showParagraph(div3)" class="div-button">Single Raise OOP Aggressor</button>    
@@ -157,7 +175,7 @@
     <button id="button8" onclick="showParagraph(div8)" class="div-button">3bet IP Defender</button>
     <button id="button9" onclick="showParagraph(div9)" class="div-button">4bet All Formations</button>
     <button id="button10" onclick="showParagraph(div10)" class="div-button">A Note on Low-SPR Zones</button>
-
+    </div>
 <article>
 <div class="divClass" id="div1">
 <h2> 1.1 - Single Raise IP Aggressor</h2>
