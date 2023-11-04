@@ -124,14 +124,42 @@
     td:first-child {
         font-weight: bold;
     }
+
+/* Style for secondary button */
+.div-button {
+    background-color: #6c757d; /* Gray color */
+    color: #fff; /* White text */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.div-button:hover {
+    background-color: #495057; /* Darker gray on hover */
+}
 </style>
+
+
 
 <body>
     <header>
         <h1>Detox strategy</h1>
     </header>
+    <button id="button1" onclick="showParagraph(div1)" class="div-button">Single Raise IP Aggressor</button>
+    <button id="button2" onclick="showParagraph(div2)" class="div-button">Single Raise IP Defender</button>
+    <button id="button3" onclick="showParagraph(div3)" class="div-button">Single Raise OOP Aggressor</button>    
+    <button id="button4" onclick="showParagraph(div4)" class="div-button">Single Raise OOP Defender</button>
+    <button id="button5" onclick="showParagraph(div5)" class="div-button">3bet OOP Aggressor</button>
+    <button id="button6" onclick="showParagraph(div6)" class="div-button">3bet OOP Defender</button>
+    <button id="button7" onclick="showParagraph(div7)" class="div-button">3bet IP Aggressor</button>
+    <button id="button8" onclick="showParagraph(div8)" class="div-button">3bet IP Defender</button>
+    <button id="button9" onclick="showParagraph(div9)" class="div-button">4bet All Formations</button>
+    <button id="button10" onclick="showParagraph(div10)" class="div-button">A Note on Low-SPR Zones</button>
 
 <article>
+<div class="divClass" id="div1">
 <h2> 1.1 - Single Raise IP Aggressor</h2>
 <h3>Flop</h3>
 <ul>
@@ -156,6 +184,7 @@ Multi-way:</li>
 <li>Fire all bluffs, 1/2 pot. Exception: Ace high can be checked.</li>
 </ul>
 
+
 <h3> River </h3>
 <ul>
 <li>HU vs. XC-XC-X:</li>
@@ -174,6 +203,8 @@ Multi-way:</li>
 <li>Play vs. a single limp-caller as you would play vs. the big blind.</li>
 <li>We do not have standardized floating requirements vs. the flop check raise because there are too many formation and interactivity nuances to discuss here. This will be taught in more depth in Tier 2 when we introduce the concept of playability.</li>
 </ul>
+</div>
+<div class="divClass" id="div2">
 <h2>1.2 - Single Raise IP Defender</h2>
 
 <h3>Flop</h3>
@@ -198,6 +229,9 @@ Multi-way:</li>
 <li>Vs. blocker bet: Never bluff raise.</li>
 <li>No value betting instruction. We need to evaluate on a case by case basis.</li>
 </ul>
+</div>
+<div class="divClass" id="div3">
+
 <h2>2.1 - Single Raise OOP Aggressor</h2>
 
 <h3>Flop</h3>
@@ -225,6 +259,8 @@ Multi-way:</li>
 <li>Vs. river raise: Do NOT bluff-catch vs. any opponent profile. We need significant domination over villain's value raising range to justify a call. </li>
 <li>No value betting instruction. We need to evaluate on a case-by-case basis.</li>
 </ul>
+</div>
+<div class="divClass" id="div4">
 <h2>2.2 - Single Raise OOP Defender</h2>
 <h3>Flop</h3>
 <ul>
@@ -246,6 +282,8 @@ Multi-way:</li>
 <li>Vs. river raise: Do NOT bluffcatch vs any opponent profile. We need significant domination over villain's value raising range to justify a call. </li>
 
 </ul>
+</div>
+<div class="divClass" id="div5">
 <h2>3.1 - 3bet OOP Aggressor</h2>
 <ul>
 <li>When isolation raising out of position (from SB or BB), proceed with the 3bet OOP Aggressor standard line.</li>
@@ -272,6 +310,8 @@ Multi-way:</li>
 <li>After B-X (both players X turn): Fire all bluffs, 2/3 pot. This is a hot-spot. Play conventionally with value hands, but turn your very worst one pair hands into bluffs.</li>
 <li>Vs. raise: Do NOT bluff-catch vs any opponent profile. We need domination over villain's value raising range to justify a call. </li>
 </ul>
+</div>
+<div class="divClass" id="div6">
 <h2> 3.2 - 3bet OOP Defender</h2>
 <h3>Flop</h3>
 <ul>
@@ -288,6 +328,8 @@ Multi-way:</li>
 <li>After C-X (both players X turn): Fire all bluffs, 2/3 pot.</li>
 <li>Vs. B-B-B or B-X-B: Do not bluff catch.</li>
 </ul>
+</div>
+<div class="divClass" id="div7">
 <h2>4.1 - 3bet IP Aggressor</h2>
 <h3>Flop</h3>
 <ul>
@@ -315,6 +357,8 @@ Multi-way:</li>
 <li>Vs. river raise: Do NOT bluff-catch vs. any opponent profile. We need domination over villain's value raising range to justify a call.</li>
 <li>Vs. blocker bet: Never bluff raise.</li>
 </ul>
+</div>
+<div class="divClass" id="div8">
 <h2>4.2 - 3bet IP Defender</h2>
 <h3>Flop</h3>
 <ul>
@@ -336,6 +380,9 @@ Multi-way:</li>
 <li>Vs. B-B-B: Do NOT bluff catch.</li>
 <li>Vs. blocker bet: Never bluff raise. </li>
 </ul>
+</div>
+<div class="divClass" id="div9">
+
 <h2>5 - 4bet All Formations</h2>
 <h3>Flop</h3>
 <ul>
@@ -345,15 +392,29 @@ Multi-way:</li>
 <ul>
 <li>No instruction. These hands must be assessed on a case-by-case basis.</li>
 </ul>
+</div>
+<div class="divClass" id="div10">
 <h2>6 - A Note on Low-SPR Zones</h2>
 <ul>
 <li>It is acceptable to turn a standard bet size into a jam when villain's stack size is 1.5x pot or less.</li>
 
 <li>For example, we hotspot XR the flop with a flush draw and villain calls. On the turn, the pot is $50 and villain's stack is $75 (or less). Instead of using our standard turn bet sizing of 2/3 pot, we can just overbet jam because we are effectively going all-in either way.</li>
 </ul>
-
+</div>
 
  </article>
 </body>
-
+<script>
+    function hideAllParagraphs(){
+        const paragraphs = document.querySelectorAll(".divClass");
+        paragraphs.forEach(function (paragraph) {
+            paragraph.style.display = "none";
+        });
+    }
+    function showParagraph(div){
+        hideAllParagraphs();
+        div.style.display = "block";
+    }
+    hideAllParagraphs();
+</script>
 </html>
