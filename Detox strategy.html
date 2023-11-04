@@ -111,6 +111,7 @@ table, th, td {
     <button id="button9" onclick="showParagraph(div9)" class="div-button">4bet All Formations</button>
     <button id="button10" onclick="showParagraph(div10)" class="div-button">A Note on Low-SPR Zones</button>
     <button id="button11" onclick="showParagraph(div11)" class="div-button">Glossary</button>
+    <button id="button12" onclick="showParagraph(div12)" class="div-button">Profiles</button>
     </div>
 <article>
 <div class="divClass" id="div1">
@@ -457,6 +458,97 @@ Multi-way:</li>
     <p>Primary usage is to refer to a villain whose tendencies will be less consistent and far less calculated than a high-level player. A volatile player frequently does things that don't make sense, generally plays a higher-VPIP style, and will play bigger pots than the average, often by virtue of utilizing unusually large bet sizings.</p>
     <p>Secondary usage is to refer to the overall extent of fluctuation between one outcome and another, e.g. a play that results in the hero either winning or losing a big pot is a play that subjects us to greater volatility, while a play that minimizes pot size is less volatile.</p>
 
+</div>
+<div class="divClass" id="div12">
+    <h2>Profiles</h2>
+    <h3>1. Volatile</h3>
+    <p>The volatile is a recreational player whose behavior is theoretically unsound and overly aggressive.</p>
+    <ul>
+        <li>Bluffing frequency trends very high, so we can call much lighter than normal, except in the most under-bluffed lines.</li>
+        <li>Calling ranges trend too wide, so we can bet for thin value or use larger sizings than normal. (Hot-spots still apply.)</li>
+    </ul>
+    <h3>2. Weak fish</h3>
+    <p>The weak fish is a recreational player whose behavior is theoretically unsound and overly passive.</p>
+    <ul>
+        <li>Bluffing frequency trends very low and value bets are frequently missed. Generally we are not interested in bluff catching, but there are some exceptions (very low BA zones).</li>
+        <li>Calling ranges trend too wide, so we can bet for thin value or use larger sizings than normal. (Hot-spots still apply.)</li>
+    </ul>
+    <p>Note: It may sound like a contradiction to say that we can value bet thin vs. recreational players because they call too wide, but also barrel hot-spots and expect them to over-fold. The reason this is true is because their preflop ranges are too wide. This reduces their postflop playability, so their calling range will be too weak on average since it contains both sub-optimal draws and sub-optimal value hands.</p>
+    <h3>3.Low-level reg (LR)</h3>
+    <p>The low reg is a non-recreational player whose strategy is somewhat theoretically sound, but trends toward passivity and has fundamental polarization leaks.</p>
+    <ul>
+        <li>Bluffing frequency trends low and value bets are sometimes missed. We can feel very confident auto-folding bluff catchers in under-bluffed lines and inconclusive/high BA zones.</li>
+        <li>Calling frequency is sub-optimal, so we can increase aggression in over-folded zones.</li>
+        <li>Polarization errors can be significant, especially in low SPR zones. We can call lighter than normal in lines that are commonly merged.</li>
+        <li>Basic competence in ranging opponents. Mostly capable of recognizing a protected range. We can auto-fold bluff catchers when our perceived range is strong.</li>
+    </ul>
+    <h3>4. High-level reg</h3>
+    <p>The high reg is a non-recreational, most likely professional player whose strategy is theoretically sound and whose aggression and defense frequencies are much closer to optimal than other profiles. They also have the capacity to use exploitatively high aggression in zones that are incentivized by general player-pool passivity.</p>
+    <ul>
+        <li>High competence in ranging opponents. Capable of identifying and pressuring a capped range. We can call lighter than normal when our perceived range is weak, especially vs. exploitatively large bet sizes (>3/4 pot).</li>
+        <li>Capable of using unorthodox or apparently volatile lines as value traps. We can fold exploitatively when we see a high reg in an unorthodox line.</li>
+    </ul>
+    <h2>Identifying profiles with VPIP/PFR stats</h2>
+    <p>We primarily use two stats when profiling: VPIP and PFR</p><br>
+    <p><b>Volatile:</b>  >40 VPIP, >15 PFR, (high gap)</p><br>
+    <p>A volatile player has a high PFR and a high VPIP/PFR gap. This gap causes their limp and cold call ranges to be skewed much more toward low playability than their PFR range. Our main exploit is to call wider than normal when facing aggression vs. these players in these lines. In some cases, a volatile can have a high enough PFR (62/30+) that he also flops with low playability when raising into pot. Under these conditions, we become very interested in bluffcatching on low-medium BA runouts. The main thing to remember about volatiles is that they trend more volatile in their limp and cold call lines, and we should be more interested in bluff-catching vs them in these lines.</p><br>
+    <p><b>Weak fish:</b> >30 VPIP, <10 PFR (high gap)</p><br>
+    <p>A weak fish has a very low PFR and a high VPIP/PFR gap. Like the volatile, the weak fish plays a lot of hands, but generally does far less betting and raising than a volatile. It's important to note that the weak fish does draw some post flop correlation to volatility, specifically with regard to merge raising flop and merge raising all in at low SPR. The important thing to note is that the weak fish is generally more passive than the volatile, and therefore we will do less large pot bluff-catching vs late street aggression vs the weak fish.</p><br>
+    <p>Players with a sub-10 PFR who have a VPIP of below 30 are classified as a sub-profile, which we will call the "nit fish". The nit fish is a tighter version of the weak fish. We should feel even more confident folding bluff-catchers vs. aggression to the nit, since he generally arrives at the flop with higher playability due to a tighter preflop strategy. We should also gear up our value betting thresholds due to his tighter preflop strategy. In general, hot spots still apply vs the nit.</p><br>
+    <p><b>Low reg:</b> 20-40 VPIP, 10-15 PFR</p>
+    <p><b>High reg:</b> 20-40 VPIP, 20-35 PFR (<15% gap)</p>
+    <p>The low and high regs both have a VPIP range of 20-40. The low reg has a PFR range of 10-15. The high reg has a higher PFR and a lower VPIP/PFR gap.</p>
+    <h3>Trending profiles</h3>
+    <p>There will be many cases where an opponent's stats will come close to fitting in two different profile types. For example, a 39/14 player technically fits in the low reg profile, but is also very close to the volatile profile (add 2% to VPIP and you have a volatile profile). In this case, we say the player is low reg, trending volatile. We need to keep an eye out for volatile behavior, but we cannot act on the volatility read exploitatively until we have confirmation. In order for a trending volatile to become a confirmed volatile, we need to observe a substantial information exchange in the form of volatile trending action, or volatile showdown holdings.</p><br>
+    <p>In other cases you might see regs whose stats don't fit neatly into the high or low reg profile. Take a 36/17, for example. PFR is too high for a low reg, but the gap is too large for a high reg. In this case, we just treat the profile as a low/high reg, or "hybrid reg". In order to clarify a trending reg profile, we need to observe a substantial information exchange in the form of aggression tendencies or polarization errors.</p>
+    <h3>Information transfer</h3>
+    <p>Information transfer is when a player's behavior (action, stack size, or showdown) gives us a better understanding of his profile type. It is usually our second line of defense for profiling. It can help us to confirm a specific profile when a player's stats are trending or unclear.</p>
+    <table>
+        <tr><th>Action</th>                     <th>Low Reg</th>	<th>High Reg</th>   </tr>
+        <tr><td>Full stack</td>	                <td>x</td>	        <td>x</td>          </tr>
+        <tr><td>Missed value</td>	            <td>x</td>          <td></td>	        </tr>
+        <tr><td>Polarization errors</td>	    <td>x</td>          <td></td>	        </tr>
+        <tr><td>Pressuring capped ranges</td>   <td> </td>		    <td>x</td>          </tr>
+        <caption>Table 1: Information exchange for reg profiles.</caption>            
+    </table>
+    <p>If a player is full-stacked, he is more likely to be a reg. As a general rule of thumb, the deeper the stack the more likely the player is to be a high reg. Volatiles and weak fish can sometimes buy in for a full stack, it's just more common among reg profiles to play full stacked. We also need to be aware that a volatile could just be in the midst of a winning session, and that is why he is sitting full stacked or deeper.</p><br>
+    <p><b>Suggestion:</b> During a session, you should be color coding or labeling the different player profiles on your HUD in some way. We also suggest labeling short stacks immediately upon being seated. If a short stack doubles up, that information will be lost and we could miss out on a valuable exploitative opportunity.</p><br>
+    <p>If you see a reg make a significant merging error or miss a clear value bet, you can use that information as confirmation that he is a low reg, not a high reg.</p><br>
+    <p>If you see a reg using aggression in zones where your perceived range is capped, especially by using a large sizing, you can confirm that the player is a high reg.</p>
+    <table>
+        <tr><th>Action</th>                     <th>Weak Fish</th>	<th>Volatile</th>   </tr>
+        <tr><td>Short stack</td>	            <td>x</td>	        <td>x</td>          </tr>
+        <tr><td>Donking</td>	                <td>x</td>          <td>x</td>	        </tr>
+        <tr><td>Limp/calling</td>	            <td>x</td>          <td>x</td>	        </tr>
+        <tr><td>Strange bet sizes</td>          <td>x</td>		    <td>x</td>          </tr>           
+        <tr><td>Large merged preflop jam</td>   <td></td>		    <td>x</td>          </tr>          
+        <tr><td>Reckless bluffs</td>            <td></td>		    <td>x</td>          </tr>
+        <caption>Table 2: Information exchange for fish profiles.</caption>            
+    </table>
+    <p>Note that many of these actions apply to both the volatile and a weak fish. For example, if a player donks into us, then we cannot immediately label him volatile because both the volatile and the weak fish use the donk line. The difference is the weak fish uses the donk line with a more equity-driven range than the volatile, comprised mostly of medium/strong pairs, some premiums, and some semi-bluffs. The volatile donks with a much wider range with all types of hands, including air.</p><br>
+    <p>The same goes for short stackers, limpers, and players who use strange bet sizes like min-bets, min-raises, or large c-bets. The only actions that can single-handedly confirm volatility are large merged jams preflop, or reckless bluffs.</p><br>
+    <p>A player showing a bluff is not enough to label him volatile. Many bluffs fit into a well-balanced strategy. A reckless bluff, on the other hand, is one that does not fit anywhere in a well-balanced strategy. A reckless bluff can be loosely defined as extensive polarization (single or multi-street) performed by air or very merged value when our range is protected.</p><br>
+    <p>It can be tempting to jump to conclusions about volatility because our highest win-rate comes from exploiting volatile players. It is important to be careful to stick to the information transfer guidelines and not over-apply them. Telling stories about a player's behavior without any real profile confirmation can lead to dangerous miscalculations vs non-volatiles. Statements like, "Villain was splashing around too much," or, "Villain was raising me a lot," are subjective stories. They are not confirmation of volatility. Mistakenly assigning volatility can quickly turn one of the sharpest tools in your arsenal into one of your biggest leaks.</p><br>
+    <p>Stats should be your primary tool for assessing profile. They are both more reliable than information transfer and less subjective. When stats are trending toward a certain profile type, we can use information transfer for confirmational support, but we must be careful not to over apply it.</p>
+    <h3>Confidence intervals</h3>
+    <p>We believe profiling is best thought about in the sense of gradients, and not in binaries. Profiling allows us to use a player's actions and stats to predict and exploit his behavioral tendencies, but in real games it is rarely done in a cut-and-dry way. There are usually variations in how well a player's stats fit the guidelines for a particular profile, subtleties in information exchange, or textural nuances, which increase the complexity of real-world scenarios. In practice, profiling amounts to gradually increasing or decreasing our requirements for playability based on the confidence we have in our profile reads. When a profile is not perfectly clear, we use a confidence interval to determine the action that will perform best on average against the range of possible profiles.</p><br>
+    <p>Let's look at an example of how we might construct a confidence interval for a common flop check raise scenario. (We are the IP aggressor in a single-raised pot, and our flop c-bet gets check raised heads up.)</p><br>
+    <h4>Constructing a confidence interval: example 1</h4>
+    <p><b>Board: KhTs6h Hand:Kc2c</b></p>
+    <ul>
+        <li>Vs. volatile, call-call-call on non-code-red runouts. This is the best way to exploit the volatile's high bluffing frequency.</li>
+        <li>Vs. non-volatile or unconfirmed, call flop, call low-BA turns, and fold river. The reason we are folding river is because the pool gives us too much realization when they shut down with their missed draws. Rarely are players three-street bluffing in these spots.</li>
+    </ul>
+    <h3>Constructing a confidence interval: example 2</h3>
+    <p>Same scenario as Example 1, facing the flop check raise heads up.</p>
+    <p><b>Board: KhKs6d Hand:QhQd</b></p>
+    <ul>
+        <li>Vs. volatile, call-call-call on non-code-red run-outs.</li>
+        <li>Vs. non-volatile or unconfirmed, call flop and fold turn.</li>
+    </ul>
+    <p>The reason we would fold all turns here vs a non-volatile is because on this texture, it's much harder for villain to arrive at the turn with equity driven semi-bluffs. Due to this texture subtlety, we can say that the non-volatile player's BA on the turn will naturally be higher, since those players are more competent, and not inclined to run multi-street bluff lines without substantial drawing equity. Volatile players on the other hand lack this type of competence, and for that reason we would be calling flop to call both turn and river, since it's virtually impossible for this board to run out code-red - this made our volatile assessment easier because there are no non-code-red run-outs possible on this board.</p><br>
+    <p>This is the essence of a confidence interval: We always construct the best exploitative course of action vs. all possible profiles. If we have significant profile reads, we choose the action that best exploits that profile. If we have incomplete profile reads, we choose the action that best exploits the hybrid profile on average. If we have no profile reads, we choose the best course of action vs. the pool in general. Our first line of defense vs. the unknown profile is mass database analysis, because that allows us to exploit the pool. If we have no MDA to fall back on, then we are not confident in any exploit, and we revert to a theory-oriented approach.</p><br>
+    <p>You will see more examples of these confidence intervals in the Case Studies section. Becoming fluent confidence intervals will unlock a new level of exploitative power. You will be able to take what you have learned in the first three Tiers of the course and make adjustments to those instructions which will further improve your win-rate.</p>
 </div>
  </article>
 </body>
