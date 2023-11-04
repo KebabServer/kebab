@@ -52,84 +52,11 @@
         background-color: #f0f0f0;
     }
 
-    /* Add additional styles as needed */
-    /* Apply styles to the entire table */
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        border: 1px solid #ddd;
-        font-family: Arial, sans-serif;
-    }
-
-    /* Style table header */
-    th {
-        background-color: #f2f2f2;
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-    }
-
-    /* Style alternating rows */
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-
-    /* Style table cells */
-    td {
-        border: 1px solid #ddd;
-        padding: 8px;
-    }
-
-    /* Hover effect on rows */
-    tr:hover {
-        background-color: #e0e0e0;
-    }
-
-    /* Responsive table */
-    @media (max-width: 600px) {
-        table {
-            border: 0;
-        }
-
-        table thead {
-            display: none;
-        }
-
-        table tr {
-            margin-bottom: 10px;
-            display: block;
-            border: 1px solid #ddd;
-        }
-
-        table td {
-            display: block;
-            text-align: right;
-            position: relative;
-            padding-left: 50%;
-            white-space: normal;
-        }
-
-        table td::before {
-            content: attr(data-label);
-            position: absolute;
-            left: 0;
-            width: 50%;
-            padding-left: 15px;
-            font-weight: bold;
-            text-align: left;
-        }
-    }
-
-    table+table {
-        margin-top: 20px;
-        /* Adjust the value as needed */
-    }
-
-    th:first-child,
-    td:first-child {
-        font-weight: bold;
-    }
-
+table, th, td {
+  border:1px solid black;
+  border-collapse: collapse;
+  padding: 10px;
+}
 /* Style for secondary button */
 .div-button {
     background-color: #6c757d; /* Gray color */
@@ -436,39 +363,99 @@ Multi-way:</li>
     <p>The extent of our opponent's "natural" bluffing range. Primarily used on streets before the river, this categorizes "obvious" bluffing hands on boards where those hands might be the most likely bluffs in a player's range. For example, a player's BROB on a flush-draw board might be to bluff with all flush draws as a minimum. On a board with a flush draw and straight draw, it might be to bluff with all flush draws and straight draws, while on a very blank board with no draws at all, a player's BROB may include bluffing with air hands, overcards, or simply not at all.</p>
     <h3>Blocker</h3>
     <p>A hand or card which, via card removal effects, lowers the likelihood of our opponent possessing a specific type of hand in their range, e.g. when we have top set, we have two blockers to top pair, making it unlikely our opponent has top pair, and weakening their range as a by-product. When we have an under-pair to the board (e.g. 44 on K-T-7), we unblock nearly all board-pairing hands, and thus are more likely to run into a hand that has connected with the board in some way.</p>
-    <h3></h3>
-    <p></p>
-    <h3></h3>
-    <p></p>
-    <h3></h3>
-    <p></p>
-    <h3></h3>
-    <p></p>
-    <h3></h3>
-    <p></p>
-    <h3></h3>
-    <p></p>
-    <h3></h3>
-    <p></p>
-    <h3></h3>
-    <p></p>
-    <h3></h3>
-    <p></p>
-    <h3></h3>
-    <p></p>
-    <h3></h3>
-    <p></p>
-    <h3></h3>
-    <p></p>
-    <h3></h3>
-    <p></p>
-    <h3></h3>
-    <p></p>
-    <h3></h3>
-    <p></p>
-    <h3></h3>
-    <p></p>
-
+    <h3>Bluff allowance (BA)</h3>
+    <p>An estimated proportion of value combinations to bluff combinations in the villain's range. The more value combinations an opponent has in their range, the higher their Bluff Allowance, because they can bluff more without becoming imbalanced. The less value combinations an opponent has in their range, the lower their Bluff Allowance, because they're simply not able to bluff as frequently.</p><br>
+    <p>The other side of the equation, the higher the villain's Base Rate of Bluffs (BROB), the more easily they can overshoot their BA in situations where they do not have a lot of value in their range. An example of a high BROB is a board with a lot of missed draws - there are many combinations of hands that end up on the river needing to bluff in order to win the pot. If a villain has a low BROB, for example on a triple-broadway board, then they cannot easily overshoot their BA even when they do not have a lot of value in their range.</p><br>
+    <p>The higher the villain's BA, the less interested we are in bluff catching, and vice versa.</p><br>
+    <p>Note that a high BA does not imply villain is bluffing with too high of a frequency - in fact, it implies the opposite, that they are able to bluff with a higher frequency before crossing the threshold into over-bluffing, and thus it is less likely that they are over-bluffing to the extent that bluff-catching is a good idea.</p>
+    <h3>Capped/uncapped range</h3>
+    <p>A range is capped if it contains no high-equity or nut hands. An uncapped range is similar to a protected range, although a range can be protected while still being capped.</p><br>
+    <p>We may also discuss a player's range in terms of where the cap on their range is located - for example, we may describe a player as being "capped at top pair", if their range contains no hands stronger than top pair.</p>
+    <h3>Code red</h3>
+    <p>A board, turn card or river card is said to be "Code Red" if there are a large number of potentially very strong hands possible in the range of our opponent. This could be because the board ran out four to a straight or four to a flush, or simply because a turn or river card peeled off that hit our opponent's range very hard.</p>
+    <p>In Tier 4 we will learn that the standard for code red is higher for the volatility profile than other profiles. Code red for a confirmed volatile generally requires a 4-card straight or 4-card flush on board.</p>
+    <h3>Condensed range</h3>
+    <p>A range concentrated toward weak to medium strength showdown value, usually as a result of calling a previous street.</p>
+    <h3>Confidence interval</h3>
+    <p>When a profile is unclear, we use a confidence interval to determine the action that will perform best on average against the range of possible profiles.</p>
+    <h3>Data point analysis</h3>
+    <p>An analysis that examines all the relevant facts and statistics in a hand and then determines which ones are most relevant and/or necessary for consideration in order to arrive at a correct decision.</p>
+    <h3>Domination</h3>
+    <p>When we possess significant domination over our opponent's range, it means our hand has extremely high equity versus certain specific portions of that range. This signifies that our equity, and thus in most cases our EV, will be much higher than if we possessed no domination, and were therefore only marginally ahead of most of our opponent's value range. Domination is very often achieved through our having our opponent out-kicked in some fashion - for example, top pair top kicker versus top pair second kicker, or top two pair versus top pair and third pair.</p>
+    <h3>Elasticity/inelasticity</h3>
+    <p>Elasticity refers to the amount of impact bet sizing has on a calling frequency. Elastic ranges are usually depolarized and call less or more as bet size increases or decreases. Inelastic calling ranges are usually very polarized and call at the same frequency regardless of bet sizing.    </p>
+    <h3>Equity-driven range</h3>
+    <p>An equity-driven range is a range constructed primarily by way of choosing bluffing hands according to their equity in the current pot. For example, flop c-bet bluffing ranges on more dynamic boards will often be highly equity-driven, since players are reluctant to bluff with low-equity hands on boards where they stand a lower chance of getting a fold.</p>
+    <h3>Exploitable/exploitative</h3>
+    <p>Any deviation from GTO or unexploitable strategy is exploitable; an opponent can adapt their strategy away from GTO to increase their EV versus this strategy. An exploitative strategy is one aimed at targeting an exploitable weakness in an opponent. The two go hand in hand - when we are playing exploitatively, we become exploitable. Thus, we should recognize that exploiting a weakness in our opponent's game opens up a potential hole in our own game.</p>
+    <h3>Forced aggression</h3>
+    <p>A reckless bluffing line that is generally negative EV because it is trying to push the opponent off of a range which contains too much value. Most commonly used to describe bluffing lines that go beyond the level of aggression recommended as part of a GTO or baseline exploitative strategy for a specific situation.</p>
+    <h3>Formation (preflop)</h3>
+    <p>A descriptor for the general preflop circumstances of a hand-players, positions, and how this affects preflop ranges.</p>
+    <h3>Game theory optimal (GTO)</h3>
+    <p>Refers to the best of all possible unexploitable strategies, a perfect strategy. Can be quantified for specific situations, must be abstracted in order to deal with more complex, holistic scenarios</p>
+    <h3>Hotspot</h3>
+    <p>A hotspot is a strategic data point that has been identified through mass data analysis as representing a weakness in the player pool's overall game, usually a weakness involving folding too much in relation to what GTO play would suggest. Poker Detox requirements for a hotspot are a difference of ≥7% between PIO Solver's and the pool's defense frequency for a given line.</p>
+    <h3>Linear range</h3>
+    <p>A range that starts with the highest-equity hands and moves downwards in equity until it reaches a specific stopping point.</p>
+    <h3>Mandatory defense frequency (MDF)</h3>
+    <p>The rate at which a player is required to defend their range (by calling or raising) when facing a bet in a specific situation, in order to remain unexploitable. Also known as Minimum Defense Frequency - these two terms are interchangeable</p>
+    <h3>Mass data analysis (MDA)</h3>
+    <p>The collection and inspection of large samples of hand histories in order to assess the player pool's tendencies in specific lines and exploit those tendencies when they are imbalanced.</p>
+    <h3>Merged range</h3>
+    <p>When the value component of a range becomes depolarized. An example would be c-betting 100% of our range in position on the flop. A merging error refers to taking hands that should usually check or call in a specific spot and betting or raising them instead. As pot size increases, it generally becomes a bigger mistake to bet merged.</p>
+    <h3>Outside tier capacity (OTC)</h3>
+    <p>Outside of tier capacity means the student does not yet have the skillset to properly analyze the hand. If this is the case, the student should fold when facing aggression.</p><br>
+    <p>Remember: Uncertainty + Aggression = Fold</p>
+    <h3>Perceived range (PR)</h3>
+    <p>An estimation by the hero of how the villain has ranged him based on his actions in the hand. PR is made weaker by passive actions and stronger by aggressive actions. The stronger our PR is, the less interested we are in bluffcatching - this is because it is significantly less likely that our opponents will try to bluff us if our range is perceived to contain many very strong hands.</p><br>
+    <p> Tier 4 we will learn that PR is only applied to regs. It is disregarded when playing against fish or recreational players because their understanding of ranging concepts is poor or nonexistent.</p>
+    <h3>Playability</h3>
+    <p>A hand is more 'playable' if it stands a good chance of being able to continue further into the hand on a frequent basis. Hands that have a tendency to flop strong pairs and draws have good playability, while hands that frequently flop weakly and will rarely have many outs to improve (such as low pocket pairs) tend to have poor playability.</p><br>
+    <p>Playability is closely related to equity retention - a hand with good playability will retain some equity even against the strongest portions of an opponent's range, while a hand with poor playability may seem to have reasonable equity if the hand were to be all-in right away, but will struggle to negotiate future streets comfortably, and may be drawing dead in the event that it runs into the top of the opponent's range.</p>
+    <h3>Polarized range</h3>
+    <p>A range containing a combination of strong, high-equity hands and weak, low-equity hands, with very little or nothing in the middle (merged) region. A polarization error refers to betting merged hands which generally get called by better hands and fold worse hands in the villain's range.</p>
+    <h3>Profiling</h3>
+    <p>The use of HUD stats, line recognition, and/or showdown information to predict or assess a player's behavior and exploit it. Usually associated with a desire to develop a specific profile of each opponent, assessing them according to specific villain archetypes.</p>
+    <h3>Protected range</h3>
+    <p>A range which contains a significant amount of nutted or near-nutted hands. Usually used to refer to a range that also contains some amount of non-nutted hands in addition - the weaker hands are protected by the stronger ones, because an opponent will need to play cautiously for fear of running into the nuts.</p>
+    <h3>Pushing equity</h3>
+    <p>A range is said to be pushing equity when it is at a value advantage over another range. In other words, if the action was frozen (no more bets can be places) the range that is the favorite to win the pot is the range that is pushing equity.</p>
+    <h3>Randomized range</h3>
+    <p>The opposite of a linear range, this is a mixed strategy usually involving incorporating a variety of different types of hands with variable frequencies. Since strong players adopting mixed strategies will usually have a much more specific approach to range construction, ranges that are partially randomized are usually only adopted by inexperienced players using an uncalculated approach. Ranges are never fully randomized, since even the weakest players recognize the strength of a premium hand.</p>
+    <h3>Realization</h3>
+    <p>The act of checking or calling a bet with the intention of seeing future streets for the minimum price. When we call or check in position, we guarantee seeing the next street, and thus are able to achieve greater realization of our hand's pot equity. If we choose to bet in such a spot, we may risk being forced to fold a hand with reasonable pot equity if we were to get raised.</p><br>
+    <p>We use the term 'realization' because when we check or call with the intention of allowing ourselves to see a future street, we are literally making our equity into a reality - we're taking a hand that has a certain percentage chance to win at showdown, and deliberately bringing ourselves closer to showdown in an attempt to turn our theoretical share of the pot into reality.</p>
+    <h3>Showdown-driven range</h3>
+    <p>A range that includes a capped inelastic component and an air component, with which a player is likely to call a bet more often than is optimal. This is due to having an abnormally large number of hands of similar strength that can call to win the pot. For example, a player may call all of the A-x in his range on a low, double-paired board.</p><br>
+    <p> A player can also be showdown-driven when he feels his opponent's value-betting range is unorthodox, i.e. the opponent cannot be repping much.</p>
+    <h3>Standard line (SL)</h3>
+    <p>A simplified set of instructions for common scenarios which takes three basic inputs:</p>
+    <ul>
+        <li>Action (line and current street)</li>
+        <li>Board texture (hotspots, overcards, 4-card straight/flush)</li>
+        <li>Hand strength (domination, polarization)</li>
+    </ul>
+    <p>When a standard line is not followed, it is called a standard line deviation. A deviation is not necessarily a mistake - it is a neutral term, used to describe a play that is outside of our system. When a standard line is not followed and is clearly -EV, it is called a standard line violation. When a deviation is made for clear and specific data point reasons and is likely more +EV than the standard line, it is called a standard line bridge. This term is used because we are creating a bridge between our 'standard' framework and a newer, more unconventional set of ideas - we're stepping into new strategic territory.</p><br>
+    <p>In summary:</p>
+    <table>
+    <tr><td>Good(+EV)</td> <td>Neutral</td>	<td>Bad (-EV)</td></tr>
+    <tr><td>Bridge</td>	<td>Deviation</td>	<td>Violation</td></tr>
+    </table>
+    <h3>Standard line bridge</h3>
+    <p>A bridge occurs when we shift from a rigid analytical framework into an expanded perspective that factors in additional information, game flow reads, or exploitative strategies, we are bridging from our existing 'standard' framework into new strategic territory. Broadly speaking, we are moving from GTO play into an exploitative paradigm when we do this - the bridge we create is the one that connects GTO with exploitative play.</p><br>
+    <p>Example usages:</p><br>
+    <p>"Usually we would bet a small sizing in this spot, but with our unique reads on this opponent, we can bridge into a strategy that also uses some large bets."</p><br>
+    <p>"Our standard line here says to bet 100%, but bridging to a strategy that involves some checking is acceptable with the right reads."</p>
+    <h3>Standard line deviation</h3>
+    <p>An action that does not follow the standard line for a specific situation. A deviation can be either a good play or a mistake, right or wrong, +EV or -EV. For example, checking back in position on the flop instead of c-betting.</p>
+    <h3>Standard line violation</h3>
+    <p>Any action that is both a deviation from the standard lines and is considered -EV. For example, calling river check-raise without domination on the villain's value range.</p>
+    <h3>Unexploitable</h3>
+    <p>An unexploitable play or strategy is a fundamentally correct one, to which our opponent is unable to profitably adapt. No matter what our opponent does, their EV is the same or worse than any other approach. Unexploitable play is the foundation of GTO strategy - there exist a number of different ways to play each situation unexploitably (e.g. each different potential bet sizing can be utilized with a perfectly balanced range), but only the highest-EV of these strategies can be said to be GTO for a specific player (e.g. choosing the correct bet sizing, and ensuring that we bet that sizing with a balanced range).</p>
+    <h3>Volatility</h3>
+    <p>Primary usage is to refer to a villain whose tendencies will be less consistent and far less calculated than a high-level player. A volatile player frequently does things that don't make sense, generally plays a higher-VPIP style, and will play bigger pots than the average, often by virtue of utilizing unusually large bet sizings.</p>
+    <p>Secondary usage is to refer to the overall extent of fluctuation between one outcome and another, e.g. a play that results in the hero either winning or losing a big pot is a play that subjects us to greater volatility, while a play that minimizes pot size is less volatile.</p>
 
 </div>
  </article>
