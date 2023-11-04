@@ -145,6 +145,9 @@
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 10px;
     max-width: 400px; /* Adjust the max width as needed for your design */
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(10, 1fr); /* For desktop, 3 columns */
+    }
 }
 
 @media (max-width: 480px) {
