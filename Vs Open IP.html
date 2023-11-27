@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker strategy</title>
+    <meta name="description" content="A brief description of your article">
+    <meta name="author" content="Your Name">
+    <!-- Add any additional meta tags, stylesheets, or scripts here -->
+</head>
+<style>
+    body {
+        background-color: #333; /* Dark background color */
+        color: #fff; /* Light font color */
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        
+    }
+    header{
+        color:black
+    }
+    a{
+        color:red
+    }
+
+    /* Style the header */
+    header {
+        background-color: #f0f0f0;
+        padding: 20px;
+        text-align: center;
+    }
+
+    /* Style the article content */
+    article {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+    }
+
+    /* Style section headings */
+    h2 {
+        margin-top: 20px;
+        font-size: 1.2em;
+    }
+
+    /* Style footer */
+    footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #f0f0f0;
+    }
+
+    /* Add additional styles as needed */
+    /* Apply styles to the entire table */
+    table {
+        width: 100%;
+        background-color: #f0f0f0;
+        border-collapse: collapse;
+        font-family: Arial, sans-serif;
+    }
+    /* Style table header */
+    table, th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+        color: black;
+    }
+
+</style>
+
+<body>
+    <header>
+        <h1>Facing Open IP</h1>
+    </header>
+    <article>
+        <h2>Assumptions</h2>
+        <p>We use <a href="https://app.gtowizard.com/solutions?solution_type=gwiz&gametype=Cash6m500zSimple25Open&depth=100&preflop_actions=R2.5-F-F-R7.5-F-F&history_spot=6&gmfft_sort_key=0&gmfft_sort_order=desc&soltab=strategy&gmff_depth=100&gmff_opening_size=25x" target="_blank">GTO Wizard NL500 Simple 2.5x</a> ranges. </p>
+        <p>Here are frequencies and sizes for the ranges: <a  href="GTO Wizard NL500 Simple 2_5x.html" target="_blank">Preflop sizings and frequencies - GTO Wizard NL500 Simple 2.5x</a>.</p>
+        <h2>Where is the EV coming from in GTO solution?</h2>
+        <p>Let's look at the UTG vs MP situation.</p><p> We are risking 7.5bb to win 4bb. We get cold 4bet by CO (3.3%), BTN (3.4%), SB (3.2%) and BB (3.4%). In total we face cold 4bet (1-3.3%)(1-3.4%)(1-3.2%)(1-3.4%)=12.7%. In addition UTG will 4bet us 20.3% and call us 27.4%. In total we face 4bet 1-(1-12.7%)(1-20.3%)=30.4%, call (1-12.7%)(27.4%)=23.9% and fold 45.7%</p>
+        <p>With a zero-EV hand the EV-equation is</p>
+        <p>-7.5bb + 45.7% &#215 (7.5bb+4.5bb) + 23.9% &#215 (7.5bb + 1.5bb + 7.5bb) &#215 S = 0,</p>
+        <p>where S is the pot share of our hand.</p>
+        <p>Solving the equation for S. We get S = 56.9%</p>
+        <p>This means we need to win slightly over half the pot each time we get called.</p>
+        <table>
+            <tr>
+                <th>
+                    Risk
+                </th>
+                <th>
+                    EV from folds
+                </th>
+                <th>
+                    EV from postflop
+                </th>
+            </tr>
+            <tr>
+                <td>7.5bb</td>
+                <td>5.25bb</td>
+                <td>2.25bb</td>
+            </tr>
+        </table>
+        
+        <summary><b>Summary:</b>Around 2/3rds of our EV comes from getting folds preflop and rest from postflop. This means that our EV goes up if we face less 4bets or calls preflop, or have a postflop edge. Respectively our EV goes down if we face more 4bets or calls, or play poorly postflop.</summary>
+
+        <h2>How does EV change if frequencies change?</h2>
+            
+
+
+    </article>
+</body>
+
+</html>

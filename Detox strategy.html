@@ -100,66 +100,72 @@ table, th, td {
         <h1>Detox strategy</h1>
     </header>
     <div class="button-grid">
-    <button id="button1" onclick="showParagraph(div1)" class="div-button">Single Raise IP Aggressor</button>
-    <button id="button2" onclick="showParagraph(div2)" class="div-button">Single Raise IP Defender</button>
-    <button id="button3" onclick="showParagraph(div3)" class="div-button">Single Raise OOP Aggressor</button>    
-    <button id="button4" onclick="showParagraph(div4)" class="div-button">Single Raise OOP Defender</button>
-    <button id="button5" onclick="showParagraph(div5)" class="div-button">3bet OOP Aggressor</button>
-    <button id="button6" onclick="showParagraph(div6)" class="div-button">3bet OOP Defender</button>
-    <button id="button7" onclick="showParagraph(div7)" class="div-button">3bet IP Aggressor</button>
-    <button id="button8" onclick="showParagraph(div8)" class="div-button">3bet IP Defender</button>
-    <button id="button9" onclick="showParagraph(div9)" class="div-button">4bet All Formations</button>
-    <button id="button10" onclick="showParagraph(div10)" class="div-button">A Note on Low-SPR Zones</button>
-    <button id="button11" onclick="showParagraph(div11)" class="div-button">Glossary</button>
-    <button id="button12" onclick="showParagraph(div12)" class="div-button">Profiles</button>
+    <button onclick="showParagraph(div1)" class="div-button">Single Raise IP Aggressor</button>
+    <button onclick="showParagraph(div2)" class="div-button">Single Raise IP Defender</button>
+    <button onclick="showParagraph(div3)" class="div-button">Single Raise OOP Aggressor</button>    
+    <button onclick="showParagraph(div4)" class="div-button">Single Raise OOP Defender</button>
+    <button onclick="showParagraph(div5)" class="div-button">3bet OOP Aggressor</button>
+    <button onclick="showParagraph(div6)" class="div-button">3bet OOP Defender</button>
+    <button onclick="showParagraph(div7)" class="div-button">3bet IP Aggressor</button>
+    <button onclick="showParagraph(div8)" class="div-button">3bet IP Defender</button>
+    <button onclick="showParagraph(div9)" class="div-button">4bet All Formations</button>
+    <button onclick="showParagraph(div10)" class="div-button">A Note on Low-SPR Zones</button>
+    <button onclick="showParagraph(div11)" class="div-button">Glossary</button>
+    <button onclick="showParagraph(div12)" class="div-button">Profiles</button>
     </div>
 <article>
-<div class="divClass" id="div1">
+<div name="1.1 - SRP IP Aggressor" class="divClass" id="div1">
 <h2> 1.1 - Single Raise IP Aggressor</h2>
 <h3>Flop</h3>
 <ul>
-<li>HU: C-bet entire range, 1/3 pot.</li>
-<li>Exception vs. SB: Bet top pair+ on double-broadway, middle pair+ on single-broadway, all pairs on low boards (ten-high boards), 1/3 pot. Only bluff with BDFD/BDSD+2 overcards, or BDFD+BDSD+1 overcard. We do not c-bet range vs. SB because the SB range typically flops with much higher equity than the BB range.
-Multi-way:</li>
-<li>C-bet for value with top pair+, or mid pair+ on low boards (no broadways), 2/3 pot.</li>
-<li>C-bet bluff with FD, SD, gutter, or BDFD/BDSD + 2 over-cards, 2/3 pot.</li>
+    <li>HU: C-bet entire range, 1/3 pot.</li>
+    <p>Exception vs. SB: Bet top pair+ on double-broadway, middle pair+ on single-broadway, all pairs on low boards (ten-high boards), 1/3 pot. Only bluff with BDFD/BDSD+2 overcards, or BDFD+BDSD+1 overcard. We do not c-bet range vs. SB because the SB range typically flops with much higher equity than the BB range.</p>
+    <li>Multi-way:</li>
+        <ul>
+            <li>C-bet for value with top pair+, or mid pair+ on low boards (no broadways), 2/3 pot.</li>
+            <li>C-bet bluff with FD, SD, gutter, or BDFD/BDSD + 2 over-cards, 2/3 pot.</li>
+        </ul>
 </ul>
 <h3>Turn</h3>
 <ul>
 <li>HU vs. XC-X:</li>
-<li>C-bet for value with top pair+ (as long as no 4-card straight/flush completed).</li>
-<li>C-bet bluff with gutter+.</li>
-<li>X back with middle-low pairs.</li>
-<li>X back with weak bluffs except on paired or flush-closing turns, or boards that were paired on the flop. These are hot-spots, bet 2/3 pot with all bluffs.</li>
-<li>Vs. XR: Auto-fold bluff catchers. Draws need to be assessed on a case-by-case basis considering implied and direct pot odds.</li>
-<li>HU vs. SB X-X: delay stab entire range, 1/2 pot.</li>
+    <ul>
+        <li>C-bet for value with top pair+ (as long as no 4-card straight/flush completed).</li>
+        <li>C-bet bluff with gutter+.</li>
+        <li>X back with middle-low pairs.</li>
+        <li>X back with weak bluffs except on paired or flush-closing turns, or boards that were paired on the flop. <b>These are hot-spots</b>, bet 2/3 pot with all bluffs.</li>
+        <li>Vs. XR: Auto-fold bluff catchers. Draws need to be assessed on a case-by-case basis considering implied and direct pot odds.</li>
+    </ul>
+<li>HU vs. SB X-X:</li>
+    <ul>
+        <li>delay stab entire range, 1/2 pot.</li>
+    </ul>
 <li>HU vs. XR-X:</li>
-<li>Bet top pair second kicker+. We do not bet-fold top pair to the double-XR all-in when the raise is 6x or less. We fold top pair to any double-XR that is not all-in. (This includes raises from an effective stack of less than 6x. The all-in raise is significantly more merged than the small check raise.)</li>
-<li>Check back all other value.</li>
-<li>Fire all bluffs, 1/2 pot. Exception: Ace high can be checked.</li>
+    <ul>
+        <li>Bet top pair second kicker+. We do not bet-fold top pair to the double-XR all-in when the raise is 6x or less. We fold top pair to any double-XR that is not all-in. (This includes raises from an effective stack of less than 6x. The all-in raise is significantly more merged than the small check raise.)</li>
+        <li>Check back all other value.</li>
+        <li>Fire all bluffs, 1/2 pot. Exception: Ace high can be checked.</li>
+    </ul>
 </ul>
-
-
-<h3> River </h3>
+<h3>River</h3>
 <ul>
 <li>HU vs. XC-XC-X:</li>
-<li>No value betting instruction. We need to evaluate on a case by case basis.</li>
-<li>This is a hot-spot. Bluff all hands without showdown value from all positions vs. BB, 2/3 pot. You should especially be interested in bluffing connected boards on brick rivers due to the abundance of pair+draw in villains range that will peel turn and fold to river bet. Example: AQ on 984, T, x</li>
+    <ul>
+        <li>No value betting instruction. We need to evaluate on a case by case basis.</li>
+        <li><b>This is a hot-spot.</b> Bluff all hands without showdown value from all positions vs. BB, 2/3 pot. You should especially be interested in bluffing connected boards on brick rivers due to the abundance of pair+draw in villains range that will peel turn and fold to river bet. Example: AQ on 984, T, x</li>
+    </ul>
 <li>Exception vs. SB: Only bluff if the river is a broadway over-card, 2/3 pot.</li>
 <li>HU vs. SB X-XC-X: Only bluff if the river is a broadway over-card, 2/3 pot.</li>
 <li>Vs. XC-XR-X: Never reopen for thin value after calling the turn XR.</li>
-<li>HU vs. XC-X-X: This is a hot-spot. Bluff all hands without showdown value, 1/2 pot.</li>
+<li>HU vs. XC-X-X: <b>This is a hot-spot.</b> Bluff all hands without showdown value, 1/2 pot.</li>
 <li>HU vs. XR-X-B: Fold without domination.</li>
 <li>Vs. XR: Never bluff-catch vs. any opponent profile. We need significant domination over villain's value raising range to justify a call.</li>
 <li>Vs. any OOP multi-street aggression (XC-XR-B, XR-B-B): do NOT bluff-catch.</li>
-<li>Vs. blocker bet: Never bluff raise.</li>
-<li> </li>
-<li>Notes:</li>
-<li>Play vs. a single limp-caller as you would play vs. the big blind.</li>
-<li>We do not have standardized floating requirements vs. the flop check raise because there are too many formation and interactivity nuances to discuss here. This will be taught in more depth in Tier 2 when we introduce the concept of playability.</li>
+<li>Vs. blocker bet: Never bluff raise.
 </ul>
+
 </div>
-<div class="divClass" id="div2">
+<div name="1.2 - SRP IP Defender" class="divClass" id="div2">
 <h2>1.2 - Single Raise IP Defender</h2>
 
 <h3>Flop</h3>
@@ -185,7 +191,7 @@ Multi-way:</li>
 <li>No value betting instruction. We need to evaluate on a case by case basis.</li>
 </ul>
 </div>
-<div class="divClass" id="div3">
+<div name="2.1 - SRP OOP Aggressor" class="divClass" id="div3">
 
 <h2>2.1 - Single Raise OOP Aggressor</h2>
 
@@ -200,14 +206,18 @@ Multi-way:</li>
 <h3>Turn</h3>
 <ul>
 <li>HU after flop X through: Delay c-bet stab entire range, 2/3 pot.</li>
-<li>Exception: If we hold a broadway pair and the turn is an over card (this becomes a check).</li>
+    <ul>
+        <li>Exception: If we hold a broadway pair and the turn is an over card (this becomes a check).</li>
+    </ul>
 <li>HU after flop XR: Barrel premium value. ONLY continue bluffing with 8-out straight draw+ or 9-out flush draw+, 2/3 pot.</li>
 <li>After flop XC: X entire range. Assess vs. bet accordingly.</li>
 </ul>
 <h3>River</h3>
 <ul>
 <li>After X-B: Bluff river 100%, 2/3 pot. </li>
-<li>Exception: On Ace turns when we get called we will give up on the river.</li>
+    <ul>
+        <li>Exception: On Ace turns when we get called we will give up on the river.</li>
+    </ul>
 <li>After XR-B: Never bluff.</li>
 <li>After XC-X (turn checks through): Fire all bluffs (including A-x) if either the turn or river is a broadway, 2/3 pot.</li>
 <li>After XC-XC: Fold all bluff-catchers that don't dominate a portion of villain's value-betting range. Note: we will be creating bridges (exceptions to rules) for this metric as we proceed with the course, but in general this line is under-bluffed by villain.</li>
@@ -215,7 +225,7 @@ Multi-way:</li>
 <li>No value betting instruction. We need to evaluate on a case-by-case basis.</li>
 </ul>
 </div>
-<div class="divClass" id="div4">
+<div name="2.2 - SRP OOP Defender"class="divClass" id="div4">
 <h2>2.2 - Single Raise OOP Defender</h2>
 <h3>Flop</h3>
 <ul>
@@ -238,7 +248,7 @@ Multi-way:</li>
 
 </ul>
 </div>
-<div class="divClass" id="div5">
+<div name="3.1 - 3bet OOP Aggressor" class="divClass" id="div5">
 <h2>3.1 - 3bet OOP Aggressor</h2>
 <ul>
 <li>When isolation raising out of position (from SB or BB), proceed with the 3bet OOP Aggressor standard line.</li>
@@ -251,11 +261,13 @@ Multi-way:</li>
 </ul>
 <h3>Turn</h3>
 <ul>
-<li>HU:
-<li>Barrel with strong top pair+ as well as gutters/straight draws/flush draws, 2/3 pot. </li>
-<li>X with value weaker than top pair</li>
-<li>X bluffs weaker than gutters. Exception: Pairing turns on any board and low turns on low, disconnected boards are pressure cards for villain's calling range. We can bluff these very light since villain will likely over-fold.</li>
-<li>HU vs. stab (after we X): Rarely fold middle pair on any board. Call any pair on disconnected boards. On ace turns, fold all pairs except top pair (a pair of aces).</li>
+<li>HU:</li>
+    <ul>
+        <li>Barrel with strong top pair+ as well as gutters/straight draws/flush draws, 2/3 pot. </li>
+        <li>X with value weaker than top pair</li>
+        <li>X bluffs weaker than gutters. Exception: Pairing turns on any board and low turns on low, disconnected boards are pressure cards for villain's calling range. We can bluff these very light since villain will likely over-fold.</li>
+        <li>HU vs. stab (after we X): Rarely fold middle pair on any board. Call any pair on disconnected boards. On ace turns, fold all pairs except top pair (a pair of aces).</li>
+    </ul>
 <li>HU vs. raise: Do not bet-fold top pair+ vs. jam when SPR is low. With depth, villain is less likely to be merging and we need significant value domination to call.</li>
 </ul>
 <h3>River</h3>
@@ -266,7 +278,7 @@ Multi-way:</li>
 <li>Vs. raise: Do NOT bluff-catch vs any opponent profile. We need domination over villain's value raising range to justify a call. </li>
 </ul>
 </div>
-<div class="divClass" id="div6">
+<div name="3.2 - 3bet OOP Defender" class="divClass" id="div6">
 <h2> 3.2 - 3bet OOP Defender</h2>
 <h3>Flop</h3>
 <ul>
@@ -284,7 +296,7 @@ Multi-way:</li>
 <li>Vs. B-B-B or B-X-B: Do not bluff catch.</li>
 </ul>
 </div>
-<div class="divClass" id="div7">
+<div name="4.1 - 3bet IP Aggressor" class="divClass" id="div7">
 <h2>4.1 - 3bet IP Aggressor</h2>
 <h3>Flop</h3>
 <ul>
@@ -295,13 +307,17 @@ Multi-way:</li>
 <h3>Turn</h3>
 <ul>
 <li>HU:</li>
-<li>Barrel with all TP+ as well as gutters/straight draws/flush draws, 2/3 pot. </li>
-<li>X with value weaker than top pair.</li>
-<li>X bluffs weaker than gutters. Exception: Pairing turns and low turns are pressure cards for villain's calling range. We can bluff these very light since villain will likely overfold.</li>
+    <ul>
+        <li>Barrel with all TP+ as well as gutters/straight draws/flush draws, 2/3 pot. </li>
+        <li>X with value weaker than top pair.</li>
+        <li>X bluffs weaker than gutters. Exception: Pairing turns and low turns are pressure cards for villain's calling range. We can bluff these very light since villain will likely overfold.</li>
+    </ul>
 <li>HU vs. XR-X:</li>
-<li>Bet top pair second kicker+. We do not bet-fold top pair to the double-XR all-in when the raise is 6x or less. We fold top pair to any double-XR that is not all-in. (This includes raises from an effective stack of less than 6x. The all-in raise is significantly more merged than the small check raise.)</li>
-<li>Check back all other value.</li>
-<li>Fire all bluffs, 1/2 pot. Exception: Ace high can be checked.</li>
+    <ul>
+        <li>Bet top pair second kicker+. We do not bet-fold top pair to the double-XR all-in when the raise is 6x or less. We fold top pair to any double-XR that is not all-in. (This includes raises from an effective stack of less than 6x. The all-in raise is significantly more merged than the small check raise.)</li>
+        <li>Check back all other value.</li>
+        <li>Fire all bluffs, 1/2 pot. Exception: Ace high can be checked.</li>
+    </ul>
 <li>HU vs. XC-XR: Do not bet-fold top pair+ vs. jam when SPR is low. With depth, villain is less likely to be merging and we need significant value domination to call.</li>
 </ul>
 <h3>River</h3>
@@ -313,7 +329,7 @@ Multi-way:</li>
 <li>Vs. blocker bet: Never bluff raise.</li>
 </ul>
 </div>
-<div class="divClass" id="div8">
+<div name="4.2 - 3bet IP Defender" class="divClass" id="div8">
 <h2>4.2 - 3bet IP Defender</h2>
 <h3>Flop</h3>
 <ul>
@@ -336,7 +352,7 @@ Multi-way:</li>
 <li>Vs. blocker bet: Never bluff raise. </li>
 </ul>
 </div>
-<div class="divClass" id="div9">
+<div name="5 4bet All Formations" class="divClass" id="div9">
 
 <h2>5 - 4bet All Formations</h2>
 <h3>Flop</h3>
@@ -348,7 +364,7 @@ Multi-way:</li>
 <li>No instruction. These hands must be assessed on a case-by-case basis.</li>
 </ul>
 </div>
-<div class="divClass" id="div10">
+<div name="6 Notes on Low-SPR" class="divClass" id="div10">
 <h2>6 - A Note on Low-SPR Zones</h2>
 <ul>
 <li>It is acceptable to turn a standard bet size into a jam when villain's stack size is 1.5x pot or less.</li>
@@ -356,7 +372,7 @@ Multi-way:</li>
 <li>For example, we hotspot XR the flop with a flush draw and villain calls. On the turn, the pot is $50 and villain's stack is $75 (or less). Instead of using our standard turn bet sizing of 2/3 pot, we can just overbet jam because we are effectively going all-in either way.</li>
 </ul>
 </div>
-<div class="divClass" id="div11">
+<div name="Glossary" class="divClass" id="div11">
     <h2>Glossary</h2>
     <h3>Assumptive ranging</h3>
     <p>Making biased assessments about the villain's range which are unrealistic and/or emotionally driven.</p>
@@ -459,7 +475,7 @@ Multi-way:</li>
     <p>Secondary usage is to refer to the overall extent of fluctuation between one outcome and another, e.g. a play that results in the hero either winning or losing a big pot is a play that subjects us to greater volatility, while a play that minimizes pot size is less volatile.</p>
 
 </div>
-<div class="divClass" id="div12">
+<div name="Profiles" class="divClass" id="div12">
     <h2>Profiles</h2>
     <h3>1. Volatile</h3>
     <p>The volatile is a recreational player whose behavior is theoretically unsound and overly aggressive.</p>
