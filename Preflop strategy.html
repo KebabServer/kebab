@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker strategy</title>
+    <meta name="description" content="A brief description of your article">
+    <meta name="author" content="Your Name">
+    <!-- Add any additional meta tags, stylesheets, or scripts here -->
+</head>
+<style>
+    body {
+        background-color: #333; /* Dark background color */
+        color: #fff; /* Light font color */
+        font-family: Arial, sans-serif;
+        
+    }
+    body,
+    h1,
+    h2,
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Style the header */
+    header {
+        background-color: #777;
+        padding: 20px;
+        text-align: center;
+    }
+
+    /* Style the article content */
+    article {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+    }
+
+    /* Style section headings */
+    h2 {
+        margin-top: 20px;
+        font-size: 2em;
+    }
+
+    /* Style footer */
+    footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #f0f0f0;
+    }
+
+table, th, td {
+  border:1px solid black;
+  border-collapse: collapse;
+  padding: 10px;
+}
+/* Style for secondary button */
+.div-button {
+    background-color: #6c757d; /* Gray color */
+    color: #fff; /* White text */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.div-button:hover {
+    background-color: #495057; /* Darker gray on hover */
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    max-width: 400px; /* Adjust the max width as needed for your design */
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(10, 1fr); /* For desktop, 3 columns */
+    }
+}
+
+@media (max-width: 480px) {
+    .button-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    .button {
+        font-size: 14px;
+    }
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+</style>
+
+
+
+<body>
+    <header>
+        <h1>Detox strategy</h1>
+    </header>
+    <div class="button-grid">
+    <button onclick="showParagraph(div1)" class="div-button">RFI</button>
+    <button onclick="showParagraph(div2)" class="div-button">SB 3bet</button>
+    <button onclick="showParagraph(div3)" class="div-button">BB OOP defence</button>
+    <button onclick="showParagraph(div4)" class="div-button">IP 3bet</button>
+    <button onclick="showParagraph(div5)" class="div-button">Facing 3bet IP</button>
+    <button onclick="showParagraph(div6)" class="div-button">Facing 3bet OOP</button>
+    <button onclick="showParagraph(div7)" class="div-button">BvsB</button>
+      </div>
+<article>
+<div name="RFI" class="divClass" id="div1">
+<h2> RFI</h2>
+</div>
+<div name="SB 3bet" class="divClass" id="div2">
+    <h2>SB 3bet</h2>
+    <h3>Vs UTG</h3>
+    <p>UTG open range 18.3% (242.1c).</p>
+    <p>SB 3bet range 7.3% (96.9c).</p>
+    <img src="GTOwcEV/SBUTG.png">
+    <h3>Vs UTG</h3>
+    <p>UTG open range 22.5% (298.8c).</p>
+    <p>SB 3bet range 8.7% (115.3c).</p>
+    <img src="GTOwcEV/SBMP.png">
+    <h3>Vs UTG</h3>
+    <p>UTG open range 29.4% (389.3c).</p>
+    <p>SB 3bet range 10.8% (143.6c).</p>
+    <img src="GTOwcEV/SBCO.png">
+    <h3>Vs UTG</h3>
+    <p>UTG open range 43.6% (578.3c).</p>
+    <p>SB 3bet range 15% (198.9c).</p>
+    <img src="GTOwcEV/SBBTN.png">
+
+
+</div>
+
+ </article>
+</body>
+<script>
+    function hideAllParagraphs(){
+        const paragraphs = document.querySelectorAll(".divClass");
+        paragraphs.forEach(function (paragraph) {
+            paragraph.style.display = "none";
+        });
+    }
+    function showParagraph(div){
+        hideAllParagraphs();
+        div.style.display = "block";
+    }
+    hideAllParagraphs();
+</script>
+</html>
