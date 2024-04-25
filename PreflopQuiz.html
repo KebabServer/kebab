@@ -90,6 +90,7 @@ body.wrong {
 .hide {
   display: none;
 }
+
 /* Background Styles Only */
 
 @import url('https://fonts.googleapis.com/css?family=Raleway');
@@ -143,6 +144,11 @@ html {
   color: white;
   font-size: 30px;
 }
+
+#solution-div{
+  font-weight: bold;
+  font-size: large;
+}
 </style>
 <body>
     <div class="container"> 
@@ -156,6 +162,9 @@ html {
                 <button class="btn">100%</button>
             </div>
         </div>
+        <div id="solution-div">
+
+        </div>
         <div class="controls">
             <button id="start-btn" class="start-btn btn">Start</button>
             <button id="next-btn" class="next-btn btn hide">Next</button>
@@ -167,6 +176,7 @@ html {
 <script>
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
+const solutionDiv = document.getElementById('solution-div')
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
@@ -194,6 +204,7 @@ function setNextQuestion() {
 
 function showQuestion(question) {
   questionElement.innerText = question.question
+  solutionDiv.innerHTML = "Solution:" + question.solution
   question.answers.forEach(answer => {
     const button = document.createElement('button')
     button.innerText = answer.text
@@ -209,6 +220,7 @@ function showQuestion(question) {
 function resetState() {
   clearStatusClass(document.body)
   nextButton.classList.add('hide')
+  solutionDiv.classList.add('hide')
   while (answerButtonsElement.firstChild) {
     answerButtonsElement.removeChild(answerButtonsElement.firstChild)
   }
@@ -221,6 +233,7 @@ function selectAnswer(e) {
   Array.from(answerButtonsElement.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
   })
+  solutionDiv.classList.remove('hide')
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove('hide')
   } else {
@@ -247,38 +260,184 @@ const questions = [
   {
     question: 'MPvsUTG 3b range?',
     answers: [
-      { text: '30c', correct: false },
-      { text: '40c', correct: false },
+    { text: '55c', correct: false },
       { text: '50c', correct: false },
       { text: '60c', correct: false },
+      { text: '65c', correct: false },
       { text: '70c', correct: false },
+      { text: '75c', correct: false },
       { text: '80c', correct: false },
+      { text: '85c', correct: false },
       { text: '90c', correct: false },
+      { text: '95c', correct: false },
       { text: '100c', correct: false },
+      { text: '105c', correct: false },
       { text: '110c', correct: true },
+      { text: '115c', correct: false },
       { text: '120c', correct: false },
+      { text: '125c', correct: false },
       { text: '130c', correct: false },
+      { text: '135c', correct: false },
       { text: '140c', correct: false },
-      { text: '150c', correct: false },
-      { text: '160c', correct: false },
-      { text: '170c', correct: false },
-      { text: '180c', correct: false },
-      { text: '190c', correct: false },
-      { text: '200c', correct: false },
-      { text: '210c', correct: false },
-      { text: '220c', correct: false }     
-    ]
+      { text: '145c', correct: false }   
+    ],
+    solution: '109.6c'
   },
   {
     question: 'COvsUTG 3b range?',
     answers: [
+    { text: '55c', correct: false },
+      { text: '50c', correct: false },
+      { text: '60c', correct: false },
+      { text: '65c', correct: false },
+      { text: '70c', correct: false },
+      { text: '75c', correct: false },
       { text: '80c', correct: false },
+      { text: '85c', correct: false },
       { text: '90c', correct: false },
+      { text: '95c', correct: false },
       { text: '100c', correct: false },
-      { text: '110c', correct: true },
+      { text: '105c', correct: false },
+      { text: '110c', correct: false },
+      { text: '115c', correct: true },
       { text: '120c', correct: false },
-      { text: '130c', correct: false }
-    ]
+      { text: '125c', correct: false },
+      { text: '130c', correct: false },
+      { text: '135c', correct: false },
+      { text: '140c', correct: false },
+      { text: '145c', correct: false }   
+    ],
+    solution: '115.2c'
+  },
+  {
+    question: 'BTNvsUTG 3b range?',
+    answers: [
+    { text: '55c', correct: false },
+      { text: '50c', correct: false },
+      { text: '60c', correct: false },
+      { text: '65c', correct: false },
+      { text: '70c', correct: false },
+      { text: '75c', correct: false },
+      { text: '80c', correct: false },
+      { text: '85c', correct: false },
+      { text: '90c', correct: false },
+      { text: '95c', correct: false },
+      { text: '100c', correct: false },
+      { text: '105c', correct: false },
+      { text: '110c', correct: false },
+      { text: '115c', correct: false },
+      { text: '120c', correct: true },
+      { text: '125c', correct: false },
+      { text: '130c', correct: false },
+      { text: '135c', correct: false },
+      { text: '140c', correct: false },
+      { text: '145c', correct: false }   
+    ],
+    solution: '122.6c'
+  },
+  {
+    question: 'SBvsUTG 3b range?',
+    answers: [
+    { text: '55c', correct: false },
+      { text: '50c', correct: false },
+      { text: '60c', correct: false },
+      { text: '65c', correct: false },
+      { text: '70c', correct: false },
+      { text: '75c', correct: false },
+      { text: '80c', correct: false },
+      { text: '85c', correct: false },
+      { text: '90c', correct: false },
+      { text: '95c', correct: false },
+      { text: '100c', correct: true },
+      { text: '105c', correct: false },
+      { text: '110c', correct: false },
+      { text: '115c', correct: false },
+      { text: '120c', correct: false },
+      { text: '125c', correct: false },
+      { text: '130c', correct: false },
+      { text: '135c', correct: false },
+      { text: '140c', correct: false },
+      { text: '145c', correct: false }   
+    ],
+    solution: '98.72'
+  },
+  {
+    question: 'BBvsUTG 3b range?',
+    answers: [
+    { text: '55c', correct: false },
+      { text: '50c', correct: false },
+      { text: '60c', correct: false },
+      { text: '65c', correct: false },
+      { text: '70c', correct: false },
+      { text: '75c', correct: false },
+      { text: '80c', correct: true },
+      { text: '85c', correct: false },
+      { text: '90c', correct: false },
+      { text: '95c', correct: false },
+      { text: '100c', correct: false },
+      { text: '105c', correct: false },
+      { text: '110c', correct: false },
+      { text: '115c', correct: false },
+      { text: '120c', correct: false },
+      { text: '125c', correct: false },
+      { text: '130c', correct: false },
+      { text: '135c', correct: false },
+      { text: '140c', correct: false },
+      { text: '145c', correct: false }   
+    ],
+    solution: '82.1c'
+  },
+  {
+    question: 'MPvsCO 3b range?',
+    answers: [
+    { text: '55c', correct: false },
+      { text: '50c', correct: false },
+      { text: '60c', correct: false },
+      { text: '65c', correct: false },
+      { text: '70c', correct: false },
+      { text: '75c', correct: false },
+      { text: '80c', correct: false },
+      { text: '85c', correct: false },
+      { text: '90c', correct: false },
+      { text: '95c', correct: false },
+      { text: '100c', correct: false },
+      { text: '105c', correct: false },
+      { text: '110c', correct: false },
+      { text: '115c', correct: false },
+      { text: '120c', correct: false },
+      { text: '125c', correct: false },
+      { text: '130c', correct: false },
+      { text: '135c', correct: true },
+      { text: '140c', correct: false },
+      { text: '145c', correct: false }   
+    ],
+    solution: '135c'
+  },
+  {
+    question: 'BTNvsMP 3b range?',
+    answers: [
+    { text: '55c', correct: false },
+      { text: '50c', correct: false },
+      { text: '60c', correct: false },
+      { text: '65c', correct: false },
+      { text: '70c', correct: false },
+      { text: '75c', correct: false },
+      { text: '80c', correct: false },
+      { text: '85c', correct: false },
+      { text: '90c', correct: false },
+      { text: '95c', correct: false },
+      { text: '100c', correct: false },
+      { text: '105c', correct: false },
+      { text: '110c', correct: false },
+      { text: '115c', correct: false },
+      { text: '120c', correct: false },
+      { text: '125c', correct: false },
+      { text: '130c', correct: false },
+      { text: '135c', correct: false },
+      { text: '140c', correct: false },
+      { text: '145c', correct: false }   
+    ],
+    solution: '122.6c'
   }
 ]
 

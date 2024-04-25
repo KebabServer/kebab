@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Kebab Server</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    /* Reset some default margin and padding */
+    *{
+        font-family:"Lucida Console";
+        background-color: #141313; /* Dark background color */
+        color: #fff; /* Light font color */
+    }
+    body,
+    h2,
+    p {
+        margin: 0;
+        padding: 0;
+     
+    }
+    h2{
+        color: coral;
+    }
+
+    /* Style the header */
+    header {
+        padding: 20px;
+        text-align: center;
+    }
+    /* Style the article content */
+    div {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 30px;
+        line-height: 1.6;
+    }
+ 
+
+
+    /* Add additional styles as needed */
+    /* Apply styles to the entire table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid #ddd;
+    }
+
+    /* Style table header */
+    th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+
+
+    /* Style table cells */
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+
+
+    /* Responsive table */
+    @media (max-width: 600px) {
+        table {
+            border: 0;
+        }
+
+        table thead {
+            display: none;
+        }
+
+        table tr {
+            margin-bottom: 10px;
+            display: block;
+            border: 1px solid #ddd;
+        }
+
+        table td {
+            display: block;
+            text-align: right;
+            position: relative;
+            padding-left: 50%;
+            white-space: normal;
+        }
+
+        table td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 0;
+            width: 50%;
+            padding-left: 15px;
+            font-weight: bold;
+            text-align: left;
+        }
+    }
+
+    table+table {
+        margin-top: 20px;
+        /* Adjust the value as needed */
+    }
+
+    th:first-child,
+    td:first-child {
+        font-weight: bold;
+    }
+
+
+</style>
+
+<body>
+    <header>
+        <h1>Poker concepts</h1>
+    </header>
+
+        <div>
+        <h2>Minimum defense frenquency (MDF)</h2>
+        <p>Minimum defense frequency (MDF) describes the portion of your range that you must continue with when facing a bet in order to remain unexploitable by bluffs. Formula for the MDF:</p>
+        <pre><b>pot_size / (pot_size + bet_size)</b></pre>
+        <table class="tg">
+            <thead>
+              <tr>
+                <th class="tg-64jd">Bet size</th>
+                <th class="tg-hv44">10%</th>
+                <th class="tg-hv44">25%</th>
+                <th class="tg-hv44">33%</th>
+                <th class="tg-hv44">50%</th>
+                <th class="tg-hv44">66%</th>
+                <th class="tg-hv44">75%</th>
+                <th class="tg-hv44">100%</th>
+                <th class="tg-hv44">125%</th>
+                <th class="tg-hv44">150%</th>
+                <th class="tg-hv44">200%</th>
+                <th class="tg-hv44">250%</th>
+                <th class="tg-hv44">300%</th>
+                <th class="tg-hv44">350%</th>
+                <th class="tg-hv44">400%</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="tg-64jd">MDF</td>
+                <td class="tg-hv44">90.9%</td>
+                <td class="tg-hv44">80.0%</td>
+                <td class="tg-hv44">75.2%</td>
+                <td class="tg-hv44">66.7%</td>
+                <td class="tg-hv44">60.2%</td>
+                <td class="tg-hv44">57.1%</td>
+                <td class="tg-hv44">50.0%</td>
+                <td class="tg-hv44">44.4%</td>
+                <td class="tg-hv44">40.0%</td>
+                <td class="tg-hv44">33.3%</td>
+                <td class="tg-hv44">28.6%</td>
+                <td class="tg-hv44">25.0%</td>
+                <td class="tg-hv44">22.2%</td>
+                <td class="tg-hv44">20.0%</td>
+              </tr>
+            </tbody>
+            </table>
+        </div>
+        <div>
+            <h2>Different type of ranges</h2>
+            <h3>Polarized range</h3>
+            <p>A polarized range is one constructed of very strong hands and very weak hands, nuts/bluffs. The most common place you'll see polarized ranges are in position, on the river.</p>
+            <h3>Condensed range</h3>
+            <p>A capped range that is also tight. This range does not contain the strongest hands, but is lean and contains many medium-strength hands. Also known as "depolarized".</p>
+            <h3>Filtering</h3>
+            Range gets "filtered" after facing a bet and folding out low equity hands.
+        </div>
+        
+</body>
+
+</html>

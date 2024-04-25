@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker strategy</title>
+    <meta name="description" content="A brief description of your article">
+    <meta name="author" content="Your Name">
+    <!-- Add any additional meta tags, stylesheets, or scripts here -->
+</head>
+<style>
+    body {
+        background-color: #333; /* Dark background color */
+        color: #fff; /* Light font color */
+        font-family: Arial, sans-serif;
+        
+    }
+    body,
+    h1,
+    h2,
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Style the header */
+    header {
+        background-color: #777;
+        padding: 20px;
+        text-align: center;
+    }
+
+    /* Style the article content */
+    article {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+    }
+
+    /* Style section headings */
+    h2 {
+        margin-top: 20px;
+        font-size: 2em;
+    }
+
+    /* Style footer */
+    footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #f0f0f0;
+    }
+
+table, th, td {
+  border:1px solid black;
+  border-collapse: collapse;
+  padding: 10px;
+}
+/* Style for secondary button */
+.div-button {
+    background-color: #6c757d; /* Gray color */
+    color: #fff; /* White text */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.div-button:hover {
+    background-color: #495057; /* Darker gray on hover */
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    max-width: 400px; /* Adjust the max width as needed for your design */
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(10, 1fr); /* For desktop, 3 columns */
+    }
+}
+
+@media (max-width: 480px) {
+    .button-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    .button {
+        font-size: 14px;
+    }
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+</style>
+
+
+
+<body>
+    <header>
+        <h1>Detox strategy</h1>
+    </header>
+    <div class="button-grid">
+        <button onclick="showParagraph(div_check_raise)" class="div-button">Check raise (BB)</button>
+    </div>
+<article>
+<div class="divClass" id="div_check_raise">
+<h2><a href="https://www.youtube.com/watch?v=8oej5tge_f4&list=PLoQc0VqBI0baZgRF592JuzZkMtUFssscX&index=2" target="_blank">Episode 1</a>: How to check raise in poker?</h2>
+
+<h3>Considerations</h3>
+<ul>
+    <li>Bet Sizing</li>
+    <li>Flop Texture</li>
+    <li>Range</li>
+    <li>Frequency</li>   
+    <li>Villain tendencies</li>
+  </ul>
+
+<h3>Bet Sizing</h3>
+<ul>
+    <li>Vs a small sizing, you raise much more often than you do vs a large sizing - but the range doesn't change much</li>
+</ul>
+
+<h3>Flop Texture</h3>
+
+
+
+</div>
+
+ </article>
+</body>
+<script>
+    function hideAllParagraphs(){
+        const paragraphs = document.querySelectorAll(".divClass");
+        paragraphs.forEach(function (paragraph) {
+            paragraph.style.display = "none";
+        });
+    }
+    function showParagraph(div){
+        hideAllParagraphs();
+        div.style.display = "block";
+    }
+    hideAllParagraphs();
+</script>
+</html>
