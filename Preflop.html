@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Kebab Server</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    /* Reset some default margin and padding */
+    *{
+        font-family:"Lucida Console";
+        background-color: #141313; /* Dark background color */
+        color: #fff; /* Light font color */
+    }
+    body,
+    h2,
+    p {
+        margin: 0;
+        padding: 0;
+     
+    }
+    h2{
+        color: coral;
+    }
+
+    /* Style the header */
+    header {
+        padding: 20px;
+        text-align: center;
+    }
+    /* Style the article content */
+    div {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 30px;
+        line-height: 1.6;
+    }
+ 
+
+
+    /* Add additional styles as needed */
+    /* Apply styles to the entire table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid #ddd;
+    }
+
+    /* Style table header */
+    th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+
+
+
+    /* Style table cells */
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+
+
+    /* Responsive table */
+    @media (max-width: 600px) {
+        table {
+            border: 0;
+        }
+
+        table thead {
+            display: none;
+            
+        }
+
+        table tr {
+            margin-bottom: 10px;
+            display: block;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        table td {
+            display: block;
+            text-align: center;
+            position: relative;
+            padding-left: 50%;
+            white-space: normal;
+
+        }
+
+        table td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 0;
+            width: 50%;
+            padding-left: 15px;
+            font-weight: bold;
+            text-align: left;
+        }
+    }
+
+    table+table {
+        margin-top: 20px;
+        /* Adjust the value as needed */
+    }
+
+    th:first-child,
+    td:first-child {
+        font-weight: bold;
+    }
+
+
+</style>
+
+<body>
+    <header>
+        <h1>Preflop</h1>
+    </header>
+
+    <div>
+
+        <h2>Playing premium hands vs 4bet</h2>
+            <table><caption>Range used GTO Wizard 6Max NL500 Simple 2.5x</caption><thead><tr><th colspan="7">Facing 4bet (In position)</th></tr></thead><tbody><tr><td>Position</td><td>AA Call (%)</td><td>KK Call (%)</td><td>QQ Call (%)</td><td>JJ Call (%)</td><td>AKs Call (%)</td><td>AKo Call (%)</td></tr><tr><td><a href="https://app.gtowizard.com/solutions?solution_type=gwiz&gmfs_solution_tab=ai_sols&gametype=Cash6m500zSimple25Open&depth=100&gmff_depth=100&gmff_type=simple&gmff_rake=NL500&gmff_opening_size=25x&gmfft_sort_key=0&gmfft_sort_order=desc&preflop_actions=R2.5-R7.5-F-F-F-F-R20&history_spot=7&gmff_favorite=false&soltab=strategy&stratab=strategy" target="_blank" rel="noopener noreferrer">MP vs UTG</a></td><td>75</td><td>16</td><td>100</td><td>100</td><td>31.5</td><td>47.5</td></tr><tr><td><a href="https://app.gtowizard.com/solutions?solution_type=gwiz&gmfs_solution_tab=ai_sols&gametype=Cash6m500zSimple25Open&depth=100&gmff_depth=100&gmff_type=simple&gmff_rake=NL500&gmff_opening_size=25x&gmfft_sort_key=0&gmfft_sort_order=desc&preflop_actions=R2.5-F-R7.5-F-F-F-R20&history_spot=7&gmff_favorite=false&soltab=strategy&stratab=strategy" target="_blank" rel="noopener noreferrer">CO vs UTG</a></td><td>76</td><td>13.5</td><td>100</td><td>100</td><td>25.5</td><td>50</td></tr><tr><td><a href="https://app.gtowizard.com/solutions?solution_type=gwiz&gmfs_solution_tab=ai_sols&gametype=Cash6m500zSimple25Open&depth=100&gmff_depth=100&gmff_type=simple&gmff_rake=NL500&gmff_opening_size=25x&gmfft_sort_key=0&gmfft_sort_order=desc&preflop_actions=F-R2.5-R7.5-F-F-F-R20&history_spot=7&gmff_favorite=false&soltab=strategy&stratab=strategy" target="_blank" rel="noopener noreferrer">CO vs MP</a></td><td>90</td><td>2</td><td>100</td><td>100</td><td>53.5</td><td>41.5</td></tr><tr><td><a href="https://app.gtowizard.com/solutions?solution_type=gwiz&gmfs_solution_tab=ai_sols&gametype=Cash6m500zSimple25Open&depth=100&gmff_depth=100&gmff_type=simple&gmff_rake=NL500&gmff_opening_size=25x&gmfft_sort_key=0&gmfft_sort_order=desc&preflop_actions=R2.5-F-F-R7.5-F-F-R20&history_spot=7&gmff_favorite=false&soltab=strategy&stratab=strategy" target="_blank" rel="noopener noreferrer">BTN vs UTG</a></td><td>74.5</td><td>14</td><td>100</td><td>100</td><td>32.5</td><td>46.5</td></tr><tr><td><a href="https://app.gtowizard.com/solutions?solution_type=gwiz&gmfs_solution_tab=ai_sols&gametype=Cash6m500zSimple25Open&depth=100&gmff_depth=100&gmff_type=simple&gmff_rake=NL500&gmff_opening_size=25x&gmfft_sort_key=0&gmfft_sort_order=desc&preflop_actions=F-R2.5-F-R7.5-F-F-R20&history_spot=7&gmff_favorite=false&soltab=strategy&stratab=strategy" target="_blank" rel="noopener noreferrer">BTN vs MP</a></td><td>100</td><td>0</td><td>91.5</td><td>100</td><td>67</td><td>38.5</td></tr><tr><td><a href="https://app.gtowizard.com/solutions?solution_type=gwiz&gmfs_solution_tab=ai_sols&gametype=Cash6m500zSimple25Open&depth=100&gmff_depth=100&gmff_type=simple&gmff_rake=NL500&gmff_opening_size=25x&gmfft_sort_key=0&gmfft_sort_order=desc&preflop_actions=F-F-R2.5-R7.5-F-F-R22&history_spot=7&gmff_favorite=false&soltab=strategy&stratab=strategy" target="_blank" rel="noopener noreferrer">BTN vs CO</a></td><td>100</td><td>27.5</td><td>33.5</td><td>46</td><td>49</td><td>0</td></tr><tr><td><a href="https://app.gtowizard.com/solutions?solution_type=gwiz&gmfs_solution_tab=ai_sols&gametype=Cash6m500zSimple25Open&depth=100&gmff_depth=100&gmff_type=simple&gmff_rake=NL500&gmff_opening_size=25x&gmfft_sort_key=0&gmfft_sort_order=desc&preflop_actions=F-F-F-F-R3-R10-R21&history_spot=7&gmff_favorite=false&soltab=strategy&stratab=strategy" target="_blank" rel="noopener noreferrer">BB vs SB</a></td><td>100</td><td>46</td><td>0</td><td>53.5</td><td>52.5</td><td>0</td></tr></tbody></table>
+            <table><thead><tr><th colspan="7">Facing 4bet (Out of position)</th></tr></thead><tbody><tr><td>Position</td><td>AA Call (%)</td><td>KK Call (%)</td><td>QQ Call (%)</td><td>JJ Call (%)</td><td>AKs Call (%)</td><td>AKo Call (%)</td></tr><tr><td><a href="https://app.gtowizard.com/solutions?solution_type=gwiz&gmfs_solution_tab=ai_sols&gametype=Cash6m500zSimple25Open&depth=100&gmff_depth=100&gmff_type=simple&gmff_rake=NL500&gmff_opening_size=25x&gmfft_sort_key=0&gmfft_sort_order=desc&preflop_actions=R2.5-F-F-F-R11-F-R21&history_spot=7&gmff_favorite=false&soltab=strategy&stratab=strategy" target="_blank" rel="noopener noreferrer">SB vs UTG</a></td><td>26</td><td>6</td><td>93.5</td><td>94.5</td><td>0</td><td>38</td></tr><tr><td><a href="https://app.gtowizard.com/solutions?solution_type=gwiz&gmfs_solution_tab=ai_sols&gametype=Cash6m500zSimple25Open&depth=100&gmff_depth=100&gmff_type=simple&gmff_rake=NL500&gmff_opening_size=25x&gmfft_sort_key=0&gmfft_sort_order=desc&preflop_actions=R2.5-F-F-F-F-R12-R22&history_spot=7&gmff_favorite=false&soltab=strategy&stratab=strategy" target="_blank" rel="noopener noreferrer">BB vs UTG</a></td><td>42.3</td><td>14.1</td><td>84 (Out of 97.5)</td><td>98.6 (Out of 34.5)</td><td>0</td><td>24 (Out of 74)</td></tr><tr><td><a href="https://app.gtowizard.com/solutions?solution_type=gwiz&gmfs_solution_tab=ai_sols&gametype=Cash6m500zSimple25Open&depth=100&gmff_depth=100&gmff_type=simple&gmff_rake=NL500&gmff_opening_size=25x&gmfft_sort_key=0&gmfft_sort_order=desc&preflop_actions=F-R2.5-F-F-R12-F-R23&history_spot=7&gmff_favorite=false&soltab=strategy&stratab=strategy" target="_blank" rel="noopener noreferrer">SB vs MP</a></td><td>37</td><td>0</td><td>42</td><td>83</td><td>0</td><td>4</td></tr><tr><td><a href="https://app.gtowizard.com/solutions?solution_type=gwiz&gmfs_solution_tab=ai_sols&gametype=Cash6m500zSimple25Open&depth=100&gmff_depth=100&gmff_type=simple&gmff_rake=NL500&gmff_opening_size=25x&gmfft_sort_key=0&gmfft_sort_order=desc&preflop_actions=F-R2.5-F-F-F-R12-R24&history_spot=7&gmff_favorite=false&soltab=strategy&stratab=strategy" target="_blank" rel="noopener noreferrer">BB vs MP</a></td><td>28.5</td><td>0</td><td>60.5</td><td>56.5 (Out of 67%)</td><td>0</td><td>10.4</td></tr><tr><td><a href="https://app.gtowizard.com/solutions?solution_type=gwiz&gmfs_solution_tab=ai_sols&gametype=Cash6m500zSimple25Open&depth=100&gmff_depth=100&gmff_type=simple&gmff_rake=NL500&gmff_opening_size=25x&gmfft_sort_key=0&gmfft_sort_order=desc&preflop_actions=F-F-R2.5-F-R12-F-R24&history_spot=7&gmff_favorite=false&soltab=strategy&stratab=strategy" target="_blank" rel="noopener noreferrer">SB vs CO</a></td><td>40.5</td><td>0</td><td>18.6</td><td>40.5</td><td>0</td><td>0</td></tr><tr><td><a href="https://app.gtowizard.com/solutions?solution_type=gwiz&gmfs_solution_tab=ai_sols&gametype=Cash6m500zSimple25Open&depth=100&gmff_depth=100&gmff_type=simple&gmff_rake=NL500&gmff_opening_size=25x&gmfft_sort_key=0&gmfft_sort_order=desc&preflop_actions=F-F-R2.5-F-F-R13-R27&history_spot=7&gmff_favorite=false&soltab=strategy&stratab=strategy" target="_blank" rel="noopener noreferrer">BB vs CO</a></td><td>55</td><td>0</td><td>0</td><td>17.5</td><td>19.5</td><td>0</td></tr><tr><td><a href="https://app.gtowizard.com/solutions?solution_type=gwiz&gmfs_solution_tab=ai_sols&gametype=Cash6m500zSimple25Open&depth=100&gmff_depth=100&gmff_type=simple&gmff_rake=NL500&gmff_opening_size=25x&gmfft_sort_key=0&gmfft_sort_order=desc&preflop_actions=F-F-F-R2.5-R12-F-R26&history_spot=7&gmff_favorite=false&soltab=strategy&stratab=strategy" target="_blank" rel="noopener noreferrer">SB vs BTN</a></td><td>40</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td><a href="https://app.gtowizard.com/solutions?solution_type=gwiz&gmfs_solution_tab=ai_sols&gametype=Cash6m500zSimple25Open&depth=100&gmff_depth=100&gmff_type=simple&gmff_rake=NL500&gmff_opening_size=25x&gmfft_sort_key=0&gmfft_sort_order=desc&preflop_actions=F-F-F-R2.5-F-R13-R27&history_spot=7&gmff_favorite=false&soltab=strategy&stratab=strategy" target="_blank" rel="noopener noreferrer">BB vs BTN</a></td><td>85.9</td><td>0</td><td>0</td><td>11.5</td><td>0</td><td>0</td></tr></tbody></table>
+            <h2>4Bet Shove Strategy</h2>
+        <p></p>
+        <table>
+            <caption>Range used GTO Wizard 6Max NL500 General 2.5x</caption>
+            <thead>
+              <tr>
+                <th>Positions</th>
+                <th>Exact range (%)</th>
+                <th>Simplified Range (c)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="3">Out of position</td>
+              </tr>
+              <tr>
+                <td>SB vs BB</td>
+                <td>AKo:75,AQo:67.5,KQs:17.5, KJs:100, JJ:10, TT:41, A4s:12.6, A3s:48</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CO vs Btn</td>
+                <td>AKo: 48.5, JJ:29</td>
+                <td>AKo:6, JJ:2</td>
+              </tr>
+              <tr>
+                <td>MP vs Btn</td>
+                <td>AKo:68, KK:3.5, QQ:46</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>MP vs CO</td>
+                <td>AKo:80, QQ:59.3</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>UTG vs Btn</td>
+                <td>AKo:55.3, KK:31.5, QQ:5.9</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>UTG vs CO</td>
+                <td>AKo:78, KK:42, QQ:16, JJ:0.5</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>UTG vs MP</td>
+                <td>AKo:82.5, KK:43.5, QQ:17.5, JJ:1.5</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td colspan="3">In position</td>
+              </tr>
+              <tr>
+                <td>Btn vs BB</td>
+                <td>AKo:56, AQo:17, KQo:7.5, A5s:3.5, A4s:39, A3s:34.3, JJ:33.8, TT:21.4</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Btn vs SB</td>
+                <td>AKo:62,A5s:24.5,A4s:20.7,QJs:68, JJ:30.7, TT:57</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CO vs BB</td>
+                <td>AKo:31</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CO vs SB</td>
+                <td>AKo:20, JJ:15.5</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>MP vs BB</td>
+                <td>AKo:51, KK:35.5</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>MP vs SB</td>
+                <td>No jams</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>UTG vs BB</td>
+                <td>AKo:47, AA:3, KK:41.2</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>UTG vs SB</td>
+                <td>AKo:44, AA:0.5, KK:38, QQ:0.5</td>
+                <td></td>
+              </tr>
+            </tbody>
+            </table>
+        
+
+
+
+
+    </div>
+</body>
+
+</html>
