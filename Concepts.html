@@ -26,6 +26,9 @@
     h2 {
         color: coral;
     }
+    h3{
+        color: rgb(63, 158, 103);
+    }
 
     /* Style the header */
     header {
@@ -83,7 +86,7 @@
     <header>
         <h1>Poker Concepts and Theory</h1>
     </header>
-    
+
 
     <div id="WrappingDiv">
         <h1>Concepts</h1>
@@ -117,25 +120,10 @@
         </section>
         <section>
             <h2>Value Bet</h2>
-            <p> Bet made with a strong hand that expects to build a pot against a range that it will be a head of.
-            </p>
-
-            <p>- In game theory there are three different situations with respect to value betting.</p>
-            <ul>
-                <li>You Cannot Value Bet</li>
-                <li>It's Optional to Value Bet</li>
-                <li>You Must Value Bet</li>
-            </ul>
-            <p>- And there are two key factors that determine which of thee three situations you are in:</p>
-            <ul>
-                <li>Urgency</li>
-                <li>Landing Equity</li>
-            </ul>
+            <p> Bet made with a strong hand that expects to build a pot against a range that it will be a head of. </p>
             <p>- When you bet and your opponent calls, your equity goes down. You need to have at least 50% <b>after
                     you get called (finishing equity)</b> to value bet the turn and 55%-60% to value bet the river.
             </p>
-
-
         </section>
 
 
@@ -150,12 +138,12 @@
                 wants to reach.
             </p>
 
-            <p>Weaker Value Betting Hands can often delay their betting until later on in the hand since they don't
+            <p>- Weaker Value Betting Hands can often delay their betting until later on in the hand since they don't
                 need
                 to invest so much by the end.</p>
-            <p>Stronger Value Betting Hands want to invest more money by the end of the hand so they usually have to
+            <p>- Stronger Value Betting Hands want to invest more money by the end of the hand so they usually have to
                 start making larger investments a bit earlier in the hand than weaker hands.</p>
-            <p><b>At Shorter Stack Depths</b> urgency is lower as there is less money to be invested by the end of
+            <p>- <b>At Shorter Stack Depths</b> urgency is lower as there is less money to be invested by the end of
                 the
                 hand.</p>
 
@@ -202,11 +190,11 @@
 
         <section>
             <h2>Minimum Defense Frenquency (MDF)</h2>
-            <p><em>Minimum defense frequency</em> (MDF) describes the portion of your range that you must continue
-                with
-                when
-                facing a bet in order to remain unexploitable by bluffs. Formula for the MDF:</p>
-            <pre><b>pot_size / (pot_size + bet_size)</b></pre>
+            <p><em>Minimum defense frequency</em> (MDF) describes the portion of your range that you must continue with
+                when facing a bet in order to remain unexploitable by bluffs.</p>
+            <h3> Formula for the MDF</h3>
+            <pre><b>MDF = pot_size / (pot_size + bet_size)</b></pre>
+            <h3>MDF for Common Bet Sizes</h3>
             <table class="tg">
                 <thead>
                     <tr>
@@ -270,7 +258,114 @@
 
         </section>
         <h1>Theory</h1>
-        
+        <section>
+            <h2>The Effect of Bet Sizing on Equity</h2>
+            <p>The bigger you bet, the more your opponent will contract his range and the bigger the gap between your
+                landing equity and finishing equity.</p>
+            <svg width="230" height="200">
+                <!-- Draw axes -->
+                <line x1="20" y1="20" x2="20" y2="180" style="stroke:white;stroke-width:2" />
+                <line x1="20" y1="180" x2="180" y2="180" style="stroke:white;stroke-width:2" />
+
+                <!-- Draw axis labels -->
+                <text x="0" y="10" style="font-size: 12px; fill: white">Equity</text>
+                <text x="50" y="195" style="font-size: 12px; fill: white">B33</text>
+                <text x="130" y="195" style="font-size: 12px; fill: white">Call</text>
+
+                <!-- Draw the linearly increasing line -->
+                <polyline points="20,50 100,50 100,80 180,80"
+                    style="fill:none;stroke:yellowgreen;stroke-width:2;stroke-dasharray: 5,5" />
+            </svg>
+            <svg width="230" height="200">
+                <!-- Draw axes -->
+                <line x1="20" y1="20" x2="20" y2="180" style="stroke:white;stroke-width:2" />
+                <line x1="20" y1="180" x2="180" y2="180" style="stroke:white;stroke-width:2" />
+
+                <!-- Draw axis labels -->
+                <text x="0" y="10" style="font-size: 12px; fill: white">Equity</text>
+                <text x="50" y="195" style="font-size: 12px; fill: white">B75</text>
+                <text x="130" y="195" style="font-size: 12px; fill: white">Call</text>
+
+                <!-- Draw the linearly increasing line -->
+                <polyline points="20,50 100,50 100,105 180,105"
+                    style="fill:none;stroke:yellowgreen;stroke-width:2;stroke-dasharray: 5,5" />
+            </svg>
+            <svg width="230" height="200">
+                <!-- Draw axes -->
+                <line x1="20" y1="20" x2="20" y2="180" style="stroke:white;stroke-width:2" />
+                <line x1="20" y1="180" x2="180" y2="180" style="stroke:white;stroke-width:2" />
+
+                <!-- Draw axis labels -->
+                <text x="0" y="10" style="font-size: 12px; fill: white">Equity</text>
+                <text x="50" y="195" style="font-size: 12px; fill: white">B150</text>
+                <text x="130" y="195" style="font-size: 12px; fill: white">Call</text>
+
+                <!-- Draw the linearly increasing line -->
+                <polyline points="20,50 100,50 100,125 180,125"
+                    style="fill:none;stroke:yellowgreen;stroke-width:2;stroke-dasharray: 5,5" />
+            </svg>
+            <h3>Required Landing Equity for Different Bet Sizes</h3>
+            <p>We need to know roughly how much starting equity we'd need for each bet size for our hand to be able to
+                value bet for that size.</p>
+            <table>
+                <tr>
+                    <th>Bet Size</th>
+                    <th>Minimum Landing Equity for Value Betting Wet Turn</th>
+                    <th>Minimum Landing Equity for Value Betting Dry Turn or River</th>
+                </tr>
+                <tr>
+                    <td>B33</td>
+                    <td>55%</td>
+                    <td>65%-70%</td>
+                </tr>
+                <tr>
+                    <td>B75</td>
+                    <td>65%</td>
+                    <td>75%-80%</td>
+                </tr>
+                <tr>
+                    <td>B150</td>
+                    <td>75%</td>
+                    <td>85%-90%</td>
+                </tr>
+            </table>
+            <p>- On wet turn spots where our hand is ahead more often than our equity suggests, we can value bet with
+                lower landing equity than on dry turns or rivers where we are either way ahead or way behind.</p>
+            <p>- When in position we need a little more equity to value bet as we risk re-opening the action and
+                therefore checking is a slightly more viable alternative in many cases. </p>
+            <p>- When out of position we need a little less equity to value bet as check is a slightly less viable
+                alternative since we are not closing the action for that street by checking.</p>
+        </section>
+        <section>
+            <h2>Value betting</h2>
+
+            <p>- In game theory there are three different situations with respect to value betting.</p>
+            <ul>
+                <li>You Cannot Value Bet</li>
+                <li>It's Optional to Value Bet</li>
+                <li>You Must Value Bet</li>
+            </ul>
+            <p>- And there are two key factors that determine which of the three situations you are in:</p>
+            <ul>
+                <li>Urgency</li>
+                <li>Landing Equity</li>
+            </ul>
+
+            <h3>You Must Value Bet</h3>
+            <p>If your hand is strong enought to pick a certain bet size.</p>
+            <p>AND</p>
+            <p>If Urgency is high.</p>
+            <h3>It's Optional to Value Bet</h3>
+            <p>If your hand is strong enought to pick a certain bet size.</p>
+            <p>AND</p>
+            <p>If Urgency is not high.</p>
+            <h3>You Cannot Value Bet</h3>
+            <p>When your hand is not strong enough to pick any bet-size.</p>
+            <p>OR</p>
+            <p>You are not building a betting range using a sizing small enough to value bet your hand. </p>
+
+        </section>
+
     </div>
     <script src="Concepts_script.js"></script>
 </body>
