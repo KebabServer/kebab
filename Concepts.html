@@ -30,7 +30,7 @@
         text-align: center;
     }
     /* Style the article content */
-    div {
+   #WrappingDiv {
         max-width: 1000px;
         margin: 0 auto;
         padding: 30px;
@@ -117,10 +117,11 @@
         <h1>Poker concepts</h1>
     </header>
 
-        <div>
-        <h2>Minimum defense frenquency (MDF)</h2>
-        <p>Minimum defense frequency (MDF) describes the portion of your range that you must continue with when facing a bet in order to remain unexploitable by bluffs. Formula for the MDF:</p>
-        <pre><b>pot_size / (pot_size + bet_size)</b></pre>
+        <div id="WrappingDiv">
+        <h2 class="conceptHeader">Minimum defense frenquency (MDF)</h2>
+            <div class="conceptDiv">
+                <p>Minimum defense frequency (MDF) describes the portion of your range that you must continue with when facing a bet in order to remain unexploitable by bluffs. Formula for the MDF:</p>
+                    <pre><b>pot_size / (pot_size + bet_size)</b></pre>
         <table class="tg">
             <thead>
               <tr>
@@ -161,20 +162,24 @@
               </tr>
             </tbody>
             </table>
-        </div>
-        <div>
-            <h2>Different type of ranges</h2>
+            </div>
+       
+            <h2 class="conceptHeader">Different type of ranges</h2>
+            <div class="conceptDiv">
             <h3>Polarized range</h3>
             <p>A polarized range is one constructed of very strong hands and very weak hands, nuts/bluffs. The most common place you'll see polarized ranges are in position, on the river.</p>
             <h3>Condensed range</h3>
             <p>A capped range that is also tight. This range does not contain the strongest hands, but is lean and contains many medium-strength hands. Also known as "depolarized".</p>
-            <h3>Filtering</h3>
-            Range gets "filtered" after facing a bet and folding out low equity hands.
-        </div>
-        <div>
+            </div>
+
+            <h2 class="conceptHeader">Filtering</h2>
+            <div class="conceptDiv">
+                Range gets "filtered" after facing a bet and folding out low equity hands.
+            </div>
+        
             
         </div>
-        
+
 </body>
 
 </html>
