@@ -150,220 +150,172 @@
     td:first-child {
         font-weight: bold;
     }
-
-    .container {
-        display: flex;
-    }
-
-    #sidebar {
-        width: 250px;
-        background-color: #f9f9f9;
-        padding: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    #sidebar ul {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    #sidebar ul li {
-        margin-bottom: 10px;
-    }
-
-    #sidebar ul li a {
-        text-decoration: none;
-        color: #333;
-    }
-
-    /* Main content styles */
-    main {
-        flex-grow: 1;
-        padding: 20px;
-    }
-
-    /* Sticky sidebar */
-    #sidebar {
-        position: sticky;
-        top: 20px;
-    }
 </style>
 
 <body>
     <header>
         <h1>Poker concepts</h1>
     </header>
-    <div class="container">
-        <nav id="sidebar">
-            <ul>
-                <li><a href="#basic-concepts">Basic Concepts</a></li>
-                <li><a href="#advanced-concepts">Advanced Concepts</a></li>
-                <li><a href="#theorems">Theorems</a></li>
-                <li><a href="#case-studies">Case Studies and Examples</a></li>
-                <li><a href="#resources">Resources and Further Reading</a></li>
-            </ul>
-        </nav>
 
-        <div id="WrappingDiv">
+    <nav id="navbar">
+        <ul>
+            <li><a href="#basic-concepts">Basic Concepts</a></li>
+            <li><a href="#advanced-concepts">Advanced Concepts</a></li>
+            <li><a href="#theorems">Theorems</a></li>
+            <li><a href="#case-studies">Case Studies and Examples</a></li>
+            <li><a href="#resources">Resources and Further Reading</a></li>
+        </ul>
+    </nav>
 
+    <div id="WrappingDiv">
 
+        <h2 class="conceptHeader">Expected Value</h2>
+        <div class="conceptDiv">
+            The expected value (EV) is a statistical measure used to determine the average outcome of a particular
+            decision over the long run.
+        </div>
+        <h2 class="conceptHeader">Equity</h2>
+        <div class="conceptDiv">
+            Equity refers to the share of the pot that belongs to a player if there were no more actions to be made and
+            the rest of the cards are dealt. It is based on the probability that a player will have the best hand after
+            the cards are dealt.
 
-            <h2 class="conceptHeader">Expected Value</h2>
-            <div class="conceptDiv">
-                The expected value (EV) is a statistical measure used to determine the average outcome of a particular
-                decision over the long run.
-            </div>
-            <h2 class="conceptHeader">Equity</h2>
-            <div class="conceptDiv">
-                Equity refers to the share of the pot that belongs to a player if there were no more actions to be made
-                and
-                the rest of the cards are dealt. It is based on the probability that a player will have the best hand
-                after
-                the cards are dealt.
+            <h3>Landing equity</h3>
+            <p>The landing equity of your hand is of your hand's equity before your opponent has reacted to your bet.
+            </p>
 
-                <h3>Landing equity</h3>
-                <p>The landing equity of your hand is of your hand's equity before your opponent has reacted to your
-                    bet.
-                </p>
+            <h3>Finishing equity</h3>
+            <p>The finishing equity of your hand is your hand's equity after your opponent has called your bet.</p>
+        </div>
 
-                <h3>Finishing equity</h3>
-                <p>The finishing equity of your hand is your hand's equity after your opponent has called your bet.</p>
-            </div>
+        <h2 class="conceptHeader">Urgency</h2>
+        <div class="conceptDiv">
+            <p> <em>Urgency</em> refers to how imporant it is to value bet <b>Now</b>. It is dependant on the <b>amount
+                    of time
+                    remaing</b> in a hand to invest money compared with the average <b>investment ceiling</b> your hand
+                wants to reach.</p>
 
-            <h2 class="conceptHeader">Urgency</h2>
-            <div class="conceptDiv">
-                <p> <em>Urgency</em> refers to how imporant it is to value bet <b>Now</b>. It is dependant on the
-                    <b>amount
-                        of time
-                        remaing</b> in a hand to invest money compared with the average <b>investment ceiling</b> your
-                    hand
-                    wants to reach.</p>
+            <p>Weaker Value Betting Hands can often delay their betting until later on in the hand since they don't need
+                to invest so much by the end.</p>
+            <p>Stronger Value Betting Hands want to invest more money by the end of the hand so they usually have to
+                start making larger investments a bit earlier in the hand than weaker hands.</p>
+            <p><b>At Shorter Stack Depths</b> urgency is lower as there is less money to be invested by the end of the
+                hand.</p>
 
-                <p>Weaker Value Betting Hands can often delay their betting until later on in the hand since they don't
-                    need
-                    to invest so much by the end.</p>
-                <p>Stronger Value Betting Hands want to invest more money by the end of the hand so they usually have to
-                    start making larger investments a bit earlier in the hand than weaker hands.</p>
-                <p><b>At Shorter Stack Depths</b> urgency is lower as there is less money to be invested by the end of
-                    the
-                    hand.</p>
+            <svg width="230" height="200">
+                <!-- Draw axes -->
+                <line x1="20" y1="20" x2="20" y2="180" style="stroke:white;stroke-width:2" />
+                <line x1="20" y1="180" x2="180" y2="180" style="stroke:white;stroke-width:2" />
 
-                <svg width="230" height="200">
-                    <!-- Draw axes -->
-                    <line x1="20" y1="20" x2="20" y2="180" style="stroke:white;stroke-width:2" />
-                    <line x1="20" y1="180" x2="180" y2="180" style="stroke:white;stroke-width:2" />
+                <!-- Draw axis labels -->
+                <text x="0" y="10" style="font-size: 12px; fill: white">Urgency</text>
+                <text x="20" y="195" style="font-size: 12px; fill: white">Time Remaining in Hand</text>
 
-                    <!-- Draw axis labels -->
-                    <text x="0" y="10" style="font-size: 12px; fill: white">Urgency</text>
-                    <text x="20" y="195" style="font-size: 12px; fill: white">Time Remaining in Hand</text>
+                <!-- Draw the linearly increasing line -->
+                <polyline points="20,20 180,180"
+                    style="fill:none;stroke:yellowgreen;stroke-width:2;stroke-dasharray: 5,5" />
+            </svg>
+            <svg width="230" height="200">
+                <!-- Draw axes -->
+                <line x1="20" y1="20" x2="20" y2="180" style="stroke:white;stroke-width:2" />
+                <line x1="20" y1="180" x2="180" y2="180" style="stroke:white;stroke-width:2" />
 
-                    <!-- Draw the linearly increasing line -->
-                    <polyline points="20,20 180,180"
-                        style="fill:none;stroke:yellowgreen;stroke-width:2;stroke-dasharray: 5,5" />
-                </svg>
-                <svg width="230" height="200">
-                    <!-- Draw axes -->
-                    <line x1="20" y1="20" x2="20" y2="180" style="stroke:white;stroke-width:2" />
-                    <line x1="20" y1="180" x2="180" y2="180" style="stroke:white;stroke-width:2" />
+                <!-- Draw axis labels -->
+                <text x="0" y="10" style="font-size: 12px; fill: white">Urgency</text>
+                <text x="20" y="195" style="font-size: 12px; fill: white">Hand Equity</text>
 
-                    <!-- Draw axis labels -->
-                    <text x="0" y="10" style="font-size: 12px; fill: white">Urgency</text>
-                    <text x="20" y="195" style="font-size: 12px; fill: white">Hand Equity</text>
+                <!-- Draw the linearly increasing line -->
+                <polyline points="20,180 180,20"
+                    style="fill:none;stroke:yellowgreen;stroke-width:2;stroke-dasharray: 5,5" />
+            </svg>
+            <svg width="230" height="200">
+                <!-- Draw axes -->
+                <line x1="20" y1="20" x2="20" y2="180" style="stroke:white;stroke-width:2" />
+                <line x1="20" y1="180" x2="180" y2="180" style="stroke:white;stroke-width:2" />
 
-                    <!-- Draw the linearly increasing line -->
-                    <polyline points="20,180 180,20"
-                        style="fill:none;stroke:yellowgreen;stroke-width:2;stroke-dasharray: 5,5" />
-                </svg>
-                <svg width="230" height="200">
-                    <!-- Draw axes -->
-                    <line x1="20" y1="20" x2="20" y2="180" style="stroke:white;stroke-width:2" />
-                    <line x1="20" y1="180" x2="180" y2="180" style="stroke:white;stroke-width:2" />
+                <!-- Draw axis labels -->
+                <text x="0" y="10" style="font-size: 12px; fill: white">Urgency</text>
+                <text x="20" y="195" style="font-size: 12px; fill: white">Stack Depth</text>
 
-                    <!-- Draw axis labels -->
-                    <text x="0" y="10" style="font-size: 12px; fill: white">Urgency</text>
-                    <text x="20" y="195" style="font-size: 12px; fill: white">Stack Depth</text>
-
-                    <!-- Draw the linearly increasing line -->
-                    <polyline points="20,180 180,20"
-                        style="fill:none;stroke:yellowgreen;stroke-width:2;stroke-dasharray: 5,5" />
-                </svg>
-
-            </div>
-
-
-
-            <h2 class="conceptHeader">Minimum Defense Frenquency (MDF)</h2>
-            <div class="conceptDiv">
-                <p><em>Minimum defense frequency</em> (MDF) describes the portion of your range that you must continue
-                    with
-                    when
-                    facing a bet in order to remain unexploitable by bluffs. Formula for the MDF:</p>
-                <pre><b>pot_size / (pot_size + bet_size)</b></pre>
-                <table class="tg">
-                    <thead>
-                        <tr>
-                            <th class="tg-64jd">Bet size</th>
-                            <th class="tg-hv44">10%</th>
-                            <th class="tg-hv44">25%</th>
-                            <th class="tg-hv44">33%</th>
-                            <th class="tg-hv44">50%</th>
-                            <th class="tg-hv44">66%</th>
-                            <th class="tg-hv44">75%</th>
-                            <th class="tg-hv44">100%</th>
-                            <th class="tg-hv44">125%</th>
-                            <th class="tg-hv44">150%</th>
-                            <th class="tg-hv44">200%</th>
-                            <th class="tg-hv44">250%</th>
-                            <th class="tg-hv44">300%</th>
-                            <th class="tg-hv44">350%</th>
-                            <th class="tg-hv44">400%</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="tg-64jd">MDF</td>
-                            <td class="tg-hv44">90.9%</td>
-                            <td class="tg-hv44">80.0%</td>
-                            <td class="tg-hv44">75.2%</td>
-                            <td class="tg-hv44">66.7%</td>
-                            <td class="tg-hv44">60.2%</td>
-                            <td class="tg-hv44">57.1%</td>
-                            <td class="tg-hv44">50.0%</td>
-                            <td class="tg-hv44">44.4%</td>
-                            <td class="tg-hv44">40.0%</td>
-                            <td class="tg-hv44">33.3%</td>
-                            <td class="tg-hv44">28.6%</td>
-                            <td class="tg-hv44">25.0%</td>
-                            <td class="tg-hv44">22.2%</td>
-                            <td class="tg-hv44">20.0%</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h2 class="conceptHeader">Different type of ranges</h2>
-            <div class="conceptDiv">
-                <h3>Capped range</h3>
-                <p><em>A capped range</em> is a range that contains no (or very few) strong hands.</p>
-                <h3>Polarized range</h3>
-                <p><em>A polarized range</em> is one constructed of very strong hands and very weak hands, nuts/bluffs.
-                    The
-                    most
-                    common place you'll see polarized ranges are in position, on the river.</p>
-                <h3>Condensed range</h3>
-                <p><em>A condensed range</em> is a capped range that is also tight. This range does not contain the
-                    strongest hands, but is lean and
-                    contains many medium-strength hands. Also known as "depolarized".</p>
-            </div>
-
-            <h2 class="conceptHeader">Filtering</h2>
-            <div class="conceptDiv">
-                Range gets "filtered" after facing a bet and folding out low equity hands.
-            </div>
-
+                <!-- Draw the linearly increasing line -->
+                <polyline points="20,180 180,20"
+                    style="fill:none;stroke:yellowgreen;stroke-width:2;stroke-dasharray: 5,5" />
+            </svg>
 
         </div>
+
+
+
+        <h2 class="conceptHeader">Minimum Defense Frenquency (MDF)</h2>
+        <div class="conceptDiv">
+            <p><em>Minimum defense frequency</em> (MDF) describes the portion of your range that you must continue with
+                when
+                facing a bet in order to remain unexploitable by bluffs. Formula for the MDF:</p>
+            <pre><b>pot_size / (pot_size + bet_size)</b></pre>
+            <table class="tg">
+                <thead>
+                    <tr>
+                        <th class="tg-64jd">Bet size</th>
+                        <th class="tg-hv44">10%</th>
+                        <th class="tg-hv44">25%</th>
+                        <th class="tg-hv44">33%</th>
+                        <th class="tg-hv44">50%</th>
+                        <th class="tg-hv44">66%</th>
+                        <th class="tg-hv44">75%</th>
+                        <th class="tg-hv44">100%</th>
+                        <th class="tg-hv44">125%</th>
+                        <th class="tg-hv44">150%</th>
+                        <th class="tg-hv44">200%</th>
+                        <th class="tg-hv44">250%</th>
+                        <th class="tg-hv44">300%</th>
+                        <th class="tg-hv44">350%</th>
+                        <th class="tg-hv44">400%</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="tg-64jd">MDF</td>
+                        <td class="tg-hv44">90.9%</td>
+                        <td class="tg-hv44">80.0%</td>
+                        <td class="tg-hv44">75.2%</td>
+                        <td class="tg-hv44">66.7%</td>
+                        <td class="tg-hv44">60.2%</td>
+                        <td class="tg-hv44">57.1%</td>
+                        <td class="tg-hv44">50.0%</td>
+                        <td class="tg-hv44">44.4%</td>
+                        <td class="tg-hv44">40.0%</td>
+                        <td class="tg-hv44">33.3%</td>
+                        <td class="tg-hv44">28.6%</td>
+                        <td class="tg-hv44">25.0%</td>
+                        <td class="tg-hv44">22.2%</td>
+                        <td class="tg-hv44">20.0%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 class="conceptHeader">Different type of ranges</h2>
+        <div class="conceptDiv">
+            <h3>Capped range</h3>
+            <p><em>A capped range</em> is a range that contains no (or very few) strong hands.</p>
+            <h3>Polarized range</h3>
+            <p><em>A polarized range</em> is one constructed of very strong hands and very weak hands, nuts/bluffs. The
+                most
+                common place you'll see polarized ranges are in position, on the river.</p>
+            <h3>Condensed range</h3>
+            <p><em>A condensed range</em> is a capped range that is also tight. This range does not contain the
+                strongest hands, but is lean and
+                contains many medium-strength hands. Also known as "depolarized".</p>
+        </div>
+
+        <h2 class="conceptHeader">Filtering</h2>
+        <div class="conceptDiv">
+            Range gets "filtered" after facing a bet and folding out low equity hands.
+        </div>
+
+
     </div>
+
 </body>
 
 </html>
