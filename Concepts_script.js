@@ -1,29 +1,15 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Get all elements with the class "header"
-    var headers = document.querySelectorAll('.conceptHeader');
-  
-    // Loop through each header and add click event listener
-    headers.forEach(function(header) {
-      header.addEventListener('click', function() {
-        // hideAllConceptDivs();
-        // Get the content element which is the next sibling
-        var content = this.nextElementSibling;
-  
-        // Toggle the display of the content
-        if (content.style.display === 'none') {
-          content.style.display = 'block';
-        } else {
-          content.style.display = 'none';
-        }
-      });
-    });
-  });
+  // JavaScript to toggle navigation visibility on phones
+const navbar = document.getElementById('navbar');
 
-  function hideAllConceptDivs(){
-    var contents = document.querySelectorAll('.conceptDiv');
+// Hide the navigation when clicked outside
+document.addEventListener('click', function(event) {
+    if (!navbar.contains(event.target)) {
+        navbar.classList.add('nav-hidden');
+    }
+});
 
-    // Loop through each content element and hide it
-    contents.forEach(function(content) {
-      content.style.display = 'none';
-    });
-  }
+// Show the navigation when clicked
+navbar.addEventListener('click', function(event) {
+    navbar.classList.remove('nav-hidden');
+    event.stopPropagation();
+});
