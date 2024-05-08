@@ -72,3 +72,24 @@ section {
     padding-top: 15px;
     padding-bottom: 15px;
 }
+.board{
+    display: flex; /* Use flexbox to align SVGs horizontally */
+}
+.board > svg{
+    display: inline-block; /* Make SVGs display inline */
+    width: 40px; /* Set the width of each SVG */
+    height: 60px; /* Set the height of each SVG */
+    margin-right: 0px; /* Add some spacing between SVGs */
+}
+.board > :nth-child(3) {
+    margin-right: 15px;
+}
+.board > :nth-child(4) {
+    margin-right: 15px;
+}
+
+.container{
+    display: flex;
+}
+
+

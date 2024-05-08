@@ -15,7 +15,7 @@
 
 
     <div id="WrappingDiv">
-
+        <h1>Betting</h1>
         <section>
             <h2>Value betting</h2>
 
@@ -204,7 +204,8 @@
             <h2>Reasons for Betting</h2>
             <p>Main reasons for betting are <b>value</b> and <b>bluff</b>. Equity denial is a useful bonus but not a
                 sufficient reason for betting.</p>
-            <svg width="570" height="200">
+
+            <svg width="570" height="90">
                 <!-- Draw arrow -->
                 <line x1="0" y1="50" x2="540" y2="50" stroke="white" stroke-width="4" />
                 <polygon points="540,45 550,50 540,55" fill="white" />
@@ -218,24 +219,92 @@
                 <text x="535" y="70" font-family="Arial" fill="white" font-size="12">100%</text>
 
                 <!-- Draw rectangles with text -->
-                <rect x="0" y="20" width="60" height="20" fill="#9ddd58" />
-                <text x="5" y="35" font-family="Arial" font-size="14">Value</text>
+                <rect x="0" y="20" width="70" height="20" fill="#9ddd58" />
+                <text x="12" y="35" font-family="Arial" font-size="14">Value</text>
 
-                <rect x="100" y="20" width="100" height="20" fill="#a4ff3a" />
-                <text x="105" y="35" font-family="Arial" font-size="12">Value/Denial</text>
+                <rect x="82" y="20" width="130" height="20" fill="#a4ff3a" />
+                <text x="104" y="35" font-family="Arial" font-size="12">Value/Denial</text>
 
-                <rect x="250" y="20" width="100" height="20" fill="#ffcc05" />
-                <text x="255" y="35" font-family="Arial" font-size="12">Bluff/Denial</text>
+                <rect x="224" y="20" width="135" height="20" fill="#ffcc05" />
+                <text x="246" y="35" font-family="Arial" font-size="12">Bluff/Denial</text>
 
-                <rect x="450" y="20" width="100" height="20" fill="#ff6f05" />
-                <text x="455" y="35" font-family="Arial" font-size="12">Bluff</text>
+                <rect x="371" y="20" width="165" height="20" fill="#ff6f05" />
+                <text x="431" y="35" font-family="Arial" font-size="12">Bluff</text>
+
+                <text x="220" y="10" font-family="Arial" fill="Yellow" font-size="12">Function of Bet</text>
+                <text x="130" y="88" font-family="Arial" fill="Yellow" font-size="12">Average Equity Folded By Villain
+                    to Your Bet</text>
             </svg>
+            <p>- So when we’re bluffing, the upside is getting very useful fold equity. Far more useful then when we
+                harvest denial alone while making a value bet.</p>
+            <p>- But unlike when value betting, the downside is that we usually lose when called.</p>
 
         </section>
-
-
-
-
+        <section>
+            <h2>Bluffing</h2>
+            <p>- In Game Theory, like with Value Betting, there are three different situations with
+                respect to bluffing:</p>
+            <ul>
+                <li>You Cannot Bluff</li>
+                <li>It's Optional to Bluff</li>
+                <li>You Must Bluff</li>
+            </ul>
+            <p>- And again there are two key factors that determine which of these three worlds you
+                are in:</p>
+            <ul>
+                <li>Showdown Value</li>
+                <li>World Favourability</li>
+            </ul>
+            <p>Let's examine each of these in detail now.</p>
+            <h3>Cannot bluff - Too much Show Down Value</h3>
+            <p>- The most common factor that makes bluffing a mistake is that the hand is performing too well by
+                checking for betting to be as good. </p>
+            <p>- Betting with some mediocre hand may still be +EV, but as we know, making a profitable play is not our
+                goal.</p>
+            <p>- When check becomes too valuable due to our win % being quite high we might need to check our hand
+                instead of risking extra money even if by doing so we would fold out a lot of better hands. </p>
+            <h3>Unfavourable Worlds</h3>
+            <p>In situations where our opponent has a large range advantage, our fold equity will be lower. In these so
+                called unfavourable situations we will need to have higher standards about what we bluff. This means
+                choosing only bluffs that have either:</p>
+            <ul>
+                <li>Some nutted redraw (on the turn)</li>
+                <li>Positive blocker effects (on the river)</li>
+            </ul>
+            <p>Turn probe opportunities are usually unfavourable and demand a selective bluffing strategy because the
+                pre-flop raiser retains an advantage when he checks behind on the flop.</p>
+            <h3>Optional Bluffs</h3>
+            <p>When you are not in a highly unfavourable spot and do not have too much SDV to bluff, it is likely that
+                you will be in an optional bluffing spot.</p>
+            <p>Spots that are very often optional bluffs when you hold both air hand and draws are:</p>
+            <ul>
+                <li>C-Betting the Turn (Double Barreling)</li>
+                <li>Delayed C-Betting (Double barreling)</li>
+                <li>Probing the Turn on a very low/connected board (more favourable than most turn probe opportunities)
+                </li>
+                <li>Betting the flop where your range is stronger than your opponent's but not massively so.</li>
+                <li>Triple Barreling the river </li>
+            </ul>
+            <h3>Must Bluff Situations</h3>
+            <p>When you are in a favourable situation for your range on the river and have no SDV you must bluff.</p>
+            <p>These river situations occur in two main types of spot:</p>
+            <ol>
+                <li>You retain your pre-flop range advantage all the way through the hand either because you haven't bet
+                    yet or due to a very good run-out.</li>
+                <li>You call a bet on an earlier street then Villain checks the turn giving you a range advantage. </li>
+            </ol>
+            <p>In these two spots, your fold equity will be high enough to make betting profitable while checking with
+                little to no SDV is worth close to 0EV</p>
+            <p>There are also a few must bluff spots earlier on in the hand, but these are rarer:</p>
+            <ul>
+                <li>C-Betting the flop with a very big range advantage and no SDV</li>
+                <li>Being out of position with a promising draw that has zero SDV</li>
+                <li>Double barrelling a very good turn card for your range again with no SDV but some sort of nut
+                    potential</li>
+            </ul>
+            <p>Other than that, most juicy looking bluff opportunities are optional in Game Theory, exploitative factors
+                aside.</p>
+        </section>
 
     </div>
 </body>
