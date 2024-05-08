@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Kebab Server</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="article.css">
+</head>
+
+<body>
+    <header>
+        <h1>Poker Theory: Betting</h1>
+    </header>
+
+
+    <div id="WrappingDiv">
+
+        <section>
+            <h2>Value betting</h2>
+
+            <p>- When you bet and your opponent calls, your equity goes down. You need to have at least 50% <b>after
+                    you get called (finishing equity)</b> to value bet the turn and 55%-60% to value bet the river.
+            </p>
+
+            <p>- In game theory there are three different situations with respect to value betting.</p>
+            <ul>
+                <li>You Cannot Value Bet</li>
+                <li>It's Optional to Value Bet</li>
+                <li>You Must Value Bet</li>
+            </ul>
+            <p>- And there are two key factors that determine which of the three situations you are in:</p>
+            <ul>
+                <li>Urgency</li>
+                <li>Landing Equity</li>
+            </ul>
+
+            <h3>You Must Value Bet</h3>
+            <p>If your hand is strong enought to pick a certain bet size.</p>
+            <p>AND</p>
+            <p>If Urgency is high.</p>
+            <h3>It's Optional to Value Bet</h3>
+            <p>If your hand is strong enought to pick a certain bet size.</p>
+            <p>AND</p>
+            <p>If Urgency is not high.</p>
+            <h3>You Cannot Value Bet</h3>
+            <p>When your hand is not strong enough to pick any bet-size.</p>
+            <p>OR</p>
+            <p>You are not building a betting range using a sizing small enough to value bet your hand. </p>
+
+
+        </section>
+
+        <section>
+            <h2>The Effect of Bet Sizing on Equity</h2>
+            <p>The bigger you bet, the more your opponent will contract his range and the bigger the gap between your
+                landing equity and finishing equity.</p>
+            <svg width="230" height="200">
+                <!-- Draw axes -->
+                <line x1="20" y1="20" x2="20" y2="180" style="stroke:white;stroke-width:2" />
+                <line x1="20" y1="180" x2="180" y2="180" style="stroke:white;stroke-width:2" />
+
+                <!-- Draw axis labels -->
+                <text x="0" y="10" style="font-size: 12px; fill: white">Equity</text>
+                <text x="50" y="195" style="font-size: 12px; fill: white">B33</text>
+                <text x="130" y="195" style="font-size: 12px; fill: white">Call</text>
+
+                <!-- Draw the linearly increasing line -->
+                <polyline points="20,50 100,50 100,80 180,80"
+                    style="fill:none;stroke:yellowgreen;stroke-width:2;stroke-dasharray: 5,5" />
+            </svg>
+            <svg width="230" height="200">
+                <!-- Draw axes -->
+                <line x1="20" y1="20" x2="20" y2="180" style="stroke:white;stroke-width:2" />
+                <line x1="20" y1="180" x2="180" y2="180" style="stroke:white;stroke-width:2" />
+
+                <!-- Draw axis labels -->
+                <text x="0" y="10" style="font-size: 12px; fill: white">Equity</text>
+                <text x="50" y="195" style="font-size: 12px; fill: white">B75</text>
+                <text x="130" y="195" style="font-size: 12px; fill: white">Call</text>
+
+                <!-- Draw the linearly increasing line -->
+                <polyline points="20,50 100,50 100,105 180,105"
+                    style="fill:none;stroke:yellowgreen;stroke-width:2;stroke-dasharray: 5,5" />
+            </svg>
+            <svg width="230" height="200">
+                <!-- Draw axes -->
+                <line x1="20" y1="20" x2="20" y2="180" style="stroke:white;stroke-width:2" />
+                <line x1="20" y1="180" x2="180" y2="180" style="stroke:white;stroke-width:2" />
+
+                <!-- Draw axis labels -->
+                <text x="0" y="10" style="font-size: 12px; fill: white">Equity</text>
+                <text x="50" y="195" style="font-size: 12px; fill: white">B150</text>
+                <text x="130" y="195" style="font-size: 12px; fill: white">Call</text>
+
+                <!-- Draw the linearly increasing line -->
+                <polyline points="20,50 100,50 100,125 180,125"
+                    style="fill:none;stroke:yellowgreen;stroke-width:2;stroke-dasharray: 5,5" />
+            </svg>
+            <h3>Required Landing Equity for Different Bet Sizes</h3>
+            <p>We need to know roughly how much starting equity we'd need for each bet size for our hand to be able to
+                value bet for that size.</p>
+            <table>
+                <tr>
+                    <th>Bet Size</th>
+                    <th>Minimum Landing Equity for Value Betting Wet Turn</th>
+                    <th>Minimum Landing Equity for Value Betting Dry Turn or River</th>
+                </tr>
+                <tr>
+                    <td>B33</td>
+                    <td>55%</td>
+                    <td>65%-70%</td>
+                </tr>
+                <tr>
+                    <td>B75</td>
+                    <td>65%</td>
+                    <td>75%-80%</td>
+                </tr>
+                <tr>
+                    <td>B150</td>
+                    <td>75%</td>
+                    <td>85%-90%</td>
+                </tr>
+            </table>
+            <p>- On wet turn spots where our hand is ahead more often than our equity suggests, we can value bet with
+                lower landing equity than on dry turns or rivers where we are either way ahead or way behind.</p>
+            <p>- When in position we need a little more equity to value bet as we risk re-opening the action and
+                therefore checking is a slightly more viable alternative in many cases. </p>
+            <p>- When out of position we need a little less equity to value bet as check is a slightly less viable
+                alternative since we are not closing the action for that street by checking.</p>
+        </section>
+
+        <section>
+            <h2>Urgency</h2>
+            <p> <em>Urgency</em> refers to how imporant it is to value bet <b>Now</b>. It is dependant on the
+                <b>amount
+                    of time
+                    remaing</b> in a hand to invest money compared with the average <b>investment ceiling</b> your
+                hand
+                wants to reach.
+            </p>
+
+            <p>- Weaker Value Betting Hands can often delay their betting until later on in the hand since they don't
+                need
+                to invest so much by the end.</p>
+            <p>- Stronger Value Betting Hands want to invest more money by the end of the hand so they usually have to
+                start making larger investments a bit earlier in the hand than weaker hands.</p>
+            <p>- <b>At Shorter Stack Depths</b> urgency is lower as there is less money to be invested by the end of
+                the
+                hand.</p>
+
+            <svg width="230" height="200">
+                <!-- Draw axes -->
+                <line x1="20" y1="20" x2="20" y2="180" style="stroke:white;stroke-width:2" />
+                <line x1="20" y1="180" x2="180" y2="180" style="stroke:white;stroke-width:2" />
+
+                <!-- Draw axis labels -->
+                <text x="0" y="10" style="font-size: 12px; fill: white">Urgency</text>
+                <text x="20" y="195" style="font-size: 12px; fill: white">Time Remaining in Hand</text>
+
+                <!-- Draw the linearly increasing line -->
+                <polyline points="20,20 180,180"
+                    style="fill:none;stroke:yellowgreen;stroke-width:2;stroke-dasharray: 5,5" />
+            </svg>
+            <svg width="230" height="200">
+                <!-- Draw axes -->
+                <line x1="20" y1="20" x2="20" y2="180" style="stroke:white;stroke-width:2" />
+                <line x1="20" y1="180" x2="180" y2="180" style="stroke:white;stroke-width:2" />
+
+                <!-- Draw axis labels -->
+                <text x="0" y="10" style="font-size: 12px; fill: white">Urgency</text>
+                <text x="120" y="195" style="font-size: 12px; fill: white">Hand Equity</text>
+
+                <!-- Draw the linearly increasing line -->
+                <polyline points="20,180 180,20"
+                    style="fill:none;stroke:yellowgreen;stroke-width:2;stroke-dasharray: 5,5" />
+            </svg>
+            <svg width="230" height="200">
+                <!-- Draw axes -->
+                <line x1="20" y1="20" x2="20" y2="180" style="stroke:white;stroke-width:2" />
+                <line x1="20" y1="180" x2="180" y2="180" style="stroke:white;stroke-width:2" />
+
+                <!-- Draw axis labels -->
+                <text x="0" y="10" style="font-size: 12px; fill: white">Urgency</text>
+                <text x="120" y="195" style="font-size: 12px; fill: white">Stack Depth</text>
+
+                <!-- Draw the linearly increasing line -->
+                <polyline points="20,180 180,20"
+                    style="fill:none;stroke:yellowgreen;stroke-width:2;stroke-dasharray: 5,5" />
+            </svg>
+        </section>
+
+        <section>
+            <h2>Denial (aka Procetion)</h2>
+            <p>Equity denial is when you prevent a player from realizing his equity by forcing him to fold before
+                showdown.</p>
+            <p>- Denying equity to live hands your opponent has to fold is a useful bonus but not a sufficient reason
+                for
+                betting. </p>
+            <p>- Protection comes in handy when the fold equity you get by betting is largely useful to you.</p>
+        </section>
+
+        <section>
+            <h2>Reasons for Betting</h2>
+            <p>Main reasons for betting are <b>value</b> and <b>bluff</b>. Equity denial is a useful bonus but not a
+                sufficient reason for betting.</p>
+            <svg width="570" height="200">
+                <!-- Draw arrow -->
+                <line x1="0" y1="50" x2="540" y2="50" stroke="white" stroke-width="4" />
+                <polygon points="540,45 550,50 540,55" fill="white" />
+
+                <!-- Draw scale -->
+
+                <text x="0" y="70" font-family="Arial" fill="white" font-size="12">0%</text>
+                <text x="130" y="70" font-family="Arial" fill="white" font-size="12">25%</text>
+                <text x="265" y="70" font-family="Arial" fill="white" font-size="12">50%</text>
+                <text x="400" y="70" font-family="Arial" fill="white" font-size="12">75%</text>
+                <text x="535" y="70" font-family="Arial" fill="white" font-size="12">100%</text>
+
+                <!-- Draw rectangles with text -->
+                <rect x="0" y="20" width="60" height="20" fill="#9ddd58" />
+                <text x="5" y="35" font-family="Arial" font-size="14">Value</text>
+
+                <rect x="100" y="20" width="100" height="20" fill="lightgreen" />
+                <text x="105" y="35" font-family="Arial" font-size="12">Value/Denial</text>
+
+                <rect x="250" y="20" width="100" height="20" fill="lightcoral" />
+                <text x="255" y="35" font-family="Arial" font-size="12">Bluff/Denial</text>
+
+                <rect x="450" y="20" width="100" height="20" fill="lightyellow" />
+                <text x="455" y="35" font-family="Arial" font-size="12">Bluff</text>
+            </svg>
+
+        </section>
+
+
+
+
+
+    </div>
+</body>
+
+</html>
