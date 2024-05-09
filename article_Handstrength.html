@@ -238,9 +238,64 @@
                 most recent one. </p>
             <p>Our minimum absolute hand strength for value betting will change massively based on the way a texture
                 runs out. </p>
+            <div class="container">
+                <svg class="svg_hand" card-array="90,60,A,d,135,60,T,c,180,60,3,s,135,130,7,h,135,200,5,h"
+                    betsize-array="245,60,X,10,85,B33,245,95,C,245,130,X,245,165,C,10,140,B150,245,200,X,10,220,?"
+                    width="300" height="300">
+                    <text x="80" y="15" fill="#ffffff" font-size="20">Clean Run Out</text>
+                    <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
+                    <text x="10" y="50" fill="#ffffff" font-size="20">BTN</text>
+                    <text x="250" y="50" fill="#ffffff" font-size="20">BB:</text>
+                </svg>
+                <figure>
+                    <img src="Images/article_HandstrengthValueThreshold1.png">
+                    <figcaption>Value betting threshold.</figcaption>
+                </figure>
+
+            </div>
+            <div class="container">
+                <svg class="svg_hand" card-array="90,60,A,d,135,60,T,c,180,60,3,s,135,130,J,c,135,200,8,c"
+                    betsize-array="245,60,X,10,85,B33,245,95,C,245,130,X,245,165,C,10,140,B150,245,200,X,10,220,?"
+                    width="300" height="300">
+                    <text x="80" y="15" fill="#ffffff" font-size="20">Messy Run Out</text>
+                    <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
+                    <text x="10" y="50" fill="#ffffff" font-size="20">BTN</text>
+                    <text x="250" y="50" fill="#ffffff" font-size="20">BB:</text>
+                </svg>
+                <figure>
+                    <img src="Images/article_HandstrengthValueThreshold2.png">
+                    <figcaption>Value betting threshold.</figcaption>
+                </figure>
+            </div>
             <h3>Turn Urgency</h3>
             <p>Our good hands on the flop will lose their urgency to double barrel the turn for value when the card is
                 messy.</p>
+            <div class="container">
+                <svg class="svg_hand" card-array="90,60,A,d,135,60,T,c,180,60,3,s,135,130,6,h"
+                    betsize-array="245,60,X,10,85,B33,245,95,C,245,130,X,10,140,?" width="300" height="200">
+                    <text x="80" y="15" fill="#ffffff" font-size="20">Clean Turn</text>
+                    <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
+                    <text x="10" y="50" fill="#ffffff" font-size="20">BTN</text>
+                    <text x="250" y="50" fill="#ffffff" font-size="20">BB</text>
+                </svg>
+                <figure>
+                    <img src="Images/article_HandstrengthTurnUrgency1.png">
+                </figure>
+            </div>
+            <div class="container">
+                <svg class="svg_hand" card-array="90,60,A,d,135,60,T,c,180,60,3,s,135,130,T,d"
+                    betsize-array="245,60,X,10,85,B33,245,95,C,245,130,X,10,140,?" width="300" height="200">
+                    <text x="80" y="15" fill="#ffffff" font-size="20">Messy Turn</text>
+                    <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
+                    <text x="10" y="50" fill="#ffffff" font-size="20">BTN</text>
+                    <text x="250" y="50" fill="#ffffff" font-size="20">BB</text>
+                </svg>
+                <figure>
+                    <img src="Images/article_HandstrengthTurnUrgency2.png">
+                </figure>
+            </div>
+            <p>Note how the sizing of coice drops as Villain's range becomes more polarised compared to when it is very
+                condensed.</p>
         </section>
 
         <h2>Configuration</h2>
@@ -249,7 +304,33 @@
                 sequence of the parties who go post-flop.</p>
             <p>In tighter configurations relative hand strength will be below absolute hand strength.</p>
             <p>In looser configurations relative hand strength will be above absolute hand strength.</p>
+            <svg class="svg_hand" card-array="90,60,Q,d,135,60,T,h,180,60,3,c"
+                betsize-array="245,60,X,10,85,B33,245,95,?" width="320" height="140">
+                <text x="0" y="15" fill="#ffffff" font-size="16">A Tight Configuration - UTG vs BB 2Bet Pot</text>
+                <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
+                <text x="10" y="50" fill="#ffffff" font-size="20">UTG</text>
+                <text x="250" y="50" fill="#ffffff" font-size="20">BB</text>
+            </svg>
+            <figure>
+                <img src="Images/article_HandstrengthConfiguration1.png">
+                <figcaption>Global frequencies and call/fold thresholds.</figcaption>
+            </figure>
+            <svg class="svg_hand" card-array="90,60,Q,d,135,60,T,h,180,60,3,c"
+                betsize-array="245,60,X,10,85,B33,245,95,?" width="320" height="140">
+                <text x="0" y="15" fill="#ffffff" font-size="16">A Loose Configuration - BU vs BB 2Bet Pot</text>
+                <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
+                <text x="10" y="50" fill="#ffffff" font-size="20">BU</text>
+                <text x="250" y="50" fill="#ffffff" font-size="20">BB</text>
+            </svg>
+
+            <figure>
+                <img src="Images/article_HandstrengthConfiguration2.png">
+                <figcaption>Global frequencies and call/fold thresholds.</figcaption>
+            </figure>
+            <p>It is a great idea to familiarise yourself with the call/fold thresholds and how they shift when a
+                configuration gets tighter or looser.</p>
         </section>
+
 
 
         <script src="cards.js"></script>

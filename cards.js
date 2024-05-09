@@ -45,6 +45,13 @@ function convertToSvgCard(element) {
     }else if(suit == "d"){
         color = "#0000ff";
         suit = "&diams;";
+    } if(suit=='?'){
+      var svgMarkup = `     
+      <rect x="${x}" y="${y}" width="40" height="60" fill="#ffffff" stroke="#444444" stroke-width="4" />
+      <text x="${parseInt(x)+11}" y="${parseInt(y)+40}" fill="${color}" font-size="33" font-family="Lucida Console">${rank}</text>
+    `;
+      element.innerHTML += svgMarkup;
+      return;
     }
 
     
@@ -64,9 +71,9 @@ function convertToSvgCard(element) {
     if(size == "F"){
         color = "#9AB6EA";
     } else if(size == "C"){
-        color = "#00a800";
+        color = "#B5DE99";
     } else if(size == "X"){
-        color = "#00a800";
+        color = "#B5DE99";
     } else if(size == "B33"){
         color = "#ff6F05";
     } else if(size == "B50"){
@@ -83,7 +90,7 @@ function convertToSvgCard(element) {
     // Construct SVG markup
     var svgMarkup = `     
         <rect x="${x}" y="${y}" width="50" height="25" fill="${color}" stroke="#444444" stroke-width="4" />
-        <text x="${parseInt(x)+25}" y="${parseInt(y)+14}" fill="#000000"  dominant-baseline="middle" text-anchor="middle" font-size="22" font-family="Lucida Console" font-weight="bold">${size}</text>
+        <text x="${parseInt(x)+25}" y="${parseInt(y)+14}" fill="#000000"  dominant-baseline="middle" text-anchor="middle" font-size="18" font-weight="bold">${size}</text>
       `;
         
     // Set SVG content

@@ -73,7 +73,6 @@
         <section>
             <svg class="svg_hand" card-array="90,60,8,s,135,60,8,d,180,60,6,c,295,15,T,h,340,15,9,h"
                 betsize-array="245,100,X,10,125,B33,245,150,?" width="400" height="200">
-                <text x="80" y="15" fill="#ffffff" font-size="20">Clean Run Out</text>
                 <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
                 <text x="10" y="50" fill="#ffffff" font-size="20">BTN</text>
                 <text x="250" y="50" fill="#ffffff" font-size="20">BB:</text>
@@ -125,10 +124,44 @@
                 going to struggle to realise equity by having to fold at some point more frequently.</p>
             <p>Hands that combine SDV with improvability or have outs to nutted hands are going to have higher
                 realizability by being able to continue further into the hand.</p>
-                
+
         </section>
+        <h2>In Position is a Different Beast</h2>
+        <section>
+            <p>When we're in position all of our pot share factors are going to be a lot more positive.</p>
+            <p>Have a look at the following two sims both run on the same flop:</p>
+            <img src="Images/article_Handstrength_KQ4rvsB33.png">
+        </section>
+        <h2>Future Fold Equity</h2>
+        <section>
+            <p>A large part of why we are allowed to call flop c-bets with flimsy hands such as backdoors and gutters
+                comes down to future fold equity. In theory, when we call a BU c-bet from BB, we know that there is a
+                sizable frequency of the time that our opponent does not bet the turn.
+            </p>
+            <h3>Example</h3>
+            <svg class="svg_hand"
+                card-array="90,60,K,h,135,60,Q,c,180,60,4,d,135,130,?,?,135,200,?,?,310,15,T,s,355,15,9,s"
+                betsize-array="245,60,X,10,85,B33,245,95,C,245,130,X,10,140,X" width="400" height="300">
+                <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
+                <text x="10" y="50" fill="#ffffff" font-size="20">BTN</text>
+                <text x="250" y="50" fill="#ffffff" font-size="20">BB:</text>
+                <text x="210" y="220" fill="#ffffff" font-size="20">
+                    <tspan x="210" dy="-1em">Profitable</tspan>
+                    <tspan x="230" dy="+1em">Bluff</tspan>
+                </text>
+            </svg>
 
-
+            <p>When we call this flop c-bet, we expect to see a check on the turn around 60% of the time on average
+                depending on the tun card.</p>
+            <p>When this happens, our range will be much stronger than Villain's because we have shed our worst hands
+                and he has bet many of them and decided not to barrel a second time on this occasion.</p>
+            <p>Therefore, on the river we will have a big range advantage on most run outs. When this is the case our
+                fold equity, in theory, should be above our break even point for a bluff whatever sizing we pick.</p>
+            <p>Therefore, getting the chance to make these profitable river bluffs is a big part of what allows us to
+                call the flop and lose money the times Villain barrels the turn.</p>
+            <p>WARNING: But don't get too carried away here. We still need some implied odds and equity to call the flop bet.
+                The future fold equity alone is not sufficient alone.</p>
+        </section>
 
         <script src="cards.js"></script>
     </div>

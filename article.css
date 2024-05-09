@@ -80,6 +80,10 @@ section {
     width: 40px; /* Set the width of each SVG */
     height: 60px; /* Set the height of each SVG */
     margin-right: 0px; /* Add some spacing between SVGs */
+    
+}
+svg * {
+    font-family: "Arial";
 }
 .board > :nth-child(3) {
     margin-right: 15px;
@@ -90,6 +94,13 @@ section {
 
 .container{
     display: flex;
+}
+
+img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
 }
 
 
