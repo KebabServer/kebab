@@ -67,30 +67,38 @@ function convertToSvgCard(element) {
     element.innerHTML += svgMarkup;
   }
   function drawBetSize(element, x,y, size) {
-    var color;
+    var color, colorborder;
     if(size == "F"){
         color = "#9AB6EA";
+        colorborder = "#6B8AC3";
     } else if(size == "C"){
         color = "#B5DE99";
+        colorborder = "#6CA251";
     } else if(size == "X"){
         color = "#B5DE99";
+        colorborder = "#6CA251";
     } else if(size == "B33"){
         color = "#ff6F05";
+        colorborder = "#D45C00";
     } else if(size == "B50"){
         color = "#0000ff";
+        colorborder = "#000080";
     } else if(size == "B75"){
         color = "#F03131";
+        colorborder = " #A82424";
     } else if(size == "B150"){
         color = "#7937AB";
+        colorborder = "#4B2357";
     }else {
       color = "#777777";
+      colorborder = "#444444";
   }
 
     
     // Construct SVG markup
     var svgMarkup = `     
-        <rect x="${x}" y="${y}" width="50" height="25" fill="${color}" stroke="#444444" stroke-width="4" />
-        <text x="${parseInt(x)+25}" y="${parseInt(y)+14}" fill="#000000"  dominant-baseline="middle" text-anchor="middle" font-size="18" font-weight="bold">${size}</text>
+        <rect x="${x}" y="${y}" width="50" height="20" fill="${color}" stroke="${colorborder}" stroke-width="2" />
+        <text x="${parseInt(x)+25}" y="${parseInt(y)+12}" fill="#000000"  dominant-baseline="middle" text-anchor="middle" font-size="18" font-weight="bold">${size}</text>
       `;
         
     // Set SVG content
