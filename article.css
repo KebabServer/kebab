@@ -17,6 +17,24 @@ h2 {
 h2 {
     color: coral;
 }
+.fallacy{
+    color:#cef71b
+}
+.theorem{
+    color:#38f3da
+}
+.example{
+    color:#384592
+}
+.yellow{
+    color:#cef71b
+}
+.red{
+    color:#9c132a
+}
+.green{
+    color:#03bb2b
+}
 
 h3 {
     color: rgb(63, 158, 103);

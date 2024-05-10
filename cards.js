@@ -102,9 +102,15 @@ svgCards.forEach(function(element) {
 });
 const svgHands = document.querySelectorAll('.svg_hand');
 svgHands.forEach(function(element) {
-  var card_array = element.getAttribute('card-array').split(',');
-  for (var i = 0; i < card_array.length; i += 4) {
-    drawSVGCard(element, card_array[i],card_array[i+1],card_array[i+2],card_array[i+3]);
+ 
+  if(element.getAttribute('card-array') != null){
+    var card_array = element.getAttribute('card-array').split(',');
+    for (var i = 0; i < card_array.length; i += 4) {
+      drawSVGCard(element, card_array[i],card_array[i+1],card_array[i+2],card_array[i+3]);
+    }
+  }
+  if(element.getAttribute('betsize-array') == null){
+    return;
   }
   var betsize_array = element.getAttribute('betsize-array').split(',');
   for (var i = 0; i < betsize_array.length; i += 3) {
