@@ -25,7 +25,7 @@ h2 {
     color:#38f3da
 }
 .example{
-    color:#384592
+    color:#4a65ff
 }
 .rule{
     color:#cef71b
@@ -122,7 +122,16 @@ img {
     width: auto;
     max-width: 100%;
     height: auto;
-    max-height: 100%;
+    max-height: 100%
+    ;
 }
+.sideways_list{
+    list-style:none;
+}
+.sideways_list > li{
+    display: inline-block; margin: 20px;
+    font-weight: bold;
+}
+
 
 

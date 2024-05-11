@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <h1>Poker Theory: C-Bet Frequency and Sizing</h1>
+        <h1>Theory: C-Bet Frequency and Sizing</h1>
     </header>
 
 
@@ -39,31 +39,27 @@
         <p>We need to remember that low equity hands bring down the equity of our range just as much as high equity
             hands bring up the equity of our range.</p>
         <p>Just as having a lot of medium equity hands in you range will move your equity towards the middle.</p>
-        <p>The whole range vs range pitcture is what is important for determining <b style="color:#cef71b">Range
+        <p>The whole range vs range picture is what is important for determining <b style="color:#cef71b">Range
                 Advantage</b></p>
-        <h2 class="example">Example</h2>
+        <!--      <h2 class="example">Example</h2>
         <p>Range 1: AA:1 72o:12</p>
         <p>vs</p>
         <p>Range 2: JJ:1 TT:1 99:1 AQ:1</p>
-        <p>Range 1 has Nut advantage, but range 2 has range advantage.</p>
+        <p>Range 1 has Nut advantage, but range 2 has range advantage.</p> -->
 
 
         <h2 class="fallacy">The Total Amount Fallacy</h2>
         <p>The <b class="yellow">Total Amount Fallacy</b> occurs when we ignore how concentrated good hands
-            are and just talk about how
-            many absolute combos of them we have.
+            are and just talk about how many absolute combos of them we have.
         </p>
-        <h2 class="example">Example</h2>
+        <!--      <h2 class="example">Example</h2>
         <p>Range 1: AA:4 73o:16</p>
         <p>vs</p>
         <p>Range 2: AA:1 73o:2</p>
-        <p>Range 1 has more absolute combos of AA, but range 2 has higher portion of it. Range 2 is stronger.</p>
-        <h2>The Range Advantage Therefore Bet Fallacy</h2>
-        <h2>And</h2>
-        <h2>The Range Disadvantage Therefore Check Fallacy</h2>
-        <p>As we shall see, having a <b class="yellow">large range advantage</b> makes our range want to bet
-            more often on the flop, and having a <b class="yellow">large range disadvantage</b> means we will
-            usually check when out of position on the flop, but generally speaking on the turn and river must polarise
+        <p>Range 1 has more absolute combos of AA, but range 2 has higher portion of it. Range 2 is stronger.</p> -->
+        <h2 class="fallacy">The Range Advantage Therefore Bet Fallacy</h2>
+        <p>Having a <b class="yellow">large range advantage</b> makes our range want to bet
+            more often on the flop, but generally speaking on the turn and river we must polarise
             our betting range to some extent.</p>
         <h2 class="example">Example 1</h2>
         <svg class="svg_hand" card-array="90,60,J,h,135,60,T,h,180,60,4,c,135,130,Q,d,310,15,8,d,355,15,8,s"
@@ -75,6 +71,14 @@
         </svg>
         <p>CO has total equity of 57.5% and thus big range advantage. Despite having a big range advantage we cannot bet
             this middling hand. It would be a <b class="yellow">polarisation error</b>.</p>
+
+
+        <h2 class="fallacy">The Range Disadvantage Therefore Check Fallacy</h2>
+        <p>Having a <b class="yellow">large range disadvantage</b> means we will usually check when out of position on
+            the flop, but generally speaking on the turn and river we must polarise our betting range to some extent.
+        </p>
+
+
         <h2 class="example">Example 2</h2>
         <svg class="svg_hand" card-array="90,60,J,h,135,60,T,h,180,60,4,c,135,130,T,s,310,15,4,h,355,15,4,s"
             betsize-array="10,60,X,245,85,B75,10,95,C,10,130,X,245,140,X" width="400" height="200">
@@ -173,9 +177,10 @@
             us size up on the flop.</p>
         <p>We are asking: <b class="green">"Do we have a large nut advantage?"</b>, because that is sufficient for
             sizing up on the flop.</p>
-        <h2 class="example">Example 1 - Small R.A / Small N.A</h2>
+        <h2>Small R.A / Small N.A</h2>
         <p>When we have only a small range advantage and small nut advantage. Our range will bet infrequently (more
             polarised) and use <svg class="svg_hand" betsize-array="0,0,B33" width="50" height="20"></svg>.</p>
+        <h2 class="example">Example</h2>
         <svg class="svg_hand" card-array="90,60,T,s,135,60,8,s,180,60,5,s" betsize-array="10,60,?" width="300"
             height="150">
             <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
@@ -190,10 +195,11 @@
         <p>But this mistakes <b class="yellow">correlation for cause.</b> We very often have the combination of nut
             advantage but no range advantage when we are barrelling turns etc. but this is not always true on the flop.
         </p>
-        <h2 class="example">Example 2 - Small R.A / Big N.A</h2>
+        <h2>Small R.A / Big N.A</h2>
         <p>When we have only a small range advantage and big nut advantage. Our range will bet infrequently (more
             polarised) and can use bigger size <svg class="svg_hand" betsize-array="0,0,B75" width="50"
                 height="20"></svg>.</p>
+        <h2 class="example">Example</h2>
         <svg class="svg_hand" card-array="90,60,7,h,135,60,6,h,180,60,2,c" betsize-array="10,85,?,245,60,X" width="300"
             height="150">
             <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
@@ -207,9 +213,10 @@
         <p>Meanwhile some of BU's unique hands such as two big cards, have dropped significantly in equity on this
             texture.</p>
         <img src="Images/article_Cbetting_example2.png">
-        <h3 class="example">Example 3 - Big R.A / Small N.A</h3>
+        <h2>Big R.A / Small N.A</h2>
         <p>When we have only a big range advantage and small nut advantage. Our range will bet frequently and for
             smaller size <svg class="svg_hand" betsize-array="0,0,B33" width="50" height="20"></svg>.</p>
+        <h2 class="example">Example</h2>
         <svg class="svg_hand" card-array="90,60,A,s,135,60,Q,d,180,60,Q,c" betsize-array="10,85,?,245,60,X" width="300"
             height="150">
             <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
@@ -221,6 +228,9 @@
         <p>Here MP enjoys a huge range advantage and can pretty much always bet this flop, but this does not come from
             nut advantage since both players have a similar concentration of Qx.</p>
         <p>MP's range advantage comes from having less trash / low cards.</p>
+        
+        <h2> Big R.A / Big N.A</h2>
+        <p>When we have big range and nut advantage, we will bet big and frequently.</p>
         <h3 class="example">Example 4 - Big R.A / Big N.A</h3>
         <svg class="svg_hand" card-array="90,60,J,s,135,60,2,d,180,60,2,c" betsize-array="10,85,?,245,60,X" width="300"
             height="150">
@@ -230,7 +240,7 @@
             <text x="20" y="140" fill="#ffffff" font-size="14">Total Equity: 58.783</text>
         </svg>
         <img src="Images/article_Cbetting_example4.png">
-        <p>And finally a spot where both the range and nut advantage is hugely in UTG's favour. </p>
+        <p>A spot where both the range and nut advantage is hugely in UTG's favour. </p>
         <p>The best Jacks and Overpairs are very powerful hands on a board that is so hard to hit. While BB has more
             trips, these hands are scarce enough that they barely matter.</p>
 

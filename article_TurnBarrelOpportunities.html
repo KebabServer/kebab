@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Theory: Turn Barrel Opportunities</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="article.css">
+</head>
+
+<body>
+    <header>
+        <h1>Theory: Turn Barrel Opportunities</h1>
+    </header>
+
+
+    <div id="WrappingDiv">
+        <h1>Turn Barrel Opportunities</h1>
+
+        <h2>Favourability of Turn Worlds</h2>
+        <p>A turn world and its favourability are not just a function of the turn card alone but of:</p>
+        <ul class=sideways_list style="list-style:none">
+            <li>Pre-Flop Ranges</li>
+            <li>The Flop</li>
+            <li>Flop Action</li>
+            <li>The Turn Card</li>
+        </ul>
+        <h2 class="example">Examples of different turn worlds</h2>
+        <p>Examples of different turn worlds:</p>
+        <svg class="svg_hand" card-array="90,60,5,h,135,60,2,h,180,60,2,c,135,130,Q,d"
+            betsize-array="10,70,B33,245,60,X,245,85,C,245,130,X,10,140,?" width="400" height="220">
+            <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
+            <text x="10" y="50" fill="#ffffff" font-size="20">BU</text>
+            <text x="250" y="50" fill="#ffffff" font-size="20">BB</text>
+            <text x="105" y="212" fill="#03bb2b" font-size="20">Favourable</text>
+
+        </svg>
+        <svg class="svg_hand" card-array="90,60,K,h,135,60,9,h,180,60,8,s,135,130,8,h"
+            betsize-array="10,70,B33,245,85,C,10,140,?" width="400" height="220">
+            <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
+            <text x="10" y="50" fill="#ffffff" font-size="20">SB</text>
+            <text x="250" y="50" fill="#ffffff" font-size="20">BB</text>
+            <text x="100" y="212" fill="#ee6500" font-size="20">Unfavourable</text>
+
+        </svg>
+        <svg class="svg_hand" card-array="90,60,8,d,135,60,7,d,180,60,3,s,135,130,5,c"
+            betsize-array="10,70,B33,245,60,X,245,85,C,245,130,X,10,140,?" width="400" height="220">
+            <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
+            <text x="10" y="50" fill="#ffffff" font-size="20">BU</text>
+            <text x="250" y="50" fill="#ffffff" font-size="20">BB</text>
+            <text x="120" y="212" fill="yellow" font-size="20" stroke-width=".5">Neutral</text>
+        </svg>
+        <h2>Attacking Favourable Worlds</h2>
+        <p>In favourable turn worlds we are able to bluff much less selectively and should have a betting frequency of
+            60% upwards on average. Of course we still need to build a polarised betting range and check our most
+            middling hands.</p>
+        <p>In the following highly favourable turn spot out turn strategy is extremely aggressive. We value bet a LOT of
+            hands and can seek fold equity very often with our air hands as well as our semi-bluffs</p>
+        <div class="container">
+            <svg class="svg_hand" card-array="90,60,J,s,135,60,6,d,180,60,3,d,135,130,K,c"
+                betsize-array="10,70,B33,245,60,X,245,85,C,245,130,X,10,140,?" width="400" height="220">
+                <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
+                <text x="10" y="50" fill="#ffffff" font-size="20">BU</text>
+                <text x="250" y="50" fill="#ffffff" font-size="20">BB</text>
+                <text x="120" y="212" fill="yellow" font-size="20" stroke-width=".5">Neutral</text>
+            </svg>
+            <ul style="list-style:none">
+                <li>BU EV: <b class="green">67.19</b></li>
+                <li> BU Bet Frequency: B75: 71.70% - Check 28.30%</li>
+                <li>BB Fold% vs B75: 42.46</li>
+            </ul>
+        </div>
+        <img src="Images/article_TurnBarrelOpportunities_Pio1.png">
+        <h2>Showing Restraint in Neutral Worlds</h2>
+
+
+
+
+
+
+
+
+        <script src="cards.js"></script>
+    </div>
+</body>
+
+</html>
