@@ -1,7 +1,6 @@
     /* Reset some default margin and padding */
     body,
-    h1,
-    h2,
+    h1,h2,
     p {
         margin: 0;
         padding: 0;
@@ -22,11 +21,6 @@
         line-height: 1.6;
     }
 
-    /* Style section headings */
-    h2 {
-        margin-top: 20px;
-        font-size: 1.2em;
-    }
 
     /* Style footer */
     footer {

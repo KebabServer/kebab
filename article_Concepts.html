@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Kebab Server</title>
+    <title>Theory - Concepts</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="article.css">
@@ -18,31 +18,33 @@
         <h1>Concepts</h1>
 
         <h2>Expected Value</h2>
-        <p> The expected value (EV) is a statistical measure used to determine the average outcome of a
-            particular decision over the long run.</p>
+        <p> <em class="yellow">The expected value (EV)</em> is a statistical measure used to determine the average
+            outcome of a particular decision over the long run.</p>
 
         <h2>Equity</h2>
-        <p>
-            Equity refers to the share of the pot that belongs to a player if there were no more actions to be
-            made and the rest of the cards are dealt. It is based on the probability that a player will have the
-            best hand after the cards are dealt. </p>
+        <p><em class="yellow"> Equity</em> refers to the share of the pot that belongs to a player if there were no more
+            actions to be made and the rest of the cards are dealt. It is based on the probability that a player will
+            have the best hand after the cards are dealt. </p>
 
         <h2>Landing equity</h2>
-        <p>The landing equity of your hand is of your hand's equity before your opponent has reacted to your
-            bet.</p>
+        <p><em class="yellow">The landing equity</em> of your hand is of your hand's equity before your opponent has
+            reacted to your bet.</p>
 
         <h2>Finishing equity</h2>
-        <p>The finishing equity of your hand is your hand's equity after your opponent has called your bet.</p>
+        <p><em class="yellow">The finishing equity</em> of your hand is your hand's equity after your opponent has
+            called your bet.</p>
 
         <h2>Value Bet</h2>
-        <p> Bet made with a strong hand that expects to build a pot against a range that it will be a head of. </p>
+        <p><em class="yellow">Value Bet</em> is made bet made with a strong hand that expects to build a pot against a
+            range that it will be a head of. </p>
 
         <h2>Bluff</h2>
-        <p>Bluffing means betting with a hand that, when your opponent folds, he will frequently be folding hands
-            with high equity against your hand.</p>
+        <p><em class="yellow">Bluffing</em> means betting with a hand that, when your opponent folds, he will
+            frequently be folding hands with high equity against your hand.</p>
 
         <h2>Equity Denial</h2>
-        <p>Equity denial is when you prevent a player from realizing his equity by forcing him to fold before
+        <p> <em class="yellow">Equity denial</em> is when you prevent a player from realizing his equity by forcing him
+            to fold before
             showdown.</p>
 
 
@@ -50,7 +52,7 @@
 
 
         <h2>Urgency</h2>
-        <p> <em>Urgency</em> refers to how imporant it is to value bet <b>Now</b>. It is dependant on the
+        <p> <em class="yellow">Urgency</em> refers to how imporant it is to value bet <b>Now</b>. It is dependant on the
             <b>amount
                 of time
                 remaing</b> in a hand to invest money compared with the average <b>investment ceiling</b> your
@@ -58,16 +60,19 @@
             wants to reach.
         </p>
 
-
-
         <h2>Minimum Defense Frenquency (MDF)</h2>
-        <p><em>Minimum defense frequency</em> (MDF) describes the portion of your range that you must continue with
+        <p><em class="yellow">Minimum defense frequency (MDF)</em> describes the portion of your range that you must
+            continue with
             when facing a bet in order to remain unexploitable by bluffs.</p>
-        <h3> Formula for the MDF</h3>
-        <pre><b>MDF = pot_size / (pot_size + bet_size)</b></pre>
-        <h3>MDF for Common Bet Sizes</h3>
+        <svg width="300" height="80">
+            <text x=0 y="30" fill="#ffffff" font-size="20">MDF =</text>
+            <text x=110 y="15" fill="#ffffff" font-size="20">pot_size</text>
+            <line x1="70" y1="23" x2="240" y2="23" style="stroke:rgb(255, 255, 255);stroke-width:2" />
+            <text x=70 y="42" fill="#ffffff" font-size="20">pot_size + bet_size</text>
+        </svg>
         <table class="tg">
-            <thead>
+            <caption style="text-align:middle">MDF for Most Common Bet Sizes</caption>
+            <tbody>
                 <tr>
                     <th class="tg-64jd">Bet size</th>
                     <th class="tg-hv44">10%</th>
@@ -85,8 +90,7 @@
                     <th class="tg-hv44">350%</th>
                     <th class="tg-hv44">400%</th>
                 </tr>
-            </thead>
-            <tbody>
+
                 <tr>
                     <td class="tg-64jd">MDF</td>
                     <td class="tg-hv44">90.9%</td>
@@ -108,25 +112,19 @@
         </table>
 
         <h2>Different type of ranges</h2>
-        <h3>Capped range</h3>
-        <p><em>A capped range</em> is a range that contains no (or very few) strong hands.</p>
-        <h3>Polarized range</h3>
-        <p><em>A polarized range</em> is one constructed of very strong hands and very weak hands, nuts/bluffs.
-            The most common place you'll see polarized ranges are in position, on the river.</p>
-        <h3>Condensed range</h3>
-        <p><em>A condensed range</em> is a capped range that is also tight. This range does not contain the
-            strongest hands, but is lean and
-            contains many medium-strength hands. Also known as "depolarized".</p>
+
+        <p><em class="yellow">A capped range</em> is a range that contains no (or very few) strong hands.</p>
+
+        <p><em class="yellow">A polarized range</em> is one constructed of very strong hands and very weak hands,
+            nuts/bluffs. The most common place you'll see polarized ranges are in position, on the river.</p>
+
+        <p><em class="yellow">A condensed range</em> is a capped range that is also tight. This range does not contain
+            the strongest hands, but is lean and contains many medium-strength hands. Also known as "depolarized".</p>
 
 
-        <h3>Merged Ranges</h3>
-
-        <p>Merged ranges are ones which have not been polarised either by a player's action or the board texture.
-        </p>
-        <p>Merged ranges contain lots of medium strength hands at a high concentration but also some strong and weak
-            hands.</p>
-        <p>A merged range is like a condensed range only more air heavy and less capped - it has not moved towards
-            the middle, it simply contains a lot of middling hands naturally.</p>
+        <p><em class="yellow">A Merged range</em> contains lots of medium strength hands at a high concentration but
+            also some strong and weak hands. It is like a condensed range only more air heavy and less capped - it has
+            not moved towards the middle, it simply contains a lot of middling hands naturally.</p>
         <svg width="300" height="80">
             <text x="50%" y="10" dominant-baseline="middle" text-anchor="middle" fill="#ffffff" font-size="20">Polar
                 Range</text>
@@ -153,9 +151,86 @@
             <rect x="225" y="25" width="100" height="50" fill="#00ff00" stroke="white" stroke-width="2" />
         </svg>
 
-        <h2>Filtering</h2>
+        <h2>Range Filtering</h2>
+        <p><em class="yellow">Range Filtering</em> is the amount of contraction that has taken place in a range. When a
+            range contracts (sheds some of its combos) it can do so in two different ways.</p>
+        <p> <em class="yellow">Polarising</em> - A range contracts by polarising when it removes some of its more
+            middling hands by taking a more aggressive action than it could have.</p>
+        <p><em class="yellow">Condensing</em> - A range contracts by condensing when it removes some of its strongest
+            and weakest hands by taking a more passive action than it could have.</p>
+        <svg width="495" height="220">
+            <text x="50%" y="10" dominant-baseline="middle" text-anchor="middle" fill="#ffffff"
+                font-size="16">Polarising</text>
+            <!-- Top rectangles -->
+            <rect x="0" y="25" width="165" height="50" fill="#ff0000" stroke="white" stroke-width="2" />
+            <rect x="165" y="25" width="165" height="50" fill="#ffff00" stroke="white" stroke-width="2" />
+            <rect x="330" y="25" width="165" height="50" fill="#00ff00" stroke="white" stroke-width="2" />
 
+            <!-- Text inside the rectangle -->
+            <text x="83" y="60" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18"
+                font-weight="bold">
+                <tspan x="83" dy="-1em">Low Equity</tspan>
+                <tspan x="83" dy="+1em">Hands</tspan>
+            </text>
+            <text x="253" y="60" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18"
+                font-weight="bold">
+                <tspan x="253" dy="-1em">Medium Equity</tspan>
+                <tspan x="253" dy="+1em">Hands</tspan>
+            </text>
+            <text x="420" y="60" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18"
+                font-weight="bold">
+                <tspan x="420" dy="-1em">High Equity</tspan>
+                <tspan x="420" dy="+1em">Hands</tspan>
+            </text>
+            <!-- Arrow -->
+            <polygon points="182,130 208,130 208,80 278,80 278,130 328,130 308,130 243,160" fill="white" />
 
+            <!-- Bottom rectangles -->
+            <rect x="0" y="170" width="165" height="50" fill="#ff0000" stroke="white" stroke-width="2" />
+            <rect x="165" y="170" width="25" height="50" fill="#ffff00" stroke="white" stroke-width="2" />
+            <rect x="305" y="170" width="25" height="50" fill="#ffff00" stroke="white" stroke-width="2" />
+            <rect x="330" y="170" width="165" height="50" fill="#00ff00" stroke="white" stroke-width="2" />
+
+        </svg>
+        <svg width="495" height="220">
+            <text x="50%" y="10" dominant-baseline="middle" text-anchor="middle" fill="#ffffff"
+                font-size="16">Condensing</text>
+            <!-- Top rectangles -->
+            <rect x="0" y="25" width="165" height="50" fill="#ff0000" stroke="white" stroke-width="2" />
+            <rect x="165" y="25" width="165" height="50" fill="#ffff00" stroke="white" stroke-width="2" />
+            <rect x="330" y="25" width="165" height="50" fill="#00ff00" stroke="white" stroke-width="2" />
+
+            <!-- Text inside the rectangle -->
+            <text x="83" y="60" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18"
+                font-weight="bold">
+                <tspan x="83" dy="-1em">Low Equity</tspan>
+                <tspan x="83" dy="+1em">Hands</tspan>
+            </text>
+            <text x="253" y="60" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18"
+                font-weight="bold">
+                <tspan x="253" dy="-1em">Medium Equity</tspan>
+                <tspan x="253" dy="+1em">Hands</tspan>
+            </text>
+            <text x="420" y="60" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18"
+                font-weight="bold">
+                <tspan x="420" dy="-1em">High Equity</tspan>
+                <tspan x="420" dy="+1em">Hands</tspan>
+            </text>
+            <!-- Arrow -->
+            <polygon points="182,130 208,130 208,80 278,80 278,130 328,130 308,130 243,160" fill="white" />
+
+            <!-- Bottom rectangles -->
+            <rect x="130" y="170" width="35" height="50" fill="#ff0000" stroke="white" stroke-width="2" />
+            <rect x="165" y="170" width="165" height="50" fill="#ffff00" stroke="white" stroke-width="2" />
+            <rect x="330" y="170" width="35" height="50" fill="#00ff00" stroke="white" stroke-width="2" />
+
+        </svg>
+
+        <h2>Open and Closed Action Spot</h2>
+        <p><em class="yellow">Open Action Spot</em> is a spot where there is still more action remaining in the hand
+            after you call.</p>
+        <p><em class="yellow">Closed Action Spot</em> is a spot where there is no more action in the hand after you
+            call. </p>
 
 
 
