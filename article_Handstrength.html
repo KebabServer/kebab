@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Theory - Hand Strength</title>
+    <title>Theory - Relative Hand Strength</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="article.css">
@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <h1>Poker Theory: Hand Strength</h1>
+        <h1>Poker Theory: Relative Hand Strength</h1>
     </header>
 
 
@@ -44,79 +44,6 @@
 
         <h2>Range Filtering</h2>
 
-        <p>Range Filtering is the amount of contraction that has taken place in a range. When a range contracts
-            (sheds some of its combos) it can do so in two different ways.</p>
-        <p>Polarising - A range contracts by polarising when it removes some of its more middling hands by taking a
-            more aggressive action than it could have.</p>
-        <p>Condensing - A range contracts by condensing when it removes some of its strongest and weakest hands by
-            taking a more passive action than it could have.</p>
-        <svg width="495" height="220">
-            <text x="50%" y="10" dominant-baseline="middle" text-anchor="middle" fill="#ffffff"
-                font-size="16">Polarising</text>
-            <!-- Top rectangles -->
-            <rect x="0" y="25" width="165" height="50" fill="#ff0000" stroke="white" stroke-width="2" />
-            <rect x="165" y="25" width="165" height="50" fill="#ffff00" stroke="white" stroke-width="2" />
-            <rect x="330" y="25" width="165" height="50" fill="#00ff00" stroke="white" stroke-width="2" />
-
-            <!-- Text inside the rectangle -->
-            <text x="83" y="60" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18"
-                font-weight="bold">
-                <tspan x="83" dy="-1em">Low Equity</tspan>
-                <tspan x="83" dy="+1em">Hands</tspan>
-            </text>
-            <text x="253" y="60" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18"
-                font-weight="bold">
-                <tspan x="253" dy="-1em">Medium Equity</tspan>
-                <tspan x="253" dy="+1em">Hands</tspan>
-            </text>
-            <text x="420" y="60" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18"
-                font-weight="bold">
-                <tspan x="420" dy="-1em">High Equity</tspan>
-                <tspan x="420" dy="+1em">Hands</tspan>
-            </text>
-            <!-- Arrow -->
-            <polygon points="182,130 208,130 208,80 278,80 278,130 328,130 308,130 243,160" fill="white" />
-
-            <!-- Bottom rectangles -->
-            <rect x="0" y="170" width="165" height="50" fill="#ff0000" stroke="white" stroke-width="2" />
-            <rect x="165" y="170" width="25" height="50" fill="#ffff00" stroke="white" stroke-width="2" />
-            <rect x="305" y="170" width="25" height="50" fill="#ffff00" stroke="white" stroke-width="2" />
-            <rect x="330" y="170" width="165" height="50" fill="#00ff00" stroke="white" stroke-width="2" />
-
-        </svg>
-        <svg width="495" height="220">
-            <text x="50%" y="10" dominant-baseline="middle" text-anchor="middle" fill="#ffffff"
-                font-size="16">Condensing</text>
-            <!-- Top rectangles -->
-            <rect x="0" y="25" width="165" height="50" fill="#ff0000" stroke="white" stroke-width="2" />
-            <rect x="165" y="25" width="165" height="50" fill="#ffff00" stroke="white" stroke-width="2" />
-            <rect x="330" y="25" width="165" height="50" fill="#00ff00" stroke="white" stroke-width="2" />
-
-            <!-- Text inside the rectangle -->
-            <text x="83" y="60" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18"
-                font-weight="bold">
-                <tspan x="83" dy="-1em">Low Equity</tspan>
-                <tspan x="83" dy="+1em">Hands</tspan>
-            </text>
-            <text x="253" y="60" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18"
-                font-weight="bold">
-                <tspan x="253" dy="-1em">Medium Equity</tspan>
-                <tspan x="253" dy="+1em">Hands</tspan>
-            </text>
-            <text x="420" y="60" dominant-baseline="middle" text-anchor="middle" fill="#000000" font-size="18"
-                font-weight="bold">
-                <tspan x="420" dy="-1em">High Equity</tspan>
-                <tspan x="420" dy="+1em">Hands</tspan>
-            </text>
-            <!-- Arrow -->
-            <polygon points="182,130 208,130 208,80 278,80 278,130 328,130 308,130 243,160" fill="white" />
-
-            <!-- Bottom rectangles -->
-            <rect x="130" y="170" width="35" height="50" fill="#ff0000" stroke="white" stroke-width="2" />
-            <rect x="165" y="170" width="165" height="50" fill="#ffff00" stroke="white" stroke-width="2" />
-            <rect x="330" y="170" width="35" height="50" fill="#00ff00" stroke="white" stroke-width="2" />
-
-        </svg>
         <h3>Relative Hand Strength vs Polarisation</h3>
 
         <p>When your opponent has polarised to a significant extent a few things will happen to your hand:</p>
@@ -145,39 +72,7 @@
                 range and such hands do most of their investing by calling not by betting.</li>
         </ul>
 
-        <h3>Merged Ranges</h3>
-
-        <p>Merged ranges are ones which have not been polarised either by a player's action or the board texture.
-        </p>
-        <p>Merged ranges contain lots of medium strength hands at a high concentration but also some strong and weak
-            hands.</p>
-        <p>A merged range is like a condensed range only more air heavy and less capped - it has not moved towards
-            the middle, it simply contains a lot of middling hands naturally.</p>
-        <svg width="300" height="80">
-            <text x="50%" y="10" dominant-baseline="middle" text-anchor="middle" fill="#ffffff" font-size="20">Polar
-                Range</text>
-            <!-- Top rectangles -->
-            <rect x="0" y="25" width="100" height="50" fill="#ff0000" stroke="white" stroke-width="2" />
-            <rect x="100" y="25" width="20" height="50" fill="#ffff00" stroke="white" stroke-width="2" />
-            <rect x="180" y="25" width="20" height="50" fill="#ffff00" stroke="white" stroke-width="2" />
-            <rect x="200" y="25" width="100" height="50" fill="#00ff00" stroke="white" stroke-width="2" />
-        </svg>
-        <svg width="300" height="80">
-            <text x="50%" y="10" dominant-baseline="middle" text-anchor="middle" fill="#ffffff" font-size="20">Condensed
-                Range</text>
-            <!-- Top rectangles -->
-            <rect x="80" y="25" width="20" height="50" fill="#ff0000" stroke="white" stroke-width="2" />
-            <rect x="100" y="25" width="100" height="50" fill="#ffff00" stroke="white" stroke-width="2" />
-            <rect x="200" y="25" width="20" height="50" fill="#00ff00" stroke="white" stroke-width="2" />
-        </svg>
-        <svg width="300" height="80">
-            <text x="50%" y="10" dominant-baseline="middle" text-anchor="middle" fill="#ffffff" font-size="20">Merged
-                Range</text>
-            <!-- Top rectangles -->
-            <rect x="0" y="25" width="100" height="50" fill="#ff0000" stroke="white" stroke-width="2" />
-            <rect x="75" y="25" width="150" height="50" fill="#ffff00" stroke="white" stroke-width="2" />
-            <rect x="225" y="25" width="100" height="50" fill="#00ff00" stroke="white" stroke-width="2" />
-        </svg>
+        
         <h3>Cannon Rule</h3>
         <p>When you think your opponent's range is merged or condensed you can fire aggressively for value and as a
             bluff and deploy a large sizing. But as your opponent's range becomes more polar, your investment level
@@ -187,7 +82,7 @@
 
         <p>The board texture massively affects our relative hand strength.</p>
         <p>On wetter textures a rank of hand (e.g. one pair) will be weaker than on drier textures.</p>
-        <p>On wetter textures a an absolute rank of hand (e.g. one pair) will be weaker than on drier textures.</p>
+        <p>On wetter textures an absolute rank of hand (e.g. one pair) will be weaker than on drier textures.</p>
         <p>We can split textures into three broad categories:</p>
 
         <h3>Dry Textures</h3>
