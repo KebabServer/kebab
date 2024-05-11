@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Kebab Server</title>
+    <title>Theory: Calling Bets</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="article.css">
@@ -10,158 +10,158 @@
 
 <body>
     <header>
-        <h1>Poker Theory: Betting</h1>
+        <h1>Theory: Calling Bets</h1>
     </header>
 
 
     <div id="WrappingDiv">
         <h1>Calling Bets</h1>
-        <section>
-            <h2>A Framework for Facing Bets in Open Action Spots </h2>
-            <p>Whenever you face a bet there is a certain amount of EV expressed as a percentage of the new pot after
-                you call that you will need to get in order to break even by calling. We will call this your Required
-                Pot Share.</p>
-            <p>We can calculate what this by asking what % of the new pot (after you call) your investment will equate
-                to.</p>
-            <p>But we can only estimate your actual pot share and whether you can hit required pot share or not by
-                looking at the following factors:</p>
-            <ul>
-                <li>Equity</li>
-                <li>Realizability of Equity</li>
-                <li>Future Fold Equity</li>
-                <li>Implied Odds</li>
-            </ul>
-            <p>Think of equity as the baseline for calling bets in open action spots (with more action remaining in the
-                hand after you call). We need to adjust this for the other factors to make a best guess about our pot
-                share.</p>
-            <p>And we need to remember that raising for value or as a semi-bluff might be a good idea even if we know
-                that calling is +EV - meaning better than folding.</p>
-            <p>We shall start today's lesson with a very common spot - Facing Flop C-Bet and see how this thought
-                process works, but first a word on position.</p>
-        </section>
-        <h2>Position - The Overarching Factor</h2>
-        <section>
-            <p>The following three factors are always better in position:</p>
-            <ul>
-                <li>Realizability of Equity</li>
-                <li>Future Fold Equity</li>
-                <li>Implied Odds</li>
-            </ul>
-            <p>In position we have the ability to continue further into the hand due to being able to control whether
-                bets go in or not on future streets to a greater extent and therefore our realizability, particularly
-                with unmade hands, which need fold equity when they miss and implied odds when they hit is much better.
-            </p>
-            <p>When we call a turn bet in position and Villain checks his air on the river we will have the chance to
-                bluff with our worse air and win the pot. These spots are, moreover, favourable worlds and therefore
-                bluffing is quite a bit better than 0EV.</p>
-            <p>When we call a turn bet in position we have the chance to value bet river and increase the pot against
-                Villain's medium, strength hands, but when out of position the river will often go check-check here as
-                we do not want to build a donking range in most cases.</p>
-            <p>If we call a flop bet in position we have the chance to value bet twice if Villain checks the turn.
-                Contrast this t out of position where turn might go check-check and we only have the river left to value
-                bet. </p>
-            <p>Position helps us pick and choose our future investments with more control and therefore boosts the EV of
-                calling a bet on an earlier street but it is not the only thing that affects how positive our calling
-                factors are likely to be.</p>
 
-        </section>
+        <h2>A Framework for Facing Bets in Open Action Spots </h2>
+        <p>Whenever you face a bet there is a certain amount of EV expressed as a percentage of the new pot after
+            you call that you will need to get in order to break even by calling. We will call this your Required
+            Pot Share.</p>
+        <p>We can calculate what this by asking what % of the new pot (after you call) your investment will equate
+            to.</p>
+        <p>But we can only estimate your actual pot share and whether you can hit required pot share or not by
+            looking at the following factors:</p>
+        <ul>
+            <li>Equity</li>
+            <li>Realizability of Equity</li>
+            <li>Future Fold Equity</li>
+            <li>Implied Odds</li>
+        </ul>
+        <p>Think of equity as the baseline for calling bets in open action spots (with more action remaining in the
+            hand after you call). We need to adjust this for the other factors to make a best guess about our pot
+            share.</p>
+        <p>And we need to remember that raising for value or as a semi-bluff might be a good idea even if we know
+            that calling is +EV - meaning better than folding.</p>
+        <p>We shall start today's lesson with a very common spot - Facing Flop C-Bet and see how this thought
+            process works, but first a word on position.</p>
+
+        <h2>Position - The Overarching Factor</h2>
+
+        <p>The following three factors are always better in position:</p>
+        <ul>
+            <li>Realizability of Equity</li>
+            <li>Future Fold Equity</li>
+            <li>Implied Odds</li>
+        </ul>
+        <p>In position we have the ability to continue further into the hand due to being able to control whether
+            bets go in or not on future streets to a greater extent and therefore our realizability, particularly
+            with unmade hands, which need fold equity when they miss and implied odds when they hit is much better.
+        </p>
+        <p>When we call a turn bet in position and Villain checks his air on the river we will have the chance to
+            bluff with our worse air and win the pot. These spots are, moreover, favourable worlds and therefore
+            bluffing is quite a bit better than 0EV.</p>
+        <p>When we call a turn bet in position we have the chance to value bet river and increase the pot against
+            Villain's medium, strength hands, but when out of position the river will often go check-check here as
+            we do not want to build a donking range in most cases.</p>
+        <p>If we call a flop bet in position we have the chance to value bet twice if Villain checks the turn.
+            Contrast this t out of position where turn might go check-check and we only have the river left to value
+            bet. </p>
+        <p>Position helps us pick and choose our future investments with more control and therefore boosts the EV of
+            calling a bet on an earlier street but it is not the only thing that affects how positive our calling
+            factors are likely to be.</p>
+
+
 
         <h2>Example: Facing a Flop C-Bet Out of Position</h2>
         <p>
             Which option would you choose here as BB? Call or fold. Let's leave raising off the table for now.
         </p>
-        <section>
-            <svg class="svg_hand" card-array="90,60,8,s,135,60,8,d,180,60,6,c,295,15,T,h,340,15,9,h"
-                betsize-array="245,100,X,10,125,B33,245,150,?" width="400" height="200">
-                <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
-                <text x="10" y="50" fill="#ffffff" font-size="20">BTN</text>
-                <text x="250" y="50" fill="#ffffff" font-size="20">BB:</text>
-            </svg>
-            <ul>
-                <li><b>Equity:</b> Accoring to the solver we have 33% equity here in theory.</li>
-                <li><b>Realizability of Equity:</b> Not all of this equity will be realizable if we call since we will
-                    face a
-                    turn bet at around 40-50% frequency that we cannot call on most turn cards.</li>
-                <li><b>Future Fold Equity:</b> In the branches of the tree where Villain checks the turn we expect to
-                    have a
-                    profitable river bluff since the world will become a favourable one for us after we condense our
-                    range by calling the flop. </li>
-                <li><b>Implied Odds:</b> If we hit a straight we are entitled to lots more than the new pot after we
-                    call so
-                    implied odds are clearly present in a significant way.</li>
-                <li>Required Pot Share in EV = 20%.</li>
-                <li>Theoretical Pot Share if we call = 32%.</li>
-                <li>EV of Fold = 0BB.</li>
-                <li>EV of Call = 1.1BB.</li>
-                <li>EV loss of Fold = -1.1BB.</li>
+
+        <svg class="svg_hand" card-array="90,60,8,s,135,60,8,d,180,60,6,c,295,15,T,h,340,15,9,h"
+            betsize-array="245,100,X,10,125,B33,245,150,?" width="400" height="200">
+            <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
+            <text x="10" y="50" fill="#ffffff" font-size="20">BTN</text>
+            <text x="250" y="50" fill="#ffffff" font-size="20">BB:</text>
+        </svg>
+        <ul>
+            <li><b>Equity:</b> Accoring to the solver we have 33% equity here in theory.</li>
+            <li><b>Realizability of Equity:</b> Not all of this equity will be realizable if we call since we will
+                face a
+                turn bet at around 40-50% frequency that we cannot call on most turn cards.</li>
+            <li><b>Future Fold Equity:</b> In the branches of the tree where Villain checks the turn we expect to
+                have a
+                profitable river bluff since the world will become a favourable one for us after we condense our
+                range by calling the flop. </li>
+            <li><b>Implied Odds:</b> If we hit a straight we are entitled to lots more than the new pot after we
+                call so
+                implied odds are clearly present in a significant way.</li>
+            <li>Required Pot Share in EV = 20%.</li>
+            <li>Theoretical Pot Share if we call = 32%.</li>
+            <li>EV of Fold = 0BB.</li>
+            <li>EV of Call = 1.1BB.</li>
+            <li>EV loss of Fold = -1.1BB.</li>
 
 
-            </ul>
+        </ul>
 
 
 
-        </section>
+
         <h2>The - "Don't Have The Odds" Fallacy</h2>
-        <section>
-            <p>We commit the “Don't Have The Odds” Fallacy when we only look at our equity and compare that to our
-                target pot share. We must remember that target equity and target pot share are only the same thing in an
-                end of action spot. </p>
-            <h3>Example of the "Don't Have the Odds Fallacy" in action</h3>
-            <svg class="svg_hand" card-array="90,60,8,s,135,60,8,d,180,60,6,c,305,15,K,d,350,15,T,d,135,140,J,d"
-                betsize-array="245,60,X,10,80,B33,245,95,C,245,130,X,10,145,B75,245,165,F" width="400" height="200">
-                <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
-                <text x="10" y="50" fill="#ffffff" font-size="20">BTN</text>
-                <text x="260" y="50" fill="#ffffff" font-size="20">BB:</text>
-            </svg>
-            <p>WRONG: We need 30% to call and we only have 9 diamonds + 3 kings to hit = 24%.</p>
-            <p>CORRECT: We have close to our required pot share just in equity then we have implied odds and the chance
-                of winning with K-high.</p>
-            <p>PIO wants to call and EV is ~14% of the pot.</p>
-        </section>
+
+        <p>We commit the “Don't Have The Odds” Fallacy when we only look at our equity and compare that to our
+            target pot share. We must remember that target equity and target pot share are only the same thing in an
+            end of action spot. </p>
+        <h3>Example of the "Don't Have the Odds Fallacy" in action</h3>
+        <svg class="svg_hand" card-array="90,60,8,s,135,60,8,d,180,60,6,c,305,15,K,d,350,15,T,d,135,140,J,d"
+            betsize-array="245,60,X,10,80,B33,245,95,C,245,130,X,10,145,B75,245,165,F" width="400" height="200">
+            <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
+            <text x="10" y="50" fill="#ffffff" font-size="20">BTN</text>
+            <text x="260" y="50" fill="#ffffff" font-size="20">BB:</text>
+        </svg>
+        <p>WRONG: We need 30% to call and we only have 9 diamonds + 3 kings to hit = 24%.</p>
+        <p>CORRECT: We have close to our required pot share just in equity then we have implied odds and the chance
+            of winning with K-high.</p>
+        <p>PIO wants to call and EV is ~14% of the pot.</p>
+
         <h2>Realizability of Equity By Hand Type</h2>
-        <section>
-            <p> Hands that rely on winning with very marginal showdown value and that lack redraw to powerful hands are
-                going to struggle to realise equity by having to fold at some point more frequently.</p>
-            <p>Hands that combine SDV with improvability or have outs to nutted hands are going to have higher
-                realizability by being able to continue further into the hand.</p>
 
-        </section>
+        <p> Hands that rely on winning with very marginal showdown value and that lack redraw to powerful hands are
+            going to struggle to realise equity by having to fold at some point more frequently.</p>
+        <p>Hands that combine SDV with improvability or have outs to nutted hands are going to have higher
+            realizability by being able to continue further into the hand.</p>
+
+
         <h2>In Position is a Different Beast</h2>
-        <section>
-            <p>When we're in position all of our pot share factors are going to be a lot more positive.</p>
-            <p>Have a look at the following two sims both run on the same flop:</p>
-            <img src="Images/article_Handstrength_KQ4rvsB33.png">
-        </section>
-        <h2>Future Fold Equity</h2>
-        <section>
-            <p>A large part of why we are allowed to call flop c-bets with flimsy hands such as backdoors and gutters
-                comes down to future fold equity. In theory, when we call a BU c-bet from BB, we know that there is a
-                sizable frequency of the time that our opponent does not bet the turn.
-            </p>
-            <h3>Example</h3>
-            <svg class="svg_hand"
-                card-array="90,60,K,h,135,60,Q,c,180,60,4,d,135,130,?,?,135,200,?,?,310,15,T,s,355,15,9,s"
-                betsize-array="245,60,X,10,85,B33,245,95,C,245,130,X,10,140,X" width="400" height="300">
-                <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
-                <text x="10" y="50" fill="#ffffff" font-size="20">BTN</text>
-                <text x="250" y="50" fill="#ffffff" font-size="20">BB:</text>
-                <text x="210" y="220" fill="#ffffff" font-size="20">
-                    <tspan x="210" dy="-1em">Profitable</tspan>
-                    <tspan x="230" dy="+1em">Bluff</tspan>
-                </text>
-            </svg>
 
-            <p>When we call this flop c-bet, we expect to see a check on the turn around 60% of the time on average
-                depending on the tun card.</p>
-            <p>When this happens, our range will be much stronger than Villain's because we have shed our worst hands
-                and he has bet many of them and decided not to barrel a second time on this occasion.</p>
-            <p>Therefore, on the river we will have a big range advantage on most run outs. When this is the case our
-                fold equity, in theory, should be above our break even point for a bluff whatever sizing we pick.</p>
-            <p>Therefore, getting the chance to make these profitable river bluffs is a big part of what allows us to
-                call the flop and lose money the times Villain barrels the turn.</p>
-            <p>WARNING: But don't get too carried away here. We still need some implied odds and equity to call the flop bet.
-                The future fold equity alone is not sufficient alone.</p>
-        </section>
+        <p>When we're in position all of our pot share factors are going to be a lot more positive.</p>
+        <p>Have a look at the following two sims both run on the same flop:</p>
+        <img src="Images/article_Handstrength_KQ4rvsB33.png">
+
+        <h2>Future Fold Equity</h2>
+
+        <p>A large part of why we are allowed to call flop c-bets with flimsy hands such as backdoors and gutters
+            comes down to future fold equity. In theory, when we call a BU c-bet from BB, we know that there is a
+            sizable frequency of the time that our opponent does not bet the turn.
+        </p>
+        <h3>Example</h3>
+        <svg class="svg_hand" card-array="90,60,K,h,135,60,Q,c,180,60,4,d,135,130,?,?,135,200,?,?,310,15,T,s,355,15,9,s"
+            betsize-array="245,60,X,10,85,B33,245,95,C,245,130,X,10,140,X" width="400" height="300">
+            <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
+            <text x="10" y="50" fill="#ffffff" font-size="20">BTN</text>
+            <text x="250" y="50" fill="#ffffff" font-size="20">BB:</text>
+            <text x="210" y="220" fill="#ffffff" font-size="20">
+                <tspan x="210" dy="-1em">Profitable</tspan>
+                <tspan x="230" dy="+1em">Bluff</tspan>
+            </text>
+        </svg>
+
+        <p>When we call this flop c-bet, we expect to see a check on the turn around 60% of the time on average
+            depending on the tun card.</p>
+        <p>When this happens, our range will be much stronger than Villain's because we have shed our worst hands
+            and he has bet many of them and decided not to barrel a second time on this occasion.</p>
+        <p>Therefore, on the river we will have a big range advantage on most run outs. When this is the case our
+            fold equity, in theory, should be above our break even point for a bluff whatever sizing we pick.</p>
+        <p>Therefore, getting the chance to make these profitable river bluffs is a big part of what allows us to
+            call the flop and lose money the times Villain barrels the turn.</p>
+        <p>WARNING: But don't get too carried away here. We still need some implied odds and equity to call the flop
+            bet.
+            The future fold equity alone is not sufficient alone.</p>
+
 
         <script src="cards.js"></script>
     </div>
