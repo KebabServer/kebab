@@ -61,20 +61,83 @@
             <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
             <text x="10" y="50" fill="#ffffff" font-size="20">BU</text>
             <text x="250" y="50" fill="#ffffff" font-size="20">BB</text>
-            <text x="120" y="212" fill="yellow" font-size="20" stroke-width=".5">Neutral</text>
         </svg>
         <img src="Images/article_TurnBarrelOpportunities_Pio1.png">
         <h2>Showing Restraint in Neutral Worlds</h2>
+        <p>When the turn is a card that connects with BB's flop calling range the IP player will find himself/herself in
+            a much more neutral world. BU will have a range disadvantage here but will be surviving in EV due to the
+            large N.A and the benefits of position. Note how BU's value betting threshold is now much higher and his
+            bluffs are chosen carefully.</p>
+        <svg class="svg_hand" card-array="90,60,J,s,135,60,6,d,180,60,3,d,135,130,4,s"
+            betsize-array="10,70,B33,245,60,X,245,85,C,245,130,X,10,140,?" width="400" height="220">
+            <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
+            <text x="10" y="50" fill="#ffffff" font-size="20">BU</text>
+            <text x="250" y="50" fill="#ffffff" font-size="20">BB</text>
+        </svg>
+        <img src="Images/article_TurnBarrelOpportunities_Pio2.png">
+        <h2>Being Picky in Unfavourable Worlds</h2>
+        <p>When we are out of position and a card comes that connects with Villain's flop calling range, we will be in
+            an unfavourable world and will want to: check at a high frequency and protect our checking range; value bet
+            only very strong hands; and be very strict about our requirements for bluffing</p>
+        <svg class="svg_hand" card-array="90,60,A,c,135,60,6,h,180,60,3,c,135,130,6,c"
+            betsize-array="10,70,B33,245,85,C,10,140,?" width="400" height="220">
+            <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
+            <text x="10" y="50" fill="#ffffff" font-size="20">SB</text>
+            <text x="250" y="50" fill="#ffffff" font-size="20">BB</text>
+        </svg>
+        <img src="Images/article_TurnBarrelOpportunities_Pio3.png">
+        <h2 class="fallacy">The Ace Turn Fallacy</h2>
+        <p>It is easy to imagine that Ace turn card will be beneficial to the flop c-bettor, but this is not always the
+            case.</p>
+        <p>In fact in very wide range encounters, the pre-flop caller will often call a small c-bet with a lot of Ax
+            combos. </p>
+        <p>Generally speaking then, a T, J, Q or K turn tends to be much more favourable for a c-bettor then an Ace
+            since the pre-flop caller will have folded many of these cards to the flop c-bet but not ace high (sizing
+            and board dependant.) </p>
+        <svg class="svg_hand" card-array="90,60,7,s,135,60,7,d,180,60,2,c" betsize-array="10,70,B33,245,85,C,10,140,?"
+            width="400" height="180">
+            <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
+            <text x="10" y="50" fill="#ffffff" font-size="20">SB</text>
+            <text x="250" y="50" fill="#ffffff" font-size="20">BB</text>
+        </svg>
+        <p>Although this is a very high EV spot for SB's range in general, it is not so good on the Ace because BB
+            catches up with our overpair region heavily on this card. </p>
+        <p>On the Ace, we lose a great deal of our range and nut advantage.</p>
+        <figure>
+            <img src="Images/article_TurnBarrelOpportunities_Heatmap1.png">
+            <figcaption>This map shows the club turns by rank and how SB's EV is on each.</figcaption>
+        </figure>
 
 
+        <h2>Protecting the Turn Checking Range</h2>
+        <p>Having a protected range is an important part of playing a theoretically sound turn strategy.</p>
+        <h2 class="rule">The Positional Slow-Playing Rule</h2>
+        <p>In position on the turn your checking range as a flop c-bettor should be capped but bolstered by some high
+            equity but not nutted hands (In Grade 1 we call these Tier 2 Hands) </p>
+        <p>Out of position on the turn your checking range as a flop c-bettor should be uncapped and you will even check
+            some nutted hands at a reasonable frequency</p>
+        <h2 class="example">Example 1</h2>
+        <svg class="svg_hand" card-array="90,60,7,s,135,60,7,d,180,60,2,c,135,130,J,h"
+            betsize-array="10,70,B33,245,85,C,10,140,?" width="400" height="220">
+            <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
+            <text x="10" y="50" fill="#ffffff" font-size="20">SB</text>
+            <text x="250" y="50" fill="#ffffff" font-size="20">BB</text>
+        </svg>
+        <p>JJ checks at 79% frequency and 22 checks at 66% frequency.</p>
+        <h2 class="example">Example 2</h2>
+        <svg class="svg_hand" card-array="90,60,A,c,135,60,J,d,180,60,3,c,135,130,2,c"
+            betsize-array="10,70,B75,245,60,X,245,85,C,245,130,X,10,140,?" width="400" height="220">
+            <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
+            <text x="10" y="50" fill="#ffffff" font-size="20">BU</text>
+            <text x="250" y="50" fill="#ffffff" font-size="20">BB</text>
+        </svg>
+        <p>Qc7c checks at 40% frequency and Kc6c always bets.</p>
 
-
-
-
-
-
-        <script src="cards.js"></script>
+        <h2>Deciding Whether to Barrel Unmade Hands</h2>
+        <p>Let's break our unmade hands (bluff candidates) down into five categories.</p>
+        <img src="Images/article_TurnBarrelOpportunities_handcategories.png">
     </div>
+    <script src="cards.js"></script>
 </body>
 
 </html>
