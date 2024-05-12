@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Theory: Float Betting</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="article.css">
+</head>
+
+<body>
+    <header>
+        <h1>Theory: Float Betting</h1>
+    </header>
+
+
+    <div id="WrappingDiv">
+        <h1>Float Betting</h1>
+        <h2>Float Bet Flop Opportunities</h2>
+        <p>Node occurs in position after the pre-flop aggressor checks the flop.</p>
+        <p>The most common float bet opportunity occurs BB vs SB in a single raised pot.</p>
+        <p>As always, when we're building a betting range that is not 100% of our landing range we will deploy a bit of
+            polarisation to our investment strategy.</p>
+        <h2>Float Betting Pitfalls</h2>
+        <h3 class="yellow">The Linearisation Pitfall</h3>
+        <p>Betting hands from the top down and shying away from low EV bluffs which are staple of a betting range in all
+            spots which are not HORRIBLE for range.</p>
+        <h3 class="yellow">Drawmania</h3>
+        <p>Auto Betting every draw even though most will simply be indifferent between betting and checking in theory.
+        </p>
+        <h3>Protection Obssesion</h3>
+        <p>Focussing too heavily on the breanches in the tree where we get outdrawn and failing to protect our checking
+            range as a result. Checking behind ranges in float bet opportunities are some of the most unprotected in the
+            whole game tree so good players will expect this leak.</p>
+        <h2>SRPs - Nut Advantage and Range Advantage</h2>
+        <p>When the preflop raiser checks the flop he tends to maintain some range advantage but nut advantage might
+            decrease somewhat.</p>
+        <p>This means that IP will want to bet only semi-frequently but with a large sizing when he does bet.</p>
+        <p>Let's look at the range vs range equity graph on this board.</p>
+        <svg class="svg_hand" card-array="90,60,7,h,135,60,7,s,180,60,3,c" betsize-array="10,70,X,245,85,?" width="300"
+            height="125">
+            <text x="120" y="45" fill="yellow" font-size="16">2Bet Pot</text>
+            <text x="10" y="50" fill="#ffffff" font-size="20">SB</text>
+            <text x="250" y="50" fill="#ffffff" font-size="20">BB</text>
+        </svg>
+        <img src="Images/article_FloatBetting_rangeequitygraph1.png">
+        <h2>The Flop is a Messy Street - Especially When Its Low</h2>
+        <p>On the flop there is still a lot of time left in the hand and equities are far from their final resting
+            place.</p>
+        <p>These so called young equities are likely to run quite close together, meaning that when one player is ahead
+            they are unlikely to be as far ahead as they would be with older equities on the turn or river.</p>
+        <p>On low flops, equities run even closer together because the player who is behind almost always has
+            significant redraw against the non nutted region of the equity leader's range </p>
+        <h3 class="yellow">Mixed Bag Rule</h3>
+        <p>On the flop, especially low ones, it is usually possible to bet a variety of hands for all three purposes:
+            Value, Bluff and Denial.</p>
+        <h2>The Role of Denial in Float Betting</h2>
+        <p>On low neutral flops all equity classes can be bet as a float bet. This is because there is always a large
+            boost of denial to get and this pushes thinner value bets and flimsy bluffs over the line of being optional
+            bets.</p>
+        <img src="Images/article_FloatBetting_boardexample1.png">
+        <p>But contrast this to a higher flop where equities run further apart. Now when you are ahead you are often
+            very far ahead or your opponent has too much equity to fold anyway (flush draws etc). On these high flops we
+            will simplify again to a strategy of infrequent big bets because we have N.A but not R.A after OOP checks.
+        </p>
+        <img src="Images/article_FloatBetting_boardexample2.png">
+        <h2>Semi-Polarised Strategies (Lower Flops)</h2>
+        <p>The strategy we play on this flop is semi-polarised. This means that while we bet the more polarised hands at
+            a higher frequency we do still bet many depolarised hands too since denial is so prominent here. </p>
+            <img src="Images/article_FloatBetting_boardexample3.png">
+        <h2>Fully-Polarised Strategies (Higher Flops)</h2>
+        <p>The strategy we play on this flop is fully-polarised. The betting frequency is much lower as the texture is
+            less favourable for us and there is less denial to gain by betting. Note here that the N.A is a little
+            smaller so the solver is a little torn between bet-sizes. We will simplify to B75 only here as it fits our
+            framework for this spot more cleanly. </p>
+            <img src="Images/article_FloatBetting_boardexample4.png">
+        <h2>Strategy and Then Hand</h2>
+        <p>The key to an orderly and logical thought process in these spots (and many others) is to remind yourself
+            roughly how your range will play (divide itself) and then ask how your hand fits in to this blueprint. Let's
+            practice this exercise.</p>
+        <h2>3Bet Pots - When to Play a Semi-Polarised Float Bet Strategy </h2>
+        <p>Let's say that we call a 3Bet on the BU against the SB and the flop comes low. SB checks to us. What is the
+            Nut Advantage situation now? </p>
+        <p>As the range denser in pocket pairs and less dense in unpaired holdings , we naturally wield a bit of as
+            range advantage here. This allows us to bet quite often and quite merged.</p>
+        <p>But as we have a large nut disadvantage (missing the overpairs that SB has often in a 3BP and can choose to
+            check on the flop), we will have a large nut disadvantage. This keeps our sizing small.</p>
+        <h2>3Bet Pots - When to Play a Fully-Polarised Float Bet Strategy</h2>
+        <p>If the board is less favourable for us and higher then we do not gain much denial by betting small and thin
+            for value. In this case, we want to save our betting for clear value bets and bluffs.</p>
+        <h3 class="example">Example</h3>
+        <svg class="svg_hand" card-array="90,60,Q,s,135,60,J,s,180,60,6,c" betsize-array="10,70,X,245,85,?" width="300"
+            height="125">
+            <text x="120" y="45" fill="yellow" font-size="16">3Bet Pot</text>
+            <text x="10" y="50" fill="#ffffff" font-size="20">SB</text>
+            <text x="250" y="50" fill="#ffffff" font-size="20">BU</text>
+        </svg>
+        <p>Note how little we would gain now by betting some mediocre hand like 99 or TT. These bets would be to thin
+            for value and would not gain much protection since Villain is only folding hands that are very dead anyway
+            like <b class="red">Ah4h</b>.</p>
+        <p>Thus we build a very high equity value range which allows us to use only large bets. We do a lot of checking
+            behind here. </p>
+        <p>Now our bets can be clearly distinguished between value and bluff. The equity of the hands we bet is either
+            very high or quite low (apart from some draws).</p>
+
+    </div>
+    <script src="cards.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Theory: Basic Blocker Patterns</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="article.css">
+</head>
+
+<body>
+    <header>
+        <h1>Theory: Basic Blocker Patterns</h1>
+    </header>
+
+
+    <div id="WrappingDiv">
+        <h1>Basic Blocker Patterns</h1>
+        <h2>The Limitations of Blockers</h2>
+        <p>Blocking is all about removing the hands in your opponent's range that make a candidate play by you more
+            likely to achieve its optimal result.</p>
+        <p>Blockers in most spots have only very marginal effect on the ranges.</p>
+
+        <h3 class="example">Example </h3>
+        <p>There are 128 bricks in this wall. 96 are green and 32 are red.</p>
+        <p>How strong an effect would removing a green brick or two have on the overall distribution of green and red
+            bricks?</p>
+        <p>Villain has a strong hand 75% of the time</p>
+        <p>Imagine that the green bricks are strong hands in Villain's range and the red ones are weak hands.</p>
+        <p>And you have a couple of blockers to Villain's strong hands.</p>
+        <p>Now Villain has a strong hand 74.6% of the time.</p>
+
+        <h3 class="rule">Blocker Limitation Rule</h3>
+        <p>Never make a decision based solely or primarily on blockers.</p>
+        <h2>Effect 1 - Turn Flush Draw Removal as the Aggressor</h2>
+        <p>What is the optimal result of double barrelling (c-betting) the turn? Villain folds.</p>
+        <p>Therefore we strive to block hands that would continue to our bet in some way even if these hands aren't the
+            greatest in terms of equity.</p>
+        <img src="Images/article_blockers1.png">
+        <h2>Effect 2 - Giving Up Relevant Busted Flush Draws</h2>
+        <p>As we have seen, blocking flush draws before they miss is usually a good thing.</p>
+        <p>But after these hands have bricked on the river they are no longer good hands with which to bluff.</p>
+        <p>On a board like the following one, Villain will be calling the turn with a lot of flush draws.</p>
+        <p>Therefore hands containing relevant spades will be giving up on this river in GTO. </p>
+        <p>Note that this is a neutral world in which it is not mandatory to bluff all of our air and therefore bluffing
+            our worst blocker air will constitute and EV loss.</p>
+        <p>Of course when we unblock the missed draws we commit no such error by bluffing. </p>
+        <img src="Images/article_blockers2.png">
+        <h2>Caution - Do Not Give up in Highly Favourable Worlds </h2>
+        <p>But Beware: whenever your range has become far stronger than your opponent's (usually this occurs in spots
+            where he has polarised and then checked where we have condensed) you may need to bluff hands with very
+            little SDV regardless of how negative your blockers are. </p>
+        <p>Remember that no blocker effect is commonly great enough to compensate for huge range inequality and the
+            extra fold equity that comes from that when our range is much stronger than Villain's. </p>
+
+        <img src="Images/article_blockers3.png">
+        <p>When we examine the river probe version of this run-out we see that BB boasts a large range advantage now
+            which he/she must capitalise on.</p>
+        <p>Even hands with the worst blockers imaginable are a mistake to check here.</p>
+        <h3>Effect 3 - Raising Flop. BDFDs and Dead Suits</h3>
+        <p>When bluff-raising a flop c-bet, the goal is to reduce the amount of the time your opponent continues.</p>
+        <p>On a rainbow board you can do this by blocking the backdoor flush draws and unblocking the dead suit.</p>
+        <p>On a two-tone (flush draw) board you can do this with suited cards which block the backdoor flush draw;
+            offsuit
+            cards that block the front door flush draw. Here you prefer to unblock the two dead suits.</p>
+        <p>But when thinly value raising a flop with, for example, top pair, you actually want Villain to have a
+            backdoor draw he can call your raise with so in these cases we prefer to block the dead suits.</p>
+        <img src="Images/article_blockers4.png">
+        <h2>Effect 4 - Flush Blockers on the River</h2>
+        <p>But when the flush gets there, things shift dramatically. Suddenly any hand that contains a relevant flush
+            making card becomes a far better bluff and even a better thin value bet.</p>
+        <img src="Images/article_blockers5.png">
+        <h2>Effect 5 - Block Villain's Value Range When Bluff raising Th River</h2>
+        <p>When you elect to raise a river bet, it is not sufficient to get Villain's bluffs to fold. If this were our
+            only goal we could merely call since call of our SDV beats all of his/her bluffs any way. </p>
+        <p>Therefore when you raise the river vs a very polarised range you are always incentivised to use blockers to
+            Villain's value range and this very often means raising pairs but always means thinking about what Villain;s
+            value range is and how to block it. </p>
+        <img src="Images/article_blockers6.png">
+
+    </div>
+    <script src="cards.js"></script>
+</body>
+
+</html>
