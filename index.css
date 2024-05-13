@@ -1,4 +1,13 @@
-    /* Reset some default margin and padding */
+@import url('https://fonts.googleapis.com/css?family=Inter');
+* {
+   font-family: 'Inter';
+   background-color: #141313;
+   
+   /* Dark background color */
+   color: #fff;
+   /* Light font color */
+}
+/* Reset some default margin and padding */
     body,
     h1,h2,
     p {
@@ -9,7 +18,7 @@
 
     /* Style the header */
     header {
-        background-color: #f0f0f0;
+     
         padding: 20px;
         text-align: center;
     }
@@ -23,12 +32,7 @@
     }
 
 
-    /* Style footer */
-    footer {
-        text-align: center;
-        padding: 10px;
-        background-color: #f0f0f0;
-    }
+
 
     /* Add additional styles as needed */
     /* Apply styles to the entire table */
@@ -40,10 +44,13 @@
 
     /* Style table header */
     th {
-        background-color: #f2f2f2;
+        background-color: #2b2b2b;
+        color:rgb(189, 23, 23);
         border: 1px solid #ddd;
         padding: 8px;
         text-align: left;
+        font-weight: bold;
+        font-size: larger;
     }
 
     /* Style alternating rows */
@@ -57,10 +64,6 @@
         padding: 8px;
     }
 
-    /* Hover effect on rows */
-    tr:hover {
-        background-color: #e0e0e0;
-    }
 
     /* Responsive table */
     @media (max-width: 600px) {
