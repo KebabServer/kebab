@@ -2,6 +2,7 @@
  * {
     font-family: "font-family: Times New Roman, serif;";
     background-color: #141313;
+    font-size: large;
     /* Dark background color */
     color: #fff;
     /* Light font color */
@@ -11,12 +12,14 @@ body,
 h2 {
     margin: 0;
     padding: 0;
+    
 
 }
 
-h2 {
+h1,h2,h3,h4 {
     margin-top: 1em;
     color: coral;
+    font-size:larger
 }
 .fallacy{
     color:#cef71b
