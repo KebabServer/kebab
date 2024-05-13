@@ -1,6 +1,7 @@
  /* Reset some default margin and padding */
+ @import url('https://fonts.googleapis.com/css?family=Inter');
  * {
-    font-family: "font-family: Times New Roman, serif;";
+    font-family: 'Inter';
     background-color: #141313;
     font-size: large;
     /* Dark background color */
