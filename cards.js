@@ -58,9 +58,9 @@ function convertToSvgCard(element) {
     // Construct SVG markup
     var svgMarkup = `     
         <rect x="${x}" y="${y}" width="40" height="60" fill="#ffffff" stroke="#444444" stroke-width="4" />
-        <text x="${parseInt(x) +25}" y="${parseInt(y)+17}" fill="${color}" font-size="20" font-family="Lucida Console">${suit}</text>
-        <text x="${parseInt(x)+11}" y="${parseInt(y)+40}" fill="${color}" font-size="33" font-family="Lucida Console">${rank}</text>
-        <text x="${parseInt(x)+15}" y="${parseInt(y)+42}" fill="${color}" font-size="20" font-family="Lucida Console" transform="rotate(180, ${parseInt(x)+15}, ${parseInt(y)+42})">${suit}</text>
+        <text class="cardTextSuit" x="${parseInt(x) +25}" y="${parseInt(y)+17}" fill="${color}" >${suit}</text>
+        <text class="cardText" x="${parseInt(x)+11}" y="${parseInt(y)+40}" fill="${color}">${rank}</text>
+        <text class="cardTextSuit" x="${parseInt(x)+15}" y="${parseInt(y)+42}" fill="${color}"  transform="rotate(180, ${parseInt(x)+15}, ${parseInt(y)+42})">${suit}</text>
       `;
         
     // Set SVG content
