@@ -70,43 +70,43 @@
             <line x1="70" y1="23" x2="240" y2="23" style="stroke:rgb(255, 255, 255);stroke-width:2" />
             <text x=70 y="42" fill="#ffffff" font-size="20">pot_size + bet_size</text>
         </svg>
-        <table class="tg">
+        <table class="mdftable">
             <caption style="text-align:middle">MDF for Most Common Bet Sizes</caption>
             <tbody>
                 <tr>
-                    <th class="tg-64jd">Bet size</th>
-                    <th class="tg-hv44">10%</th>
-                    <th class="tg-hv44">25%</th>
-                    <th class="tg-hv44">33%</th>
-                    <th class="tg-hv44">50%</th>
-                    <th class="tg-hv44">66%</th>
-                    <th class="tg-hv44">75%</th>
-                    <th class="tg-hv44">100%</th>
-                    <th class="tg-hv44">125%</th>
-                    <th class="tg-hv44">150%</th>
-                    <th class="tg-hv44">200%</th>
-                    <th class="tg-hv44">250%</th>
-                    <th class="tg-hv44">300%</th>
-                    <th class="tg-hv44">350%</th>
-                    <th class="tg-hv44">400%</th>
+                    <th class="mdftableth">Bet size</th>
+                    <th class="mdftableth">10%</th>
+                    <th class="mdftableth">25%</th>
+                    <th class="mdftableth">33%</th>
+                    <th class="mdftableth">50%</th>
+                    <th class="mdftableth">66%</th>
+                    <th class="mdftableth">75%</th>
+                    <th class="mdftableth">100%</th>
+                    <th class="mdftableth">125%</th>
+                    <th class="mdftableth">150%</th>
+                    <th class="mdftableth">200%</th>
+                    <th class="mdftableth">250%</th>
+                    <th class="mdftableth">300%</th>
+                    <th class="mdftableth">350%</th>
+                    <th class="mdftableth">400%</th>
                 </tr>
 
                 <tr>
-                    <td class="tg-64jd">MDF</td>
-                    <td class="tg-hv44">90.9%</td>
-                    <td class="tg-hv44">80.0%</td>
-                    <td class="tg-hv44">75.2%</td>
-                    <td class="tg-hv44">66.7%</td>
-                    <td class="tg-hv44">60.2%</td>
-                    <td class="tg-hv44">57.1%</td>
-                    <td class="tg-hv44">50.0%</td>
-                    <td class="tg-hv44">44.4%</td>
-                    <td class="tg-hv44">40.0%</td>
-                    <td class="tg-hv44">33.3%</td>
-                    <td class="tg-hv44">28.6%</td>
-                    <td class="tg-hv44">25.0%</td>
-                    <td class="tg-hv44">22.2%</td>
-                    <td class="tg-hv44">20.0%</td>
+                    <td class="mdftableth">MDF</td>
+                    <td class="mdftableth">90.9%</td>
+                    <td class="mdftableth">80.0%</td>
+                    <td class="mdftableth">75.2%</td>
+                    <td class="mdftableth">66.7%</td>
+                    <td class="mdftableth">60.2%</td>
+                    <td class="mdftableth">57.1%</td>
+                    <td class="mdftableth">50.0%</td>
+                    <td class="mdftableth">44.4%</td>
+                    <td class="mdftableth">40.0%</td>
+                    <td class="mdftableth">33.3%</td>
+                    <td class="mdftableth">28.6%</td>
+                    <td class="mdftableth">25.0%</td>
+                    <td class="mdftableth">22.2%</td>
+                    <td class="mdftableth">20.0%</td>
                 </tr>
             </tbody>
         </table>
@@ -260,31 +260,28 @@
         <p><em class="yellow">Range Geography</em> is the skill of knowing where different strength-bands of hand begin
             and end.</p>
         <p>There are lots of different thresholds within ranges, but four are very important in particular.</p>
-        <h3>Bottom Up Thresholds</h3>
+        <h4 class="yellow">Bottom Up Thresholds</h4>
         <p>1. The point where a hand becomes good enough that it is too strong to bluff.</p>
         <p>2. The point where a hand becomes good enough that it can value bet.</p>
-        <h3>Top Down Thresholds</h3>
+        <h4 class="yellow">Top Down Thresholds</h4>
         <p>3. The point where a hand becomes too weak to value bet - must check.</p>
         <p>4. The point where a hand becomes weak enough it may bluff.</p>
         <h2>Dead Suit</h2>
         <p><em class="yellow">Dead Suits</em> are the suits that are not on the board thus can't make the flush.</p>
 
-        <h2>Clarke's Theorem</h2>
+        <h2>Toolkit</h2>
+        <p><em class="yellow">Toolkit</em> is the set of bet-sizes we will consider using a certain node.</p>
+
+        <h1>Theorems</h1>
+        <h2 class="theorem">Clarke's Theorem</h2>
         <p>The <em class="yellow">more polarised</em> Villain's range is compared to yours, the <em
                 class="yellow">smaller your bet-sizing</em> should be and the <em class="yellow">less often</em> you
             should <em class="yellow">raise</em>.</p>
         <p>The <em class="yellow">more condensed</em> Villain's range is compared to yours, the <em
                 class="yellow">larger your bet-sizing</em> should be and the <em class="yellow">more often</em> you
             should <em class="yellow">raise</em>.</p>
-        <h2>Low Dry Theorem</h2>
-        <p>When the flop is low and dry in a 3-Bet pot, we can usually simplify to just three plans:</p>
-        <ul>
-            <li>Check/Raise</li>
-            <li>B60</li>
-            <li>Check/Fold</li>
-        </ul>
         
-        <h2>Betting Theorem</h2>
+        <h2 class="theorem">Betting Theorem</h2>
         <p>Board favourability and polarisation determine the bet sizing and frequency.</p>
         <svg width="450" height="125">
             <!-- Draw the rounded rectangle -->
@@ -310,7 +307,13 @@
             <polygon points="220 90,175 90, 175 100, 220 100, 220 85, 240 95, 220 105" fill="white" />
         </svg>
 
-
+        <h2 class="theorem">Low Dry Theorem</h2>
+        <p>When the flop is low and dry in a 3-Bet pot, we can usually simplify to just three plans:</p>
+        <ul>
+            <li>Check/Raise</li>
+            <li>B60</li>
+            <li>Check/Fold</li>
+        </ul>
 
     </div>
 </body>

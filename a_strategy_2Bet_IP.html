@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>2Bet Pot IP Strategy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="article.css">
+    <link rel="stylesheet" href="strategy_table.css">
+</head>
+
+<body>
+    <header>
+        <h1>2Bet Pot IP Strategy</h1>
+    </header>
+    <div id="WrappingDiv">
+        
+        <h2>SRP BTN vs BB</h2>
+        <p>Below are SB strategies for different flops versus different BU call ranges.</p>
+        <table class="strategy-table">
+            <caption>GTO Wizard 500NL Simple</caption>
+            <colgroup>
+                <col class="whitefontcolor" />
+                <col class="b60color" />
+                <col class="b33color" />
+                <col class="checkcolor" />
+                <col class="whitefontcolor" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Flop</th>
+                    <th>B60</th>
+                    <th>B33</th>
+                    <th>Check</th>
+                    <th>SB EV</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Row 1 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="As"></span>
+                        <span class="inline-card" data-card="Jh"></span>
+                        <span class="inline-card" data-card="6s"></span>
+                    </td>
+                    <td> 5.14% </td>
+                    <td> 53.92% </td>
+                    <td> 40.94% </td>
+                    <td class="ev">54.3%</td>
+                </tr>
+                <!-- Row 2 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="8c"></span>
+                        <span class="inline-card" data-card="7s"></span>
+                        <span class="inline-card" data-card="2h"></span>
+                    </td>
+                    <td>51.35%</td>
+                    <td>0.00%</td>
+                    <td>48.65%</td>
+                    <td class="ev">51.6%</td>
+                </tr>
+                <!-- Row 3 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="Qh"></span>
+                        <span class="inline-card" data-card="6h"></span>
+                        <span class="inline-card" data-card="5s"></span>
+                    </td>
+                    <td>16.77%</td>
+                    <td>17.37%</td>
+                    <td>65.86%</td>
+                    <td class="ev">46.5%</td>
+                </tr>
+                <!-- Row 4 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="9h"></span>
+                        <span class="inline-card" data-card="8s"></span>
+                        <span class="inline-card" data-card="7d"></span>
+                    </td>
+                    <td>0.03%</td>
+                    <td>35.69%</td>
+                    <td>64.28%</td>
+                    <td class="ev">42.6%</td>
+                </tr>
+                <!-- Row 5 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="4s"></span>
+                        <span class="inline-card" data-card="4d"></span>
+                        <span class="inline-card" data-card="2c"></span>
+                    </td>
+                    <td>66.93%</td>
+                    <td>2.99%</td>
+                    <td>30.08%</td>
+                    <td class="ev positive">59.6%</td>
+                </tr>
+                <!-- Row 6 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="Jh"></span>
+                        <span class="inline-card" data-card="2d"></span>
+                        <span class="inline-card" data-card="2s"></span>
+                    </td>
+                    <td>81.68%</td>
+                    <td>12.02%</td>
+                    <td>6.29%</td>
+                    <td class="ev positive">67.1%</td>
+                </tr>
+                <!-- Row 7 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="Kd"></span>
+                        <span class="inline-card" data-card="7s"></span>
+                        <span class="inline-card" data-card="2d"></span>
+                    </td>
+                    <td>17.36%</td>
+                    <td>77.70%</td>
+                    <td>4.94%</td>
+                    <td class="ev positive">58.9%</td>
+                </tr>
+            </tbody>
+        </table>
+      
+
+        <script src="cards.js"></script>
+    </div>
+</body>
+
+</html>

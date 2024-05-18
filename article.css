@@ -77,16 +77,16 @@ p {
 
 
 
-/* Add additional styles as needed
+/* Add additional styles as needed */
 
-table {
+.mdftable {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #ddd;
 }
 
 
-th {
+.mdftableth {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
@@ -95,11 +95,8 @@ th {
 
 
 
-td {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
- */
+
+
 
 .board{
     display: flex; /* Use flexbox to align SVGs horizontally */
@@ -201,3 +198,34 @@ img {
     color: rgb(0, 3, 204);
 }
 
+/*Bet size buttons */
+.BX, .B33, .B60, .B75, .B133, .B150, .B400{
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 5px;
+    border: 2px solid black;
+    text-align: center;
+    color: black;
+    font-size: 16px;
+}
+
+.BX{
+ background-color: #91C282;
+    &:before{
+    content: "Joe's Task: ";
+    }
+}
+.B33 {
+    background-color: #f06c00;
+}
+.B60,.B75 {
+    background-color: #d70000;
+}
+.B133,.B150 {
+    background-color: #a557c9;
+}
+.B400 {
+    background-color: #222222;
+}
