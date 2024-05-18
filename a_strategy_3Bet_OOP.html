@@ -14,37 +14,53 @@
         <h1>3Bet Pot OOP Strategy</h1>
     </header>
     <div id="WrappingDiv">
-        <h2>Toolkit</h2>
-        <div class="BX"></div>
-        <svg width="800" height="150" >
-            <!-- Flop Section -->
-            <text x="70" y="30" font-family="Arial" font-size="20" fill="white" text-anchor="middle">Flop</text>
-            <rect x="10" y="40" width="60" height="30" rx="5" ry="5" fill="#f06c00" stroke="black" stroke-width="2"/>
-            <text x="40" y="60" font-family="Arial" font-size="16" fill="black" text-anchor="middle">B33</text>
-            <rect x="80" y="40" width="60" height="30" rx="5" ry="5" fill="#d70000" stroke="black" stroke-width="2"/>
-            <text x="110" y="60" font-family="Arial" font-size="16" fill="black" text-anchor="middle">B60</text>
-    
-            <!-- Turn Section -->
-            <text x="370" y="30" font-family="Arial" font-size="20" fill="white" text-anchor="middle">Turn</text>
-            <rect x="250" y="40" width="60" height="30" rx="5" ry="5" fill="#f06c00" stroke="black" stroke-width="2"/>
-            <text x="280" y="60" font-family="Arial" font-size="16" fill="black" text-anchor="middle">B33</text>
-            <rect x="320" y="40" width="60" height="30" rx="5" ry="5" fill="#d70000" stroke="black" stroke-width="2"/>
-            <text x="350" y="60" font-family="Arial" font-size="16" fill="black" text-anchor="middle">B60</text>
-            <rect x="390" y="40" width="60" height="30" rx="5" ry="5" fill="#a557c9" stroke="black" stroke-width="2"/>
-            <text x="420" y="60" font-family="Arial" font-size="16" fill="black" text-anchor="middle">B120</text>
-    
-            <!-- River Section -->
-            <text x="670" y="30" font-family="Arial" font-size="20" fill="white" text-anchor="middle">River</text>
-            <rect x="490" y="40" width="60" height="30" rx="5" ry="5" fill="#f06c00" stroke="black" stroke-width="2"/>
-            <text x="520" y="60" font-family="Arial" font-size="16" fill="black" text-anchor="middle">B33</text>
-            <rect x="560" y="40" width="60" height="30" rx="5" ry="5" fill="#d70000" stroke="black" stroke-width="2"/>
-            <text x="590" y="60" font-family="Arial" font-size="16" fill="black" text-anchor="middle">B75</text>
-            <rect x="630" y="40" width="60" height="30" rx="5" ry="5" fill="#a557c9" stroke="black" stroke-width="2"/>
-            <text x="660" y="60" font-family="Arial" font-size="16" fill="black" text-anchor="middle">B150</text>
-            <rect x="700" y="40" width="60" height="30" rx="5" ry="5" fill="#222222" stroke="black" stroke-width="2"/>
-            <text x="730" y="60" font-family="Arial" font-size="16" fill="black" text-anchor="middle">B400</text>
-        </svg>
-        <p></p>
+        <h2>3Bet Pot Toolkit</h2>
+
+        <div>Flop Bet Sizes</div>
+        <div>
+            <div class="BX" bet_size="Check"></div>
+            <div class="B33" bet_size="B33"></div>
+            <div class="B60" bet_size="B60"></div>
+        </div>
+
+
+        <div>Turn</div>
+        <div>
+            <div class="BX" bet_size="Check"></div>
+            <div class="B33" bet_size="B33"></div>
+            <div class="B60" bet_size="B60"></div>
+            <div class="B120" bet_size="B120"></div>
+        </div>
+
+
+        <div>River</div>
+        <div>
+            <div class="BX" bet_size="Check"></div>
+            <div class="B33" bet_size="B33"></div>
+            <div class="B60" bet_size="B60"></div>
+            <div class="B120" bet_size="B120"></div>
+            <div class="B400" bet_size="B400"></div>
+        </div>
+
+        <h3>Raise Sizes</h3>
+        <div>Flop</div>
+        <div>
+            <div class="R50" bet_size="R50"></div>
+        </div>
+        <div>Turn</div>
+        <div>
+            <div class="R50" bet_size="R50"></div>
+            <div class="R100" bet_size="R100"></div>
+        </div>
+        <div>River</div>
+        <div>
+            <div class="R50" bet_size="R50"></div>
+            <div class="R100" bet_size="R100"></div>
+        </div>
+     
+        
+
+
         <h2>3Bet SB vs BTN</h2>
         <p>Below are SB strategies for different flops versus different BU call ranges.</p>
         <table class="strategy-table">
@@ -59,9 +75,9 @@
             <thead>
                 <tr>
                     <th>Flop</th>
-                    <th>B60</th>
-                    <th>B33</th>
-                    <th>Check</th>
+                    <th><div class="B60" bet_size="B60"></div></th>
+                    <th><div class="B33" bet_size="B33"></div></th>
+                    <th><div class="BX" bet_size="Check"></div></th>
                     <th>SB EV</th>
                 </tr>
             </thead>
@@ -164,9 +180,9 @@
             <thead>
                 <tr>
                     <th>Flop</th>
-                    <th>B60</th>
-                    <th>B33</th>
-                    <th>Check</th>
+                    <th><div class="B60" bet_size="B60"></div></th>
+                    <th><div class="B33" bet_size="B33"></div></th>
+                    <th><div class="BX" bet_size="Check"></div></th>
                     <th>SB EV</th>
                 </tr>
             </thead>
@@ -270,9 +286,9 @@
             <thead>
                 <tr>
                     <th>Flop</th>
-                    <th>B60</th>
-                    <th>B33</th>
-                    <th>Check</th>
+                    <th><div class="B60" bet_size="B60"></div></th>
+                    <th><div class="B33" bet_size="B33"></div></th>
+                    <th><div class="BX" bet_size="Check"></div></th>
                     <th>SB EV</th>
                 </tr>
             </thead>
@@ -408,13 +424,12 @@
         </figure>
 
 
-
         <h2>Low Dry Theorem</h2>
         <p>When the flop is low and dry in a 3-Bet pot, we can usually simplify to just three plans:</p>
         <ul>
-            <li>Check/Raise</li>
-            <li>B60</li>
-            <li>Check/Fold</li>
+            <li><div class="B60" bet_size="B60"></div></li>
+            <li><div class="BX" bet_size="Check"></div> / <div class="R" bet_size="R"></div></li>           
+            <li><div class="BX" bet_size="Check"></div> / <div class="F" bet_size="Fold"></div></li>
         </ul>
         <p>Let's look at the SB's C-Bet strategy and SB's strategy after checking and facing B33.</p>
         <figure>
@@ -470,9 +485,10 @@
                 </p>
             </figcaption>
             <img src="Images/a_strategy_3Bet/SB_Reaction_to_B33_987r_carrot.png">
-        </figure>    
+        </figure>
         <h2>Big Range Bet Strategies</h2>
-        <p>On a favourable board where we have a range advantage and are more polarised we can bet the whole range whole big size.</p>
+        <p>On a favourable board where we have a range advantage and are more polarised we can bet the whole range whole
+            big size.</p>
         <figure>
             <figcaption>
                 <p> <span class="inline-card" data-card="Jh"></span>
@@ -483,7 +499,7 @@
             </figcaption>
             <img src="Images/a_strategy_3Bet/SB_CBET_J22r.png">
         </figure>
-        
+
 
 
         <script src="cards.js"></script>

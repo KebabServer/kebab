@@ -199,7 +199,7 @@ img {
 }
 
 /*Bet size buttons */
-.BX, .B33, .B60, .B75, .B133, .B150, .B400{
+.BX, .B33, .B60, .B75,.B120, .B133, .B150, .B400, .R50,.R100, .R ,.F{
     display: inline-block;
     width: 60px;
     height: 30px;
@@ -209,13 +209,16 @@ img {
     text-align: center;
     color: black;
     font-size: 16px;
+    &:before{
+        content:attr(bet_size)
+    }
 }
 
+.F{
+    background-color: #7AA0C0;
+}
 .BX{
- background-color: #91C282;
-    &:before{
-    content: "Joe's Task: ";
-    }
+    background-color: #91C282;
 }
 .B33 {
     background-color: #f06c00;
@@ -223,7 +226,7 @@ img {
 .B60,.B75 {
     background-color: #d70000;
 }
-.B133,.B150 {
+.B120,.B150,.R50,.R100, .R{
     background-color: #a557c9;
 }
 .B400 {
