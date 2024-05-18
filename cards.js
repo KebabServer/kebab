@@ -125,3 +125,33 @@ svgHands.forEach(function(element) {
     drawBetSize(element, betsize_array[i],betsize_array[i+1],betsize_array[i+2]);
   }
 });
+
+document.querySelectorAll('.inline-card').forEach(card => {
+  const cardText = card.getAttribute('data-card');
+  const rank = cardText.slice(0, -1);
+  const suitChar = cardText.slice(-1);
+  let suitSymbol;
+
+  switch (suitChar) {
+      case 'c':
+          suitSymbol = '♣';
+          break;
+      case 'd':
+          suitSymbol = '♦';
+          break;
+      case 'h':
+          suitSymbol = '♥';
+          break;
+      case 's':
+          suitSymbol = '♠';
+          break;
+      case 'x':
+          suitSymbol = 'x';
+          break;
+      default:
+          suitSymbol = '';
+  }
+
+  card.setAttribute('data-rank', rank);
+  card.setAttribute('data-suit', suitSymbol);
+});

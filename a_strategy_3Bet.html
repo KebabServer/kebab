@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>3Bet Pot OOP Strategy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="article.css">
+    <link rel="stylesheet" href="strategy_table.css">
+</head>
+
+<body>
+    <header>
+        <h1>3Bet Pot Strategy</h1>
+    </header>
+    <div id="WrappingDiv">
+
+        <h2>3Bet Pot OOP Strategies</h2>
+        <p>Board favourability and polarisation determine the bet sizing and frequency.</p>
+        <svg width="450" height="125">
+            <!-- Draw the rounded rectangle -->
+            <rect x="0" y="0" width="150" height="50" rx="20" ry="20" fill="#ee546d" stroke="yellow" stroke-width="2" />
+            <rect x="260" y="0" width="150" height="50" rx="20" ry="20" fill="#ee546d" stroke="yellow"
+                stroke-width="2" />
+
+            <rect x="0" y="70" width="150" height="50" rx="20" ry="20" fill="#ee546d" stroke="yellow"
+                stroke-width="2" />
+            <rect x="260" y="70" width="150" height="50" rx="20" ry="20" fill="#ee546d" stroke="yellow"
+                stroke-width="2" />
+
+            <!-- Add text inside the rounded rectangle -->
+            <text x="75" y="30" font-size="20" text-anchor="middle" font-weight="bold" fill="black">Favourability</text>
+            <text x="335" y="30" font-size="20" text-anchor="middle" font-weight="bold" fill="black">Bet
+                Frequency</text>
+
+            <text x="75" y="100" font-size="18" text-anchor="middle" font-weight="bold" fill="black">Clarke's
+                Theorem</text>
+            <text x="335" y="100" font-size="20" text-anchor="middle" font-weight="bold" fill="black">Bet Sizing</text>
+
+            <polygon points="220 20,175 20, 175 30, 220 30, 220 15, 240 25, 220 35" fill="white" />
+            <polygon points="220 90,175 90, 175 100, 220 100, 220 85, 240 95, 220 105" fill="white" />
+        </svg>
+
+        <h2>3Bet SB vs BTN</h2>
+        <p>Below are SB strategies for different flops versus different BU call ranges.</p>
+        <table class="strategy-table">
+            <caption>GTO Wizard 500NL Simple</caption>
+            <colgroup>
+                <col class="whitefontcolor" />
+                <col class="b60color" />
+                <col class="b33color" />
+                <col class="checkcolor" />
+                <col class="whitefontcolor" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Flop</th>
+                    <th>B60</th>
+                    <th>B33</th>
+                    <th>Check</th>
+                    <th>SB EV</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Row 1 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="As"></span>
+                        <span class="inline-card" data-card="Jh"></span>
+                        <span class="inline-card" data-card="6s"></span>
+                    </td>
+                    <td> 5.14% </td>
+                    <td> 53.92% </td>
+                    <td> 40.94% </td>
+                    <td class="ev">54.3%</td>
+                </tr>
+                <!-- Row 2 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="8c"></span>
+                        <span class="inline-card" data-card="7s"></span>
+                        <span class="inline-card" data-card="2h"></span>
+                    </td>
+                    <td>51.35%</td>
+                    <td>0.00%</td>
+                    <td>48.65%</td>
+                    <td class="ev">51.6%</td>
+                </tr>
+                <!-- Row 3 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="Qh"></span>
+                        <span class="inline-card" data-card="6h"></span>
+                        <span class="inline-card" data-card="5s"></span>
+                    </td>
+                    <td>16.77%</td>
+                    <td>17.37%</td>
+                    <td>65.86%</td>
+                    <td class="ev">46.5%</td>
+                </tr>
+                <!-- Row 4 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="9h"></span>
+                        <span class="inline-card" data-card="8s"></span>
+                        <span class="inline-card" data-card="7d"></span>
+                    </td>
+                    <td>0.03%</td>
+                    <td>35.69%</td>
+                    <td>64.28%</td>
+                    <td class="ev">42.6%</td>
+                </tr>
+                <!-- Row 5 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="4s"></span>
+                        <span class="inline-card" data-card="4d"></span>
+                        <span class="inline-card" data-card="2c"></span>
+                    </td>
+                    <td>66.93%</td>
+                    <td>2.99%</td>
+                    <td>30.08%</td>
+                    <td class="ev positive">59.6%</td>
+                </tr>
+                <!-- Row 6 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="Jh"></span>
+                        <span class="inline-card" data-card="2d"></span>
+                        <span class="inline-card" data-card="2s"></span>
+                    </td>
+                    <td>81.68%</td>
+                    <td>12.02%</td>
+                    <td>6.29%</td>
+                    <td class="ev positive">67.1%</td>
+                </tr>
+                <!-- Row 7 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="Kd"></span>
+                        <span class="inline-card" data-card="7s"></span>
+                        <span class="inline-card" data-card="2d"></span>
+                    </td>
+                    <td>17.36%</td>
+                    <td>77.70%</td>
+                    <td>4.94%</td>
+                    <td class="ev positive">58.9%</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="strategy-table">
+            <caption>BU Carrot Poker Range. SB GTO Wizard range.</caption>
+            <colgroup>
+                <col class="whitefontcolor" />
+                <col class="b60color" />
+                <col class="b33color" />
+                <col class="checkcolor" />
+                <col class="whitefontcolor" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Flop</th>
+                    <th>B60</th>
+                    <th>B33</th>
+                    <th>Check</th>
+                    <th>SB EV</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Row 1 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="As"></span>
+                        <span class="inline-card" data-card="Jh"></span>
+                        <span class="inline-card" data-card="6s"></span>
+                    </td>
+                    <td> 4.97% </td>
+                    <td> 58.87% </td>
+                    <td> 36.16% </td>
+                    <td class="ev">57.6%</td>
+                </tr>
+                <!-- Row 2 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="8c"></span>
+                        <span class="inline-card" data-card="7s"></span>
+                        <span class="inline-card" data-card="2h"></span>
+                    </td>
+                    <td>61.82%</td>
+                    <td>0.02%</td>
+                    <td>38.16%</td>
+                    <td class="ev">54.0%</td>
+                </tr>
+                <!-- Row 3 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="Qh"></span>
+                        <span class="inline-card" data-card="6h"></span>
+                        <span class="inline-card" data-card="5s"></span>
+                    </td>
+                    <td> 3.71% </td>
+                    <td> 16.99% </td>
+                    <td> 79.30% </td>
+                    <td class="ev">43.0%</td>
+                </tr>
+                <!-- Row 4 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="9h"></span>
+                        <span class="inline-card" data-card="8s"></span>
+                        <span class="inline-card" data-card="7d"></span>
+                    </td>
+                    <td>0.00%</td>
+                    <td>55.86%</td>
+                    <td>44.14%</td>
+                    <td class="ev">42.5%</td>
+                </tr>
+                <!-- Row 5 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="4s"></span>
+                        <span class="inline-card" data-card="4d"></span>
+                        <span class="inline-card" data-card="2c"></span>
+                    </td>
+                    <td>52.35%</td>
+                    <td>0.00%</td>
+                    <td>47.65%</td>
+                    <td class="ev positive">61.7%</td>
+                </tr>
+                <!-- Row 6 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="Jh"></span>
+                        <span class="inline-card" data-card="2d"></span>
+                        <span class="inline-card" data-card="2s"></span>
+                    </td>
+                    <td>96.67%</td>
+                    <td>0.01%</td>
+                    <td>3.31%</td>
+                    <td class="ev positive">71.9%</td>
+                </tr>
+                <!-- Row 7 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="Kd"></span>
+                        <span class="inline-card" data-card="7s"></span>
+                        <span class="inline-card" data-card="2d"></span>
+                    </td>
+                    <td>44.97%</td>
+                    <td>55.03%</td>
+                    <td>0.00%</td>
+                    <td class="ev positive">67.9%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="strategy-table">
+            <caption>Carrot Poker Range</caption>
+            <colgroup>
+                <col class="whitefontcolor" />
+                <col class="b60color" />
+                <col class="b33color" />
+                <col class="checkcolor" />
+                <col class="whitefontcolor" />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Flop</th>
+                    <th>B60</th>
+                    <th>B33</th>
+                    <th>Check</th>
+                    <th>SB EV</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Row 1 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="As"></span>
+                        <span class="inline-card" data-card="Jh"></span>
+                        <span class="inline-card" data-card="6s"></span>
+                    </td>
+                    <td>0.00%</td>
+                    <td>67.75%</td>
+                    <td>32.35%</td>
+                    <td class="ev">59%</td>
+                </tr>
+                <!-- Row 2 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="8c"></span>
+                        <span class="inline-card" data-card="7s"></span>
+                        <span class="inline-card" data-card="2h"></span>
+                    </td>
+                    <td>47.09%</td>
+                    <td>0.00%</td>
+                    <td>52.91%</td>
+                    <td class="ev">49%</td>
+                </tr>
+                <!-- Row 3 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="Qh"></span>
+                        <span class="inline-card" data-card="6h"></span>
+                        <span class="inline-card" data-card="5s"></span>
+                    </td>
+                    <td>12.05%</td>
+                    <td>7.18%</td>
+                    <td>80.76%</td>
+                    <td class="ev">41%</td>
+                </tr>
+                <!-- Row 4 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="9h"></span>
+                        <span class="inline-card" data-card="8s"></span>
+                        <span class="inline-card" data-card="7d"></span>
+                    </td>
+                    <td>0.00%</td>
+                    <td>3.14%</td>
+                    <td>96.85%</td>
+                    <td class="ev">37%</td>
+                </tr>
+                <!-- Row 5 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="4s"></span>
+                        <span class="inline-card" data-card="4d"></span>
+                        <span class="inline-card" data-card="2c"></span>
+                    </td>
+                    <td>49.92%</td>
+                    <td>0.00%</td>
+                    <td>50.07%</td>
+                    <td class="ev positive">60%</td>
+                </tr>
+                <!-- Row 6 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="Jh"></span>
+                        <span class="inline-card" data-card="2d"></span>
+                        <span class="inline-card" data-card="2s"></span>
+                    </td>
+                    <td>98.31%</td>
+                    <td>0.00%</td>
+                    <td>1.69%</td>
+                    <td class="ev positive">71%</td>
+                </tr>
+                <!-- Row 7 -->
+                <tr>
+                    <td class="flop-cards">
+                        <span class="inline-card" data-card="Kd"></span>
+                        <span class="inline-card" data-card="7s"></span>
+                        <span class="inline-card" data-card="2d"></span>
+                    </td>
+                    <td>38.14%</td>
+                    <td>61.86%</td>
+                    <td>0.00%</td>
+                    <td class="ev positive">67%</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Facing a Polarised Range</h2>
+
+        <figure>
+            <img src="Images/a_strategy_3Bet/BU_EQ_AJ6tt.png">
+            <figcaption>
+                <p> <span class="inline-card" data-card="As"></span>
+                    <span class="inline-card" data-card="Jh"></span>
+                    <span class="inline-card" data-card="6s"></span>
+                    SB's EV: 54%. GTO Wizard ranges.
+                </p>
+            </figcaption>
+        </figure>
+
+        <p>BU's range contains hardly any yellow hands. It is quite polarised. Clarke's theorem recommends a small bet.
+        </p>
+        <p>Note that a big bet would cause a very stark splitting of BU's range. He would be able to just fold all
+            orange range.</p>
+        <h2>Facing a Merged Range</h2>
+
+
+        <figure>
+            <figcaption>
+                <p> <span class="inline-card" data-card="8c"></span>
+                    <span class="inline-card" data-card="7s"></span>
+                    <span class="inline-card" data-card="2h"></span>
+                    SB's EV: 51.6%. GTO Wizard ranges.
+                </p>
+            </figcaption>
+            <img src="Images/a_strategy_3Bet/BU_EQ_872r.png">
+        </figure>
+        <p>Villain's range is completely merged here. Most hands are yellow.</p>
+        <p>Clarke's theorem recommends mainly big bet or check/raise (both large investments) because our range is more
+            polar than Villain's.</p>
+        <figure>
+            <figcaption>
+                <p> <span class="inline-card" data-card="8c"></span>
+                    <span class="inline-card" data-card="7s"></span>
+                    <span class="inline-card" data-card="2h"></span>
+                    SB's EV: 51.6%. GTO Wizard ranges.
+                </p>
+            </figcaption>
+            <img src="Images/a_strategy_3Bet/SB_EQ_872r.png">
+        </figure>
+
+
+
+        <h2>Low Dry Theorem</h2>
+        <p>When the flop is low and dry in a 3-Bet pot, we can usually simplify to just three plans:</p>
+        <ul>
+            <li>Check/Raise</li>
+            <li>B60</li>
+            <li>Check/Fold</li>
+        </ul>
+        <p>Let's look at the SB's C-Bet strategy and SB's strategy after checking and facing B33.</p>
+        <figure>
+            <figcaption>
+                <p> <span class="inline-card" data-card="8c"></span>
+                    <span class="inline-card" data-card="7s"></span>
+                    <span class="inline-card" data-card="2h"></span>
+                    SB's C-Bet strategy.
+                </p>
+            </figcaption>
+            <img src="Images/a_strategy_3Bet/SB_CBET_872r.png">
+        </figure>
+
+        <figure>
+            <figcaption>
+                <p> <span class="inline-card" data-card="8c"></span>
+                    <span class="inline-card" data-card="7s"></span>
+                    <span class="inline-card" data-card="2h"></span>
+                    SB's strategy versus B33 after checking.
+                </p>
+            </figcaption>
+            <img src="Images/a_strategy_3Bet/SB_VS_B33_872r.png">
+        </figure>
+        <figure>
+            <figcaption>
+                <p> <span class="inline-card" data-card="8c"></span>
+                    <span class="inline-card" data-card="7s"></span>
+                    <span class="inline-card" data-card="2h"></span>
+                    SB's strategy versus B33 after checking. EV comparison raise vs call.
+                </p>
+            </figcaption>
+            <img src="Images/a_strategy_3Bet/SB_EV_Comparison_872r.png">
+        </figure>
+        <p>There's no EV loss playing raise or fold only against GTO opponent.</p>
+
+        <h2>Beware the Dreaded Queen</h2>
+        <p>In the Carrot Corner's ranges BU has a far greater concentration of Qx than any other broadway, mainly due to
+            off-suit combos being so
+            adundant and unique to Qx.</p>
+        <p>Beware absolutism here. It might be true that SB has more total combos of Qx, but what matters is their
+            concentration within a range.</p>
+        <h3>The Friendly Broadways</h3>
+        <p>For this very reason, the <em class="yellow">King</em>, <em class="yellow">Jack</em> and <em
+                class="yellow">Ten</em> are very good broadways for SB's range.</p>
+
+        <h2>How to Play a Range Check Strategy</h2>
+        <figure>
+            <figcaption>
+                <p> <span class="inline-card" data-card="9h"></span>
+                    <span class="inline-card" data-card="8s"></span>
+                    <span class="inline-card" data-card="7d"></span>
+                    SB's strategy versus B33 after checking.
+                </p>
+            </figcaption>
+            <img src="Images/a_strategy_3Bet/SB_Reaction_to_B33_987r_carrot.png">
+        </figure>    
+        <h2>Big Range Bet Strategies</h2>
+        <p>On a favourable board where we have a range advantage and are more polarised we can bet the whole range whole big size.</p>
+        <figure>
+            <figcaption>
+                <p> <span class="inline-card" data-card="Jh"></span>
+                    <span class="inline-card" data-card="2s"></span>
+                    <span class="inline-card" data-card="2d"></span>
+                    SB's C-Bet strategy.
+                </p>
+            </figcaption>
+            <img src="Images/a_strategy_3Bet/SB_CBET_J22r.png">
+        </figure>
+        
+
+
+        <script src="cards.js"></script>
+    </div>
+</body>
+
+</html>

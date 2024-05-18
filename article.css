@@ -2,7 +2,6 @@
  @import url('https://fonts.googleapis.com/css?family=Inter');
  * {
     font-family: 'Inter';
-    background-color: #141313;
     
     /* Dark background color */
     color: #fff;
@@ -10,6 +9,7 @@
 }
 
 body {
+    background-color: #141313;
     font-size: large;
     margin: 0;
     padding: 0;
@@ -66,7 +66,6 @@ p {
 
 }
 
-
 /* Style the article content */
 #WrappingDiv {
     max-width: 1000px;
@@ -77,15 +76,16 @@ p {
 
 
 
-/* Add additional styles as needed */
-/* Apply styles to the entire table */
+
+/* Add additional styles as needed
+
 table {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #ddd;
 }
 
-/* Style table header */
+
 th {
     border: 1px solid #ddd;
     padding: 8px;
@@ -94,16 +94,13 @@ th {
 
 
 
-/* Style table cells */
+
 td {
     border: 1px solid #ddd;
     padding: 8px;
 }
+ */
 
-section {
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
 .board{
     display: flex; /* Use flexbox to align SVGs horizontally */
 }
@@ -151,5 +148,56 @@ img {
 }
 .cardTextSuit{
     font-size:20px;
+}
+.inline-card {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0 2px;
+    font-size: 18px;
+    line-height: 1;
+    width: 24px;
+    height: 14px;
+    text-align: center;
+    position: relative;
+    background-color: white;
+    vertical-align: middle; /* Adjust this value to move the card down */
+ 
+}
+
+.inline-card::before {
+    content: attr(data-rank);
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    
+}
+
+.inline-card::after {
+    content: attr(data-suit);
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    font-size: 20px;
+}
+
+.inline-card[data-suit="x"]{
+    color: black;
+    font-weight: bold;
+} 
+.inline-card[data-suit="♠"] {
+    color: black;
+}
+.inline-card[data-suit="♣"]{
+    color: rgb(0, 148, 7);
+}
+
+.inline-card[data-suit="♥"] {
+    color: red;
+}
+ 
+.inline-card[data-suit="♦"]{
+    color: rgb(0, 3, 204);
 }
 

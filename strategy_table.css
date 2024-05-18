@@ -1,0 +1,50 @@
+
+.strategy-table {
+    font-family: Arial, sans-serif;
+    color: rgb(0, 0, 0);
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.strategy-table th,
+.strategy-table td {
+    border: 1px solid #000000;
+    padding: 2px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 1.0em;
+}
+
+.strategy-table th {
+    color: rgb(0, 0, 0);
+    font-size: 1.2em;
+}
+
+.b60color {
+    background-color: #94002c;
+    /* Orange */
+}
+
+.b33color {
+    background-color: #d35400;
+    /* Darker Orange */
+}
+
+.checkcolor {
+    background-color: #2ecc71;
+    /* Green */
+}
+.whitefontcolor {
+    background-color: #ffffff;
+    /* Green */
+}
+
+.ev {
+    font-size: 1.5em;
+    color: #e74c3c;
+    /* Default red color */
+}
