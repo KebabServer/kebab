@@ -72,7 +72,33 @@
             <div class="R100" bet_size="R100"></div>
         </div>
         <h2>Flop Sizing</h2>
+        <p>We will simplify the flop strategy to either using big sizing <div class="B75" bet_size="B75"></div> or small sizing  <div class="B33" bet_size="B33"></div>.</p>
+        <p>Following theorem helps us choose the correct sizing and frequency.</p>
+        <h2 class="theorem">Betting Theorem</h2>
+        <p>Board favourability and polarisation determine the bet sizing and frequency.</p>
+        <svg width="450" height="125">
+            <!-- Draw the rounded rectangle -->
+            <rect x="0" y="0" width="150" height="50" rx="20" ry="20" fill="#ee546d" stroke="yellow" stroke-width="2" />
+            <rect x="260" y="0" width="150" height="50" rx="20" ry="20" fill="#ee546d" stroke="yellow"
+                stroke-width="2" />
 
+            <rect x="0" y="70" width="150" height="50" rx="20" ry="20" fill="#ee546d" stroke="yellow"
+                stroke-width="2" />
+            <rect x="260" y="70" width="150" height="50" rx="20" ry="20" fill="#ee546d" stroke="yellow"
+                stroke-width="2" />
+
+            <!-- Add text inside the rounded rectangle -->
+            <text x="75" y="30" font-size="20" text-anchor="middle" font-weight="bold" fill="black">Favourability</text>
+            <text x="335" y="30" font-size="20" text-anchor="middle" font-weight="bold" fill="black">Bet
+                Frequency</text>
+
+            <text x="75" y="100" font-size="18" text-anchor="middle" font-weight="bold" fill="black">Clarke's
+                Theorem</text>
+            <text x="335" y="100" font-size="20" text-anchor="middle" font-weight="bold" fill="black">Bet Sizing</text>
+
+            <polygon points="220 20,175 20, 175 30, 220 30, 220 15, 240 25, 220 35" fill="white" />
+            <polygon points="220 90,175 90, 175 100, 220 100, 220 85, 240 95, 220 105" fill="white" />
+        </svg>
 
         <h2>SRP BTN vs BB</h2>
 
@@ -103,10 +129,10 @@
                         <span class="inline-card" data-card="Jh"></span>
                         <span class="inline-card" data-card="6s"></span>
                     </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="ev"></td>
+                    <td>40.41%</td>
+                    <td>4.59%</td>
+                    <td>55.01%</td>
+                    <td class="ev"> 64%</td>
                 </tr>
                 <!-- Row 2 -->
                 <tr>
