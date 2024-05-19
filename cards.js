@@ -152,6 +152,6 @@ document.querySelectorAll('.inline-card').forEach(card => {
           suitSymbol = '';
   }
 
-  card.setAttribute('data-rank', rank);
+  card.setAttribute('data-rank', rank + suitSymbol);
   card.setAttribute('data-suit', suitSymbol);
 });

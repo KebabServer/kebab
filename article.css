@@ -165,18 +165,8 @@ img {
 
 .inline-card::before {
     content: attr(data-rank);
-    position: absolute;
-    top: 3px;
-    left: 5px;
-    
-}
-
-.inline-card::after {
-    content: attr(data-suit);
-    position: absolute;
-    bottom: 3px;
-    right: 3px;
-    font-size: 20px;
+    position: middle;
+   
 }
 
 .inline-card[data-suit="x"]{
