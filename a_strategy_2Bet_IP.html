@@ -72,33 +72,20 @@
             <div class="R100" bet_size="R100"></div>
         </div>
         <h2>Flop Sizing</h2>
-        <p>We will simplify the flop strategy to either using big sizing <div class="B75" bet_size="B75"></div> or small sizing  <div class="B33" bet_size="B33"></div>.</p>
+        <p>We will simplify the flop strategy to either using big sizing
+        <span class="B75" bet_size="B75"></span> or small sizing <span class="B33" bet_size="B33"></span>.</p>
         <p>Following theorem helps us choose the correct sizing and frequency.</p>
-        <h2 class="theorem">Betting Theorem</h2>
-        <p>Board favourability and polarisation determine the bet sizing and frequency.</p>
-        <svg width="450" height="125">
-            <!-- Draw the rounded rectangle -->
-            <rect x="0" y="0" width="150" height="50" rx="20" ry="20" fill="#ee546d" stroke="yellow" stroke-width="2" />
-            <rect x="260" y="0" width="150" height="50" rx="20" ry="20" fill="#ee546d" stroke="yellow"
-                stroke-width="2" />
-
-            <rect x="0" y="70" width="150" height="50" rx="20" ry="20" fill="#ee546d" stroke="yellow"
-                stroke-width="2" />
-            <rect x="260" y="70" width="150" height="50" rx="20" ry="20" fill="#ee546d" stroke="yellow"
-                stroke-width="2" />
-
-            <!-- Add text inside the rounded rectangle -->
-            <text x="75" y="30" font-size="20" text-anchor="middle" font-weight="bold" fill="black">Favourability</text>
-            <text x="335" y="30" font-size="20" text-anchor="middle" font-weight="bold" fill="black">Bet
-                Frequency</text>
-
-            <text x="75" y="100" font-size="18" text-anchor="middle" font-weight="bold" fill="black">Clarke's
-                Theorem</text>
-            <text x="335" y="100" font-size="20" text-anchor="middle" font-weight="bold" fill="black">Bet Sizing</text>
-
-            <polygon points="220 20,175 20, 175 30, 220 30, 220 15, 240 25, 220 35" fill="white" />
-            <polygon points="220 90,175 90, 175 100, 220 100, 220 85, 240 95, 220 105" fill="white" />
-        </svg>
+        <h2 class="theorem">Big or Small Theorem</h2>
+        <p>When we have a <b class="yellow">large nut advantage</b> we shall adopt <span class="B75" bet_size="B75"></span> as our only flop sizing.
+        </p>
+        <p>When we <b class="yellow">do not</b> have a <b class="yellow">large nut advantage</b> we shall adopt
+            <span class="B33" bet_size="B33"></span>.</p> as our only flop sizing.
+        </p>
+        <p>Note that we are NOT asking <b class="red">"Who has the nut advantage?"</b>, because a small nut advantage
+            isn't enough to make
+            us size up on the flop.</p>
+        <p>We are asking: <b class="green">"Do we have a large nut advantage?"</b>, because that is sufficient for
+            sizing up on the flop.</p>
 
         <h2>SRP BTN vs BB</h2>
 
@@ -132,7 +119,7 @@
                     <td>40.41%</td>
                     <td>4.59%</td>
                     <td>55.01%</td>
-                    <td class="ev"> 64%</td>
+                    <td class="ev"> 64.1%</td>
                 </tr>
                 <!-- Row 2 -->
                 <tr>
@@ -141,10 +128,10 @@
                         <span class="inline-card" data-card="7s"></span>
                         <span class="inline-card" data-card="2h"></span>
                     </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="ev"></td>
+                    <td>41.33%</td>
+                    <td>21.91%</td>
+                    <td>36.76%</td>
+                    <td class="ev">61.6%</td>
                 </tr>
                 <!-- Row 3 -->
                 <tr>
@@ -153,10 +140,10 @@
                         <span class="inline-card" data-card="6h"></span>
                         <span class="inline-card" data-card="5s"></span>
                     </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="ev"></td>
+                    <td>5.59%</td>
+                    <td>47.67%</td>
+                    <td>46.74%</td>
+                    <td class="ev">57.8%</td>
                 </tr>
                 <!-- Row 4 -->
                 <tr>
@@ -165,10 +152,10 @@
                         <span class="inline-card" data-card="8s"></span>
                         <span class="inline-card" data-card="7d"></span>
                     </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="ev"></td>
+                    <td>35.79%</td>
+                    <td>20.03%</td>
+                    <td>44.18%</td>
+                    <td class="ev">61.1%</td>
                 </tr>
                 <!-- Row 5 -->
                 <tr>
@@ -177,10 +164,10 @@
                         <span class="inline-card" data-card="4d"></span>
                         <span class="inline-card" data-card="2c"></span>
                     </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="ev"></td>
+                    <td>5.15%</td>
+                    <td>41.44%</td>
+                    <td>53.41%</td>
+                    <td class="ev">57.3%</td>
                 </tr>
                 <!-- Row 6 -->
                 <tr>
@@ -189,10 +176,10 @@
                         <span class="inline-card" data-card="2d"></span>
                         <span class="inline-card" data-card="2s"></span>
                     </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="ev"></td>
+                    <td>4.10%</td>
+                    <td>76.57%</td>
+                    <td>19.33%</td>
+                    <td class="ev">62.8%</td>
                 </tr>
                 <!-- Row 7 -->
                 <tr>
@@ -201,13 +188,21 @@
                         <span class="inline-card" data-card="7s"></span>
                         <span class="inline-card" data-card="2d"></span>
                     </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="ev"></td>
+                    <td>0.00%</td>
+                    <td>67.54%</td>
+                    <td>32.46%</td>
+                    <td class="ev">60.8%</td>
                 </tr>
             </tbody>
         </table>
+        <h2>Board <span class="inline-card" data-card="As"></span>
+            <span class="inline-card" data-card="Jh"></span>
+            <span class="inline-card" data-card="6s"></span>
+        </h2>
+        <p>We do have a large nut advantage (more AA, JJ and AJ) so we choose to use <span class="B75"
+                bet_size="B75"></span> as our only sizing. Running a simulation with only the big size <span class="B75"
+                bet_size="B75"></span>.</p>
+
 
 
         <script src="cards.js"></script>
