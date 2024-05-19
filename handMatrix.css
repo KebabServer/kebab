@@ -1,0 +1,35 @@
+.tooltip {
+    visibility: hidden;
+    width: auto;
+    white-space: nowrap;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 5px 5px;
+    border-radius: 6px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+
+.matrixSingleHandDiv {
+
+    box-sizing: border-box;
+    color: Black;
+    display: inline-block;
+    width: 3vw;
+    height: 4vh;
+    font-size: small;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    outline: 1px solid black;
+    padding: 0;
+
+}
+.boardClass {
+    width: 6.25%;
+    font-size: 4vw;
+}

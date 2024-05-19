@@ -148,7 +148,7 @@ img {
 }
 .inline-card {
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 2px solid #8a8a8a;
     border-radius: 5px;
     padding: 5px;
     margin: 0 2px;
@@ -166,7 +166,7 @@ img {
 .inline-card::before {
     content: attr(data-rank);
     position: middle;
-   
+    font-size: 18px;
 }
 
 .inline-card[data-suit="x"]{
