@@ -5,6 +5,42 @@ const cardOrder = ["2d2c", "2h2c", "2h2d", "2s2c", "2s2d", "2s2h", "3c2c", "3c2d
 let gridWidth = 40;
 let gridx = 30;
 let gridy = 30;
+function colorHand(hand) {
+    let coloredHand = "";
+    switch (hand.charAt(1)) {
+        case 's':
+            coloredHand += "<span style='color:black'>" + hand.charAt(0) + "♠</span>";
+            break;
+        case 'h':
+            coloredHand += "<span style='color:red'>" + hand.charAt(0) + "♥</span>";
+            break;
+        case 'c':
+            coloredHand += "<span style='color:rgb(0, 148, 7)'>" + hand.charAt(0) + "♣</span>";
+            break;
+        case 'd':
+            coloredHand += "<span style='color:rgb(0, 3, 204)'>" + hand.charAt(0) + "♦</span>";
+            break;
+        default:
+            color = 'white';
+    }
+    switch (hand.charAt(3)) {
+        case 's':
+            coloredHand += "<span style='color:black'>" + hand.charAt(2) + "♠</span>";
+            break;
+        case 'h':
+            coloredHand += "<span style='color:red'>" + hand.charAt(2) + "♥</span>";
+            break;
+        case 'c':
+            coloredHand += "<span style='color:rgb(0, 148, 7)'>" + hand.charAt(2) + "♣</span>";
+            break;
+        case 'd':
+            coloredHand += "<span style='color:rgb(0, 3, 204)'>" + hand.charAt(2) + "♦</span>";
+            break;
+        default:
+            color = 'white';
+    }
+    return coloredHand;
+}
 
 document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
     colors = handMatrix.getAttribute('range-colors').split(",");
@@ -74,20 +110,28 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
     for (let i = 0; i < ranges.length; i++) {
         let line = ranges[i].split(",");
         let hand = line[0];
-        for (let j = 1; j < line.length; j++) {
-            if (hand.charAt(1) == hand.charAt(3)) {
-                colorsf_multi[cardString.indexOf(hand.charAt(0))][cardString.indexOf(hand.charAt(2))][j - 1] += parseFloat(line[j]);
-                colorsf_multi_tooltip_temp[cardString.indexOf(hand.charAt(0))][cardString.indexOf(hand.charAt(2))] += hand + " " + parseFloat(line[j]).toFixed(2)+"<br>";
-            } else {
-                colorsf_multi[cardString.indexOf(hand.charAt(2))][cardString.indexOf(hand.charAt(0))][j - 1] += parseFloat(line[j]);
-                colorsf_multi_tooltip_temp[cardString.indexOf(hand.charAt(2))][cardString.indexOf(hand.charAt(0))] += hand + " " + parseFloat(line[j]).toFixed(2)+"<br>";
-            }
 
+
+        if (hand.charAt(1) == hand.charAt(3)) {
+            colorsf_multi_tooltip_temp[cardString.indexOf(hand.charAt(0))][cardString.indexOf(hand.charAt(2))] += colorHand(hand);
+            for (let j = 1; j < line.length; j++) {
+                colorsf_multi[cardString.indexOf(hand.charAt(0))][cardString.indexOf(hand.charAt(2))][j - 1] += parseFloat(line[j]);
+                colorsf_multi_tooltip_temp[cardString.indexOf(hand.charAt(0))][cardString.indexOf(hand.charAt(2))] += " <span style='color:" + colors[j - 1] + "'>" + parseFloat(line[j]).toFixed(2) + "<span>";
+            }
+            colorsf_multi_tooltip_temp[cardString.indexOf(hand.charAt(0))][cardString.indexOf(hand.charAt(2))] += "<br>";
+        } else {
+            colorsf_multi_tooltip_temp[cardString.indexOf(hand.charAt(2))][cardString.indexOf(hand.charAt(0))] += colorHand(hand);
+            for (let j = 1; j < line.length; j++) {
+                colorsf_multi[cardString.indexOf(hand.charAt(2))][cardString.indexOf(hand.charAt(0))][j - 1] += parseFloat(line[j]);
+                colorsf_multi_tooltip_temp[cardString.indexOf(hand.charAt(2))][cardString.indexOf(hand.charAt(0))] += " <span style='color:" + colors[j - 1] + "'>" + parseFloat(line[j]).toFixed(2) + "<span>";
+            }
+            colorsf_multi_tooltip_temp[cardString.indexOf(hand.charAt(2))][cardString.indexOf(hand.charAt(0))] += "<br>";
         }
 
 
         cardOrder.indexOf(hand);
     }
+
 
     let totalraisecombos = 0;
     for (let n = 0; n < colors.length; n++) {
@@ -130,6 +174,8 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
         tip.className = "tooltip";
         handMatrix.addEventListener("mouseout", function (event) {
             tip.style.visibility = "hidden";
+
+
         }, false);
         handMatrix.addEventListener('mousemove', function (event) {
             tip.style.visibility = "visible";
@@ -138,6 +184,24 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
                 tip.innerHTML = collection[0].getAttribute("tooltipText");
             }
 
+            // Move the tooltip
+            const tooltipWidth = tip.offsetWidth;
+            const tooltipHeight = tip.offsetHeight;
+            const pageWidth = document.documentElement.clientWidth;
+            const pageHeight = document.documentElement.clientHeight;
+            let left = event.pageX + 10;
+            let top = event.pageY + 10;
+
+            if (left + tooltipWidth > pageWidth) {
+                left = event.pageX - tooltipWidth - 10;
+            }
+
+            if (top + tooltipHeight > pageHeight) {
+                top = event.pageY - tooltipHeight - 10;
+            }
+
+            tip.style.left = `${left}px`;
+            tip.style.top = `${top}px`;
         });
         handMatrix.appendChild(tip);
     }
