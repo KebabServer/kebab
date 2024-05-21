@@ -12,13 +12,27 @@
     position: absolute;
     z-index: 1;
 }
+.tooltipTable{
+    border-collapse: collapse;
+}
+.tooltipTable  * td{
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+
+}
+.matrixRowDiv{
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    width: 50;
+    box-sizing: border-box;
+}
 
 .matrixSingleHandDiv {
 
     box-sizing: border-box;
     color: Black;
     display: inline-block;
-    width: 3vw;
     height: 4vh;
     font-size: small;
     font-weight: bold;
