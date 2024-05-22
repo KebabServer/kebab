@@ -175,8 +175,6 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
         }
     }
     for (let i = 0; i < 13; i++) {
-        var tempRowDiv = document.createElement("div");
-        tempRowDiv.className = "matrixRowDiv";
         for (let j = 0; j < 13; j++) {
             var tempDiv = document.createElement("div");
             tempDiv.className = "matrixSingleHandDiv";
@@ -196,12 +194,11 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
             tempDiv.style.backgroundImage = "linear-gradient(to right, " + str + " gray " + x + "% 100%)";
             tempDiv.setAttribute("tooltipText", colorsf_multi_tooltip[i][j]);
 
-            tempRowDiv.appendChild(tempDiv);
+            handMatrix.appendChild(tempDiv);
             tempDiv.setAttribute("isOnDiv", "false");
             tempDiv.addEventListener("mouseenter", function () { event.target.classList.add("tipOn"); });
             tempDiv.addEventListener("mouseout", function () { event.target.classList.remove("tipOn"); });
         }
-        handMatrix.appendChild(tempRowDiv);
         var tip = document.createElement("span");
         tip.className = "tooltip";
         handMatrix.addEventListener("mouseout", function (event) {
