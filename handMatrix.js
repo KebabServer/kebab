@@ -117,8 +117,10 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
 
+    let preflopCombos = 0;
     for (let i = 0; i < 1326; i++) {
         preflopMax[cardOrderX[i]][cardOrderY[i]] = parseFloat(preflopRange[i]);
+        preflopCombos += parseFloat(preflopRange[i]);
     }
 
     const cardString = "AKQJT98765432";
@@ -145,7 +147,7 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
         }
 
         let maxEVforHand = 0;
-     
+
         var grandientX = 0;
         var radientStr = "";
         var betsizeStr = "";
@@ -161,7 +163,7 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
             betsizeStr += "<div class=tooltipbetsize>" + parseFloat(line[j]).toFixed(1) + "%</div>"
 
         }
-        colorsf_multi_tooltip_temp[x][y] += "<div class=tooltipHandDiv style='color:black; background-image:linear-gradient(to right, " + radientStr + " gray " + grandientX + "% 100%);'>"+"<div class=tooltipdivider>" + colorHand(hand) + " <div class=tooltipEV>EV: " + maxEVforHand.toFixed(1) + "%</div></div><div>" + betsizeStr + "</div> </div>";
+        colorsf_multi_tooltip_temp[x][y] += "<div class=tooltipHandDiv style='color:black; background-image:linear-gradient(to right, " + radientStr + " gray " + grandientX + "% 100%);'>" + "<div class=tooltipdivider><div class=tooltipHandBackground>" + colorHand(hand) + "</div> <div class=tooltipEV>EV: " + maxEVforHand.toFixed(1) + "%</div></div><div>" + betsizeStr + "</div> </div>";
 
     }
 
@@ -174,9 +176,11 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
             }
         }
     }
+    let totalCombos = 0;
+    let sizeCombos = [0, 0, 0, 0, 0, 0, 0, 0];
     for (let i = 0; i < 13; i++) {
         for (let j = 0; j < 13; j++) {
-            var tempDiv = document.createElement("div");
+            let tempDiv = document.createElement("div");
             tempDiv.className = "matrixSingleHandDiv";
             if (j > i) {
                 tempDiv.innerHTML = cards[i] + cards[j] + 's';
@@ -185,9 +189,11 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
             } else {
                 tempDiv.innerHTML = cards[j] + cards[i] + 'o';
             }
-            var x = 0;
-            var str = "";
+            let x = 0;
+            let str = "";
             for (let n = 0; n < colors.length; n++) {
+                totalCombos += colorsf_multi[i][j][n] * preflopMax[i][j] / 100;
+                sizeCombos[n] += colorsf_multi[i][j][n] * preflopMax[i][j];
                 str += colors[n] + " " + x + "% " + (x + colorsf_multi[i][j][n] * preflopMax[i][j] / heightsMax[i][j]) + "%,";
                 x += colorsf_multi[i][j][n] * preflopMax[i][j] / heightsMax[i][j];
             }
@@ -199,6 +205,7 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
             tempDiv.addEventListener("mouseenter", function () { event.target.classList.add("tipOn"); });
             tempDiv.addEventListener("mouseout", function () { event.target.classList.remove("tipOn"); });
         }
+
         var tip = document.createElement("span");
         tip.className = "tooltip";
         handMatrix.addEventListener("mouseout", function (event) {
@@ -234,6 +241,19 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
         });
         handMatrix.appendChild(tip);
     }
-
-
+    for (let i = 0; i < colors.length; i++) {
+        let tempDiv = document.createElement("div");
+        tempDiv.innerHTML = (sizeCombos[i] / totalCombos).toFixed(1) + "% " + (sizeCombos[i] / 100).toFixed(1) + "c";
+        tempDiv.className = "betsize-total";
+        tempDiv.style.backgroundColor = colors[i];
+        tempDiv.style.gridColumnStart = 2 * i + 1;
+        tempDiv.style.gridColumnEnd = 2 * i + 3;
+        handMatrix.appendChild(tempDiv);
+    }
+    let tempDiv = document.createElement("div");
+    tempDiv.innerHTML = preflopCombos.toFixed(1) + "c";
+    tempDiv.className = "preflop-total";
+    tempDiv.style.gridColumnStart = 13;
+    tempDiv.style.gridColumnEnd = 14;
+    handMatrix.appendChild(tempDiv);
 });

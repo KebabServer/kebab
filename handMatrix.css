@@ -25,6 +25,10 @@
     width: 5vw;
     height: 5vh;
 }
+.tooltipHandBackground{
+    text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+             1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+}
 
 .tooltipbetsize {
     color: #000000;
@@ -63,4 +67,17 @@
     display: grid;
     grid-template-columns: repeat(13, 1fr);
     grid-template-rows: repeat(13, 1fr);
+}
+.betsize-total{
+    color: Black;
+    outline: 2px solid black;
+    text-align: center;
+    font-weight: bold;
+}
+.preflop-total{
+    color: Black;
+    outline: 2px solid black;
+    background-color: white;
+    text-align: center;
+    font-weight: bold;
 }
