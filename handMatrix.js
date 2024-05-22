@@ -45,6 +45,37 @@ function colorHand(hand) {
     return coloredHand;
 }
 
+function createCardDiv(card) {
+    let cardSpan = document.createElement("span");
+    cardSpan.className = "matrixboard-card";
+    const rank = card.slice(0, -1);
+    const suitChar = card.slice(-1);
+    let suitSymbol;
+
+    switch (suitChar) {
+        case 'c':
+            suitSymbol = '♣';
+            break;
+        case 'd':
+            suitSymbol = '♦';
+            break;
+        case 'h':
+            suitSymbol = '♥';
+            break;
+        case 's':
+            suitSymbol = '♠';
+            break;
+        case 'x':
+            suitSymbol = 'x';
+            break;
+        default:
+            suitSymbol = '';
+    }
+    cardSpan.setAttribute('data-rank', rank + suitSymbol);
+    cardSpan.setAttribute('data-suit', suitSymbol);
+    return cardSpan;
+}
+
 document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
     let colors = handMatrix.getAttribute('range-colors').split(",");
     let ranges = handMatrix.getAttribute('range-freqs').split("*");
@@ -176,6 +207,15 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
             }
         }
     }
+
+    var topDiv = document.createElement("div");
+    var bottomDiv = document.createElement("div");
+
+    topDiv.className = "topDiv";
+    bottomDiv.className = "bottomDiv";
+    handMatrix.appendChild(topDiv);
+    handMatrix.appendChild(bottomDiv);
+
     let totalCombos = 0;
     let sizeCombos = [0, 0, 0, 0, 0, 0, 0, 0];
     for (let i = 0; i < 13; i++) {
@@ -200,47 +240,56 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
             tempDiv.style.backgroundImage = "linear-gradient(to right, " + str + " gray " + x + "% 100%)";
             tempDiv.setAttribute("tooltipText", colorsf_multi_tooltip[i][j]);
 
-            handMatrix.appendChild(tempDiv);
+            bottomDiv.appendChild(tempDiv);
             tempDiv.setAttribute("isOnDiv", "false");
             tempDiv.addEventListener("mouseenter", function () { event.target.classList.add("tipOn"); });
             tempDiv.addEventListener("mouseout", function () { event.target.classList.remove("tipOn"); });
         }
-
-        var tip = document.createElement("span");
-        tip.className = "tooltip";
-        handMatrix.addEventListener("mouseout", function (event) {
-            tip.style.visibility = "hidden";
-
-
-        }, false);
-        handMatrix.addEventListener('mousemove', function (event) {
-            tip.style.visibility = "visible";
-            var collection = document.getElementsByClassName("tipOn");
-            if (collection.length > 0) {
-                tip.innerHTML = collection[0].getAttribute("tooltipText");
-            }
-
-            // Move the tooltip
-            const tooltipWidth = tip.offsetWidth;
-            const tooltipHeight = tip.offsetHeight;
-            const pageWidth = document.documentElement.clientWidth;
-            const pageHeight = document.documentElement.clientHeight;
-            let left = event.pageX + 10;
-            let top = event.pageY + 10;
-
-            if (left + tooltipWidth > pageWidth) {
-                left = event.pageX - tooltipWidth - 10;
-            }
-
-            if (top + tooltipHeight > pageHeight) {
-                top = event.pageY - tooltipHeight - 10;
-            }
-
-            tip.style.left = `${left}px`;
-            tip.style.top = `${top}px`;
-        });
-        handMatrix.appendChild(tip);
     }
+
+
+
+    var tip = document.createElement("span");
+    tip.className = "tooltip";
+    bottomDiv.addEventListener("mouseout", function (event) {
+        tip.style.visibility = "hidden";
+    }, false);
+    bottomDiv.addEventListener('mousemove', function (event) {
+        tip.style.visibility = "visible";
+        var collection = document.getElementsByClassName("tipOn");
+        if (collection.length > 0) {
+            tip.innerHTML = collection[0].getAttribute("tooltipText");
+        }
+
+        // Move the tooltip
+        const tooltipWidth = tip.offsetWidth;
+        const tooltipHeight = tip.offsetHeight;
+        const pageWidth = document.documentElement.clientWidth;
+        const pageHeight = document.documentElement.clientHeight;
+        let left = event.pageX + 10;
+        let top = event.pageY + 10;
+
+        if (left + tooltipWidth > pageWidth) {
+            left = event.pageX - tooltipWidth - 10;
+        }
+
+        if (top + tooltipHeight > pageHeight) {
+            top = event.pageY - tooltipHeight - 10;
+        }
+
+        tip.style.left = `${left}px`;
+        tip.style.top = `${top}px`;
+    });
+    bottomDiv.appendChild(tip);
+
+    let boardDiv = document.createElement("div");
+    boardDiv.appendChild(createCardDiv(handMatrix.getAttribute('board').substring(0, 2)));
+    boardDiv.appendChild(createCardDiv(handMatrix.getAttribute('board').substring(2, 4)));
+    boardDiv.appendChild(createCardDiv(handMatrix.getAttribute('board').substring(4, 6)));
+    topDiv.appendChild(boardDiv);
+    boardDiv.style.gridColumnStart = 6;
+    boardDiv.style.gridColumnEnd = 9;
+
     for (let i = 0; i < colors.length; i++) {
         let tempDiv = document.createElement("div");
         tempDiv.innerHTML = (sizeCombos[i] / totalCombos).toFixed(1) + "% " + (sizeCombos[i] / 100).toFixed(1) + "c";
@@ -248,10 +297,12 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
         tempDiv.style.backgroundColor = colors[i];
         tempDiv.style.gridColumnStart = 2 * i + 1;
         tempDiv.style.gridColumnEnd = 2 * i + 3;
-        handMatrix.appendChild(tempDiv);
+        bottomDiv.appendChild(tempDiv);
     }
     let tempDiv = document.createElement("div");
     tempDiv.innerHTML = preflopCombos.toFixed(1) + "c";
     tempDiv.className = "preflop-total";
-    handMatrix.appendChild(tempDiv);
+    bottomDiv.appendChild(tempDiv);
 });
+
+

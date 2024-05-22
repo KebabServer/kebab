@@ -43,13 +43,15 @@
 .tooltipdivider {
     flex: 50%;
 }
+.hand-matrix{
+    padding: 30px 30px 0px 0px;
+}
 
 @media (max-width: 600px) {
    
 }
 
 .matrixSingleHandDiv {
-
     box-sizing: border-box;
     color: Black;
     display: inline-block;
@@ -63,10 +65,14 @@
     padding: 0;
 }
 
-.hand-matrix {
+.bottomDiv {
     display: grid;
     grid-template-columns: repeat(13, 1fr);
     grid-template-rows: repeat(13, 1fr);
+}
+.topDiv {
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
 }
 .betsize-total{
     color: Black;
@@ -82,4 +88,45 @@
     font-weight: bold;
     grid-column-start: 12;
     grid-column-end: 14;
+}
+
+.matrixboard-card {
+    display: inline-block;
+    border: 2px solid #8a8a8a;
+    border-radius: 5px;
+    padding: 12px;
+    margin: 0 2px;
+    line-height: 0.6;
+    width: 34px;
+    height: 20px;
+    text-align: center;
+    position: relative;
+    background-color: white;
+    vertical-align: middle; /* Adjust this value to move the card down */
+ 
+}
+
+.matrixboard-card::before {
+    content: attr(data-rank);
+    position: middle;
+    font-size: 35px;
+}
+
+.matrixboard-card[data-suit="x"]{
+    color: black;
+    font-weight: bold;
+} 
+.matrixboard-card[data-suit="♠"] {
+    color: black;
+}
+.matrixboard-card[data-suit="♣"]{
+    color: rgb(0, 148, 7);
+}
+
+.matrixboard-card[data-suit="♥"] {
+    color: red;
+}
+ 
+.matrixboard-card[data-suit="♦"]{
+    color: rgb(0, 3, 204);
 }
