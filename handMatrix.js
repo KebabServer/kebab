@@ -161,7 +161,7 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
             divStr += "<div class=tooltipbetsize>" + parseFloat(line[j]).toFixed(1) + "</div>"
 
         }
-        colorsf_multi_tooltip_temp[x][y] += "<div class=tooltipHandDiv style='color:black; background-image:linear-gradient(to right, " + radientStr + " gray " + grandientX + "% 100%);'>"+"<div class=tooltipdivider>" + colorHand(hand) + " <div class=tooltipEV> " + maxEVforHand.toFixed(2) + "</div></div><div>" + divStr + "</div> </div>";
+        colorsf_multi_tooltip_temp[x][y] += "<div class=tooltipHandDiv style='color:black; background-image:linear-gradient(to right, " + radientStr + " gray " + grandientX + "% 100%);'>"+"<div class=tooltipdivider>" + colorHand(hand) + " <div class=tooltipEV>EV: " + maxEVforHand.toFixed(1) + "%</div></div><div>" + divStr + "</div> </div>";
 
     }
 
