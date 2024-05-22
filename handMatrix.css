@@ -41,12 +41,7 @@
 }
 
 @media (max-width: 600px) {
-    .matrixRowDiv {
-        display: grid;
-        grid-template-columns: repeat(13, 1fr);
-        width: 90vw;
-        box-sizing: border-box;
-    }
+   
 }
 
 .matrixSingleHandDiv {
@@ -67,4 +62,5 @@
 .hand-matrix {
     display: grid;
     grid-template-columns: repeat(13, 1fr);
+    grid-template-rows: repeat(13, 1fr);
 }
