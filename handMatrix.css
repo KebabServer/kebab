@@ -43,6 +43,14 @@
     width: 50vw;
     box-sizing: border-box;
 }
+@media (max-width: 600px) {
+    .matrixRowDiv {
+        display: grid;
+        grid-template-columns: repeat(13, 1fr);
+        width: 90vw;
+        box-sizing: border-box;
+    }
+  }
 
 .matrixSingleHandDiv {
 
@@ -50,13 +58,11 @@
     color: Black;
     display: inline-block;
     height: 4vh;
+    width: 100%;
     font-size: small;
     font-weight: bold;
     color: black;
     text-align: center;
     outline: 1px solid black;
     padding: 0;
-}
-.hand-matrix{
-    display: grid;
 }
