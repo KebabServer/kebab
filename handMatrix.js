@@ -132,35 +132,44 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
             }
         }
     }
-    for (let i = 0; i < ranges.length; i++) {
+
+    // For KsKh: 35.53 format
+    for (let i = ranges.length - 1; i >= 0; i--) {
         let line = ranges[i].split(",");
         let hand = line[0];
-        let x = cardString.indexOf(hand.charAt(0));
-        let y = cardString.indexOf(hand.charAt(2));
-
+        let x = cardString.indexOf(hand.charAt(2));
+        let y = cardString.indexOf(hand.charAt(0));
         if (hand.charAt(1) == hand.charAt(3)) {
-            colorsf_multi_tooltip_temp[x][y] += "<tr><td>" + colorHand(hand) + "</td>";
-            for (let j = 1; j < line.length; j++) {
-                colorsf_multi[x][y][j - 1] += parseFloat(line[j]);
-                colorsf_multi_tooltip_temp[x][y] += " <td style='color:" + colors[j - 1] + ";'>" + parseFloat(line[j]).toFixed(2) + "</td>";
-            }
-            colorsf_multi_tooltip_temp[x][y] += "</tr>";
-        } else {
-            colorsf_multi_tooltip_temp[y][x] += "<tr><td>" + colorHand(hand) + "</td>";
-            for (let j = 1; j < line.length; j++) {
-                colorsf_multi[y][x][j - 1] += parseFloat(line[j]);
-                colorsf_multi_tooltip_temp[y][x] += " <td style='color:" + colors[j - 1] + ";'>" + parseFloat(line[j]).toFixed(2) + "</td>";
-            }
-            colorsf_multi_tooltip_temp[y][x] += "</tr>";
+            x = cardString.indexOf(hand.charAt(0));
+            y = cardString.indexOf(hand.charAt(2));
         }
+
+        let maxEVforHand = 0;
+        // colorsf_multi_tooltip_temp[x][y] += "<tr>";
+        var grandientX = 0;
+        var radientStr = "";
+        var divStr = "";
+        for (let j = 1; j < colors.length + 1; j++) {
+            //Calculate highest ev line for hand
+            maxEVforHand = Math.max(maxEVforHand, parseFloat(line[colors.length + j]));
+
+            colorsf_multi[x][y][j - 1] += parseFloat(line[j]);
+
+            radientStr += colors[j - 1] + " " + grandientX + "% " + (grandientX + parseFloat(line[j])) + "%,";
+            grandientX += parseFloat(line[j]);
+
+            divStr += "<div class=tooltipbetsize>" + parseFloat(line[j]).toFixed(1) + "</div>"
+
+        }
+        colorsf_multi_tooltip_temp[x][y] += "<div class=tooltipHandDiv style='color:black; background-image:linear-gradient(to right, " + radientStr + " gray " + grandientX + "% 100%);'>"+"<div class=tooltipdivider>" + colorHand(hand) + " <div class=tooltipEV> " + maxEVforHand.toFixed(2) + "</div></div><div>" + divStr + "</div> </div>";
 
     }
 
-    let totalraisecombos = 0;
+
     for (let n = 0; n < colors.length; n++) {
         for (let x = 0; x < 13; x++) {
             for (let y = 0; y < 13; y++) {
-                colorsf_multi_tooltip[x][y] += "<table class='tooltipTable' style='color:" + colors[n] + "; font-weight: bold;'>" + colorsf_multi_tooltip_temp[x][y] + "</table>";
+                colorsf_multi_tooltip[x][y] += "<div class='tooltipTable' style='color:" + colors[n] + "; font-weight: bold;'>" + colorsf_multi_tooltip_temp[x][y] + "</div>";
                 colorsf_multi_tooltip_temp[x][y] = "";
             }
         }
