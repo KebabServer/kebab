@@ -80,4 +80,6 @@
     background-color: white;
     text-align: center;
     font-weight: bold;
+    grid-column-start: 12;
+    grid-column-end: 14;
 }

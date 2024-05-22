@@ -253,7 +253,5 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
     let tempDiv = document.createElement("div");
     tempDiv.innerHTML = preflopCombos.toFixed(1) + "c";
     tempDiv.className = "preflop-total";
-    tempDiv.style.gridColumnStart = 13;
-    tempDiv.style.gridColumnEnd = 14;
     handMatrix.appendChild(tempDiv);
 });
