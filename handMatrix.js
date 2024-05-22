@@ -282,13 +282,15 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
     });
     bottomDiv.appendChild(tip);
 
-    let boardDiv = document.createElement("div");
-    boardDiv.appendChild(createCardDiv(handMatrix.getAttribute('board').substring(0, 2)));
-    boardDiv.appendChild(createCardDiv(handMatrix.getAttribute('board').substring(2, 4)));
-    boardDiv.appendChild(createCardDiv(handMatrix.getAttribute('board').substring(4, 6)));
-    topDiv.appendChild(boardDiv);
-    boardDiv.style.gridColumnStart = 6;
-    boardDiv.style.gridColumnEnd = 9;
+    let firstCard = createCardDiv(handMatrix.getAttribute('board').substring(0, 2));
+    let secondCard = createCardDiv(handMatrix.getAttribute('board').substring(2, 4));
+    let thirdCard = createCardDiv(handMatrix.getAttribute('board').substring(4, 6));
+    topDiv.appendChild(firstCard);
+    topDiv.appendChild(secondCard);
+    topDiv.appendChild(thirdCard);
+    firstCard.style.gridColumnStart = 6;
+    secondCard.style.gridColumnStart = 7;
+    thirdCard.style.gridColumnStart = 8;
 
     for (let i = 0; i < colors.length; i++) {
         let tempDiv = document.createElement("div");

@@ -91,16 +91,9 @@
 }
 
 .matrixboard-card {
-    display: inline-block;
     border: 2px solid #8a8a8a;
     border-radius: 5px;
-    padding: 12px;
-    margin: 0 2px;
-    line-height: 0.6;
-    width: 34px;
-    height: 20px;
     text-align: center;
-    position: relative;
     background-color: white;
     vertical-align: middle; /* Adjust this value to move the card down */
  
@@ -109,7 +102,7 @@
 .matrixboard-card::before {
     content: attr(data-rank);
     position: middle;
-    font-size: 35px;
+    font-size: 30px;
 }
 
 .matrixboard-card[data-suit="x"]{
