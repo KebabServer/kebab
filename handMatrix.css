@@ -5,20 +5,14 @@
     background-color: #363434;
     color: #000000;
     text-align: left;
-    padding: 5px 5px;
-    border-radius: 6px;
 
-
-    /* Position the tooltip text - see examples below! */
     position: absolute;
     z-index: 1;
 }
 
 .tooltipTable {
-    border-collapse: collapse;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
     /* Optional: Adjust the gap between the divs */
 }
 
@@ -28,7 +22,7 @@
     border-collapse: collapse;
     padding: 2px;
     font-size: 20px;
-    width: 7vw;
+    width: 5vw;
     height: 5vh;
 }
 .tooltipbetsize{
@@ -42,8 +36,6 @@
 .tooltipdivider{
     flex:50%;
 }
-
-
 
 .matrixRowDiv {
     display: grid;
@@ -64,5 +56,7 @@
     text-align: center;
     outline: 1px solid black;
     padding: 0;
-
+}
+.hand-matrix{
+    display: grid;
 }
