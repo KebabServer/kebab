@@ -45,12 +45,12 @@
     /* Style table header */
     th {
         background-color: #2b2b2b;
-        color:rgb(189, 23, 23);
+        color:coral;
         border: 1px solid #ddd;
         padding: 8px;
         text-align: left;
         font-weight: bold;
-        font-size: larger;
+        font-size: x-large;
     }
 
     /* Style alternating rows */

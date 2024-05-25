@@ -77,234 +77,271 @@ function createCardDiv(card) {
 }
 
 document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
-    let colors = handMatrix.getAttribute('range-colors').split(",");
-    let ranges = handMatrix.getAttribute('range-freqs').split("*");
-    let preflopRange = handMatrix.getAttribute('preflop-range').split(" ");
-    var colorsf_multi = [[[], [], [], [], [], [], [], [], [], [], [], [], []],
-    [[], [], [], [], [], [], [], [], [], [], [], [], []],
-    [[], [], [], [], [], [], [], [], [], [], [], [], []],
-    [[], [], [], [], [], [], [], [], [], [], [], [], []],
-    [[], [], [], [], [], [], [], [], [], [], [], [], []],
-    [[], [], [], [], [], [], [], [], [], [], [], [], []],
-    [[], [], [], [], [], [], [], [], [], [], [], [], []],
-    [[], [], [], [], [], [], [], [], [], [], [], [], []],
-    [[], [], [], [], [], [], [], [], [], [], [], [], []],
-    [[], [], [], [], [], [], [], [], [], [], [], [], []],
-    [[], [], [], [], [], [], [], [], [], [], [], [], []],
-    [[], [], [], [], [], [], [], [], [], [], [], [], []],
-    [[], [], [], [], [], [], [], [], [], [], [], [], []]];
-    var colorsf_multi_tooltip = [["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""]];
-    var colorsf_multi_tooltip_temp = [["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "", "", "", "", "", "", ""]];
+    let configuration = handMatrix.getAttribute('configuration');
+    let board = handMatrix.getAttribute('board');
 
-    let heightsMax = [[6, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-    [12, 6, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-    [12, 12, 6, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-    [12, 12, 12, 6, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-    [12, 12, 12, 12, 6, 4, 4, 4, 4, 4, 4, 4, 4],
-    [12, 12, 12, 12, 12, 6, 4, 4, 4, 4, 4, 4, 4],
-    [12, 12, 12, 12, 12, 12, 6, 4, 4, 4, 4, 4, 4],
-    [12, 12, 12, 12, 12, 12, 12, 6, 4, 4, 4, 4, 4],
-    [12, 12, 12, 12, 12, 12, 12, 12, 6, 4, 4, 4, 4],
-    [12, 12, 12, 12, 12, 12, 12, 12, 12, 6, 4, 4, 4],
-    [12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 6, 4, 4],
-    [12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 6, 4],
-    [12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 6]];
+    let topDiv = document.createElement("div");
+    topDiv.className = "topDiv";
+    handMatrix.appendChild(topDiv);
+    let index = 0;
+    for (let situation in json[configuration][board]) {
+        index++;
+        let colors = json[configuration][board][situation].range_colors.split(",");
 
-    let preflopMax = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
-
-    let preflopCombos = 0;
-    for (let i = 0; i < 1326; i++) {
-        preflopMax[cardOrderX[i]][cardOrderY[i]] = parseFloat(preflopRange[i]);
-        preflopCombos += parseFloat(preflopRange[i]);
-    }
-
-    const cardString = "AKQJT98765432";
-    let ind = 0;
-    for (let x = 0; x < 13; x++) {
-        for (let y = 0; y < 13; y++) {
+        // let colors = handMatrix.getAttribute('range-colors').split(",");
+        let ranges = json[configuration][board][situation].range_freqs.split("*");
+        let preflopRange = json[configuration][board][situation].preflop_range.split(" ");
 
 
-            for (let i = 0; i < colors.length; i++) {
-                colorsf_multi[y][x].push(0);
-            }
-        }
-    }
+        let colorsf_multi = [[[], [], [], [], [], [], [], [], [], [], [], [], []],
+        [[], [], [], [], [], [], [], [], [], [], [], [], []],
+        [[], [], [], [], [], [], [], [], [], [], [], [], []],
+        [[], [], [], [], [], [], [], [], [], [], [], [], []],
+        [[], [], [], [], [], [], [], [], [], [], [], [], []],
+        [[], [], [], [], [], [], [], [], [], [], [], [], []],
+        [[], [], [], [], [], [], [], [], [], [], [], [], []],
+        [[], [], [], [], [], [], [], [], [], [], [], [], []],
+        [[], [], [], [], [], [], [], [], [], [], [], [], []],
+        [[], [], [], [], [], [], [], [], [], [], [], [], []],
+        [[], [], [], [], [], [], [], [], [], [], [], [], []],
+        [[], [], [], [], [], [], [], [], [], [], [], [], []],
+        [[], [], [], [], [], [], [], [], [], [], [], [], []]];
+        let colorsf_multi_tooltip = [["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""]];
+        let colorsf_multi_tooltip_temp = [["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", "", "", "", ""]];
 
-    // For KsKh: 35.53 format
-    for (let i = ranges.length - 1; i >= 0; i--) {
-        let line = ranges[i].split(",");
-        let hand = line[0];
-        let x = cardString.indexOf(hand.charAt(2));
-        let y = cardString.indexOf(hand.charAt(0));
-        if (hand.charAt(1) == hand.charAt(3)) {
-            x = cardString.indexOf(hand.charAt(0));
-            y = cardString.indexOf(hand.charAt(2));
+        let heightsMax = [[6, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+        [12, 6, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+        [12, 12, 6, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+        [12, 12, 12, 6, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+        [12, 12, 12, 12, 6, 4, 4, 4, 4, 4, 4, 4, 4],
+        [12, 12, 12, 12, 12, 6, 4, 4, 4, 4, 4, 4, 4],
+        [12, 12, 12, 12, 12, 12, 6, 4, 4, 4, 4, 4, 4],
+        [12, 12, 12, 12, 12, 12, 12, 6, 4, 4, 4, 4, 4],
+        [12, 12, 12, 12, 12, 12, 12, 12, 6, 4, 4, 4, 4],
+        [12, 12, 12, 12, 12, 12, 12, 12, 12, 6, 4, 4, 4],
+        [12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 6, 4, 4],
+        [12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 6, 4],
+        [12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 6]];
+
+        let preflopMax = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
+
+        let preflopCombos = 0;
+        for (let i = 0; i < 1326; i++) {
+            preflopMax[cardOrderX[i]][cardOrderY[i]] = parseFloat(preflopRange[i]);
+            preflopCombos += parseFloat(preflopRange[i]);
         }
 
-        let maxEVforHand = 0;
-
-        var grandientX = 0;
-        var radientStr = "";
-        var betsizeStr = "";
-        for (let j = 1; j < colors.length + 1; j++) {
-            //Calculate highest ev line for hand
-            maxEVforHand = Math.max(maxEVforHand, parseFloat(line[colors.length + j]));
-
-            colorsf_multi[x][y][j - 1] += parseFloat(line[j]);
-
-            radientStr += colors[j - 1] + " " + grandientX + "% " + (grandientX + parseFloat(line[j])) + "%,";
-            grandientX += parseFloat(line[j]);
-
-            betsizeStr += "<div class=tooltipbetsize>" + parseFloat(line[j]).toFixed(1) + "%</div>"
-
-        }
-        colorsf_multi_tooltip_temp[x][y] += "<div class=tooltipHandDiv style='color:black; background-image:linear-gradient(to right, " + radientStr + " gray " + grandientX + "% 100%);'>" + "<div class=tooltipdivider><div class=tooltipHandBackground>" + colorHand(hand) + "</div> <div class=tooltipEV>EV: " + maxEVforHand.toFixed(1) + "%</div></div><div>" + betsizeStr + "</div> </div>";
-
-    }
-
-
-    for (let n = 0; n < colors.length; n++) {
+        const cardString = "AKQJT98765432";
+        let ind = 0;
         for (let x = 0; x < 13; x++) {
             for (let y = 0; y < 13; y++) {
-                colorsf_multi_tooltip[x][y] += "<div class='tooltipTable' style='color:" + colors[n] + "; font-weight: bold;'>" + colorsf_multi_tooltip_temp[x][y] + "</div>";
-                colorsf_multi_tooltip_temp[x][y] = "";
+
+
+                for (let i = 0; i < colors.length; i++) {
+                    colorsf_multi[y][x].push(0);
+                }
             }
         }
-    }
 
-    var topDiv = document.createElement("div");
-    var bottomDiv = document.createElement("div");
+        // For KsKh: 35.53 format
+        for (let i = ranges.length - 1; i >= 0; i--) {
+            let line = ranges[i].split(",");
+            let hand = line[0];
+            let x = cardString.indexOf(hand.charAt(2));
+            let y = cardString.indexOf(hand.charAt(0));
+            if (hand.charAt(1) == hand.charAt(3)) {
+                x = cardString.indexOf(hand.charAt(0));
+                y = cardString.indexOf(hand.charAt(2));
+            }
 
-    topDiv.className = "topDiv";
-    bottomDiv.className = "bottomDiv";
-    handMatrix.appendChild(topDiv);
-    handMatrix.appendChild(bottomDiv);
+            let maxEVforHand = 0;
 
-    let totalCombos = 0;
-    let sizeCombos = [0, 0, 0, 0, 0, 0, 0, 0];
-    for (let i = 0; i < 13; i++) {
-        for (let j = 0; j < 13; j++) {
+            let grandientX = 0;
+            let radientStr = "";
+            let betsizeStr = "";
+            for (let j = 1; j < colors.length + 1; j++) {
+                //Calculate highest ev line for hand
+                maxEVforHand = Math.max(maxEVforHand, parseFloat(line[colors.length + j]));
+
+                colorsf_multi[x][y][j - 1] += parseFloat(line[j]);
+
+                radientStr += colors[j - 1] + " " + grandientX + "% " + (grandientX + parseFloat(line[j])) + "%,";
+                grandientX += parseFloat(line[j]);
+
+                betsizeStr += "<div class=tooltipbetsize>" + parseFloat(line[j]).toFixed(1) + "%</div>"
+
+            }
+            colorsf_multi_tooltip_temp[x][y] += "<div class=tooltipHandDiv style='color:black; background-image:linear-gradient(to right, " + radientStr + " gray " + grandientX + "% 100%);'>" + "<div class=tooltipdivider><div class=tooltipHandBackground>" + colorHand(hand) + "</div> <div class=tooltipEV>EV: " + maxEVforHand.toFixed(1) + "%</div></div><div>" + betsizeStr + "</div> </div>";
+
+        }
+
+
+        for (let n = 0; n < colors.length; n++) {
+            for (let x = 0; x < 13; x++) {
+                for (let y = 0; y < 13; y++) {
+                    colorsf_multi_tooltip[x][y] += "<div class='tooltipTable' style='color:" + colors[n] + "; font-weight: bold;'>" + colorsf_multi_tooltip_temp[x][y] + "</div>";
+                    colorsf_multi_tooltip_temp[x][y] = "";
+                }
+            }
+        }
+
+
+        let bottomDiv = document.createElement("div");
+
+
+        bottomDiv.className = "bottomDiv";
+
+        handMatrix.appendChild(bottomDiv);
+
+        let totalCombos = 0;
+        let sizeCombos = [0, 0, 0, 0, 0, 0, 0, 0];
+        for (let i = 0; i < 13; i++) {
+            for (let j = 0; j < 13; j++) {
+                let tempDiv = document.createElement("div");
+                tempDiv.className = "matrixSingleHandDiv";
+                if (j > i) {
+                    tempDiv.innerHTML = cards[i] + cards[j] + 's';
+                } else if (i == j) {
+                    tempDiv.innerHTML = cards[j] + cards[i];
+                } else {
+                    tempDiv.innerHTML = cards[j] + cards[i] + 'o';
+                }
+                let x = 0;
+                let str = "";
+                for (let n = 0; n < colors.length; n++) {
+                    totalCombos += colorsf_multi[i][j][n] * preflopMax[i][j] / 100;
+                    sizeCombos[n] += colorsf_multi[i][j][n] * preflopMax[i][j];
+                    str += colors[n] + " " + x + "% " + (x + colorsf_multi[i][j][n] * preflopMax[i][j] / heightsMax[i][j]) + "%,";
+                    x += colorsf_multi[i][j][n] * preflopMax[i][j] / heightsMax[i][j];
+                }
+                tempDiv.style.backgroundImage = "linear-gradient(to right, " + str + " gray " + x + "% 100%)";
+                tempDiv.setAttribute("tooltipText", colorsf_multi_tooltip[i][j]);
+
+                bottomDiv.appendChild(tempDiv);
+                tempDiv.setAttribute("isOnDiv", "false");
+                tempDiv.addEventListener("mouseenter", function () { event.target.classList.add("tipOn"); });
+                tempDiv.addEventListener("mouseout", function () { event.target.classList.remove("tipOn"); });
+            }
+        }
+
+
+
+        let tip = document.createElement("span");
+        tip.className = "tooltip";
+        bottomDiv.addEventListener("mouseout", function (event) {
+            tip.style.visibility = "hidden";
+        }, false);
+        bottomDiv.addEventListener('mousemove', function (event) {
+            tip.style.visibility = "visible";
+            let collection = document.getElementsByClassName("tipOn");
+            if (collection.length > 0) {
+                tip.innerHTML = collection[0].getAttribute("tooltipText");
+            }
+
+            // Move the tooltip
+            const tooltipWidth = tip.offsetWidth;
+            const tooltipHeight = tip.offsetHeight;
+            const pageWidth = document.documentElement.clientWidth;
+            const pageHeight = document.documentElement.clientHeight;
+            let left = event.pageX + 10;
+            let top = event.pageY + 10;
+
+            if (left + tooltipWidth > pageWidth) {
+                left = event.pageX - tooltipWidth - 10;
+            }
+
+            if (top + tooltipHeight > pageHeight) {
+                top = event.pageY - tooltipHeight - 10;
+            }
+
+            tip.style.left = `${left}px`;
+            tip.style.top = `${top}px`;
+        });
+        bottomDiv.appendChild(tip);
+
+        //Button for range switch
+        let rangeSwitchDiv = document.createElement("div");
+        rangeSwitchDiv.innerHTML = situation;
+        topDiv.appendChild(rangeSwitchDiv);
+        rangeSwitchDiv.style.gridColumnStart = index;
+        rangeSwitchDiv.className = "range-switch-div";
+        rangeSwitchDiv.addEventListener('click', () => {
+            let alreadyShowing = bottomDiv.style.display === 'grid';
+
+            document.querySelectorAll('.bottomDiv').forEach(function (div) {
+                div.style.display = 'none';
+
+            });
+            document.querySelectorAll('.range-switch-div').forEach(selected => {
+                selected.style.backgroundColor = "gray";
+            });
+            if (!alreadyShowing) {
+                bottomDiv.style.display = 'grid';
+                rangeSwitchDiv.style.backgroundColor = "#007BFF";
+            }
+        });
+
+
+
+        for (let i = 0; i < colors.length; i++) {
             let tempDiv = document.createElement("div");
-            tempDiv.className = "matrixSingleHandDiv";
-            if (j > i) {
-                tempDiv.innerHTML = cards[i] + cards[j] + 's';
-            } else if (i == j) {
-                tempDiv.innerHTML = cards[j] + cards[i];
-            } else {
-                tempDiv.innerHTML = cards[j] + cards[i] + 'o';
-            }
-            let x = 0;
-            let str = "";
-            for (let n = 0; n < colors.length; n++) {
-                totalCombos += colorsf_multi[i][j][n] * preflopMax[i][j] / 100;
-                sizeCombos[n] += colorsf_multi[i][j][n] * preflopMax[i][j];
-                str += colors[n] + " " + x + "% " + (x + colorsf_multi[i][j][n] * preflopMax[i][j] / heightsMax[i][j]) + "%,";
-                x += colorsf_multi[i][j][n] * preflopMax[i][j] / heightsMax[i][j];
-            }
-            tempDiv.style.backgroundImage = "linear-gradient(to right, " + str + " gray " + x + "% 100%)";
-            tempDiv.setAttribute("tooltipText", colorsf_multi_tooltip[i][j]);
-
+            tempDiv.innerHTML = (sizeCombos[i] / totalCombos).toFixed(1) + "% " + (sizeCombos[i] / 100).toFixed(1) + "c";
+            tempDiv.className = "betsize-total";
+            tempDiv.style.backgroundColor = colors[i];
+            tempDiv.style.gridColumnStart = 2 * i + 1;
+            tempDiv.style.gridColumnEnd = 2 * i + 3;
             bottomDiv.appendChild(tempDiv);
-            tempDiv.setAttribute("isOnDiv", "false");
-            tempDiv.addEventListener("mouseenter", function () { event.target.classList.add("tipOn"); });
-            tempDiv.addEventListener("mouseout", function () { event.target.classList.remove("tipOn"); });
         }
+        let tempDiv = document.createElement("div");
+        tempDiv.innerHTML = preflopCombos.toFixed(1) + "c";
+        tempDiv.className = "preflop-total";
+        bottomDiv.appendChild(tempDiv);
     }
-
-
-
-    var tip = document.createElement("span");
-    tip.className = "tooltip";
-    bottomDiv.addEventListener("mouseout", function (event) {
-        tip.style.visibility = "hidden";
-    }, false);
-    bottomDiv.addEventListener('mousemove', function (event) {
-        tip.style.visibility = "visible";
-        var collection = document.getElementsByClassName("tipOn");
-        if (collection.length > 0) {
-            tip.innerHTML = collection[0].getAttribute("tooltipText");
-        }
-
-        // Move the tooltip
-        const tooltipWidth = tip.offsetWidth;
-        const tooltipHeight = tip.offsetHeight;
-        const pageWidth = document.documentElement.clientWidth;
-        const pageHeight = document.documentElement.clientHeight;
-        let left = event.pageX + 10;
-        let top = event.pageY + 10;
-
-        if (left + tooltipWidth > pageWidth) {
-            left = event.pageX - tooltipWidth - 10;
-        }
-
-        if (top + tooltipHeight > pageHeight) {
-            top = event.pageY - tooltipHeight - 10;
-        }
-
-        tip.style.left = `${left}px`;
-        tip.style.top = `${top}px`;
-    });
-    bottomDiv.appendChild(tip);
-
-    let firstCard = createCardDiv(handMatrix.getAttribute('board').substring(0, 2));
-    let secondCard = createCardDiv(handMatrix.getAttribute('board').substring(2, 4));
-    let thirdCard = createCardDiv(handMatrix.getAttribute('board').substring(4, 6));
+    //Board text
+    let firstCard = createCardDiv(board.substring(0, 2));
+    let secondCard = createCardDiv(board.substring(2, 4));
+    let thirdCard = createCardDiv(board.substring(4, 6));
     topDiv.appendChild(firstCard);
     topDiv.appendChild(secondCard);
     topDiv.appendChild(thirdCard);
     firstCard.style.gridColumnStart = 6;
     secondCard.style.gridColumnStart = 7;
     thirdCard.style.gridColumnStart = 8;
-
-    for (let i = 0; i < colors.length; i++) {
-        let tempDiv = document.createElement("div");
-        tempDiv.innerHTML = (sizeCombos[i] / totalCombos).toFixed(1) + "% " + (sizeCombos[i] / 100).toFixed(1) + "c";
-        tempDiv.className = "betsize-total";
-        tempDiv.style.backgroundColor = colors[i];
-        tempDiv.style.gridColumnStart = 2 * i + 1;
-        tempDiv.style.gridColumnEnd = 2 * i + 3;
-        bottomDiv.appendChild(tempDiv);
-    }
-    let tempDiv = document.createElement("div");
-    tempDiv.innerHTML = preflopCombos.toFixed(1) + "c";
-    tempDiv.className = "preflop-total";
-    bottomDiv.appendChild(tempDiv);
 });
-
 
