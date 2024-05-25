@@ -84,6 +84,7 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
     topDiv.className = "topDiv";
     handMatrix.appendChild(topDiv);
     let index = 0;
+    let firstLoop = true;
     for (let situation in json[configuration][board]) {
         index++;
         let colors = json[configuration][board][situation].range_colors.split(",");
@@ -302,19 +303,14 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
         rangeSwitchDiv.style.gridColumnStart = index;
         rangeSwitchDiv.className = "range-switch-div";
         rangeSwitchDiv.addEventListener('click', () => {
-            let alreadyShowing = bottomDiv.style.display === 'grid';
-
-            document.querySelectorAll('.bottomDiv').forEach(function (div) {
+            Array.from(handMatrix.children).filter(el => el.className === 'bottomDiv').forEach(function (div) {
                 div.style.display = 'none';
-
             });
-            document.querySelectorAll('.range-switch-div').forEach(selected => {
-                selected.style.backgroundColor = "gray";
+            bottomDiv.style.display = 'grid';
+            Array.from(topDiv.children).filter(el => el.className === 'range-switch-div').forEach(function (div) {
+                div.style.backgroundColor = "gray";
             });
-            if (!alreadyShowing) {
-                bottomDiv.style.display = 'grid';
-                rangeSwitchDiv.style.backgroundColor = "#007BFF";
-            }
+            rangeSwitchDiv.style.backgroundColor = "#007BFF";
         });
 
 
@@ -332,6 +328,11 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
         tempDiv.innerHTML = preflopCombos.toFixed(1) + "c";
         tempDiv.className = "preflop-total";
         bottomDiv.appendChild(tempDiv);
+        if(firstLoop){
+            firstLoop = false;
+            bottomDiv.style.display = 'grid';
+            rangeSwitchDiv.style.backgroundColor = "#007BFF";
+        }
     }
     //Board text
     let firstCard = createCardDiv(board.substring(0, 2));
@@ -343,5 +344,7 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
     firstCard.style.gridColumnStart = 6;
     secondCard.style.gridColumnStart = 7;
     thirdCard.style.gridColumnStart = 8;
+
+
 });
 
