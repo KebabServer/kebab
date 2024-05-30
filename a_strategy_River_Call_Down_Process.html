@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>River Calling</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="article.css">
+    <link rel="stylesheet" href="strategy_table.css">
+</head>
+
+<body>
+    <header>
+        <h1>River Calldown Process</h1>
+    </header>
+    <div id="WrappingDiv">
+        <h2 class="theorem">River Call Down Theorem</h2>
+        <p>Bluffcatching only makes money when villain is overbluffing. There are three scenarios on the river.</p>
+        <ul>
+            <li>If villain is clearly overbluffing, every bluffcatcher is +EV and should be called.</li>
+            <li>Conversely, if villain is underbluffing, every bluffcatcher is -EV and should be folded.</li>
+            <li>When villain is bluffing at optimal frequency, bluffcatcher with good blockers is +EV and should be called.</li>
+        </ul>
+
+        <h2>Calldown Process Algorithm</h2>
+        <ol>
+            <li>Use bet sizing to find villain's optimal Value/Bluff ratio. (GTO)</li>
+            <li>Count villain value combos to find out optimal bluff combos. (GTO)</li>
+            <li>Call/fold by estimating if he is under/over bluffing. (Exploit)</li>
+        </ol>
+        <h3>Things to increase accuracy of the decision:</h3>
+        <ul>
+            <li>Population tendencies</li>
+            <li>Player reads</li>
+            <li>HUD stats</li>
+            <li>Board texture</li>
+            <li>Timing tells</li>
+            <li>Etc.</li>
+        </ul>
+
+        <h2 class="theorem">Blocker Theorem</h2>
+        <p>Blockers have more impact in spots, where the ranges are tight.</p>
+
+        <script src="cards.js"></script>
+    </div>
+</body>
+
+</html>

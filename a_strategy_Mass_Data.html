@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mass Data</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="article.css">
+    <link rel="stylesheet" href="strategy_table.css">
+</head>
+<style>
+    .invesment_class {
+        margin: 0 0px;
+        padding: 1px 7px;
+        border: 1px solid white;
+        border-radius: 10px;
+        border-collapse: collapse;
+        color: black;
+    }
+
+    .c1 {
+        background-color: red;
+    }
+
+    .c1:after {
+        content: '1';
+    }
+
+    .c2 {
+        background-color: rgb(255, 157, 51);
+    }
+
+    .c2:after {
+        content: '2';
+    }
+
+    .c3 {
+        background-color: yellow;
+    }
+
+    .c3:after {
+        content: '3';
+    }
+
+    .c4 {
+        background-color: rgb(144, 236, 101);
+    }
+
+    .c4:after {
+        content: '4';
+    }
+
+    .c5 {
+        background-color: rgb(43, 140, 104);
+    }
+
+    .c5:after {
+        content: '5';
+    }
+</style>
+
+<body>
+    <header>
+        <h1>Mass Data</h1>
+    </header>
+    <div id="WrappingDiv">
+        <h1>Theorems</h1>
+        <h2 class="theorem">Containment Theorem</h2>
+        <p>When you bet turn with a range full of semi-bluffs and the river bricks, you will be in a
+            neutral-unfavourable spot with a range full of air. To refrain from overbluffing you must give up with a
+            large quantity of your air. Such restraint is very difficult for a human.</p>
+        <h2 class="theorem">Range Origin Theorem</h2>
+        <p>The final result of a range is often more strongly dependant on its furthest back ancestor range than on any
+            of the steps in between.</p>
+        <h2 class="theorem">Blockers and The 5 Colour System</h2>
+        <p>On the river, the average impact of the blockers of a bluff catcher on the equity against Villain’s betting
+            range is -3% - +3% equity (depending on the spot and configuration).</p>
+        <p>This impact is usually less than the impact of a spot shifting from <span class="invesment_class c3"></span>
+            to <span class="invesment_class c1"></span> or <span class="invesment_class c3"></span> to <span
+                class="invesment_class c5"></span> but often more than a shift to <span
+                class="invesment_class c2"></span> or <span class="invesment_class c4"></span>.
+        </p>
+        <p>In extreme cases we may even call frail hands or fold value beaters.</p>
+        <table class="mdftable">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th> <span class="invesment_class c1"></span> </th>
+                    <th> <span class="invesment_class c2"></span></th>
+                    <th> <span class="invesment_class c3"></span></th>
+                    <th> <span class="invesment_class c4"></span></th>
+                    <th> <span class="invesment_class c5"></span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Value Beater</td>
+                    <td>
+                        <div class="BQuestion" bet_size="?"></div>
+                    </td>
+                    <td>
+                        <div class="C" bet_size="Call"></div>
+                    </td>
+                    <td>
+                        <div class="C" bet_size="Call"></div>
+                    </td>
+                    <td>
+                        <div class="C" bet_size="Call"></div>
+                    </td>
+                    <td>
+                        <div class="C" bet_size="Call"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Grade A Catcher</td>
+                    <td>
+                        <div class="F" bet_size="Fold"></div>
+                    </td>
+                    <td>
+                        <div class="BQuestion" bet_size="?"></div>
+                    </td>
+                    <td>
+                        <div class="C" bet_size="Call"></div>
+                    </td>
+                    <td>
+                        <div class="C" bet_size="Call"></div>
+                    </td>
+                    <td>
+                        <div class="C" bet_size="Call"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Grade B Catcher</td>
+                    <td>
+                        <div class="F" bet_size="Fold"></div>
+                    </td>
+                    <td>
+                        <div class="F" bet_size="Fold"></div>
+                    </td>
+                    <td>
+                        <div class="BQuestion" bet_size="?"></div>
+                    </td>
+                    <td>
+                        <div class="C" bet_size="Call"></div>
+                    </td>
+                    <td>
+                        <div class="C" bet_size="Call"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Grade C Catcher</td>
+                    <td>
+                        <div class="F" bet_size="Fold"></div>
+                    </td>
+                    <td>
+                        <div class="F" bet_size="Fold"></div>
+                    </td>
+                    <td>
+                        <div class="F" bet_size="Fold"></div>
+                    </td>
+                    <td>
+                        <div class="BQuestion" bet_size="?"></div>
+                    </td>
+                    <td>
+                        <div class="C" bet_size="Call"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Frail Hand</td>
+                    <td>
+                        <div class="F" bet_size="Fold"></div>
+                    </td>
+                    <td>
+                        <div class="F" bet_size="Fold"></div>
+                    </td>
+                    <td>
+                        <div class="F" bet_size="Fold"></div>
+                    </td>
+                    <td>
+                        <div class="F" bet_size="Fold"></div>
+                    </td>
+                    <td>
+                        <div class="BQuestion" bet_size="?"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h1>Situations</h1>
+        <h2>2Bet Pot - Facing Triple Barrel</h2>
+        <table class="mdftable">
+            <thead>
+                <tr>
+                    <th colspan="4">Regular - SRP - BU vs BB - vs triple barrel</th>
+                </tr>
+                <tr>
+                    <th>Bet Sizing (xPot)</th>
+                    <th>GTO Weak %</th>
+                    <th>Data Weak %</th>
+                    <th>Rating</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1.75x +</td>
+                    <td>Unclear</td>
+                    <td>46</td>
+                    <td> <span class="invesment_class c5"></span></td>
+                </tr>
+                <tr>
+                    <td>1.25 - 1.75x</td>
+                    <td>37.5</td>
+                    <td>42</td>
+                    <td> <span class="invesment_class c5"></span></td>
+                </tr>
+                <tr>
+                    <td>1.0 - 1.25x</td>
+                    <td>34.5</td>
+                    <td>38</td>
+                    <td> <span class="invesment_class c5"></span></td>
+                </tr>
+                <tr>
+                    <td>0.8 - 1x</td>
+                    <td>32</td>
+                    <td>38</td>
+                    <td> <span class="invesment_class c5"></span></td>
+                </tr>
+                <tr>
+                    <td>0.6 - 0.8x</td>
+                    <td>29</td>
+                    <td>33</td>
+                    <td> <span class="invesment_class c4"></span></td>
+                </tr>
+                <tr>
+                    <td>0.4 - 0.6x</td>
+                    <td>25</td>
+                    <td>26</td>
+                    <td> <span class="invesment_class c3"></span></td>
+                </tr>
+                <tr>
+                    <td>0.25 - 0.4x</td>
+                    <td>20</td>
+                    <td>18</td>
+                    <td> <span class="invesment_class c2"></span></td>
+                </tr>
+            </tbody>
+        </table>
+        <figure>
+            <img src="MassData/2BET_BU_vs_BB_FACING_TRIPLE_REG.png">
+            <figcaption>SRP BTN vs BB - Facing Triple Barrel - vs Regular</figcaption>
+        </figure>
+
+        <figure>
+            <img src="MassData/2BET_BU_vs_BB_FACING_TRIPLE_FISH.png">
+            <figcaption>SRP BTN vs BB - Facing Triple Barrel - vs Weaker Player</figcaption>
+        </figure>
+
+
+        <figure>
+            <img src="MassData/2BET_UTG_vs_BB_FACING_TRIPLE_REG.png">
+
+            <figcaption>SRP UTG vs BB - Facing Triple Barrel - vs Regular</figcaption>
+        </figure>
+
+
+
+        <script src="cards.js"></script>
+    </div>
+</body>
+
+</html>
