@@ -90,10 +90,26 @@
 
  /* Add additional styles as needed */
 
+ .massDataSizingTable {
+     width: 100%;
+     border-collapse: collapse;
+     border: 1px solid #ddd;
+     text-align: center;
+     margin: 20px;
+ }
+
+ .massDataSizingTable>thead>tr {
+     border: 1px solid #ddd;
+     background-color: #222222;
+ }
+
+
+
  .mdftable {
      width: 100%;
      border-collapse: collapse;
      border: 1px solid #ddd;
+
  }
 
  .mdftable>thead>tr>th {

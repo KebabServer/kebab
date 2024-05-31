@@ -19,7 +19,7 @@
     }
 
     .c1 {
-        background-color: red;
+        background-color: rgb(255, 66, 47);
     }
 
     .c1:after {
@@ -56,6 +56,39 @@
 
     .c5:after {
         content: '5';
+    }
+
+    .cQuestion {
+        background-color: rgb(216, 216, 216);
+    }
+
+    .cQuestion:after {
+        content: '?';
+    }
+
+    .c6 {
+        background-color: rgb(52, 81, 36);
+    }
+
+    .c6:after {
+        content: '6';
+    }
+
+    .c7 {
+        color: white;
+        background-color: rgb(0, 0, 0);
+    }
+
+    .c7:after {
+        content: '7';
+    }
+
+    .c0 {
+        background-color: red;
+    }
+
+    .c0:after {
+        content: '0';
     }
 </style>
 
@@ -185,10 +218,30 @@
                 </tr>
             </tbody>
         </table>
+        <h2>Positions Impact</h2>
+        <p>Origin theorem tells us that the earlier positions are inherently less bluffed by the river than the later
+            positions. Preflop ranges can have the starkest impact on imbalances by the river.</p>
+        <p>BU and SB tend to do a lot of <span class="green">overbluffing</span>, whereas UTG and HJ trend towards <span
+                class="red">underbluffing</span> by the river.</p>
+        <p>The CO tends to be a <span class="yellow">neutral position</span> where ranges are of a medium concentration
+            of naturally strong and weak
+            hands and where the average player is more likely to be balanced in the average spot.</p>
+
+        <h2>The Most Overbluffed Node</h2>
+        <p>The most extreme example of <span class="green">overbluffing</span> is scattered aggression from <span
+                class="green">fish who suddenly pot the river</span>.</p>
+
+        <h2>Beware "Making up for Lost Ground" Bets</h2>
+        <p>"Making up for Lost Ground"-line is when weaker players starts betting big or overbetting after checking on
+            the flop.</p>
+        <h2 class="theorem">Scattergun Theorem</h2>
+        <p>If a fish ever deploys scattered aggression against you, do not fold.</p>
+        <p>Unless the river sizing was a formidably sized overbet.</p>
+
 
         <h1>Situations</h1>
-        <h2>2Bet Pot - Facing Triple Barrel</h2>
-        <table class="mdftable">
+        <h2>SRP - Continuous Aggression</h2>
+        <table class="massDataSizingTable">
             <thead>
                 <tr>
                     <th colspan="4">Regular - SRP - BU vs BB - vs triple barrel</th>
@@ -246,23 +299,271 @@
                 </tr>
             </tbody>
         </table>
-        <figure>
-            <img src="MassData/2BET_BU_vs_BB_FACING_TRIPLE_REG.png">
-            <figcaption>SRP BTN vs BB - Facing Triple Barrel - vs Regular</figcaption>
-        </figure>
+        <table class="massDataSizingTable">
+            <thead>
+                <tr>
+                    <th colspan="4">Weaker - SRP - BU vs BB - vs triple barrel</th>
+                </tr>
+                <tr>
+                    <th>Bet Sizing (xPot)</th>
+                    <th>GTO Weak %</th>
+                    <th>MDA Weak %</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1.75x</td>
+                    <td>Unclear</td>
+                    <td>40</td>
+                    <td> <span class="invesment_class c2"></span></td>
+                </tr>
+                <tr>
+                    <td>1.25 - 1.75x</td>
+                    <td>37.5</td>
+                    <td>24</td>
+                    <td> <span class="invesment_class c1"></span></td>
+                </tr>
+                <tr>
+                    <td>1.0 - 1.25x</td>
+                    <td>34.5</td>
+                    <td>27</td>
+                    <td> <span class="invesment_class c1"></span></td>
+                </tr>
+                <tr>
+                    <td>0.8 - 1x</td>
+                    <td>32</td>
+                    <td>28</td>
+                    <td> <span class="invesment_class c2"></span></td>
+                </tr>
+                <tr>
+                    <td>0.6 - 0.8x</td>
+                    <td>29</td>
+                    <td>33</td>
+                    <td> <span class="invesment_class c5"></span></td>
+                </tr>
+                <tr>
+                    <td>0.4 - 0.6x</td>
+                    <td>25</td>
+                    <td>27</td>
+                    <td> <span class="invesment_class c4"></span></td>
+                </tr>
+                <tr>
+                    <td>0.25 - 0.4x</td>
+                    <td>20</td>
+                    <td>22</td>
+                    <td> <span class="invesment_class c4"></span></td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="massDataSizingTable">
+            <thead>
+                <tr>
+                    <th colspan="4">Regular - SRP - UTG vs BB - vs triple barrel</th>
+                </tr>
+                <tr>
+                    <th>Bet Sizing (xPot)</th>
+                    <th>GTO Weak %</th>
+                    <th>MDA Weak %</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1.75x</td>
+                    <td>Unclear</td>
+                    <td>31</td>
+                    <td> <span class="invesment_class c1"></span></td>
+                </tr>
+                <tr>
+                    <td>1.25 - 1.75x</td>
+                    <td>37.5</td>
+                    <td>31</td>
+                    <td> <span class="invesment_class c1"></span></td>
+                </tr>
+                <tr>
+                    <td>1.0 - 1.25x</td>
+                    <td>34.5</td>
+                    <td>28</td>
+                    <td> <span class="invesment_class c1"></span></td>
+                </tr>
+                <tr>
+                    <td>0.8 - 1x</td>
+                    <td>32</td>
+                    <td>29</td>
+                    <td> <span class="invesment_class c2"></span></td>
+                </tr>
+                <tr>
+                    <td>0.6 - 0.8x</td>
+                    <td>29</td>
+                    <td>27</td>
+                    <td> <span class="invesment_class c2"></span></td>
+                </tr>
+                <tr>
+                    <td>0.4 - 0.6x</td>
+                    <td>25</td>
+                    <td>17</td>
+                    <td> <span class="invesment_class c1"></span></td>
+                </tr>
+                <tr>
+                    <td>0.25 - 0.4x</td>
+                    <td>20</td>
+                    <td>14</td>
+                    <td> <span class="invesment_class c1"></span></td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>SRP - Scattered Aggression</h2>
+        <p><em class="yellow"></em>Scattered Aggression</em> occurs when a player makes a river bet after
+            non-procedurally checking one or more of the previous streets.</p>
 
-        <figure>
-            <img src="MassData/2BET_BU_vs_BB_FACING_TRIPLE_FISH.png">
-            <figcaption>SRP BTN vs BB - Facing Triple Barrel - vs Weaker Player</figcaption>
-        </figure>
-
-
-        <figure>
-            <img src="MassData/2BET_UTG_vs_BB_FACING_TRIPLE_REG.png">
-
-            <figcaption>SRP UTG vs BB - Facing Triple Barrel - vs Regular</figcaption>
-        </figure>
-
+        <table class="massDataSizingTable">
+            <thead>
+                <tr>
+                    <th colspan="4">SRP - CO vs BB - B-X-B</th>
+                </tr>
+                <tr>
+                    <th>Bet Sizing (xPot)</th>
+                    <th>Regs</th>
+                    <th>Fishs</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1.75x</td>
+                    <td> <span class="invesment_class cQuestion"></span></td>
+                    <td> <span class="invesment_class c1"></span></td>
+                </tr>
+                <tr>
+                    <td>1.25 - 1.75x</td>
+                    <td> <span class="invesment_class c1"></span></td>
+                    <td> <span class="invesment_class c0"></span></td>
+                </tr>
+                <tr>
+                    <td>1.0 - 1.25x</td>
+                    <td> <span class="invesment_class c2"></span></td>
+                    <td> <span class="invesment_class c7"></span></td>
+                </tr>
+                <tr>
+                    <td>0.8 - 1x</td>
+                    <td> <span class="invesment_class c3"></span></td>
+                    <td> <span class="invesment_class c5"></span></td>
+                </tr>
+                <tr>
+                    <td>0.6 - 0.8x</td>
+                    <td> <span class="invesment_class c4"></span></td>
+                    <td> <span class="invesment_class c6"></span></td>
+                </tr>
+                <tr>
+                    <td>0.4 - 0.6x</td>
+                    <td> <span class="invesment_class c6"></span></td>
+                    <td> <span class="invesment_class c7"></span></td>
+                </tr>
+                <tr>
+                    <td>0.25 - 0.4x</td>
+                    <td> <span class="invesment_class c4"></span></td>
+                    <td> <span class="invesment_class c5"></span></td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="massDataSizingTable">
+            <thead>
+                <tr>
+                    <th colspan="4">SRP - CO vs BB - X-B-B</th>
+                </tr>
+                <tr>
+                    <th>Bet Sizing (xPot)</th>
+                    <th>Regs</th>
+                    <th>Fishs</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1.75x</td>
+                    <td> <span class="invesment_class c1"></span></td>
+                    <td> <span class="invesment_class c0"></span></td>
+                </tr>
+                <tr>
+                    <td>1.25 - 1.75x</td>
+                    <td> <span class="invesment_class c1"></span></td>
+                    <td> <span class="invesment_class c1"></span></td>
+                </tr>
+                <tr>
+                    <td>1.0 - 1.25x</td>
+                    <td> <span class="invesment_class c5"></span></td>
+                    <td> <span class="invesment_class c0"></span></td>
+                </tr>
+                <tr>
+                    <td>0.8 - 1x</td>
+                    <td> <span class="invesment_class c3"></span></td>
+                    <td> <span class="invesment_class c1"></span></td>
+                </tr>
+                <tr>
+                    <td>0.6 - 0.8x</td>
+                    <td> <span class="invesment_class c5"></span></td>
+                    <td> <span class="invesment_class c5"></span></td>
+                </tr>
+                <tr>
+                    <td>0.4 - 0.6x</td>
+                    <td> <span class="invesment_class c5"></span></td>
+                    <td> <span class="invesment_class c5"></span></td>
+                </tr>
+                <tr>
+                    <td>0.25 - 0.4x</td>
+                    <td> <span class="invesment_class c3"></span></td>
+                    <td> <span class="invesment_class c2"></span></td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="massDataSizingTable">
+            <thead>
+                <tr>
+                    <th colspan="4">SRP - CO vs BB - X-X-B</th>
+                </tr>
+                <tr>
+                    <th>Bet Sizing (xPot)</th>
+                    <th>Regs</th>
+                    <th>Fishs</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1.75x</td>
+                    <td> <span class="invesment_class c1"></span></td>
+                    <td> <span class="invesment_class c0"></span></td>
+                </tr>
+                <tr>
+                    <td>1.25 - 1.75x</td>
+                    <td> <span class="invesment_class c2"></span></td>
+                    <td> <span class="invesment_class c0"></span></td>
+                </tr>
+                <tr>
+                    <td>1.0 - 1.25x</td>
+                    <td> <span class="invesment_class c3"></span></td>
+                    <td> <span class="invesment_class c5"></span></td>
+                </tr>
+                <tr>
+                    <td>0.8 - 1x</td>
+                    <td> <span class="invesment_class c2"></span></td>
+                    <td> <span class="invesment_class c3"></span></td>
+                </tr>
+                <tr>
+                    <td>0.6 - 0.8x</td>
+                    <td> <span class="invesment_class c5"></span></td>
+                    <td> <span class="invesment_class c7"></span></td>
+                </tr>
+                <tr>
+                    <td>0.4 - 0.6x</td>
+                    <td> <span class="invesment_class c7"></span></td>
+                    <td> <span class="invesment_class c7"></span></td>
+                </tr>
+                <tr>
+                    <td>0.25 - 0.4x</td>
+                    <td> <span class="invesment_class c7"></span></td>
+                    <td> <span class="invesment_class c7"></span></td>
+                </tr>
+            </tbody>
+        </table>
 
 
         <script src="cards.js"></script>
