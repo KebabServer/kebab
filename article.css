@@ -240,6 +240,7 @@
  .B133,
  .B150,
  .B400,
+ .BAI,
  .R50,
  .R100,
  .R,
@@ -278,6 +279,10 @@
  .B60,
  .B75 {
      background-color: #d70000;
+ }
+
+ .BAI {
+     background-color: #4d0000;
  }
 
  .B120,
