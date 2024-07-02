@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV to Canvas</title>
+    <style>
+        * {
+            font-family: 'Inter';
+
+            /* Dark background color */
+            color: #fff;
+            /* Light font color */
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: #141313;
+
+        }
+
+        h2,
+        h3 {
+            margin-top: 2px;
+            color: coral;
+            font-size: x-large;
+        }
+
+        #tooltip {
+            position: absolute;
+            background-color: white;
+            border: 1px solid black;
+            padding: 5px;
+            display: none;
+        }
+
+        .inline-block {
+            display: inline-block;
+        }
+
+        .rowDiv {
+            margin-left: 10px;
+        }
+
+        #fileNameDisplay {
+            color: rgb(30, 252, 196);
+            text-align: center;
+            width: 85%;
+        }
+
+        .container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            margin: 0px;
+        }
+
+        .button-group button {
+            display: block;
+            margin: 0px;
+            padding: 5px;
+            width: 100px;
+            cursor: pointer;
+            color: black;
+        }
+
+        .button-group button.selected {
+            background-color: #007bff;
+            color: white;
+        }
+
+        #group5 button{
+
+            display: block;
+            margin: 0px;
+            padding: 5px;
+            width: 500px;
+            cursor: pointer;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div><input type="file" id="fileInput" accept=".csv"></div>
+        <div class="button-group" id="group1">
+            <button onclick="selectButton(this)">Simple</button>
+            <button onclick="selectButton(this)">General</button>
+        </div>
+        <div class="button-group" id="group2">
+            <button onclick="selectButton(this)">SRP</button>
+            <button onclick="selectButton(this)">3Bet</button>
+            <button onclick="selectButton(this)">4Bet</button>
+        </div>
+        <div class="button-group" id="group3">
+            <button onclick="selectButton(this)">UTG</button>
+            <button onclick="selectButton(this)">MP</button>
+            <button onclick="selectButton(this)">CO</button>
+            <button onclick="selectButton(this)">BU</button>
+            <button onclick="selectButton(this)">SB</button>
+            <button onclick="selectButton(this)">BB</button>
+        </div>
+        <div class="button-group" id="group4">
+            <button onclick="selectButton(this)">UTG</button>
+            <button onclick="selectButton(this)">MP</button>
+            <button onclick="selectButton(this)">CO</button>
+            <button onclick="selectButton(this)">BU</button>
+            <button onclick="selectButton(this)">SB</button>
+            <button onclick="selectButton(this)">BB</button>
+        </div>
+        <div class="button-group" id="group5">
+            <!-- Dynamically updated buttons will appear here -->
+        </div>
+    </div>
+
+
+    <h1 id="fileNameDisplay">File Name</h1>
+    <div class="rowDiv">
+        <h2>All Flops</h2>
+        <canvas id="csvCanvas" width="1800" height="115"></canvas>
+    </div>
+    <div class="rowDiv">
+        <div class="inline-block">
+            <h3>Rainbow Disconnected</h3>
+            <canvas id="csvCanvasRainbowDisconnected" width="1360" height="115"></canvas>
+        </div>
+        <div class="inline-block">
+            <h3>Rainbow Connected</h3>
+            <canvas id="csvCanvasRainbowConnected" width="420" height="115"></canvas>
+        </div>
+    </div>
+    <div class="rowDiv">
+        <div class="inline-block">
+            <h3>Two-Tone Disconnected</h3>
+            <canvas id="csvCanvasTwotoneDisconnected" width="1360" height="115"></canvas>
+        </div>
+        <div class="inline-block">
+            <h3>Two-Tone Connected</h3>
+            <canvas id="csvCanvasTwotoneConnected" width="420" height="115"></canvas>
+        </div>
+    </div>
+    <div class="rowDiv">
+        <div class="inline-block">
+            <h3>Monotone</h3>
+            <canvas id="csvCanvasMonotone" width="1180" height="115"></canvas>
+        </div>
+        <div class="inline-block">
+            <h3>Trips</h3>
+            <canvas id="csvCanvasPairedTrips" width="150" height="115"></canvas>
+        </div>
+    </div>
+    <div class="rowDiv">
+        <div class="inline-block">
+            <h3>Paired Rainbow (Sorted by Middle Card)</h3>
+            <canvas id="csvCanvasPairedRainbow" width="810" height="115"></canvas>
+        </div>
+        <div class="inline-block">
+            <h3>Paired Two-Tone (Sorted by Middle Card)</h3>
+            <canvas id="csvCanvasPairedTwotone" width="810" height="115"></canvas>
+        </div>
+
+    </div>
+
+
+
+    <div id="tooltip"></div>
+
+    <script src="FlopReports.js"></script>
+</body>
+
+</html>
