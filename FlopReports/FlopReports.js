@@ -74,7 +74,6 @@ function parseCSV(csv, sortByMiddleCard) {
 
         return dataObj;
     });
-    console.log(data);
     // Sorting based on custom order for the first, third, and fourth letters of the "flop" column
 
     const orderMap = {};
@@ -325,7 +324,6 @@ function fetchLocalCSVFile(fileName) {
         })
         .then(data => {
             // Process the CSV data (e.g., parse into an array)
-            console.log(fileName);
             parseDataFromCSV(data, fileName);
             // Add your custom functionality here
         })
