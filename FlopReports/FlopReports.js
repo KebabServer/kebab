@@ -316,7 +316,7 @@ function updateGroup5() {
 }
 
 function fetchLocalCSVFile(fileName) {
-    fetch('https://kebabserver.github.io/kebab/CSVs/' + fileName)
+    fetch('https://kebabserver.github.io/kebab/FlopReports/CSVs/' + fileName)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
