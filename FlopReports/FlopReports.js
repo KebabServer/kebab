@@ -1,7 +1,7 @@
 document.getElementById('fileInput').addEventListener('change', handleFileSelect, false);
 const canvasHeight = 100;
 
-const possibleHeaders = ['Fold', 'Call', 'Check', 'B33', 'B66', 'B130', 'R35', 'R55', 'R83', 'R120', 'AI'];
+const possibleHeaders = ['Fold', 'Call', 'Check', 'B33', 'B66', 'B130', 'R35', 'R55', 'R83', 'R120', 'R50', 'R100','R150', 'AI'];
 const order = 'AKQJT98765432';
 
 
@@ -121,6 +121,9 @@ const colorConfig = {
     R55: 'rgb(252, 96, 96)',
     R83: 'rgb(252, 68, 68)',
     R120: 'rgb(255, 0, 0)',
+    R50:'rgb(252, 96, 96)',
+    R100:'rgb(252, 68, 68)',
+    R150:'rgb(255, 0, 0)',
 };
 
 function drawCanvas(canvas, data, properties, drawHighCard, colWidth) {
@@ -273,10 +276,10 @@ const fileMap = {
 
 
     //SRP IP
-    'Simple_SRP_UTG_BB': ['NL500 Simple 2.5x 3b_GTO SRP - SRP UTG vs BB.csv'],
-    'Simple_SRP_MP_BB': ['NL500 Simple 2.5x 3b_GTO SRP - SRP MP vs BB.csv'],
-    'Simple_SRP_CO_BB': ['NL500 Simple 2.5x 3b_GTO SRP - SRP CO vs BB.csv'],
-    'Simple_SRP_BU_BB': ['NL500 Simple 2.5x 3b_GTO SRP - SRP BU vs BB.csv'],
+    'Simple_SRP_UTG_BB': ['NL500 Simple 2.5x 3b_GTO SRP - SRP UTG vs BB.csv','NL500 Simple 2.5x 3b_GTO SRP vs CBet - SRP UTG vs BB vs B33.csv','NL500 Simple 2.5x 3b_GTO SRP vs CBet - SRP UTG vs BB vs B66.csv'],
+    'Simple_SRP_MP_BB': ['NL500 Simple 2.5x 3b_GTO SRP - SRP MP vs BB.csv','NL500 Simple 2.5x 3b_GTO SRP vs CBet - SRP MP vs BB vs B33.csv','NL500 Simple 2.5x 3b_GTO SRP vs CBet - SRP MP vs BB vs B66.csv'],
+    'Simple_SRP_CO_BB': ['NL500 Simple 2.5x 3b_GTO SRP - SRP CO vs BB.csv','NL500 Simple 2.5x 3b_GTO SRP vs CBet - SRP CO vs BB vs B33.csv','NL500 Simple 2.5x 3b_GTO SRP vs CBet - SRP CO vs BB vs B66.csv'],
+    'Simple_SRP_BU_BB': ['NL500 Simple 2.5x 3b_GTO SRP - SRP BU vs BB.csv','NL500 Simple 2.5x 3b_GTO SRP vs CBet - SRP BTN vs BB vs B33.csv','NL500 Simple 2.5x 3b_GTO SRP vs CBet - SRP BTN vs BB vs B66.csv'],
     //SRP BvB
     'Simple_SRP_SB_BB': ['NL500 Simple 2.5x 3b_GTO BvB SRP - SRP BvB CBet.csv'],
 
