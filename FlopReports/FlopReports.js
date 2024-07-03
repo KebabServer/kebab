@@ -255,9 +255,7 @@ function hasStraightPossibility(flop) {
 // Example data structure mapping selected buttons to file lists
 const fileMap = {
     //Simple
-    //3Bet BvB
-    'Simple_3Bet_SB_BB': ['NL500 Simple 2.5x 3b_GTO BvB 3Bet - BvB 3Bet Cbet.csv'],
-    //3Bet IP
+   //3Bet IP
     'Simple_3Bet_CO_BU': ['NL500 Simple 2.5x 3b_GTO 3Bet IP - 3Bet CO vs BU.csv', 'NL500 Simple 2.5x 3b_GTO 3Bet IP vs Cbet - 3Bet CO vs BU vs B33.csv', 'NL500 Simple 2.5x 3b_GTO 3Bet IP vs Cbet - 3Bet CO vs BU vs B66.csv'],
     'Simple_3Bet_MP_BU': ['NL500 Simple 2.5x 3b_GTO 3Bet IP - 3Bet MP vs BU.csv', 'NL500 Simple 2.5x 3b_GTO 3Bet IP vs Cbet - 3Bet MP vs BU vs B33.csv', 'NL500 Simple 2.5x 3b_GTO 3Bet IP vs Cbet - 3Bet CO vs BU vs B66.csv'],
     'Simple_3Bet_MP_CO': ['NL500 Simple 2.5x 3b_GTO 3Bet IP - 3Bet MP vs CO.csv', 'NL500 Simple 2.5x 3b_GTO 3Bet IP vs Cbet - 3Bet MP vs CO vs B33.csv', 'NL500 Simple 2.5x 3b_GTO 3Bet IP vs Cbet - 3Bet CO vs BU vs B66.csv'],
@@ -265,23 +263,23 @@ const fileMap = {
     'Simple_3Bet_UTG_CO': ['NL500 Simple 2.5x 3b_GTO 3Bet IP - 3Bet UTG vs CO.csv', 'NL500 Simple 2.5x 3b_GTO 3Bet IP vs Cbet - 3Bet UTG vs CO vs B33.csv', 'NL500 Simple 2.5x 3b_GTO 3Bet IP vs Cbet - 3Bet CO vs BU vs B66.csv'],
     'Simple_3Bet_UTG_MP': ['NL500 Simple 2.5x 3b_GTO 3Bet IP - 3Bet UTG vs MP.csv', 'NL500 Simple 2.5x 3b_GTO 3Bet IP vs Cbet - 3Bet UTG vs MP vs B33.csv', 'NL500 Simple 2.5x 3b_GTO 3Bet IP vs Cbet - 3Bet CO vs BU vs B66.csv'],
     //3Bet OOP
-    'Simple_3Bet_UTG_BB': ['NL500 Simple 2.5x 3b_GTO 3Bet OOP BB - 3Bet UTG vs BB.csv'],
-    'Simple_3Bet_MP_BB': ['NL500 Simple 2.5x 3b_GTO 3Bet OOP BB - 3Bet MP vs BB.csv'],
-    'Simple_3Bet_CO_BB': ['NL500 Simple 2.5x 3b_GTO 3Bet OOP BB - 3Bet CO vs BB.csv'],
-    'Simple_3Bet_BU_BB': ['NL500 Simple 2.5x 3b_GTO 3Bet OOP BB - 3Bet BU vs BB.csv'],
-    'Simple_3Bet_UTG_SB': ['NL500 Simple 2.5x 3b_GTO 3Bet OOP SB - 3Bet UTG vs SB.csv'],
-    'Simple_3Bet_MP_SB': ['NL500 Simple 2.5x 3b_GTO 3Bet OOP SB - 3Bet MP vs SB.csv'],
-    'Simple_3Bet_CO_SB': ['NL500 Simple 2.5x 3b_GTO 3Bet OOP SB - 3Bet CO vs SB.csv'],
-    'Simple_3Bet_BU_SB': ['NL500 Simple 2.5x 3b_GTO 3Bet OOP SB - 3Bet BU vs SB.csv'],
-
-
+    'Simple_3Bet_UTG_BB': ['NL500 Simple 2.5x 3b_GTO 3Bet OOP BB - 3Bet UTG vs BB.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP BB vs Cbet - UTG vs BB vs B33.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP BB vs Cbet - UTG vs BB vs B66.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP BB vs Check - UTG vs BB vs Check.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP BB vs Check - UTG vs BB vs X B33.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP BB vs Check - UTG vs BB vs X B66.csv'],
+    'Simple_3Bet_MP_BB': ['NL500 Simple 2.5x 3b_GTO 3Bet OOP BB - 3Bet MP vs BB.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP BB vs Cbet - MP vs BB vs B33.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP BB vs Cbet - MP vs BB vs B66.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP BB vs Check - MP vs BB vs Check.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP BB vs Check - MP vs BB vs X B33.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP BB vs Check - MP vs BB vs X B66.csv'],
+    'Simple_3Bet_CO_BB': ['NL500 Simple 2.5x 3b_GTO 3Bet OOP BB - 3Bet CO vs BB.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP BB vs Cbet - CO vs BB vs B33.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP BB vs Cbet - CO vs BB vs B66.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP BB vs Check - CO vs BB vs Check.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP BB vs Check - CO vs BB vs X B33.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP BB vs Check - CO vs BB vs X B66.csv'],
+    'Simple_3Bet_BU_BB': ['NL500 Simple 2.5x 3b_GTO 3Bet OOP BB - 3Bet BU vs BB.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP BB vs Cbet - BU vs BB vs B33.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP BB vs Cbet - BU vs BB vs B66.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP BB vs Check - BU vs BB vs Check.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP BB vs Check - BU vs BB vs X B33.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP BB vs Check - BU vs BB vs X B66.csv'],
+    'Simple_3Bet_UTG_SB': ['NL500 Simple 2.5x 3b_GTO 3Bet OOP SB - 3Bet UTG vs SB.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP SB vs Cbet - UTG vs SB vs B33.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP SB vs Cbet - UTG vs SB vs B66.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP SB vs Check - UTG vs SB vs Check.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP SB vs Check - UTG vs SB vs X B33.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP SB vs Check - UTG vs SB vs X B66.csv'],
+    'Simple_3Bet_MP_SB': ['NL500 Simple 2.5x 3b_GTO 3Bet OOP SB - 3Bet MP vs SB.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP SB vs Cbet - MP vs SB vs B33.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP SB vs Cbet - MP vs SB vs B66.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP SB vs Check - MP vs SB vs Check.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP SB vs Check - MP vs SB vs X B33.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP SB vs Check - MP vs SB vs X B66.csv'],
+    'Simple_3Bet_CO_SB': ['NL500 Simple 2.5x 3b_GTO 3Bet OOP SB - 3Bet CO vs SB.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP SB vs Cbet - CO vs SB vs B33.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP SB vs Cbet - CO vs SB vs B66.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP SB vs Check - CO vs SB vs Check.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP SB vs Check - CO vs SB vs X B33.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP SB vs Check - CO vs SB vs X B66.csv'],
+    'Simple_3Bet_BU_SB': ['NL500 Simple 2.5x 3b_GTO 3Bet OOP SB - 3Bet BU vs SB.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP SB vs Cbet - BU vs SB vs B33.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP SB vs Cbet - BU vs SB vs B66.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP SB vs Check - BU vs SB vs Check.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP SB vs Check - BU vs SB vs X B33.csv','NL500 Simple 2.5x 3b_GTO 3Bet OOP SB vs Check - BU vs SB vs X B66.csv'],
+    //3Bet BvB
+    'Simple_3Bet_SB_BB': ['NL500 Simple 2.5x 3b_GTO BvB 3Bet - BvB 3Bet Cbet.csv','NL500 Simple 2.5x 3b_GTO BvB 3Bet - BvB 3Bet vs B33.csv','NL500 Simple 2.5x 3b_GTO BvB 3Bet - BvB 3Bet vs B66.csv'],
     //SRP IP
     'Simple_SRP_UTG_BB': ['NL500 Simple 2.5x 3b_GTO SRP - SRP UTG vs BB.csv','NL500 Simple 2.5x 3b_GTO SRP vs CBet - SRP UTG vs BB vs B33.csv','NL500 Simple 2.5x 3b_GTO SRP vs CBet - SRP UTG vs BB vs B66.csv'],
     'Simple_SRP_MP_BB': ['NL500 Simple 2.5x 3b_GTO SRP - SRP MP vs BB.csv','NL500 Simple 2.5x 3b_GTO SRP vs CBet - SRP MP vs BB vs B33.csv','NL500 Simple 2.5x 3b_GTO SRP vs CBet - SRP MP vs BB vs B66.csv'],
     'Simple_SRP_CO_BB': ['NL500 Simple 2.5x 3b_GTO SRP - SRP CO vs BB.csv','NL500 Simple 2.5x 3b_GTO SRP vs CBet - SRP CO vs BB vs B33.csv','NL500 Simple 2.5x 3b_GTO SRP vs CBet - SRP CO vs BB vs B66.csv'],
     'Simple_SRP_BU_BB': ['NL500 Simple 2.5x 3b_GTO SRP - SRP BU vs BB.csv','NL500 Simple 2.5x 3b_GTO SRP vs CBet - SRP BTN vs BB vs B33.csv','NL500 Simple 2.5x 3b_GTO SRP vs CBet - SRP BTN vs BB vs B66.csv'],
     //SRP BvB
-    'Simple_SRP_SB_BB': ['NL500 Simple 2.5x 3b_GTO BvB SRP - SRP BvB CBet.csv'],
+    'Simple_SRP_SB_BB': ['NL500 Simple 2.5x 3b_GTO BvB SRP - SRP BvB CBet.csv','NL500 Simple 2.5x 3b_GTO BvB SRP - SRP BvB vs X.csv','NL500 Simple 2.5x 3b_GTO BvB SRP - SRP BvB vs B33.csv','NL500 Simple 2.5x 3b_GTO BvB SRP - SRP BvB vs B66.csv','NL500 Simple 2.5x 3b_GTO BvB SRP - SRP BvB vs B130.csv'],
 
 
     // Add more mappings as needed
