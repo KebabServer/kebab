@@ -123,7 +123,6 @@ const colorConfig = {
     R50: 'rgb(252, 96, 96)',
     R100: 'rgb(252, 68, 68)',
     R150: 'rgb(255, 0, 0)',
-    R200: 'rgb(255, 0, 0)',
 };
 
 function drawCanvas(canvas, data, properties, drawHighCard, colWidth) {
