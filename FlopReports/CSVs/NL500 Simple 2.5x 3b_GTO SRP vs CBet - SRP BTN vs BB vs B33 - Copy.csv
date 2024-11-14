@@ -1,4 +1,4 @@
-oop_ev,oop_eq,ip_ev,ip_eq,oop_eqr,ip_eqr,actions/0/action_code,Fold,actions/1/action_code,Call,actions/2/action_code,R50,actions/3/action_code,R100,actions/4/action_code,R150,flop
+oop_ev,oop_eq,ip_ev,ip_eq,oop_eqr,ip_eqr,actions/0/action_code,Fold,actions/1/action_code,Call,actions/2/action_code,R50,actions/3/action_code,R100,actions/4/action_code,R150,actions/5/action_code,AI,flop
 1.58668,0.4396,5.24553,0.5604,0.6562495193,1.282237258,F,0.23887,C,0.54243,R6.35,0.21028,R10.9,0.00841,RAI,0,2h2d2c,,
 1.71364,0.45483,5.13716,0.54517,0.6850271766,1.290827654,F,0.30919,C,0.51028,R6.35,0.17457,R10.9,0.00595,RAI,0,3h2h2d,,
 1.69962,0.45006,5.14495,0.54994,0.6866235899,1.281571939,F,0.2909,C,0.52092,R6.35,0.18283,R10.9,0.00535,RAI,0,3h2d2c,,
