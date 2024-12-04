@@ -52,6 +52,9 @@ function parseCSV(csv, sortByMiddleCard) {
 
     // Get the indices for the columns you are interested in
     const flopIndex = Math.max(headers.indexOf('flop'), headers.indexOf('flop\r'));
+    const ipEVIndex = Math.max(headers.indexOf('ip_ev'), headers.indexOf('ip_ev\r'));
+    const oopEVIndex = Math.max(headers.indexOf('oop_ev'), headers.indexOf('oop_ev\r'));
+
 
     // Find indices dynamically
     const indices = {};
@@ -70,6 +73,8 @@ function parseCSV(csv, sortByMiddleCard) {
 
         });
         dataObj.flop = theFlop;
+        dataObj.ipEV = row[ipEVIndex].replace('\r', '');
+        dataObj.oopEV = row[oopEVIndex].replace('\r', '');
         dataObj.monotone = (theFlop[1] == theFlop[3] && theFlop[1] == theFlop[5]);
         dataObj.twotone = (theFlop[1] == theFlop[3] && theFlop[1] != theFlop[5]) || (theFlop[1] == theFlop[5] && theFlop[1] != theFlop[3]) || (theFlop[3] == theFlop[5] && theFlop[1] != theFlop[3]);
         dataObj.rainbow = (theFlop[1] != theFlop[3] && theFlop[1] != theFlop[5] & theFlop[3] != theFlop[5]);
@@ -82,7 +87,6 @@ function parseCSV(csv, sortByMiddleCard) {
         // dataObj.sixsets = setCards.includes(theFlop[0]) && setCards.includes(theFlop[2]) && !setCards.includes(theFlop[4]) && dataObj.nopair && !dataObj.monotone && dataObj.disconnected;
         // dataObj.threesets = setCards.includes(theFlop[0]) && !setCards.includes(theFlop[2]) && !setCards.includes(theFlop[4]) && dataObj.nopair && !dataObj.monotone && dataObj.disconnected;
         // dataObj.zerosets = !setCards.includes(theFlop[0]) && !setCards.includes(theFlop[2]) && !setCards.includes(theFlop[4]) && dataObj.nopair && !dataObj.monotone && dataObj.disconnected;
-
         return dataObj;
     });
     // Sorting based on custom order for the first, third, and fourth letters of the "flop" column
@@ -170,7 +174,8 @@ function drawCanvas(canvas, data, properties, drawHighCard, colWidth) {
 
 
             let currentHeight = canvasHeight;
-            let toolTipTextTemp = "<tr><td>Flop:</td><td>" + row.flop + "</td></tr>";
+            let toolTipTextTemp = "<tr><td>Flop:</td><td>" + row.flop + "</td></tr> <tr><td>IP EV:</td><td>" + parseFloat(row.ipEV).toFixed(2) + "</td></tr> <tr><td>OOP EV:</td><td>" + parseFloat(row.oopEV).toFixed(2) + "</td></tr>";
+
             for (let index = possibleHeaders.length - 1; 0 <= index; index--) {
                 const header = possibleHeaders[index];
                 if (typeof row[header] !== 'undefined') {
