@@ -1,6 +1,5 @@
 const cards = ['A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2'];
 const suits = ['s', 'h', 'd', 'c'];
-
 const cardOrderX = [12, 12, 12, 12, 12, 12, 11, 12, 12, 12, 12, 11, 12, 12, 11, 12, 12, 11, 12, 11, 11, 12, 12, 12, 11, 11, 11, 11, 10, 12, 12, 12, 10, 11, 11, 11, 12, 10, 12, 12, 11, 10, 11, 11, 10, 12, 12, 10, 12, 11, 11, 10, 11, 10, 10, 12, 12, 12, 10, 11, 11, 11, 10, 10, 10, 10, 9, 12, 12, 12, 9, 11, 11, 11, 9, 10, 10, 10, 12, 9, 12, 12, 11, 9, 11, 11, 10, 9, 10, 10, 9, 12, 12, 9, 12, 11, 11, 9, 11, 10, 10, 9, 10, 9, 9, 12, 12, 12, 9, 11, 11, 11, 9, 10, 10, 10, 9, 9, 9, 9, 8, 12, 12, 12, 8, 11, 11, 11, 8, 10, 10, 10, 8, 9, 9, 9, 12, 8, 12, 12, 11, 8, 11, 11, 10, 8, 10, 10, 9, 8, 9, 9, 8, 12, 12, 8, 12, 11, 11, 8, 11, 10, 10, 8, 10, 9, 9, 8, 9, 8, 8, 12, 12, 12, 8, 11, 11, 11, 8, 10, 10, 10, 8, 9, 9, 9, 8, 8, 8, 8, 7, 12, 12, 12, 7, 11, 11, 11, 7, 10, 10, 10, 7, 9, 9, 9, 7, 8, 8, 8, 12, 7, 12, 12, 11, 7, 11, 11, 10, 7, 10, 10, 9, 7, 9, 9, 8, 7, 8, 8, 7, 12, 12, 7, 12, 11, 11, 7, 11, 10, 10, 7, 10, 9, 9, 7, 9, 8, 8, 7, 8, 7, 7, 12, 12, 12, 7, 11, 11, 11, 7, 10, 10, 10, 7, 9, 9, 9, 7, 8, 8, 8, 7, 7, 7, 7, 6, 12, 12, 12, 6, 11, 11, 11, 6, 10, 10, 10, 6, 9, 9, 9, 6, 8, 8, 8, 6, 7, 7, 7, 12, 6, 12, 12, 11, 6, 11, 11, 10, 6, 10, 10, 9, 6, 9, 9, 8, 6, 8, 8, 7, 6, 7, 7, 6, 12, 12, 6, 12, 11, 11, 6, 11, 10, 10, 6, 10, 9, 9, 6, 9, 8, 8, 6, 8, 7, 7, 6, 7, 6, 6, 12, 12, 12, 6, 11, 11, 11, 6, 10, 10, 10, 6, 9, 9, 9, 6, 8, 8, 8, 6, 7, 7, 7, 6, 6, 6, 6, 5, 12, 12, 12, 5, 11, 11, 11, 5, 10, 10, 10, 5, 9, 9, 9, 5, 8, 8, 8, 5, 7, 7, 7, 5, 6, 6, 6, 12, 5, 12, 12, 11, 5, 11, 11, 10, 5, 10, 10, 9, 5, 9, 9, 8, 5, 8, 8, 7, 5, 7, 7, 6, 5, 6, 6, 5, 12, 12, 5, 12, 11, 11, 5, 11, 10, 10, 5, 10, 9, 9, 5, 9, 8, 8, 5, 8, 7, 7, 5, 7, 6, 6, 5, 6, 5, 5, 12, 12, 12, 5, 11, 11, 11, 5, 10, 10, 10, 5, 9, 9, 9, 5, 8, 8, 8, 5, 7, 7, 7, 5, 6, 6, 6, 5, 5, 5, 5, 4, 12, 12, 12, 4, 11, 11, 11, 4, 10, 10, 10, 4, 9, 9, 9, 4, 8, 8, 8, 4, 7, 7, 7, 4, 6, 6, 6, 4, 5, 5, 5, 12, 4, 12, 12, 11, 4, 11, 11, 10, 4, 10, 10, 9, 4, 9, 9, 8, 4, 8, 8, 7, 4, 7, 7, 6, 4, 6, 6, 5, 4, 5, 5, 4, 12, 12, 4, 12, 11, 11, 4, 11, 10, 10, 4, 10, 9, 9, 4, 9, 8, 8, 4, 8, 7, 7, 4, 7, 6, 6, 4, 6, 5, 5, 4, 5, 4, 4, 12, 12, 12, 4, 11, 11, 11, 4, 10, 10, 10, 4, 9, 9, 9, 4, 8, 8, 8, 4, 7, 7, 7, 4, 6, 6, 6, 4, 5, 5, 5, 4, 4, 4, 4, 3, 12, 12, 12, 3, 11, 11, 11, 3, 10, 10, 10, 3, 9, 9, 9, 3, 8, 8, 8, 3, 7, 7, 7, 3, 6, 6, 6, 3, 5, 5, 5, 3, 4, 4, 4, 12, 3, 12, 12, 11, 3, 11, 11, 10, 3, 10, 10, 9, 3, 9, 9, 8, 3, 8, 8, 7, 3, 7, 7, 6, 3, 6, 6, 5, 3, 5, 5, 4, 3, 4, 4, 3, 12, 12, 3, 12, 11, 11, 3, 11, 10, 10, 3, 10, 9, 9, 3, 9, 8, 8, 3, 8, 7, 7, 3, 7, 6, 6, 3, 6, 5, 5, 3, 5, 4, 4, 3, 4, 3, 3, 12, 12, 12, 3, 11, 11, 11, 3, 10, 10, 10, 3, 9, 9, 9, 3, 8, 8, 8, 3, 7, 7, 7, 3, 6, 6, 6, 3, 5, 5, 5, 3, 4, 4, 4, 3, 3, 3, 3, 2, 12, 12, 12, 2, 11, 11, 11, 2, 10, 10, 10, 2, 9, 9, 9, 2, 8, 8, 8, 2, 7, 7, 7, 2, 6, 6, 6, 2, 5, 5, 5, 2, 4, 4, 4, 2, 3, 3, 3, 12, 2, 12, 12, 11, 2, 11, 11, 10, 2, 10, 10, 9, 2, 9, 9, 8, 2, 8, 8, 7, 2, 7, 7, 6, 2, 6, 6, 5, 2, 5, 5, 4, 2, 4, 4, 3, 2, 3, 3, 2, 12, 12, 2, 12, 11, 11, 2, 11, 10, 10, 2, 10, 9, 9, 2, 9, 8, 8, 2, 8, 7, 7, 2, 7, 6, 6, 2, 6, 5, 5, 2, 5, 4, 4, 2, 4, 3, 3, 2, 3, 2, 2, 12, 12, 12, 2, 11, 11, 11, 2, 10, 10, 10, 2, 9, 9, 9, 2, 8, 8, 8, 2, 7, 7, 7, 2, 6, 6, 6, 2, 5, 5, 5, 2, 4, 4, 4, 2, 3, 3, 3, 2, 2, 2, 2, 1, 12, 12, 12, 1, 11, 11, 11, 1, 10, 10, 10, 1, 9, 9, 9, 1, 8, 8, 8, 1, 7, 7, 7, 1, 6, 6, 6, 1, 5, 5, 5, 1, 4, 4, 4, 1, 3, 3, 3, 1, 2, 2, 2, 12, 1, 12, 12, 11, 1, 11, 11, 10, 1, 10, 10, 9, 1, 9, 9, 8, 1, 8, 8, 7, 1, 7, 7, 6, 1, 6, 6, 5, 1, 5, 5, 4, 1, 4, 4, 3, 1, 3, 3, 2, 1, 2, 2, 1, 12, 12, 1, 12, 11, 11, 1, 11, 10, 10, 1, 10, 9, 9, 1, 9, 8, 8, 1, 8, 7, 7, 1, 7, 6, 6, 1, 6, 5, 5, 1, 5, 4, 4, 1, 4, 3, 3, 1, 3, 2, 2, 1, 2, 1, 1, 12, 12, 12, 1, 11, 11, 11, 1, 10, 10, 10, 1, 9, 9, 9, 1, 8, 8, 8, 1, 7, 7, 7, 1, 6, 6, 6, 1, 5, 5, 5, 1, 4, 4, 4, 1, 3, 3, 3, 1, 2, 2, 2, 1, 1, 1, 1, 0, 12, 12, 12, 0, 11, 11, 11, 0, 10, 10, 10, 0, 9, 9, 9, 0, 8, 8, 8, 0, 7, 7, 7, 0, 6, 6, 6, 0, 5, 5, 5, 0, 4, 4, 4, 0, 3, 3, 3, 0, 2, 2, 2, 0, 1, 1, 1, 12, 0, 12, 12, 11, 0, 11, 11, 10, 0, 10, 10, 9, 0, 9, 9, 8, 0, 8, 8, 7, 0, 7, 7, 6, 0, 6, 6, 5, 0, 5, 5, 4, 0, 4, 4, 3, 0, 3, 3, 2, 0, 2, 2, 1, 0, 1, 1, 0, 12, 12, 0, 12, 11, 11, 0, 11, 10, 10, 0, 10, 9, 9, 0, 9, 8, 8, 0, 8, 7, 7, 0, 7, 6, 6, 0, 6, 5, 5, 0, 5, 4, 4, 0, 4, 3, 3, 0, 3, 2, 2, 0, 2, 1, 1, 0, 1, 0, 0, 12, 12, 12, 0, 11, 11, 11, 0, 10, 10, 10, 0, 9, 9, 9, 0, 8, 8, 8, 0, 7, 7, 7, 0, 6, 6, 6, 0, 5, 5, 5, 0, 4, 4, 4, 0, 3, 3, 3, 0, 2, 2, 2, 0, 1, 1, 1, 0, 0, 0, 0];
 const cardOrderY = [12, 12, 12, 12, 12, 12, 12, 11, 11, 11, 11, 12, 11, 11, 11, 11, 11, 12, 11, 11, 11, 11, 11, 11, 12, 11, 11, 11, 12, 10, 10, 10, 11, 10, 10, 10, 10, 12, 10, 10, 10, 11, 10, 10, 10, 10, 10, 12, 10, 10, 10, 11, 10, 10, 10, 10, 10, 10, 12, 10, 10, 10, 11, 10, 10, 10, 12, 9, 9, 9, 11, 9, 9, 9, 10, 9, 9, 9, 9, 12, 9, 9, 9, 11, 9, 9, 9, 10, 9, 9, 9, 9, 9, 12, 9, 9, 9, 11, 9, 9, 9, 10, 9, 9, 9, 9, 9, 9, 12, 9, 9, 9, 11, 9, 9, 9, 10, 9, 9, 9, 12, 8, 8, 8, 11, 8, 8, 8, 10, 8, 8, 8, 9, 8, 8, 8, 8, 12, 8, 8, 8, 11, 8, 8, 8, 10, 8, 8, 8, 9, 8, 8, 8, 8, 8, 12, 8, 8, 8, 11, 8, 8, 8, 10, 8, 8, 8, 9, 8, 8, 8, 8, 8, 8, 12, 8, 8, 8, 11, 8, 8, 8, 10, 8, 8, 8, 9, 8, 8, 8, 12, 7, 7, 7, 11, 7, 7, 7, 10, 7, 7, 7, 9, 7, 7, 7, 8, 7, 7, 7, 7, 12, 7, 7, 7, 11, 7, 7, 7, 10, 7, 7, 7, 9, 7, 7, 7, 8, 7, 7, 7, 7, 7, 12, 7, 7, 7, 11, 7, 7, 7, 10, 7, 7, 7, 9, 7, 7, 7, 8, 7, 7, 7, 7, 7, 7, 12, 7, 7, 7, 11, 7, 7, 7, 10, 7, 7, 7, 9, 7, 7, 7, 8, 7, 7, 7, 12, 6, 6, 6, 11, 6, 6, 6, 10, 6, 6, 6, 9, 6, 6, 6, 8, 6, 6, 6, 7, 6, 6, 6, 6, 12, 6, 6, 6, 11, 6, 6, 6, 10, 6, 6, 6, 9, 6, 6, 6, 8, 6, 6, 6, 7, 6, 6, 6, 6, 6, 12, 6, 6, 6, 11, 6, 6, 6, 10, 6, 6, 6, 9, 6, 6, 6, 8, 6, 6, 6, 7, 6, 6, 6, 6, 6, 6, 12, 6, 6, 6, 11, 6, 6, 6, 10, 6, 6, 6, 9, 6, 6, 6, 8, 6, 6, 6, 7, 6, 6, 6, 12, 5, 5, 5, 11, 5, 5, 5, 10, 5, 5, 5, 9, 5, 5, 5, 8, 5, 5, 5, 7, 5, 5, 5, 6, 5, 5, 5, 5, 12, 5, 5, 5, 11, 5, 5, 5, 10, 5, 5, 5, 9, 5, 5, 5, 8, 5, 5, 5, 7, 5, 5, 5, 6, 5, 5, 5, 5, 5, 12, 5, 5, 5, 11, 5, 5, 5, 10, 5, 5, 5, 9, 5, 5, 5, 8, 5, 5, 5, 7, 5, 5, 5, 6, 5, 5, 5, 5, 5, 5, 12, 5, 5, 5, 11, 5, 5, 5, 10, 5, 5, 5, 9, 5, 5, 5, 8, 5, 5, 5, 7, 5, 5, 5, 6, 5, 5, 5, 12, 4, 4, 4, 11, 4, 4, 4, 10, 4, 4, 4, 9, 4, 4, 4, 8, 4, 4, 4, 7, 4, 4, 4, 6, 4, 4, 4, 5, 4, 4, 4, 4, 12, 4, 4, 4, 11, 4, 4, 4, 10, 4, 4, 4, 9, 4, 4, 4, 8, 4, 4, 4, 7, 4, 4, 4, 6, 4, 4, 4, 5, 4, 4, 4, 4, 4, 12, 4, 4, 4, 11, 4, 4, 4, 10, 4, 4, 4, 9, 4, 4, 4, 8, 4, 4, 4, 7, 4, 4, 4, 6, 4, 4, 4, 5, 4, 4, 4, 4, 4, 4, 12, 4, 4, 4, 11, 4, 4, 4, 10, 4, 4, 4, 9, 4, 4, 4, 8, 4, 4, 4, 7, 4, 4, 4, 6, 4, 4, 4, 5, 4, 4, 4, 12, 3, 3, 3, 11, 3, 3, 3, 10, 3, 3, 3, 9, 3, 3, 3, 8, 3, 3, 3, 7, 3, 3, 3, 6, 3, 3, 3, 5, 3, 3, 3, 4, 3, 3, 3, 3, 12, 3, 3, 3, 11, 3, 3, 3, 10, 3, 3, 3, 9, 3, 3, 3, 8, 3, 3, 3, 7, 3, 3, 3, 6, 3, 3, 3, 5, 3, 3, 3, 4, 3, 3, 3, 3, 3, 12, 3, 3, 3, 11, 3, 3, 3, 10, 3, 3, 3, 9, 3, 3, 3, 8, 3, 3, 3, 7, 3, 3, 3, 6, 3, 3, 3, 5, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3, 12, 3, 3, 3, 11, 3, 3, 3, 10, 3, 3, 3, 9, 3, 3, 3, 8, 3, 3, 3, 7, 3, 3, 3, 6, 3, 3, 3, 5, 3, 3, 3, 4, 3, 3, 3, 12, 2, 2, 2, 11, 2, 2, 2, 10, 2, 2, 2, 9, 2, 2, 2, 8, 2, 2, 2, 7, 2, 2, 2, 6, 2, 2, 2, 5, 2, 2, 2, 4, 2, 2, 2, 3, 2, 2, 2, 2, 12, 2, 2, 2, 11, 2, 2, 2, 10, 2, 2, 2, 9, 2, 2, 2, 8, 2, 2, 2, 7, 2, 2, 2, 6, 2, 2, 2, 5, 2, 2, 2, 4, 2, 2, 2, 3, 2, 2, 2, 2, 2, 12, 2, 2, 2, 11, 2, 2, 2, 10, 2, 2, 2, 9, 2, 2, 2, 8, 2, 2, 2, 7, 2, 2, 2, 6, 2, 2, 2, 5, 2, 2, 2, 4, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 12, 2, 2, 2, 11, 2, 2, 2, 10, 2, 2, 2, 9, 2, 2, 2, 8, 2, 2, 2, 7, 2, 2, 2, 6, 2, 2, 2, 5, 2, 2, 2, 4, 2, 2, 2, 3, 2, 2, 2, 12, 1, 1, 1, 11, 1, 1, 1, 10, 1, 1, 1, 9, 1, 1, 1, 8, 1, 1, 1, 7, 1, 1, 1, 6, 1, 1, 1, 5, 1, 1, 1, 4, 1, 1, 1, 3, 1, 1, 1, 2, 1, 1, 1, 1, 12, 1, 1, 1, 11, 1, 1, 1, 10, 1, 1, 1, 9, 1, 1, 1, 8, 1, 1, 1, 7, 1, 1, 1, 6, 1, 1, 1, 5, 1, 1, 1, 4, 1, 1, 1, 3, 1, 1, 1, 2, 1, 1, 1, 1, 1, 12, 1, 1, 1, 11, 1, 1, 1, 10, 1, 1, 1, 9, 1, 1, 1, 8, 1, 1, 1, 7, 1, 1, 1, 6, 1, 1, 1, 5, 1, 1, 1, 4, 1, 1, 1, 3, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 12, 1, 1, 1, 11, 1, 1, 1, 10, 1, 1, 1, 9, 1, 1, 1, 8, 1, 1, 1, 7, 1, 1, 1, 6, 1, 1, 1, 5, 1, 1, 1, 4, 1, 1, 1, 3, 1, 1, 1, 2, 1, 1, 1, 12, 0, 0, 0, 11, 0, 0, 0, 10, 0, 0, 0, 9, 0, 0, 0, 8, 0, 0, 0, 7, 0, 0, 0, 6, 0, 0, 0, 5, 0, 0, 0, 4, 0, 0, 0, 3, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 12, 0, 0, 0, 11, 0, 0, 0, 10, 0, 0, 0, 9, 0, 0, 0, 8, 0, 0, 0, 7, 0, 0, 0, 6, 0, 0, 0, 5, 0, 0, 0, 4, 0, 0, 0, 3, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 12, 0, 0, 0, 11, 0, 0, 0, 10, 0, 0, 0, 9, 0, 0, 0, 8, 0, 0, 0, 7, 0, 0, 0, 6, 0, 0, 0, 5, 0, 0, 0, 4, 0, 0, 0, 3, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 11, 0, 0, 0, 10, 0, 0, 0, 9, 0, 0, 0, 8, 0, 0, 0, 7, 0, 0, 0, 6, 0, 0, 0, 5, 0, 0, 0, 4, 0, 0, 0, 3, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0];
 
@@ -8,92 +7,21 @@ const cardOrder = ["2d2c", "2h2c", "2h2d", "2s2c", "2s2d", "2s2h", "3c2c", "3c2d
 //    const flops = ["2s2d4c", "3s3dJs", "4s4dQc", "5s5d6s", "5s5dTc", "6s6dQc", "7s7d9c", "7s7dKs", "8s8d7c", "9s9dKc", "JsJd9s", "QsQd2s", "KsKd7c", "AsAd2s", "AsAd5s", "2s3d9c", "2s3dTc", "2s4d6c", "2s4s9s", "2s4sKd", "2s5s6d", "2s5s8d", "2s5d9c", "2s6sTd", "2s7sJs", "2s7dKs", "2s8sTs", "2d8sKs", "2s8dAc", "2sTdJc", "2sTdQc", "2sJdKc", "3s4s8d", "3s4d9s", "3d4sJs", "3d5s8s", "3s5dQc", "3s5sAd", "3s6s7d", "3s6dAc", "3s6sAs", "3s7s8d", "3s7sQd", "3s7dAc", "3s9dTc", "3d9sKs", "3sTsQd", "3sJdKc", "3sJsKs", "3sJdAs", "4s5s8d", "4d5sJs", "4s5sAd", "4s7sTd", "4s7dQc", "4s7dAc", "4s8dTc", "4s8dKc", "4s8sAs", "4s9dJc", "4s9dQs", "4dJsAs", "4sQsKd", "5s6dKc", "5d7s8s", "5s7s9s", "5d7sAs", "5s9dTs", "5d9sTs", "5sTsQs", "5sJdQc", "6s7dQs", "6s8dJc", "6d8sJs", "6s8sJs", "6s8sQs", "6s9dKc", "6s9dKs", "6d9sKs", "6s9dAs", "6sTdQc", "6sTsQd", "6sTdAc", "6sQdAc", "7d8s9s", "7s8dJc", "7s9dJc", "7dTsJs", "8s9dAc", "8sJdAc", "8dQsKs", "9sQsAs", "TsQdKs", "TsKdAc", "QsKdAc"];
 
 const madeHandClasses = ["Straightflush", "Quads", "Fullhouse", "Flush", "Straight", "Set", "Trips", "Two Pair", "Over Pair", "Top Pair", "Mid Pair", "Bottom Pair", "Under Pair", "Ace High", "King High", "No Made Hand"];
-const drawingHandClasses = ["Combo Draw", "Nut Flush Draw", "Pair And Flush Draw", "Flush Draw", "OESD", "Gutshot", "A High BDFD 2 Cards", "BDFD 2 Cards", "A High BDFD 1 Card", "BDFD 1 Card", "No Pair No Draw", "No Draw"];
+const drawingHandClasses = ["Combo Draw", "Nut Flush Draw", "Pair And Flush Draw", "Flush Draw", "OESD", "Gutshot", "BDFD 2 Cards", "BDFD 1 Card", "No Pair No Draw", "No Draw"];
 
 
 let gridWidth = 40;
 let gridx = 30;
 let gridy = 30;
-function colorHand(hand) {
-    let coloredHand = "";
-    switch (hand.charAt(1)) {
-        case 's':
-            coloredHand += "<span style='color:black'>" + hand.charAt(0) + "♠</span>";
-            break;
-        case 'h':
-            coloredHand += "<span style='color:red'>" + hand.charAt(0) + "♥</span>";
-            break;
-        case 'c':
-            coloredHand += "<span style='color:rgb(0, 148, 7)'>" + hand.charAt(0) + "♣</span>";
-            break;
-        case 'd':
-            coloredHand += "<span style='color:rgb(0, 3, 204)'>" + hand.charAt(0) + "♦</span>";
-            break;
-        default:
-            color = 'white';
-    }
-    switch (hand.charAt(3)) {
-        case 's':
-            coloredHand += "<span style='color:black'>" + hand.charAt(2) + "♠</span>";
-            break;
-        case 'h':
-            coloredHand += "<span style='color:red'>" + hand.charAt(2) + "♥</span>";
-            break;
-        case 'c':
-            coloredHand += "<span style='color:rgb(0, 148, 7)'>" + hand.charAt(2) + "♣</span>";
-            break;
-        case 'd':
-            coloredHand += "<span style='color:rgb(0, 3, 204)'>" + hand.charAt(2) + "♦</span>";
-            break;
-        default:
-            color = 'white';
-    }
-    return coloredHand;
-}
-
-function createCardDiv(card) {
-    let cardSpan = document.createElement("span");
-    cardSpan.className = "matrixboard-card";
-    const rank = card.slice(0, -1);
-    const suitChar = card.slice(-1);
-    let suitSymbol;
-
-    switch (suitChar) {
-        case 'c':
-            suitSymbol = '♣';
-            break;
-        case 'd':
-            suitSymbol = '♦';
-            break;
-        case 'h':
-            suitSymbol = '♥';
-            break;
-        case 's':
-            suitSymbol = '♠';
-            break;
-        case 'x':
-            suitSymbol = 'x';
-            break;
-        default:
-            suitSymbol = '';
-    }
-    cardSpan.setAttribute('data-rank', rank + suitSymbol);
-    cardSpan.setAttribute('data-suit', suitSymbol);
-    return cardSpan;
-}
 
 function compareCards(card1, card2) { // return positive if card1 is higher than card2
     return cards.indexOf(card2.slice(0, 1)) - cards.indexOf(card1.slice(0, 1));
 }
 
 
-document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
-    let configuration = handMatrix.getAttribute('configuration');
-
-    let board = handMatrix.getAttribute('board');
-    let madeHandClassArray = new Array(1326).fill("");
-    let drawingHandClassArray = new Array(1326).fill("");
-
+function createHandClasses(board, madeHandClassArray, drawingHandClassArray) {
+    madeHandClassArray = new Array(1326).fill("");
+    drawingHandClassArray = new Array(1326).fill("");
     let blockedHandsBoolArray = new Array(1326).fill(false);
 
     let boardCard1 = board.substring(0, 2);
@@ -214,13 +142,9 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
                 drawingHandClassArray[index] = "OESD";
             } else if (gutShotStraightDrawBoolean) {
                 drawingHandClassArray[index] = "Gutshot";
-            } else if (backDoorFlushDrawIndex >= 0 && (tempCard1 == "A" + suits[backDoorFlushDrawIndex]) || (tempCard2 == "A" + suits[backDoorFlushDrawIndex]) && tempCard1.slice(-1) == suits[backDoorFlushDrawIndex] && tempCard2.slice(-1) == suits[backDoorFlushDrawIndex]) {
-                drawingHandClassArray[index] = "A High BDFD 2 Cards";
-            } else if ((madeHandClassArray[index] == "No Made Hand" || madeHandClassArray[index] == "King High") && backDoorFlushDrawIndex > 0 && tempCard1.slice(-1) == suits[backDoorFlushDrawIndex] && tempCard2.slice(-1) == suits[backDoorFlushDrawIndex]) {
+            } else if (backDoorFlushDrawIndex > 0 && tempCard1.slice(-1) == suits[backDoorFlushDrawIndex] && tempCard2.slice(-1) == suits[backDoorFlushDrawIndex]) {
                 drawingHandClassArray[index] = "BDFD 2 Cards";
-            } else if (backDoorFlushDrawIndex >= 0 && (tempCard1 == "A" + suits[backDoorFlushDrawIndex]) || (tempCard2 == "A" + suits[backDoorFlushDrawIndex]) && tempCard1.slice(-1) != tempCard2.slice(-1) && (tempCard1.slice(-1) == suits[backDoorFlushDrawIndex] || tempCard2.slice(-1) == suits[backDoorFlushDrawIndex])) {
-                drawingHandClassArray[index] = "A High BDFD 1 Card";
-            } else if ((madeHandClassArray[index] == "No Made Hand" || madeHandClassArray[index] == "King High") && backDoorFlushDrawIndex >= 0 && tempCard1.slice(-1) != tempCard2.slice(-1) && (tempCard1.slice(-1) == suits[backDoorFlushDrawIndex] || tempCard2.slice(-1) == suits[backDoorFlushDrawIndex])) {
+            } else if (backDoorFlushDrawIndex > 0 && tempCard1.slice(-1) != tempCard2.slice(-1) && (tempCard1.slice(-1) == suits[backDoorFlushDrawIndex] || tempCard2.slice(-1) == suits[backDoorFlushDrawIndex])) {
                 drawingHandClassArray[index] = "BDFD 1 Card";
             } else if (madeHandClassArray[index] == "No Made Hand" || madeHandClassArray[index] == "King High") {
                 drawingHandClassArray[index] = "No Pair No Draw";
@@ -231,26 +155,110 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
 
         }
     }
+}
 
+function colorHand(hand) {
+    let coloredHand = "";
+    switch (hand.charAt(1)) {
+        case 's':
+            coloredHand += "<span style='color:black'>" + hand.charAt(0) + "♠</span>";
+            break;
+        case 'h':
+            coloredHand += "<span style='color:red'>" + hand.charAt(0) + "♥</span>";
+            break;
+        case 'c':
+            coloredHand += "<span style='color:rgb(0, 148, 7)'>" + hand.charAt(0) + "♣</span>";
+            break;
+        case 'd':
+            coloredHand += "<span style='color:rgb(0, 3, 204)'>" + hand.charAt(0) + "♦</span>";
+            break;
+        default:
+            color = 'white';
+    }
+    switch (hand.charAt(3)) {
+        case 's':
+            coloredHand += "<span style='color:black'>" + hand.charAt(2) + "♠</span>";
+            break;
+        case 'h':
+            coloredHand += "<span style='color:red'>" + hand.charAt(2) + "♥</span>";
+            break;
+        case 'c':
+            coloredHand += "<span style='color:rgb(0, 148, 7)'>" + hand.charAt(2) + "♣</span>";
+            break;
+        case 'd':
+            coloredHand += "<span style='color:rgb(0, 3, 204)'>" + hand.charAt(2) + "♦</span>";
+            break;
+        default:
+            color = 'white';
+    }
+    return coloredHand;
+}
 
+function createCardDiv(card) {
+    let cardSpan = document.createElement("span");
+    cardSpan.className = "matrixboard-card";
+    const rank = card.slice(0, -1);
+    const suitChar = card.slice(-1);
+    let suitSymbol;
 
+    switch (suitChar) {
+        case 'c':
+            suitSymbol = '♣';
+            break;
+        case 'd':
+            suitSymbol = '♦';
+            break;
+        case 'h':
+            suitSymbol = '♥';
+            break;
+        case 's':
+            suitSymbol = '♠';
+            break;
+        case 'x':
+            suitSymbol = 'x';
+            break;
+        default:
+            suitSymbol = '';
+    }
+    cardSpan.setAttribute('data-rank', rank + suitSymbol);
+    cardSpan.setAttribute('data-suit', suitSymbol);
+    return cardSpan;
+}
 
-
+document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
+    let configuration = handMatrix.getAttribute('configuration');
+    let board = handMatrix.getAttribute('board');
 
     let topDiv = document.createElement("div");
     topDiv.className = "topDiv";
+
     handMatrix.appendChild(topDiv);
+
+    let containerDiv = document.createElement("div");
+    containerDiv.className = "container";
+    handMatrix.appendChild(containerDiv);
+
+    let bottomDiv = document.createElement("div");
+    bottomDiv.className = "bottomDiv";
+    containerDiv.appendChild(bottomDiv);
+
+    let handClassDiv = document.createElement("div");
+    handClassDiv.className = "hand-class-div";
+
+
+    containerDiv.appendChild(handClassDiv);
     let index = 0;
     let firstLoop = true;
     for (let situation in json[configuration][board]) {
+        let innerhtmlDiv = document.createElement("div");
+
         index++;
         let colors = json[configuration][board][situation].range_colors.split(",");
-
-        let counts = new Map();
 
         // let colors = handMatrix.getAttribute('range-colors').split(",");
         let ranges = json[configuration][board][situation].range_freqs.split("*");
         let preflopRange = json[configuration][board][situation].preflop_range.split(" ");
+
 
 
         let colorsf_multi = [[[], [], [], [], [], [], [], [], [], [], [], [], []],
@@ -328,17 +336,26 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
         }
 
         const cardString = "AKQJT98765432";
+
         for (let x = 0; x < 13; x++) {
             for (let y = 0; y < 13; y++) {
-
-
                 for (let i = 0; i < colors.length; i++) {
                     colorsf_multi[y][x].push(0);
                 }
             }
         }
 
+        let madeHandClassArray = new Array(1326).fill("");
+        let drawingHandClassArray = new Array(1326).fill("");
 
+        createHandClasses(board, madeHandClassArray, drawingHandClassArray);
+
+        let madeHandClassCountMap = new Map();
+        let madeHandClassBetCountMap = new Map();
+        let madeHandClassCheckCountMap = new Map();
+        let drawingHandClassCountMap = new Map();
+        let drawingHandClassBetCountMap = new Map();
+        let drawingHandClassCheckCountMap = new Map();
 
         // For KsKh: 35.53 format
         for (let i = ranges.length - 1; i >= 0; i--) {
@@ -356,33 +373,22 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
             let grandientX = 0;
             let radientStr = "";
             let betsizeStr = "";
+            console.log(line);
             for (let j = 1; j < colors.length + 1; j++) {
-                //Freq
-                let freq = parseFloat(line[j]);
-
                 //Calculate highest ev line for hand
                 maxEVforHand = Math.max(maxEVforHand, parseFloat(line[colors.length + j]));
-                //Handclass
-                let madeHandClass = madeHandClassArray[cardOrder.indexOf(hand)];
-                let drawingHandClass = drawingHandClassArray[cardOrder.indexOf(hand)];
-                //Counts
-                counts.set(madeHandClass + " " + colors[j - 1], (counts.get(madeHandClass + " " + colors[j - 1]) || 0) + freq / 100 * preflopRange[cardOrder.indexOf(hand)]);
-                counts.set(madeHandClass, (counts.get(madeHandClass) || 0) + freq / 100 * preflopRange[cardOrder.indexOf(hand)]);
-                counts.set(drawingHandClass + " " + colors[j - 1], (counts.get(drawingHandClass + " " + colors[j - 1]) || 0) + freq / 100 * preflopRange[cardOrder.indexOf(hand)]);
-                counts.set(drawingHandClass, (counts.get(drawingHandClass) || 0) + freq / 100 * preflopRange[cardOrder.indexOf(hand)]);
 
-                colorsf_multi[x][y][j - 1] += freq;
+                colorsf_multi[x][y][j - 1] += parseFloat(line[j]);
 
-                radientStr += colors[j - 1] + " " + grandientX + "% " + (grandientX + freq) + "%,";
-                grandientX += freq;
+                radientStr += colors[j - 1] + " " + grandientX + "% " + (grandientX + parseFloat(line[j])) + "%,";
+                grandientX += parseFloat(line[j]);
 
-                betsizeStr += "<div class=tooltipbetsize>" + freq.toFixed(1) + "%</div>"
+                betsizeStr += "<div class=tooltipbetsize>" + parseFloat(line[j]).toFixed(1) + "%</div>"
 
             }
             colorsf_multi_tooltip_temp[x][y] += "<div class=tooltipHandDiv style='color:black; background-image:linear-gradient(to right, " + radientStr + " gray " + grandientX + "% 100%);'>" + "<div class=tooltipdivider><div class=tooltipHandBackground>" + colorHand(hand) + "</div> <div class=tooltipEV>EV: " + maxEVforHand.toFixed(1) + "%</div></div><div>" + betsizeStr + "</div> </div>";
 
         }
-
 
 
         for (let n = 0; n < colors.length; n++) {
@@ -395,73 +401,6 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
         }
 
 
-        let bottomDiv = document.createElement("div");
-        bottomDiv.className = "bottomDiv";
-        handMatrix.appendChild(bottomDiv);
-
-
-
-        let row = 0;
-        for (let i = 0; i < madeHandClasses.length; i++) {
-            let madeHandClass = madeHandClasses[i];
-            let totalCount = counts.get(madeHandClass) / 100.0;
-            if (!totalCount) { continue; }
-            row++;
-            let tempHandClassDiv = document.createElement("div");
-
-            let x = 0;
-            let str = "";
-            for (let j = 0; j < colors.length; j++) {
-                let value = counts.get(madeHandClass + " " + colors[j]);
-                if (value && totalCount) {
-
-                    str += colors[j] + " " + x + "% " + (x + (value / totalCount)) + "%,";
-                    x += (value / totalCount);
-                }
-            }
-            tempHandClassDiv.innerHTML = madeHandClass + " " + (totalCount * 100.0).toFixed(1);
-            tempHandClassDiv.style.textAlign = "center";
-            tempHandClassDiv.style.color = "Black";
-            tempHandClassDiv.style.fontWeight = "Bold";
-            tempHandClassDiv.style.fontSize = "1rem";
-            tempHandClassDiv.style.gridRow = row;
-            tempHandClassDiv.style.gridColumn = 15 + "/" + 20;
-            tempHandClassDiv.style.border = "1px solid black";
-
-            tempHandClassDiv.style.backgroundImage = "linear-gradient(to right, " + str + " gray " + x + "% 100%)";
-            bottomDiv.append(tempHandClassDiv);
-        }
-
-        row = 0;
-        for (let i = 0; i < drawingHandClasses.length; i++) {
-            let drawingHandClass = drawingHandClasses[i];
-            let totalCount = counts.get(drawingHandClass) / 100.0;
-            if (!totalCount) { continue; }
-            row++;
-            let tempHandClassDiv = document.createElement("div");
-
-            let x = 0;
-            let str = "";
-            for (let j = 0; j < colors.length; j++) {
-                let value = counts.get(drawingHandClass + " " + colors[j]);
-                if (value && totalCount) {
-
-                    str += colors[j] + " " + x + "% " + (x + (value / totalCount)) + "%,";
-                    x += (value / totalCount);
-                }
-            }
-            tempHandClassDiv.innerHTML = drawingHandClass + " " + (totalCount * 100.0).toFixed(1);
-            tempHandClassDiv.style.textAlign = "center";
-            tempHandClassDiv.style.color = "Black";
-            tempHandClassDiv.style.fontWeight = "Bold";
-            tempHandClassDiv.style.fontSize = "1rem";
-            tempHandClassDiv.style.gridRow = row;
-            tempHandClassDiv.style.gridColumn = 21 + "/" + 25;
-            tempHandClassDiv.style.border = "1px solid black";
-
-            tempHandClassDiv.style.backgroundImage = "linear-gradient(to right, " + str + " gray " + x + "% 100%)";
-            bottomDiv.append(tempHandClassDiv);
-        }
 
 
         let totalCombos = 0;
@@ -487,11 +426,10 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
                 }
                 tempDiv.style.backgroundImage = "linear-gradient(to right, " + str + " gray " + x + "% 100%)";
                 tempDiv.setAttribute("tooltipText", colorsf_multi_tooltip[i][j]);
-                tempDiv.style.gridRow = i + 1;
-                tempDiv.style.gridColumn = j + 1;
-                bottomDiv.appendChild(tempDiv);
+
+                innerhtmlDiv.appendChild(tempDiv);
                 tempDiv.setAttribute("isOnDiv", "false");
-                tempDiv.addEventListener("mouseenter", function () { event.target.classList.add("tipOn"); });
+                tempDiv.addEventListener("mouseenter", function () { event.target.classList.add("tipOn"); console.log("KebabOn"); });
                 tempDiv.addEventListener("mouseout", function () { event.target.classList.remove("tipOn"); });
             }
         }
@@ -502,9 +440,9 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
         tip.className = "tooltip";
         bottomDiv.addEventListener("mouseout", function (event) {
             tip.style.visibility = "hidden";
-            tip.innerHTML = "";
         }, false);
         bottomDiv.addEventListener('mousemove', function (event) {
+            console.log("kebab");
             tip.style.visibility = "visible";
             let collection = document.getElementsByClassName("tipOn");
             if (collection.length > 0) {
@@ -535,19 +473,7 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
         //Button for range switch
         let rangeSwitchDiv = document.createElement("div");
         rangeSwitchDiv.innerHTML = situation;
-        topDiv.appendChild(rangeSwitchDiv);
-        rangeSwitchDiv.style.gridColumnStart = index;
-        rangeSwitchDiv.className = "range-switch-div";
-        rangeSwitchDiv.addEventListener('click', () => {
-            Array.from(handMatrix.children).filter(el => el.className === 'bottomDiv').forEach(function (div) {
-                div.style.display = 'none';
-            });
-            bottomDiv.style.display = 'grid';
-            Array.from(topDiv.children).filter(el => el.className === 'range-switch-div').forEach(function (div) {
-                div.style.backgroundColor = "gray";
-            });
-            rangeSwitchDiv.style.backgroundColor = "#007BFF";
-        });
+
 
 
 
@@ -558,17 +484,34 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
             tempDiv.style.backgroundColor = colors[i];
             tempDiv.style.gridColumnStart = 2 * i + 1;
             tempDiv.style.gridColumnEnd = 2 * i + 3;
-            bottomDiv.appendChild(tempDiv);
+            innerhtmlDiv.appendChild(tempDiv);
         }
         let tempDiv = document.createElement("div");
         tempDiv.innerHTML = preflopCombos.toFixed(1) + "c";
         tempDiv.className = "preflop-total";
-        bottomDiv.appendChild(tempDiv);
+        innerhtmlDiv.appendChild(tempDiv);
         if (firstLoop) {
             firstLoop = false;
-            bottomDiv.style.display = 'grid';
+            innerhtmlDiv.style.display = 'grid';
             rangeSwitchDiv.style.backgroundColor = "#007BFF";
         }
+
+        createHandClasses(board);
+
+        topDiv.appendChild(rangeSwitchDiv);
+        rangeSwitchDiv.style.gridColumnStart = index;
+        rangeSwitchDiv.className = "range-switch-div";
+        rangeSwitchDiv.addEventListener('click', () => {
+            bottomDiv.innerHTML = innerhtmlDiv.innerHTML;
+            bottomDiv.style.display = 'grid';
+
+            handClassDiv.innerHTML = "LOLKEBAB";
+
+            Array.from(topDiv.children).filter(el => el.className === 'range-switch-div').forEach(function (div) {
+                div.style.backgroundColor = "gray";
+            });
+            rangeSwitchDiv.style.backgroundColor = "#007BFF";
+        });
     }
     //Board text
     let firstCard = createCardDiv(board.substring(0, 2));
@@ -583,5 +526,4 @@ document.querySelectorAll('.hand-matrix').forEach(handMatrix => {
 
 
 });
-
 

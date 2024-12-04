@@ -3,7 +3,7 @@ const canvasHeight = 100;
 
 const possibleHeaders = ['Fold', 'Call', 'Check', 'B33', 'B66', 'B130', 'R35', 'R55', 'R83', 'R120', 'R50', 'R100', 'R150', 'AI'];
 const order = 'AKQJT98765432';
-
+const setCards = ['A', 'K', 'Q', 'J', 'T', '9'];
 
 
 
@@ -32,6 +32,13 @@ function parseDataFromCSV(csvData, fileName) {
     drawCanvas(document.getElementById('csvCanvasPairedRainbow'), parsedDataMiddleCardSort, ['paired', 'rainbow'], false, 5);
     drawCanvas(document.getElementById('csvCanvasPairedTwotone'), parsedDataMiddleCardSort, ['paired', 'twotone'], false, 5);
     drawCanvas(document.getElementById('csvCanvasPairedTrips'), parsedData, ['trips'], true, 10);
+
+    //Sets tests
+    drawCanvas(document.getElementById('csvCanvasNineSets'), parsedData, ['ninesets'], true, 10);
+    drawCanvas(document.getElementById('csvCanvasSixSets'), parsedData, ['sixsets'], true, 10);
+    drawCanvas(document.getElementById('csvCanvasThreeSets'), parsedData, ['threesets'], true, 10);
+    drawCanvas(document.getElementById('csvCanvasZeroSets'), parsedData, ['zerosets'], true, 10);
+
 
     document.getElementById('fileNameDisplay').textContent = fileName.split('-')[1].replace('.csv', '');
 }
@@ -71,6 +78,10 @@ function parseCSV(csv, sortByMiddleCard) {
         dataObj.nopair = (theFlop[0] != theFlop[2] && theFlop[2] != theFlop[4]);
         dataObj.connected = hasStraightPossibility(theFlop);
         dataObj.disconnected = !hasStraightPossibility(theFlop);
+        // dataObj.ninesets = setCards.includes(theFlop[0]) && setCards.includes(theFlop[2]) && setCards.includes(theFlop[4]) && dataObj.nopair && !dataObj.monotone && dataObj.disconnected;
+        // dataObj.sixsets = setCards.includes(theFlop[0]) && setCards.includes(theFlop[2]) && !setCards.includes(theFlop[4]) && dataObj.nopair && !dataObj.monotone && dataObj.disconnected;
+        // dataObj.threesets = setCards.includes(theFlop[0]) && !setCards.includes(theFlop[2]) && !setCards.includes(theFlop[4]) && dataObj.nopair && !dataObj.monotone && dataObj.disconnected;
+        // dataObj.zerosets = !setCards.includes(theFlop[0]) && !setCards.includes(theFlop[2]) && !setCards.includes(theFlop[4]) && dataObj.nopair && !dataObj.monotone && dataObj.disconnected;
 
         return dataObj;
     });
