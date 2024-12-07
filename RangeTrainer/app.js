@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Draw player positions
         for (let index = 0; index < positions.length; index++) {
             let pos = labelPositions[index];
-            drawPosition(pos.x, pos.y, positions[index], 100, pos.chipx, pos.chipy, holdingCards.includes(positions[index])); //  invested[index]
+            drawPosition(pos.x, pos.y, positions[index], invested[index], pos.chipx, pos.chipy, holdingCards.includes(positions[index])); //  invested[index]
         }
     }
 
