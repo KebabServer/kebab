@@ -3,7 +3,7 @@ const labelPositions = [
     { x: 284, y: 60, chipx: 0, chipy: 80 },
     { x: 490, y: 90, chipx: -40, chipy: 80 },
     { x: 490, y: 370, chipx: 10, chipy: -75 },
-    { x: 284, y: 420, chipx: -70, chipy: -50 },
+    { x: 284, y: 420, chipx: -90, chipy: -50 },
     { x: 75, y: 370, chipx: -10, chipy: -75 },
     { x: 75, y: 90, chipx: 40, chipy: 80 }
 ];
@@ -98,13 +98,13 @@ document.addEventListener('DOMContentLoaded', () => {
         drawTable(positions, invested, randomRow[headers.indexOf("HoldingCards")], randomRow[headers.indexOf("Board")]);
         drawButtons(action1);
         drawHerohand(cardOrder[randomHandIndex].slice(0, 2), 0);
-        drawHerohand(cardOrder[randomHandIndex].slice(2), 40);
+        drawHerohand(cardOrder[randomHandIndex].slice(2), 60);
     }
 
     // Draw hero cards
     function drawHerohand(handString, dx) {
         ctx.beginPath();
-        ctx.rect(244 + dx, 340, 36, 50);
+        ctx.rect(228 + dx, 310, 56, 80);
         ctx.fillStyle = '#FFFFFF'; // White background for cards
         ctx.fill();
         ctx.strokeStyle = '#000000'; // Black border
@@ -118,15 +118,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Draw rank and suit
         ctx.fillStyle = suits[suit]; // Suit color (black or red)
-        ctx.font = 'bold 24px Arial';
+        ctx.font = 'bold 48px Arial';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
 
         // Draw rank
-        ctx.fillText(rank, 244 + dx + 36 / 2, 340 + 50 / 3);
+        ctx.fillText(rank, 238 + dx + 36 / 2, 322 + 50 / 3);
 
         // Draw suit
-        ctx.fillText(suitsSymbols[suit], 244 + dx + 36 / 2, 340 + (2 * 50) / 3);
+        ctx.fillText(suitsSymbols[suit], 238 + dx + 36 / 2, 336 + (2 * 50) / 3);
 
     }
 
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (hasCards) {
             ctx.beginPath();
             ctx.rect(x - 38, y - 60, 36, 50);
-            ctx.fillStyle = 'gray'; // White background for cards
+            ctx.fillStyle = 'red'; // White background for cards
             ctx.fill();
             ctx.strokeStyle = '#000000'; // Black border
             ctx.lineWidth = 2;
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             ctx.beginPath();
             ctx.rect(x + 2, y - 60, 36, 50);
-            ctx.fillStyle = 'gray'; // White background for cards
+            ctx.fillStyle = 'red'; // White background for cards
             ctx.fill();
             ctx.strokeStyle = '#000000'; // Black border
             ctx.lineWidth = 2;
