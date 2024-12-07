@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ctx = canvas.getContext('2d');
     const feedback = document.getElementById('feedback');
     const buttonsDiv = document.getElementById('buttons');
-
+    console.log(canvas.width);
 
     //Load TSV file
     fetchTSVFile();
