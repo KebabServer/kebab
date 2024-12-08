@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=0.5">
@@ -12,27 +13,69 @@
       text-align: center;
       margin: 0;
     }
+
     canvas {
       display: block;
       margin: 20px auto;
-      background-color: #2d2d2d; /* Dark poker table color */
+      background-color: #2d2d2d;
+      /* Dark poker table color */
     }
+
     .buttons {
       margin-top: 20px;
     }
+
     button {
       margin: 10px;
       padding: 10px 20px;
       font-size: 18px;
       cursor: pointer;
     }
+
     .feedback {
       margin-top: 20px;
       font-size: 20px;
       color: yellow;
     }
+
+
+
+    .optionsLabel{
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      font-weight: bolder;
+      color: white;
+    }
+
+    /* Container for Checkboxes */
+    #optionsDiv {
+      display: flex;
+      flex-direction: column;
+      /* Aligns items vertically */
+      gap: 10px;
+      /* Space between each checkbox */
+    }
+
+    /* Style for Checkboxes */
+    #optionsDiv input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-right: 5px;
+      /* Space between checkbox and label text */
+      cursor: pointer;
+    }
+
+    /* Style the Label Text */
+    #optionsDiv label {
+      display: flex;
+      /* Align checkbox and text properly */
+      align-items: center;
+      font-size: 16px;
+      cursor: pointer;
+    }
   </style>
 </head>
+
 <body>
   <h1>Poker Trainer</h1>
   <canvas id="pokerTable" width="568" height="460"></canvas>
@@ -46,6 +89,33 @@
 
   </div>
   <div class="feedback" id="feedback"></div>
+  <div id="optionsDiv">
+    <form>
+      <label class="optionsLabel" for="RFI_Checkbox">
+        <input type="checkbox" id="RFI_Checkbox" />
+        RFI
+      </label>
+    </form>
+    <form>
+      <label class="optionsLabel" for="BBDEF_Checkbox">
+        <input type="checkbox" id="BBDEF_Checkbox" />
+        BB Defense
+      </label>
+    </form>
+    <form>
+      <label class="optionsLabel" for="SBDEF_Checkbox">
+        <input type="checkbox" id="SBDEF_Checkbox" />
+        SB Defense
+      </label>
+    </form>
+    <form>
+      <label class="optionsLabel" for="IP3BET_Checkbox">
+        <input type="checkbox" id="IP3BET_Checkbox" />
+        IP Defense
+      </label>
+    </form>
+  </div>
   <script src="app.js"></script>
 </body>
+
 </html>
