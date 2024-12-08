@@ -77,15 +77,18 @@ document.addEventListener('DOMContentLoaded', () => {
         if (SBDEF_Checkbox.checked) { validQuizTypes.push("SBDEF"); }
         if (IP3BET_Checkbox.checked) { validQuizTypes.push("IP3BET"); }
         if (validQuizTypes.length === 0) {
+            console.log("lol");
             return;
         }
 
         let randomRow = rows[Math.floor(Math.random() * (rows.length - 1)) + 1];
         let quizType = randomRow[headers.indexOf("QuizType")]
         //Build Quiz
-        while (!validQuizTypes.includes(quizType)) {
-            randomRow = rows[Math.floor(Math.random() * (rows.length - 1)) + 1];
-        }
+        console.log(quizType + " " + validQuizTypes);
+        // while (!validQuizTypes.includes(quizType)) {
+        //     randomRow = rows[Math.floor(Math.random() * (rows.length - 1)) + 1];
+        //     console.log(quizType + " " + validQuizTypes);
+        // }
 
         const QuizRange = randomRow[headers.indexOf("QuizRange")].split(" ");
         let randomHandIndex = Math.floor(Math.random() * (1326));
