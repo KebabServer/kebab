@@ -27,7 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const ctx = canvas.getContext('2d');
     const feedback = document.getElementById('feedback');
     const buttonsDiv = document.getElementById('buttons');
-    console.log(canvas.width);
+
+    const RFI_Checkbox = document.getElementById("RFI_Checkbox");
+    const BBDEF_Checkbox = document.getElementById("BBDEF_Checkbox");
+    const SBDEF_Checkbox = document.getElementById("SBDEF_Checkbox");
+    const IP3BET_Checkbox = document.getElementById("IP3BET_Checkbox");
+
 
     //Load TSV file
     fetchTSVFile();
@@ -65,7 +70,23 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const randomRow = rows[Math.floor(Math.random() * (rows.length - 1)) + 1];
+        //Check Options
+        const validQuizTypes = [];
+        if (RFI_Checkbox.checked) { validQuizTypes.push("RFI"); }
+        if (BBDEF_Checkbox.checked) { validQuizTypes.push("BBDEF"); }
+        if (SBDEF_Checkbox.checked) { validQuizTypes.push("SBDEF"); }
+        if (IP3BET_Checkbox.checked) { validQuizTypes.push("IP3BET"); }
+        if (validQuizTypes.length === 0) {
+            return;
+        }
+
+        let randomRow = rows[Math.floor(Math.random() * (rows.length - 1)) + 1];
+        let quizType = randomRow[headers.indexOf("QuizType")]
+        //Build Quiz
+        while (!validQuizTypes.includes(quizType)) {
+            randomRow = rows[Math.floor(Math.random() * (rows.length - 1)) + 1];
+        }
+
         const QuizRange = randomRow[headers.indexOf("QuizRange")].split(" ");
         let randomHandIndex = Math.floor(Math.random() * (1326));
         while (QuizRange[randomHandIndex] == 0) {

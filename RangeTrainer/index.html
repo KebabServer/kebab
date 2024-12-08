@@ -12,6 +12,8 @@
       color: white;
       text-align: center;
       margin: 0;
+      user-select: none;
+      /* Make text not selectable */
     }
 
     canvas {
@@ -40,7 +42,7 @@
 
 
 
-    .optionsLabel{
+    .optionsLabel {
       font-family: Arial, sans-serif;
       font-size: 24px;
       font-weight: bolder;
@@ -92,27 +94,19 @@
   <div id="optionsDiv">
     <form>
       <label class="optionsLabel" for="RFI_Checkbox">
-        <input type="checkbox" id="RFI_Checkbox" />
-        RFI
-      </label>
+        <input type="checkbox" id="RFI_Checkbox" checked/> RFI </label>
     </form>
     <form>
       <label class="optionsLabel" for="BBDEF_Checkbox">
-        <input type="checkbox" id="BBDEF_Checkbox" />
-        BB Defense
-      </label>
+        <input type="checkbox" id="BBDEF_Checkbox" checked/> BB Defense </label>
     </form>
     <form>
       <label class="optionsLabel" for="SBDEF_Checkbox">
-        <input type="checkbox" id="SBDEF_Checkbox" />
-        SB Defense
-      </label>
+        <input type="checkbox" id="SBDEF_Checkbox" checked/> SB Defense </label>
     </form>
     <form>
       <label class="optionsLabel" for="IP3BET_Checkbox">
-        <input type="checkbox" id="IP3BET_Checkbox" />
-        IP Defense
-      </label>
+        <input type="checkbox" id="IP3BET_Checkbox" checked/> IP Defense </label>
     </form>
   </div>
   <script src="app.js"></script>
