@@ -7,6 +7,15 @@ const labelPositions = [
     { x: 75, y: 370, chipx: -10, chipy: -75 },
     { x: 75, y: 90, chipx: 40, chipy: 80 }
 ];
+
+const chipValues = [
+    { color: 'Black', value: 100, width: 30, height: 10 },
+    { color: 'Green', value: 25, width: 28, height: 10 },
+    { color: 'Yellow', value: 10, width: 26, height: 10 },
+    { color: 'Blue', value: 5, width: 24, height: 10 },
+    { color: 'Red', value: 1, width: 22, height: 10 },
+    { color: 'White', value: 0.5, width: 20, height: 10 }
+];
 const suits = { 's': 'black', 'c': 'green', 'h': 'red', 'd': 'blue', };
 const suitsSymbols = { 's': '♠', 'c': '♣', 'h': '♥', 'd': '♦', };
 document.addEventListener('DOMContentLoaded', () => {
@@ -27,6 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const ctx = canvas.getContext('2d');
     const feedback = document.getElementById('feedback');
     const buttonsDiv = document.getElementById('buttons');
+    const quizQuestionDiv = document.getElementById('quiz_question');
+
 
     const RFI_Checkbox = document.getElementById("RFI_Checkbox");
     const BBDEF_Checkbox = document.getElementById("BBDEF_Checkbox");
@@ -77,18 +88,18 @@ document.addEventListener('DOMContentLoaded', () => {
         if (SBDEF_Checkbox.checked) { validQuizTypes.push("SBDEF"); }
         if (IP3BET_Checkbox.checked) { validQuizTypes.push("IP3BET"); }
         if (validQuizTypes.length === 0) {
-            console.log("lol");
             return;
         }
 
         let randomRow = rows[Math.floor(Math.random() * (rows.length - 1)) + 1];
-        let quizType = randomRow[headers.indexOf("QuizType")]
+        console.log(headers);
+        let quizType = randomRow[headers.indexOf("QuizType")];
+        console.log(quizType);
         //Build Quiz
-        console.log(quizType + " " + validQuizTypes);
-        // while (!validQuizTypes.includes(quizType)) {
-        //     randomRow = rows[Math.floor(Math.random() * (rows.length - 1)) + 1];
-        //     console.log(quizType + " " + validQuizTypes);
-        // }
+        while (!validQuizTypes.includes(quizType)) {
+            randomRow = rows[Math.floor(Math.random() * (rows.length - 1)) + 1];
+            quizType = randomRow[headers.indexOf("QuizType")];
+        }
 
         const QuizRange = randomRow[headers.indexOf("QuizRange")].split(" ");
         let randomHandIndex = Math.floor(Math.random() * (1326));
@@ -262,13 +273,24 @@ document.addEventListener('DOMContentLoaded', () => {
         if (amount == 0) {
             return;
         }
-        const stackHeight = Math.min(Math.ceil(amount / 10), 5); // Max 5 chips visually
-        const chipColors = ['#1E90FF', '#C0C0C0', '#CD7F32']; // Gold, silver, bronze chips
+        let tempAmount = amount;
+        // const stackHeight = Math.min(Math.ceil(amount / 10), 5); // Max 5 chips visually
+        // const chipColors = ['#1E90FF', '#C0C0C0', '#CD7F32']; // Gold, silver, bronze chips
+        let chips = [];
+        for (let i = 0; i < chipValues.length; i++) {
+            let chipCount = Math.floor(tempAmount / chipValues[i].value); // Number of chips of this type
+            tempAmount -= chipCount * chipValues[i].value; // Subtract the value of these chips from the total
 
-        for (let i = 0; i < stackHeight; i++) {
+            // Add the correct number of chips to the array
+            for (let j = 0; j < chipCount; j++) {
+                chips.push(chipValues[i]);
+            }
+        }
+
+        for (let i = 0; i < chips.length; i++) {
             ctx.beginPath();
-            ctx.ellipse(x, y - i * 10, 24, 10, 0, 0, Math.PI * 2); // Chip as an oval
-            ctx.fillStyle = chipColors[i % chipColors.length];
+            ctx.ellipse(x, y - i * 10, chips[i].width, chips[i].height, 0, 0, Math.PI * 2); // Chip as an oval 24 10
+            ctx.fillStyle = chips[i % chips.length].color;
             ctx.fill();
             ctx.strokeStyle = 'black';
             ctx.lineWidth = 1;
@@ -278,17 +300,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Draw chip count
         ctx.fillStyle = 'black';
-        ctx.font = '12px Arial';
+        ctx.font = 'bold 22px Arial';
         ctx.textAlign = 'center';
-        ctx.fillText(`${amount} BB`, x, y - stackHeight * 10 + 11);
+        ctx.fillText(`${amount} BB`, x, y - chips.length * 10 - 11);
     }
 
     function drawButtons(actionChoice) {
         if (actionChoice == "Call" || actionChoice == "Check") {
-            buttonsDiv.innerHTML = '<span style="color: green; font-weight: bold;">' + actionChoice + '</span>';
+            quizQuestionDiv.innerHTML = '<span style="color: green; font-size: 30px; font-weight: bold;">' + actionChoice + '</span>';
         } else {
-            buttonsDiv.innerHTML = '<span style="color: red;font-weight: bold;">' + actionChoice + '</span>';
+            quizQuestionDiv.innerHTML = '<span style="color: red;font-size: 30px;font-weight: bold;">' + actionChoice + '</span>';
         }
+        buttonsDiv.innerHTML = "";
         for (let index = 0; index < actionOptions.length; index++) {
             const btn = document.createElement('button');
             btn.textContent = actionOptions[index];
