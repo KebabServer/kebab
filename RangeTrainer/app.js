@@ -92,9 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         let randomRow = rows[Math.floor(Math.random() * (rows.length - 1)) + 1];
-        console.log(headers);
         let quizType = randomRow[headers.indexOf("QuizType")];
-        console.log(quizType);
         //Build Quiz
         while (!validQuizTypes.includes(quizType)) {
             randomRow = rows[Math.floor(Math.random() * (rows.length - 1)) + 1];
@@ -307,9 +305,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function drawButtons(actionChoice) {
         if (actionChoice == "Call" || actionChoice == "Check") {
-            quizQuestionDiv.innerHTML = '<span style="color: green; font-size: 30px; font-weight: bold;">' + actionChoice + '</span>';
+            quizQuestionDiv.innerHTML = '<span style="color: green;">' + actionChoice + '</span>';
         } else {
-            quizQuestionDiv.innerHTML = '<span style="color: red;font-size: 30px;font-weight: bold;">' + actionChoice + '</span>';
+            quizQuestionDiv.innerHTML = '<span style="color: red;">' + actionChoice + '</span>';
         }
         buttonsDiv.innerHTML = "";
         for (let index = 0; index < actionOptions.length; index++) {
@@ -322,7 +320,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function checkIfCorrectAction(frequencyGuess) {
-        console.log(frequencyGuess + " " + correctFreqBucket1 + " " + correctFreqBucket2);
         if (frequencyGuess === correctFreqBucket1 && correctFreqBucket2 == null) {
             feedback.textContent = 'Correct! Nice job! Frequency was ' + parseFloat(correctFrequency1) * 100.0 + "%";
             loadNewQuiz();
