@@ -23,8 +23,8 @@
       /* Dark poker table color */
     }
 
-    #quiz_question{
-      font-size: 30px; 
+    #quiz_question {
+      font-size: 40px;
       font-weight: bold
     }
 
@@ -39,7 +39,7 @@
       cursor: pointer;
     }
 
-    .feedback {
+    #feedback {
       margin-top: 20px;
       font-size: 20px;
       color: yellow;
@@ -47,7 +47,7 @@
 
 
     /* Container for Checkboxes */
-    #optionsDiv {
+    #settingsDiv {
       display: flex;
       flex-direction: column;
       /* Aligns items vertically */
@@ -56,7 +56,7 @@
     }
 
     /* Style for Checkboxes */
-    #optionsDiv input[type="checkbox"] {
+    #settingsDiv input[type="checkbox"] {
       width: 18px;
       height: 18px;
       margin-right: 5px;
@@ -65,7 +65,7 @@
     }
 
     /* Style the Label Text */
-    #optionsDiv label {
+    #settingsDiv label {
       display: flex;
       /* Align checkbox and text properly */
       align-items: center;
@@ -86,26 +86,25 @@
     <button id="bet50">Bet 50%</button>
     <button id="bet100">Bet 100%</button>
   </div>
-  <div id="buttons2">
 
-  </div>
-  <div class="feedback" id="feedback"></div>
-  <div id="optionsDiv">
+  <div id="feedback"></div>
+  <button id="check_range">Show range</button>
+  <div id="settingsDiv">
     <form>
       <label class="optionsLabel" for="RFI_Checkbox">
-        <input type="checkbox" id="RFI_Checkbox" checked/> RFI </label>
+        <input type="checkbox" id="RFI_Checkbox" checked /> RFI </label>
     </form>
     <form>
       <label class="optionsLabel" for="BBDEF_Checkbox">
-        <input type="checkbox" id="BBDEF_Checkbox" checked/> BB Defense </label>
+        <input type="checkbox" id="BBDEF_Checkbox" checked /> BB Defense </label>
     </form>
     <form>
       <label class="optionsLabel" for="SBDEF_Checkbox">
-        <input type="checkbox" id="SBDEF_Checkbox" checked/> SB Defense </label>
+        <input type="checkbox" id="SBDEF_Checkbox" checked /> SB Defense </label>
     </form>
     <form>
       <label class="optionsLabel" for="IP3BET_Checkbox">
-        <input type="checkbox" id="IP3BET_Checkbox" checked/> IP Defense </label>
+        <input type="checkbox" id="IP3BET_Checkbox" checked /> IP Defense </label>
     </form>
   </div>
   <script src="app.js"></script>
