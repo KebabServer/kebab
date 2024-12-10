@@ -43,8 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let questions;
     let questionIndex;
 
-    let popupRanges;
-    let popupActions;
+
+    let popupLastHand = {};
+    let popupCurrentHand = {};
 
     let tableSetup = {};
 
@@ -55,16 +56,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const buttonsDiv = document.getElementById('buttons');
     const quizQuestionDiv = document.getElementById('quiz_question');
 
-    const checkRangeBtn = document.getElementById('check_range');
+    const currentHandRangeBtn = document.getElementById('current_hand_range_button');
+    const lastHandRangeBtn = document.getElementById('last_hand_range_button');
 
-    checkRangeBtn.addEventListener('click', () => {
-        if (checkRangeBtn.innerHTML == "Show range") {
-            drawRangeMatrix();
+    currentHandRangeBtn.addEventListener('click', () => {
+        if (currentHandRangeBtn.innerHTML == "Show Current Range") {
+            currentHandRangeBtn.innerHTML = "Hide Current Range";
+            lastHandRangeBtn.innerHTML = "Show Last Range";
+            drawRangeMatrix(popupCurrentHand.ranges, popupCurrentHand.actions);
         } else {
+            currentHandRangeBtn.innerHTML = "Show Current Range";
+            lastHandRangeBtn.innerHTML = "Show Last Range";
             drawTable();
         }
-    }
-    );
+    });
+
+    lastHandRangeBtn.addEventListener('click', () => {
+        if (lastHandRangeBtn.innerHTML == "Show Last Range") {
+            currentHandRangeBtn.innerHTML = "Show Current Range";
+            lastHandRangeBtn.innerHTML = "Hide Last Range";
+            drawRangeMatrix(popupLastHand.ranges, popupLastHand.actions);
+        } else {
+            currentHandRangeBtn.innerHTML = "Show Current Range";
+            lastHandRangeBtn.innerHTML = "Show Last Range";
+            drawTable();
+        }
+    });
 
 
     const RFI_Checkbox = document.getElementById("RFI_Checkbox");
@@ -121,8 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         questions = [];
-        popupActions = [];
-        popupRanges = [];
+        let popupActions = [];
+        let popupRanges = [];
 
         let randomRow = rows[Math.floor(Math.random() * (rows.length - 1)) + 1];
         let quizType = randomRow[headers.indexOf("QuizType")];
@@ -137,6 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
         while (QuizRange[randomHandIndex] == 0) {
             randomHandIndex = Math.floor(Math.random() * (1326));
         }
+
+        popupLastHand = structuredClone(popupCurrentHand);
         let index = 1;
         while (randomRow[headers.indexOf("Action" + index)] != "" && randomRow[headers.indexOf("Action" + index)] != undefined) {
             const range = randomRow[headers.indexOf("Range" + index)].split(" ");
@@ -158,6 +177,8 @@ document.addEventListener('DOMContentLoaded', () => {
             popupActions.push(randomRow[headers.indexOf("Action" + index)]);
             index++;
         }
+        popupCurrentHand.ranges = popupRanges;
+        popupCurrentHand.actions = popupActions;
 
         tableSetup.heroPos = randomRow[headers.indexOf("Position")];
         tableSetup.invested = randomRow[headers.indexOf("Invested")].split(" ");
@@ -179,8 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     //Draw popup
-    function drawRangeMatrix() {
-        checkRangeBtn.innerHTML = "Hide range";
+    function drawRangeMatrix(ranges, actions) {
         ctx.fillStyle = "#1e1e1e";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -199,14 +219,14 @@ document.addEventListener('DOMContentLoaded', () => {
         [[], [], [], [], [], [], [], [], [], [], [], [], []]];
         for (let x = 0; x < 13; x++) {
             for (let y = 0; y < 13; y++) {
-                for (let i = 0; i < popupActions.length; i++) {
+                for (let i = 0; i < actions.length; i++) {
                     colorsf_multi[y][x].push(0);
                 }
             }
         }
         for (let i = 0; i < 1326; i++) {
-            for (let j = 0; j < popupRanges.length; j++) {
-                colorsf_multi[cardOrderX[i]][cardOrderY[i]][j] += parseFloat(popupRanges[j][i]);
+            for (let j = 0; j < ranges.length; j++) {
+                colorsf_multi[cardOrderX[i]][cardOrderY[i]][j] += parseFloat(ranges[j][i]);
             }
         }
 
@@ -217,9 +237,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 ctx.strokeStyle = 'black';
                 ctx.lineWidth = 1; // Set border thickness
                 ctx.strokeRect(j * 34, i * 34, 34, 34);
-                for (let k = 0; k < popupActions.length; k++) {
+                for (let k = 0; k < actions.length; k++) {
                     const tempWidth = colorsf_multi[i][j][k] / heightsMax[i][j];
-                    if (popupActions[k] == "Call" || popupActions[k] == "Check") {
+                    if (actions[k] == "Call" || actions[k] == "Check") {
                         ctx.fillStyle = 'green'; // Dark green for poker table
                     } else {
                         ctx.fillStyle = 'red'; // Dark green for poker table
@@ -240,26 +260,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        for (let i = 0; i < popupRanges.length; i++) {
+        for (let i = 0; i < ranges.length; i++) {
             ctx.fillStyle = 'black';
             ctx.fillRect(446, i * 30 + 7, 118, 26);
             ctx.strokeStyle = 'gray';
             ctx.lineWidth = 2; // Set border thickness
             ctx.strokeRect(446, i * 30 + 7, 118, 26);
-            if (popupActions[i] == "Call" || popupActions[i] == "Check") {
+            if (actions[i] == "Call" || actions[i] == "Check") {
                 ctx.fillStyle = 'green'; // Dark green for poker table
             } else {
                 ctx.fillStyle = 'red'; // Dark green for poker table
             }
             ctx.font = 'bold 16px Arial';
             ctx.textAlign = 'center';
-            ctx.fillText(popupActions[i], 500, i * 30 + 22);
+            ctx.fillText(actions[i], 500, i * 30 + 22);
         }
     }
 
     // Draw the poker table
     function drawTable() {
-        checkRangeBtn.innerHTML = "Show range";
         // Clear the canvas
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
