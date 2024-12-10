@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else {
                         ctx.fillStyle = 'red'; // Dark green for poker table
                     }
-                    ctx.fillRect(j * 34 + 1 + Math.ceil(tempX * 32), i * 34 + 1, 32 * Math.ceil(tempWidth), 32);
+                    ctx.fillRect(j * 34 + 1 + Math.ceil(tempX * 32), i * 34 + 1, Math.ceil(32 * tempWidth), 32);
                     tempX += tempWidth;
                 }
                 ctx.fillStyle = 'white';
