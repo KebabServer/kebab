@@ -22,6 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let rows;
     let headers;
 
+    let questions;
+
     let correctFrequency1;
     let correctFreqBucket1;
     let correctFrequency2;
@@ -90,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (validQuizTypes.length === 0) {
             return;
         }
+        questions = [];
 
         let randomRow = rows[Math.floor(Math.random() * (rows.length - 1)) + 1];
         let quizType = randomRow[headers.indexOf("QuizType")];
@@ -104,21 +107,33 @@ document.addEventListener('DOMContentLoaded', () => {
         while (QuizRange[randomHandIndex] == 0) {
             randomHandIndex = Math.floor(Math.random() * (1326));
         }
-        correctFrequency1 = parseFloat(randomRow[headers.indexOf("Range1")].split(" ")[randomHandIndex]);
-        correctFreqBucket1 = (Math.round(correctFrequency1 * 100 / 25) * 25) + "%";
-
-        let range2 = randomRow[headers.indexOf("Range2")].split(" ");
-        if (range2.length > 1) {
-            correctFrequency2 = parseFloat(range2[randomHandIndex]);
-            correctFreqBucket2 = (Math.round(correctFrequency2 * 100 / 25) * 25) + "%";
-        } else {
-            correctFreqBucket2 = null;
+        let index = 1;
+        while (randomRow[headers.indexOf("Action" + index)].length > 0) {
+            correctFrequency = parseFloat(randomRow[headers.indexOf("Range" + index)].split(" ")[randomHandIndex]);
+            let question = {
+                action: randomRow[headers.indexOf("Action" + index)],
+                answerOptions: randomRow[headers.indexOf("Options" + index)],
+                correctFrequency: correctFrequency,
+                correctFreqBucket: (Math.round(correctFrequency1 * 100 / 25) * 25) + "%"
+            };
+            questions.push(question);
         }
 
-        action1 = randomRow[headers.indexOf("Action1")];
-        action2 = randomRow[headers.indexOf("Action2")];
+        // correctFrequency1 = parseFloat(randomRow[headers.indexOf("Range1")].split(" ")[randomHandIndex]);
+        // correctFreqBucket1 = (Math.round(correctFrequency1 * 100 / 25) * 25) + "%";
 
-        actionOptions = randomRow[headers.indexOf("Options")].split(" ");
+        // let range2 = randomRow[headers.indexOf("Range2")].split(" ");
+        // if (range2.length > 1) {
+        //     correctFrequency2 = parseFloat(range2[randomHandIndex]);
+        //     correctFreqBucket2 = (Math.round(correctFrequency2 * 100 / 25) * 25) + "%";
+        // } else {
+        //     correctFreqBucket2 = null;
+        // }
+
+        // action1 = randomRow[headers.indexOf("Action1")];
+        // action2 = randomRow[headers.indexOf("Action2")];
+
+        // actionOptions = randomRow[headers.indexOf("Options")].split(" ");
 
         const heroPos = randomRow[headers.indexOf("Position")];
         let invested = randomRow[headers.indexOf("Invested")].split(" ");
@@ -128,43 +143,15 @@ document.addEventListener('DOMContentLoaded', () => {
             invested.push(invested.shift());
         }
 
-        drawTable(positions, invested, randomRow[headers.indexOf("HoldingCards")], randomRow[headers.indexOf("Board")]);
+        drawTable(positions, invested, randomRow[headers.indexOf("HoldingCards")], randomRow[headers.indexOf("Board")], cardOrder[randomHandIndex]);
         drawButtons(action1);
-        drawHerohand(cardOrder[randomHandIndex].slice(0, 2), 0);
-        drawHerohand(cardOrder[randomHandIndex].slice(2), 60);
-    }
-
-    // Draw hero cards
-    function drawHerohand(handString, dx) {
-        ctx.beginPath();
-        ctx.rect(228 + dx, 310, 56, 80);
-        ctx.fillStyle = '#FFFFFF'; // White background for cards
-        ctx.fill();
-        ctx.strokeStyle = '#000000'; // Black border
-        ctx.lineWidth = 2;
-        ctx.stroke();
-        ctx.closePath();
-
-        // Extract card rank and suit
-        const rank = handString.slice(0, -1); // Everything except the last character
-        const suit = handString.slice(-1); // Last character (♠, ♥, ♣, ♦)
-
-        // Draw rank and suit
-        ctx.fillStyle = suits[suit]; // Suit color (black or red)
-        ctx.font = 'bold 48px Arial';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-
-        // Draw rank
-        ctx.fillText(rank, 238 + dx + 36 / 2, 322 + 50 / 3);
-
-        // Draw suit
-        ctx.fillText(suitsSymbols[suit], 238 + dx + 36 / 2, 336 + (2 * 50) / 3);
 
     }
+
+
 
     // Draw the poker table
-    function drawTable(positions, invested, holdingCards, board) {
+    function drawTable(positions, invested, holdingCards, board, heroHand) {
         // Clear the canvas
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -188,7 +175,12 @@ document.addEventListener('DOMContentLoaded', () => {
             let pos = labelPositions[index];
             drawPosition(pos.x, pos.y, positions[index], invested[index], pos.chipx, pos.chipy, holdingCards.includes(positions[index])); //  invested[index]
         }
+
+        //Draw Hero Hand
+        drawHerohand(heroHand.slice(0, 2), 0);
+        drawHerohand(heroHand.slice(2), 60);
     }
+
 
     // Draw a player position
     function drawPosition(x, y, positionLabel, chips, chipx, chipy, hasCards) {
@@ -265,6 +257,34 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText(board, 300, 300); // Center text
+    }
+    // Draw hero cards
+    function drawHerohand(handString, dx) {
+        ctx.beginPath();
+        ctx.rect(228 + dx, 310, 56, 80);
+        ctx.fillStyle = '#FFFFFF'; // White background for cards
+        ctx.fill();
+        ctx.strokeStyle = '#000000'; // Black border
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.closePath();
+
+        // Extract card rank and suit
+        const rank = handString.slice(0, -1); // Everything except the last character
+        const suit = handString.slice(-1); // Last character (♠, ♥, ♣, ♦)
+
+        // Draw rank and suit
+        ctx.fillStyle = suits[suit]; // Suit color (black or red)
+        ctx.font = 'bold 48px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+
+        // Draw rank
+        ctx.fillText(rank, 238 + dx + 36 / 2, 322 + 50 / 3);
+
+        // Draw suit
+        ctx.fillText(suitsSymbols[suit], 238 + dx + 36 / 2, 336 + (2 * 50) / 3);
+
     }
     // Draw poker chips
     function drawChips(x, y, amount) {
