@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
             randomHandIndex = Math.floor(Math.random() * (1326));
         }
 
-        popupLastHand = JSON.parse(JSON.stringify(popupCurrentHand));
+        // popupLastHand = JSON.parse(JSON.stringify(popupCurrentHand));
         let index = 1;
         while (randomRow[headers.indexOf("Action" + index)] != "" && randomRow[headers.indexOf("Action" + index)] != undefined) {
             const range = randomRow[headers.indexOf("Range" + index)].split(" ");
