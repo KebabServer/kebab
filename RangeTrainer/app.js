@@ -59,29 +59,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentHandRangeBtn = document.getElementById('current_hand_range_button');
     const lastHandRangeBtn = document.getElementById('last_hand_range_button');
 
-    currentHandRangeBtn.addEventListener('click', () => {
-        if (currentHandRangeBtn.innerHTML == "Show Current Range") {
-            currentHandRangeBtn.innerHTML = "Hide Current Range";
-            lastHandRangeBtn.innerHTML = "Show Last Range";
-            drawRangeMatrix(popupCurrentHand.ranges, popupCurrentHand.actions);
-        } else {
-            currentHandRangeBtn.innerHTML = "Show Current Range";
-            lastHandRangeBtn.innerHTML = "Show Last Range";
-            drawTable();
-        }
-    });
+    // currentHandRangeBtn.addEventListener('click', () => {
+    //     if (currentHandRangeBtn.innerHTML == "Show Current Range") {
+    //         currentHandRangeBtn.innerHTML = "Hide Current Range";
+    //         lastHandRangeBtn.innerHTML = "Show Last Range";
+    //         drawRangeMatrix(popupCurrentHand.ranges, popupCurrentHand.actions);
+    //     } else {
+    //         currentHandRangeBtn.innerHTML = "Show Current Range";
+    //         lastHandRangeBtn.innerHTML = "Show Last Range";
+    //         drawTable();
+    //     }
+    // });
 
-    lastHandRangeBtn.addEventListener('click', () => {
-        if (lastHandRangeBtn.innerHTML == "Show Last Range") {
-            currentHandRangeBtn.innerHTML = "Show Current Range";
-            lastHandRangeBtn.innerHTML = "Hide Last Range";
-            drawRangeMatrix(popupLastHand.ranges, popupLastHand.actions);
-        } else {
-            currentHandRangeBtn.innerHTML = "Show Current Range";
-            lastHandRangeBtn.innerHTML = "Show Last Range";
-            drawTable();
-        }
-    });
+    // lastHandRangeBtn.addEventListener('click', () => {
+    //     if (lastHandRangeBtn.innerHTML == "Show Last Range") {
+    //         currentHandRangeBtn.innerHTML = "Show Current Range";
+    //         lastHandRangeBtn.innerHTML = "Hide Last Range";
+    //         drawRangeMatrix(popupLastHand.ranges, popupLastHand.actions);
+    //     } else {
+    //         currentHandRangeBtn.innerHTML = "Show Current Range";
+    //         lastHandRangeBtn.innerHTML = "Show Last Range";
+    //         drawTable();
+    //     }
+    // });
 
 
     const RFI_Checkbox = document.getElementById("RFI_Checkbox");
