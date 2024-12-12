@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         const width = 28;
-        const height = 28;
+        const height = 25;
         for (let i = 0; i < 13; i++) {
             for (let j = 0; j < 13; j++) {
                 let tempX = 0;
@@ -200,9 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         }
-        ctx.strokeStyle = 'White';
-        ctx.lineWidth = 1; // Set border thickness
-        ctx.strokeRect(0, 0, canvas1.width, canvas1.height);
         // for (let i = 0; i < ranges.length; i++) {
         //     ctx.fillStyle = 'black';
         //     ctx.fillRect(446, i * 30 + 7, 118, 26);
