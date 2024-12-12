@@ -55,11 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const IP3BetvsCO_button = document.getElementById('IP3BetvsCO_button');
 
     RFI_button.addEventListener('click', () => {
-        drawRangeMatrix(canvas1, rows[1]);
-        drawRangeMatrix(canvas2, rows[2]);
-        drawRangeMatrix(canvas3, rows[3]);
-        drawRangeMatrix(canvas4, rows[4]);
-        drawRangeMatrix(canvas5, rows[5]);
+        drawRangeMatrix(canvas1, rows[1], "UTG");
+        drawRangeMatrix(canvas2, rows[2], "HJ");
+        drawRangeMatrix(canvas3, rows[3], "CO");
+        drawRangeMatrix(canvas4, rows[4], "BTN");
+        drawRangeMatrix(canvas5, rows[5], "SB");
     });
     BBDEF_button.addEventListener('click', () => {
         drawRangeMatrix(canvas1, rows[6]);
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     //Draw Range Matrix
-    function drawRangeMatrix(canvas, row) {
+    function drawRangeMatrix(canvas, row, text) {
         const ctx = canvas.getContext('2d');
         ctx.fillStyle = "#1e1e1e";
         ctx.fillRect(0, 0, canvas1.width, canvas1.height);
@@ -185,21 +185,29 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else {
                         ctx.fillStyle = 'red'; // Dark green for poker table
                     }
-                    ctx.fillRect(j * width + 1 + Math.ceil(tempX * (width - 2)), i * height + 1, Math.ceil((width - 2) * tempWidth), height-2);
+                    ctx.fillRect(j * width + 1 + Math.ceil(tempX * (width - 2)), i * height + 1, Math.ceil((width - 2) * tempWidth), height - 2);
                     tempX += tempWidth;
                 }
                 ctx.fillStyle = 'white';
                 ctx.font = '10px Arial';
                 ctx.textAlign = 'center';
                 if (j > i) {
-                    ctx.fillText(cards[i] + cards[j] + 's', j * width + width / 2, i * height + height / 2+3);
+                    ctx.fillText(cards[i] + cards[j] + 's', j * width + width / 2, i * height + height / 2 + 3);
                 } else if (i == j) {
-                    ctx.fillText(cards[j] + cards[i], j * width + width / 2, i * height + height / 2+3);
+                    ctx.fillText(cards[j] + cards[i], j * width + width / 2, i * height + height / 2 + 3);
                 } else {
-                    ctx.fillText(cards[j] + cards[i] + 'o', j * width + width / 2, i * height + height / 2+3);
+                    ctx.fillText(cards[j] + cards[i] + 'o', j * width + width / 2, i * height + height / 2 + 3);
                 }
             }
         }
+
+
+        ctx.fillStyle = 'black';
+        ctx.fillRect(width * 2, height * 11, width * 6, height * 2);
+        ctx.fillStyle = '#ff00ff';
+        ctx.font = 'bold 32px Arial';
+        ctx.fillText(text, width * 5, height * 12 + height / 2);
+
         // for (let i = 0; i < ranges.length; i++) {
         //     ctx.fillStyle = 'black';
         //     ctx.fillRect(446, i * 30 + 7, 118, 26);
