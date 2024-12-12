@@ -199,10 +199,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    //Draw popup
+    //Draw Range Matrix
     function drawRangeMatrix(ranges, actions) {
         ctx.fillStyle = "#1e1e1e";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
+        if (ranges == undefined) {
+            return;
+        }
 
         let colorsf_multi = [[[], [], [], [], [], [], [], [], [], [], [], [], []],
         [[], [], [], [], [], [], [], [], [], [], [], [], []],
