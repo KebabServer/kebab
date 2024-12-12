@@ -199,20 +199,20 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        for (let i = 0; i < ranges.length; i++) {
-            ctx.fillStyle = 'black';
-            ctx.fillRect(446, i * 30 + 7, 118, 26);
-            ctx.strokeStyle = 'gray';
-            ctx.lineWidth = 2; // Set border thickness
-            ctx.strokeRect(446, i * 30 + 7, 118, 26);
-            if (actions[i] == "Call" || actions[i] == "Check") {
-                ctx.fillStyle = 'green'; // Dark green for poker table
-            } else {
-                ctx.fillStyle = 'red'; // Dark green for poker table
-            }
-            ctx.font = 'bold 16px Arial';
-            ctx.textAlign = 'center';
-            ctx.fillText(actions[i], 500, i * 30 + 22);
-        }
+        // for (let i = 0; i < ranges.length; i++) {
+        //     ctx.fillStyle = 'black';
+        //     ctx.fillRect(446, i * 30 + 7, 118, 26);
+        //     ctx.strokeStyle = 'gray';
+        //     ctx.lineWidth = 2; // Set border thickness
+        //     ctx.strokeRect(446, i * 30 + 7, 118, 26);
+        //     if (actions[i] == "Call" || actions[i] == "Check") {
+        //         ctx.fillStyle = 'green'; // Dark green for poker table
+        //     } else {
+        //         ctx.fillStyle = 'red'; // Dark green for poker table
+        //     }
+        //     ctx.font = 'bold 16px Arial';
+        //     ctx.textAlign = 'center';
+        //     ctx.fillText(actions[i], 500, i * 30 + 22);
+        // }
     }
 });
