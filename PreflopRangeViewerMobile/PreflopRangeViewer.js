@@ -189,18 +189,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     tempX += tempWidth;
                 }
                 ctx.fillStyle = 'white';
-                ctx.font = '14px Arial';
+                ctx.font = '10px Arial';
                 ctx.textAlign = 'center';
                 if (j > i) {
-                    ctx.fillText(cards[i] + cards[j] + 's', j * width + width / 2, i * height + height / 2);
+                    ctx.fillText(cards[i] + cards[j] + 's', j * width + width / 2, i * height + height / 2+3);
                 } else if (i == j) {
-                    ctx.fillText(cards[j] + cards[i], j * width + width / 2, i * height + height / 2);
+                    ctx.fillText(cards[j] + cards[i], j * width + width / 2, i * height + height / 2+3);
                 } else {
-                    ctx.fillText(cards[j] + cards[i] + 'o', j * width + width / 2, i * height + height / 2);
+                    ctx.fillText(cards[j] + cards[i] + 'o', j * width + width / 2, i * height + height / 2+3);
                 }
             }
         }
-
+        ctx.strokeStyle = 'White';
+        ctx.lineWidth = 1; // Set border thickness
+        ctx.strokeRect(0, 0, canvas1.width, canvas1.height);
         // for (let i = 0; i < ranges.length; i++) {
         //     ctx.fillStyle = 'black';
         //     ctx.fillRect(446, i * 30 + 7, 118, 26);
