@@ -62,35 +62,35 @@ document.addEventListener('DOMContentLoaded', () => {
         drawRangeMatrix(canvas5, rows[5], "SB");
     });
     BBDEF_button.addEventListener('click', () => {
-        drawRangeMatrix(canvas1, rows[6]);
-        drawRangeMatrix(canvas2, rows[7]);
-        drawRangeMatrix(canvas3, rows[8]);
-        drawRangeMatrix(canvas4, rows[9]);
-        drawRangeMatrix(canvas5, rows[10]);
+        drawRangeMatrix(canvas1, rows[6],"UTG");
+        drawRangeMatrix(canvas2, rows[7],"HJ");
+        drawRangeMatrix(canvas3, rows[8],"CO");
+        drawRangeMatrix(canvas4, rows[9],"BTN");
+        drawRangeMatrix(canvas5, rows[10],"SB");
     });
     SBDEF_button.addEventListener('click', () => {
-        drawRangeMatrix(canvas1, rows[11]);
-        drawRangeMatrix(canvas2, rows[12]);
-        drawRangeMatrix(canvas3, rows[13]);
-        drawRangeMatrix(canvas4, rows[14]);
+        drawRangeMatrix(canvas1, rows[11],"UTG");
+        drawRangeMatrix(canvas2, rows[12],"HJ");
+        drawRangeMatrix(canvas3, rows[13],"CO");
+        drawRangeMatrix(canvas4, rows[14],"BTN");
         drawRangeMatrix(canvas5, null);
     });
     IP3BetvsUTG_button.addEventListener('click', () => {
-        drawRangeMatrix(canvas1, rows[15]);
-        drawRangeMatrix(canvas2, rows[16]);
-        drawRangeMatrix(canvas3, rows[17]);
+        drawRangeMatrix(canvas1, rows[15],"MP");
+        drawRangeMatrix(canvas2, rows[16],"CO");
+        drawRangeMatrix(canvas3, rows[17],"BTN");
         drawRangeMatrix(canvas4, null);
         drawRangeMatrix(canvas5, null);
     });
     IP3BetvsHJ_button.addEventListener('click', () => {
-        drawRangeMatrix(canvas1, rows[18]);
-        drawRangeMatrix(canvas2, rows[19]);
+        drawRangeMatrix(canvas1, rows[18],"CO");
+        drawRangeMatrix(canvas2, rows[19],"BTN");
         drawRangeMatrix(canvas3, null);
         drawRangeMatrix(canvas4, null);
         drawRangeMatrix(canvas5, null);
     });
     IP3BetvsCO_button.addEventListener('click', () => {
-        drawRangeMatrix(canvas1, rows[20]);
+        drawRangeMatrix(canvas1, rows[20],"BTN");
         drawRangeMatrix(canvas2, null);
         drawRangeMatrix(canvas3, null);
         drawRangeMatrix(canvas4, null);
