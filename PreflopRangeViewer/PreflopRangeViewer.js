@@ -55,42 +55,42 @@ document.addEventListener('DOMContentLoaded', () => {
     const IP3BetvsCO_button = document.getElementById('IP3BetvsCO_button');
 
     RFI_button.addEventListener('click', () => {
-        drawRangeMatrix(canvas1, rows[1]);
-        drawRangeMatrix(canvas2, rows[2]);
-        drawRangeMatrix(canvas3, rows[3]);
-        drawRangeMatrix(canvas4, rows[4]);
-        drawRangeMatrix(canvas5, rows[5]);
+        drawRangeMatrix(canvas1, rows[1], "UTG");
+        drawRangeMatrix(canvas2, rows[2], "HJ");
+        drawRangeMatrix(canvas3, rows[3], "CO");
+        drawRangeMatrix(canvas4, rows[4], "BTN");
+        drawRangeMatrix(canvas5, rows[5], "SB");
     });
     BBDEF_button.addEventListener('click', () => {
-        drawRangeMatrix(canvas1, rows[6]);
-        drawRangeMatrix(canvas2, rows[7]);
-        drawRangeMatrix(canvas3, rows[8]);
-        drawRangeMatrix(canvas4, rows[9]);
-        drawRangeMatrix(canvas5, rows[10]);
+        drawRangeMatrix(canvas1, rows[6], "UTG");
+        drawRangeMatrix(canvas2, rows[7], "HJ");
+        drawRangeMatrix(canvas3, rows[8], "CO");
+        drawRangeMatrix(canvas4, rows[9], "BTN");
+        drawRangeMatrix(canvas5, rows[10], "SB");
     });
     SBDEF_button.addEventListener('click', () => {
-        drawRangeMatrix(canvas1, rows[11]);
-        drawRangeMatrix(canvas2, rows[12]);
-        drawRangeMatrix(canvas3, rows[13]);
-        drawRangeMatrix(canvas4, rows[14]);
+        drawRangeMatrix(canvas1, rows[11], "UTG");
+        drawRangeMatrix(canvas2, rows[12], "HJ");
+        drawRangeMatrix(canvas3, rows[13], "CO");
+        drawRangeMatrix(canvas4, rows[14], "BTN");
         drawRangeMatrix(canvas5, null);
     });
     IP3BetvsUTG_button.addEventListener('click', () => {
-        drawRangeMatrix(canvas1, rows[15]);
-        drawRangeMatrix(canvas2,  rows[16]);
-        drawRangeMatrix(canvas3,  rows[17]);
+        drawRangeMatrix(canvas1, rows[15], "MP");
+        drawRangeMatrix(canvas2, rows[16], "CO");
+        drawRangeMatrix(canvas3, rows[17], "BTN");
         drawRangeMatrix(canvas4, null);
         drawRangeMatrix(canvas5, null);
     });
     IP3BetvsHJ_button.addEventListener('click', () => {
-        drawRangeMatrix(canvas1, rows[18]);
-        drawRangeMatrix(canvas2, rows[19]);
+        drawRangeMatrix(canvas1, rows[18], "CO");
+        drawRangeMatrix(canvas2, rows[19], "BTN");
         drawRangeMatrix(canvas3, null);
         drawRangeMatrix(canvas4, null);
         drawRangeMatrix(canvas5, null);
     });
     IP3BetvsCO_button.addEventListener('click', () => {
-        drawRangeMatrix(canvas1, rows[20]);
+        drawRangeMatrix(canvas1, rows[20], "BTN");
         drawRangeMatrix(canvas2, null);
         drawRangeMatrix(canvas3, null);
         drawRangeMatrix(canvas4, null);
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     //Draw Range Matrix
-    function drawRangeMatrix(canvas, row) {
+    function drawRangeMatrix(canvas, row, text) {
         const ctx = canvas.getContext('2d');
         ctx.fillStyle = "#1e1e1e";
         ctx.fillRect(0, 0, canvas1.width, canvas1.height);
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
             index++;
         }
 
-        
+
         if (ranges == undefined) {
             return;
         }
@@ -169,13 +169,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-
+        const width = 34;
+        const height = 34;
         for (let i = 0; i < 13; i++) {
             for (let j = 0; j < 13; j++) {
                 let tempX = 0;
                 ctx.strokeStyle = 'black';
                 ctx.lineWidth = 1; // Set border thickness
-                ctx.strokeRect(j * 34, i * 34, 34, 34);
+                ctx.strokeRect(j * width, i * height, width, height);
                 for (let k = 0; k < actions.length; k++) {
                     const tempWidth = colorsf_multi[i][j][k] / heightsMax[i][j];
                     if (actions[k] == "Call" || actions[k] == "Check") {
@@ -183,22 +184,27 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else {
                         ctx.fillStyle = 'red'; // Dark green for poker table
                     }
-                    ctx.fillRect(j * 34 + 1 + Math.ceil(tempX * 32), i * 34 + 1, Math.ceil(32 * tempWidth), 32);
+                    ctx.fillRect(j * width + 1 + Math.ceil(tempX * (width - 2)), i * height + 1, Math.ceil((width - 2) * tempWidth), height - 2);
                     tempX += tempWidth;
                 }
                 ctx.fillStyle = 'white';
-                ctx.font = '14px Arial';
+                ctx.font = '10px Arial';
                 ctx.textAlign = 'center';
                 if (j > i) {
-                    ctx.fillText(cards[i] + cards[j] + 's', j * 34 + 16, i * 34 + 16);
+                    ctx.fillText(cards[i] + cards[j] + 's', j * width + width / 2, i * height + height / 2 + 3);
                 } else if (i == j) {
-                    ctx.fillText(cards[j] + cards[i], j * 34 + 16, i * 34 + 16);
+                    ctx.fillText(cards[j] + cards[i], j * width + width / 2, i * height + height / 2 + 3);
                 } else {
-                    ctx.fillText(cards[j] + cards[i] + 'o', j * 34 + 16, i * 34 + 16);
+                    ctx.fillText(cards[j] + cards[i] + 'o', j * width + width / 2, i * height + height / 2 + 3);
                 }
             }
         }
 
+        ctx.fillStyle = 'black';
+        ctx.fillRect(width * 2, height * 11, width * 6, height * 2);
+        ctx.fillStyle = '#ff00ff';
+        ctx.font = 'bold 32px Arial';
+        ctx.fillText(text, width * 5, height * 12 + height / 2);
         // for (let i = 0; i < ranges.length; i++) {
         //     ctx.fillStyle = 'black';
         //     ctx.fillRect(446, i * 30 + 7, 118, 26);
