@@ -48,13 +48,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let popupCurrentHand = {};
 
     let tableSetup = {};
-
+    
+    let RNGvalue = 0;
 
     const canvas = document.getElementById('pokerTable');
     const ctx = canvas.getContext('2d');
     const feedback = document.getElementById('feedback');
     const buttonsDiv = document.getElementById('buttons');
     const quizQuestionDiv = document.getElementById('quiz_question');
+    const rngDiv = document.getElementById('rng_div');
 
     const currentHandRangeBtn = document.getElementById('current_hand_range_button');
     const lastHandRangeBtn = document.getElementById('last_hand_range_button');
@@ -457,17 +459,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function loadNextQuestion() {
         const question = questions[questionIndex];
+        RNGvalue = Math.floor(Math.random() * 101);
         if (question == null) {
             loadNewQuiz();
             return;
         }
-        const answerOptions = question.answerOptions.split(" ");
+        rngDiv.innerHTML = RNGvalue;
+        const answerOptions = question.answerOptions.split(",");
         if (question.action == "Call" || question.action == "Check") {
             quizQuestionDiv.innerHTML = '<span style="color: green;">' + question.action + '</span>';
         } else {
             quizQuestionDiv.innerHTML = '<span style="color: red;">' + question.action + '</span>';
         }
         buttonsDiv.innerHTML = "";
+
+        
 
         for (let index = 0; index < answerOptions.length; index++) {
             const btn = document.createElement('button');
