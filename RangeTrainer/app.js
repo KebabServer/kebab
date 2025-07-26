@@ -55,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const feedback = document.getElementById('feedback');
     const buttonsDiv = document.getElementById('buttons');
     const quizQuestionDiv = document.getElementById('quiz_question');
-    const rngDiv = document.getElementById('rng_div');
 
     const currentHandRangeBtn = document.getElementById('current_hand_range_button');
     const lastHandRangeBtn = document.getElementById('last_hand_range_button');
@@ -163,7 +162,6 @@ document.addEventListener('DOMContentLoaded', () => {
         //Loop over all the actions
         let index = 1;
         while (randomRow[headers.indexOf("Action" + index)] != "" && randomRow[headers.indexOf("Action" + index)] != undefined && randomRow[headers.indexOf("Range" + index)] != "") {
-
             //Load action's range
             const range = randomRow[headers.indexOf("Range" + index)].split(" ");
             //Add action
@@ -185,6 +183,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         question = {
+            rangeName: randomRow[headers.indexOf('RangeName')],
+            quizText: randomRow[headers.indexOf('QuizText')],
             globalCombos: globalActionCombos,
             handFreqs: handFreqs,
             actions: actions,
@@ -194,6 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
         popupCurrentHand.ranges = popupRanges;
         popupCurrentHand.actions = popupActions;
 
+
+        //Setup table
         tableSetup.heroPos = randomRow[headers.indexOf("Position")];
         tableSetup.invested = randomRow[headers.indexOf("Invested")].split(" ");
         tableSetup.positions = ["UTG", "HJ", "CO", "BTN", "SB", "BB"];
@@ -474,8 +476,12 @@ document.addEventListener('DOMContentLoaded', () => {
             loadNewQuiz();
             return;
         }
-        rngDiv.innerHTML = RNGvalue;
+        quizQuestionDiv.innerHTML = question.quizText;
         buttonsDiv.innerHTML = "";
+        const rng_div = document.createElement('span');
+        rng_div.innerHTML = "RNG: " + RNGvalue;
+        rng_div.classList.add("rng_div");
+        buttonsDiv.appendChild(rng_div);
 
 
         let x = 100;
@@ -490,6 +496,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 foldIsCorrect = false;
             }
             x -= dx;
+            //Set button's color
+            let color = 'red';
+            if (question.actions[index] == "Call" || question.actions[index] == "Check") { color = 'green' }
+            if (question.actions[index] == "Fold" || question.actions[index] == null) color = 'blue'
+            btn.style.backgroundColor = color;
+            btn.style.fontWeight = 'bolder';
             // Add click event listener
             btn.addEventListener('click', () => checkIfCorrectAction(btn));
             buttonsDiv.appendChild(btn);
@@ -499,31 +511,34 @@ document.addEventListener('DOMContentLoaded', () => {
         const btn = document.createElement('button');
         btn.textContent = "Fold";
         btn.dataset.isCorrect = foldIsCorrect;
+        btn.style.backgroundColor = 'blue';
+        btn.style.fontWeight = 'bolder';
         btn.addEventListener('click', () => checkIfCorrectAction(btn));
         buttonsDiv.appendChild(btn);
 
 
+        buttonsDiv.append();
     }
 
     function checkIfCorrectAction(clickedButton) {
         let htmlString = '';
         let htmlString2 = '';
         question.handFreqs.forEach((number, index) => {
-            // Use the modulo operator (%) to cycle through the colors if numbers.length > colors.length
             let color = 'red';
             if (question.actions[index] == "Call" || question.actions[index] == "Check") { color = 'green' }
             if (question.actions[index] == "Fold" || question.actions[index] == null) color = 'blue'
 
             htmlString += `<span style="padding: 4px 4px; background-color: ${color}; color: black; font-weight: bolder; width: 100px;  display: inline-block;  border: 1px solid black;"> ${number} </span> `;
-            htmlString2 += `<span style="padding: 4px 4px; background-color: ${color}; color: black; font-weight: bolder; width: 100px;  display: inline-block;  border: 1px solid black;"> ${question.globalCombos[index]} </span> `;
+
+            htmlString2 += `<span style="padding: 4px 4px; background-color: ${color}; color: black; font-weight: bolder; width: 100px;  display: inline-block;  border: 1px solid black;"> ${question.globalCombos[index]}c</span> `;
         });
 
         if (clickedButton.dataset.isCorrect === "true") {
-            feedback.innerHTML = 'Correct! ' + htmlString + "<br>";
+            feedback.innerHTML = 'Correct! ' + htmlString + ' RNG: ' + RNGvalue + "<br>";
             feedback.innerHTML += '<br>Global frequency: ' + htmlString2;
             loadNewQuiz();
         } else {
-            feedback.innerHTML = 'Incorrect. ' + htmlString + "<br>";
+            feedback.innerHTML = 'Incorrect. ' + htmlString + ' RNG: ' + RNGvalue + "<br>";
             feedback.innerHTML += '<br>Global frequency: ' + htmlString2;
         }
     }
