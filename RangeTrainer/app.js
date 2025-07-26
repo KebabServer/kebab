@@ -259,9 +259,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 for (let k = 0; k < actions.length; k++) {
                     const tempWidth = colorsf_multi[i][j][k] / heightsMax[i][j];
                     if (actions[k] == "Call" || actions[k] == "Check") {
-                        ctx.fillStyle = 'green'; // Dark green for poker table
+                        ctx.fillStyle = 'green';
+                    } else if (actions[k] == "Fold") {
+                        ctx.fillStyle = 'blue';
                     } else {
-                        ctx.fillStyle = 'red'; // Dark green for poker table
+                        ctx.fillStyle = 'red';
                     }
                     ctx.fillRect(j * 34 + 1 + Math.ceil(tempX * 32), i * 34 + 1, Math.ceil(32 * tempWidth), 32);
                     tempX += tempWidth;
@@ -287,6 +289,8 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.strokeRect(446, i * 30 + 7, 118, 26);
             if (actions[i] == "Call" || actions[i] == "Check") {
                 ctx.fillStyle = 'green'; // Dark green for poker table
+            } else if (actions[i] == "Fold") {
+                ctx.fillStyle = 'blue';
             } else {
                 ctx.fillStyle = 'red'; // Dark green for poker table
             }
@@ -510,6 +514,7 @@ document.addEventListener('DOMContentLoaded', () => {
         question.handFreqs.push(x);
         //Add fold option if missing
         if (!question.actions.includes('Fold')) {
+            question.actions.push('Fold');
             const btn = document.createElement('button');
             btn.textContent = "Fold";
             btn.dataset.isCorrect = foldIsCorrect;
@@ -533,8 +538,11 @@ document.addEventListener('DOMContentLoaded', () => {
         let htmlString2 = '';
         question.handFreqs.forEach((number, index) => {
             let color = 'red';
-            if (question.actions[index] == "Call" || question.actions[index] == "Check") { color = 'green' }
-            if (question.actions[index] == "Fold" || question.actions[index] == null) color = 'blue'
+            if (question.actions[index] == "Call" || question.actions[index] == "Check") { color = 'green'; }
+            else if (question.actions[index] == "Fold") { color = 'blue'; }
+            else if (typeof question.actions[index] === 'undefined' || question.actions[index] == null) {
+                color = 'gray';
+            }
 
             htmlString += `<span style="padding: 4px 4px; background-color: ${color}; color: black; font-weight: bolder; width: 100px;  display: inline-block;  border: 1px solid black;"> ${Math.round(number * 100) / 100} </span> `;
 
