@@ -158,24 +158,26 @@ document.addEventListener('DOMContentLoaded', () => {
         popupLastHand = structuredClone(popupCurrentHand);
         let handFreqs = [];
         let actions = [];
-        let globalFreqs= [];
+        let globalCombos = [];
+        let globalActionCombos = [];
         //Loop over all the actions
         let index = 1;
-        while (randomRow[headers.indexOf("Action" + index)] != "" && randomRow[headers.indexOf("Action" + index)] != undefined) {            
-            //Load action's
+        while (randomRow[headers.indexOf("Action" + index)] != "" && randomRow[headers.indexOf("Action" + index)] != undefined && randomRow[headers.indexOf("Range" + index)] != "") {
+
+            //Load action's range
             const range = randomRow[headers.indexOf("Range" + index)].split(" ");
             //Add action
             actions.push(randomRow[headers.indexOf("Action" + index)]);
 
             //Add hand action frequency
-            handFreqs.push(parseFloat(range[randomHandIndex]));
+            handFreqs.push(parseFloat(range[randomHandIndex]) * 100.0);
 
             //Calculate global action frequency
-            let globalCombos = 0;
+            let tempGlobalCombos = 0;
             for (let i = 0; i < range.length; i++) {
-                globalCombos += parseFloat(range[i]);
+                tempGlobalCombos += parseFloat(range[i]);
             }
-            globalFreqs.push(globalCombos);
+            globalCombos.push(Math.round(tempGlobalCombos * 10) / 10);
 
             popupRanges.push(range);
             popupActions.push(randomRow[headers.indexOf("Action" + index)]);
@@ -183,18 +185,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         question = {
-            action: randomRow[headers.indexOf("Action" + index)],
-            answerOptions: randomRow[headers.indexOf("Options" + index)],
-            correctFrequency: correctFrequency,
-            correctFreqBucket: (Math.round(correctFrequency * 100 / 25) * 25) + "%",
-            globalCombos: Math.round(globalCombos * 10) / 10,
+            globalCombos: globalActionCombos,
             handFreqs: handFreqs,
             actions: actions,
-            globalFreqs: globalFreqs,
+            globalCombos: globalCombos,
         };
-
-        popupRanges.push(range);
-        popupActions.push(randomRow[headers.indexOf("Action" + 1)]);
 
         popupCurrentHand.ranges = popupRanges;
         popupCurrentHand.actions = popupActions;
@@ -475,42 +470,64 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function loadNextQuestion() {
         RNGvalue = Math.floor(Math.random() * 101);
-        if (question == null) {
+        if (question == null || question.handFreqs.length == 0) {
             loadNewQuiz();
             return;
         }
         rngDiv.innerHTML = RNGvalue;
-        const answerOptions = question.answerOptions.split(",");
-        if (question.action == "Call" || question.action == "Check") {
-            quizQuestionDiv.innerHTML = '<span style="color: green;">' + question.action + '</span>';
-        } else {
-            quizQuestionDiv.innerHTML = '<span style="color: red;">' + question.action + '</span>';
-        }
         buttonsDiv.innerHTML = "";
 
 
-
-        for (let index = 0; index < answerOptions.length; index++) {
+        let x = 100;
+        //Check if fold is correct
+        let foldIsCorrect = true;
+        for (let index = 0; index < question.actions.length; index++) {
+            const dx = question.handFreqs[index];
             const btn = document.createElement('button');
-            btn.textContent = answerOptions[index];
+            btn.textContent = question.actions[index];
+            btn.dataset.isCorrect = (RNGvalue >= x - dx && RNGvalue <= x); // Store as a data attribute
+            if (btn.dataset.isCorrect === "true") {
+                foldIsCorrect = false;
+            }
+            x -= dx;
             // Add click event listener
-            btn.addEventListener('click', () => checkIfCorrectAction(answerOptions[index]));
+            btn.addEventListener('click', () => checkIfCorrectAction(btn));
             buttonsDiv.appendChild(btn);
         }
+        question.handFreqs.push(x);
+        //Add fold option
+        const btn = document.createElement('button');
+        btn.textContent = "Fold";
+        btn.dataset.isCorrect = foldIsCorrect;
+        btn.addEventListener('click', () => checkIfCorrectAction(btn));
+        buttonsDiv.appendChild(btn);
+
+
     }
 
-    function checkIfCorrectAction(answer) {
-        const question = questions[questionIndex];
-        if (answer == question.correctFreqBucket) {
-            feedback.innerHTML = 'Correct! Frequency was <span style="color: pink;">' + parseFloat(question.correctFrequency) * 100.0 + "%</span>";
-            feedback.innerHTML += '<br>Global frequency: <span style="color: pink;">' + Math.round(parseFloat(question.globalCombos) / 1.326) / 10.0 + "% (" + question.globalCombos + "c)</span>";
-            questionIndex++;
-            loadNextQuestion();
-        } else {
-            feedback.innerHTML = 'Incorrect. Correct answer: <span style="color: pink;">' + parseFloat(question.correctFrequency) * 100.0 + "%</span>";
-            feedback.innerHTML += '<br>Global frequency: <span style="color: pink;">' + Math.round(parseFloat(question.globalCombos) / 1.326) / 10.0 + "% (" + question.globalCombos + "c)</span>";
+    function checkIfCorrectAction(clickedButton) {
+        let htmlString = '';
+        let htmlString2 = '';
+        question.handFreqs.forEach((number, index) => {
+            // Use the modulo operator (%) to cycle through the colors if numbers.length > colors.length
+            let color = 'red';
+            if (question.actions[index] == "Call" || question.actions[index] == "Check") { color = 'green' }
+            if (question.actions[index] == "Fold" || question.actions[index] == null) color = 'blue'
 
+            htmlString += `<span style="padding: 4px 4px; background-color: ${color}; color: black; font-weight: bolder; width: 100px;  display: inline-block;  border: 1px solid black;"> ${number} </span> `;
+            htmlString2 += `<span style="padding: 4px 4px; background-color: ${color}; color: black; font-weight: bolder; width: 100px;  display: inline-block;  border: 1px solid black;"> ${question.globalCombos[index]} </span> `;
+        });
+
+        if (clickedButton.dataset.isCorrect === "true") {
+            feedback.innerHTML = 'Correct! ' + htmlString + "<br>";
+            feedback.innerHTML += '<br>Global frequency: ' + htmlString2;
+            loadNewQuiz();
+        } else {
+            feedback.innerHTML = 'Incorrect. ' + htmlString + "<br>";
+            feedback.innerHTML += '<br>Global frequency: ' + htmlString2;
         }
     }
+
+
 
 });
