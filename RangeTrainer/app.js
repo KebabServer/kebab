@@ -476,7 +476,7 @@ document.addEventListener('DOMContentLoaded', () => {
             loadNewQuiz();
             return;
         }
-        quizQuestionDiv.innerHTML = question.quizText;
+        quizQuestionDiv.innerHTML = question.rangeName + " - " + question.quizText;
         buttonsDiv.innerHTML = "";
         const rng_div = document.createElement('span');
         rng_div.innerHTML = "RNG: " + RNGvalue;
@@ -534,11 +534,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (clickedButton.dataset.isCorrect === "true") {
-            feedback.innerHTML = 'Correct! ' + htmlString + ' RNG: ' + RNGvalue + "<br>";
+            feedback.innerHTML = 'Correct! '+ ' RNG: ' + RNGvalue  + htmlString + "<br>";
             feedback.innerHTML += '<br>Global frequency: ' + htmlString2;
             loadNewQuiz();
         } else {
-            feedback.innerHTML = 'Incorrect. ' + htmlString + ' RNG: ' + RNGvalue + "<br>";
+            feedback.innerHTML = 'Incorrect. '+ ' RNG: ' + RNGvalue + htmlString  + "<br>";
             feedback.innerHTML += '<br>Global frequency: ' + htmlString2;
         }
     }
