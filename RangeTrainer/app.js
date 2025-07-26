@@ -479,7 +479,7 @@ document.addEventListener('DOMContentLoaded', () => {
         quizQuestionDiv.innerHTML = question.rangeName + " - " + question.quizText;
         buttonsDiv.innerHTML = "";
         const rng_div = document.createElement('span');
-        rng_div.innerHTML = "RNG: " + RNGvalue;
+        rng_div.innerHTML = " " + RNGvalue + " ";
         rng_div.classList.add("rng_div");
         buttonsDiv.appendChild(rng_div);
 
@@ -528,17 +528,17 @@ document.addEventListener('DOMContentLoaded', () => {
             if (question.actions[index] == "Call" || question.actions[index] == "Check") { color = 'green' }
             if (question.actions[index] == "Fold" || question.actions[index] == null) color = 'blue'
 
-            htmlString += `<span style="padding: 4px 4px; background-color: ${color}; color: black; font-weight: bolder; width: 100px;  display: inline-block;  border: 1px solid black;"> ${number} </span> `;
+            htmlString += `<span style="padding: 4px 4px; background-color: ${color}; color: black; font-weight: bolder; width: 100px;  display: inline-block;  border: 1px solid black;"> ${Math.round(number * 100) / 100} </span> `;
 
             htmlString2 += `<span style="padding: 4px 4px; background-color: ${color}; color: black; font-weight: bolder; width: 100px;  display: inline-block;  border: 1px solid black;"> ${question.globalCombos[index]}c</span> `;
         });
 
         if (clickedButton.dataset.isCorrect === "true") {
-            feedback.innerHTML = 'Correct! '+ ' RNG: ' + RNGvalue  + htmlString + "<br>";
+            feedback.innerHTML = 'Correct! ' + htmlString + '(RNG: ' + RNGvalue + ") <br>";
             feedback.innerHTML += '<br>Global frequency: ' + htmlString2;
             loadNewQuiz();
         } else {
-            feedback.innerHTML = 'Incorrect. '+ ' RNG: ' + RNGvalue + htmlString  + "<br>";
+            feedback.innerHTML = 'Incorrect. ' + htmlString + '(RNG: ' + RNGvalue + ") <br>";
             feedback.innerHTML += '<br>Global frequency: ' + htmlString2;
         }
     }
