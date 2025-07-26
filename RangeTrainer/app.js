@@ -40,8 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let rows;
     let headers;
 
-    let questions;
-    let questionIndex;
+    let question;
 
 
     let popupLastHand = {};
@@ -139,7 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (validQuizTypes.length === 0) {
             return;
         }
-        questions = [];
         let popupActions = [];
         let popupRanges = [];
 
@@ -158,42 +156,45 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         popupLastHand = structuredClone(popupCurrentHand);
-        let handFreq = [];
+        let handFreqs = [];
         let actions = [];
-        let globalFreq= [];
+        let globalFreqs= [];
         //Loop over all the actions
         let index = 1;
         while (randomRow[headers.indexOf("Action" + index)] != "" && randomRow[headers.indexOf("Action" + index)] != undefined) {            
+            //Load action's
             const range = randomRow[headers.indexOf("Range" + index)].split(" ");
             //Add action
             actions.push(randomRow[headers.indexOf("Action" + index)]);
 
             //Add hand action frequency
-            handFreq.push(parseFloat(range[randomHandIndex]));
+            handFreqs.push(parseFloat(range[randomHandIndex]));
 
             //Calculate global action frequency
             let globalCombos = 0;
             for (let i = 0; i < range.length; i++) {
                 globalCombos += parseFloat(range[i]);
             }
-            globalFreq.push(globalCombos);
+            globalFreqs.push(globalCombos);
 
             popupRanges.push(range);
             popupActions.push(randomRow[headers.indexOf("Action" + index)]);
             index++;
         }
 
-        let question = {
+        question = {
             action: randomRow[headers.indexOf("Action" + index)],
             answerOptions: randomRow[headers.indexOf("Options" + index)],
             correctFrequency: correctFrequency,
             correctFreqBucket: (Math.round(correctFrequency * 100 / 25) * 25) + "%",
             globalCombos: Math.round(globalCombos * 10) / 10,
+            handFreqs: handFreqs,
+            actions: actions,
+            globalFreqs: globalFreqs,
         };
 
         popupRanges.push(range);
         popupActions.push(randomRow[headers.indexOf("Action" + 1)]);
-        questions.push(question);
 
         popupCurrentHand.ranges = popupRanges;
         popupCurrentHand.actions = popupActions;
@@ -210,7 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
         tableSetup.board = randomRow[headers.indexOf("Board")]
         tableSetup.heroHand = cardOrder[randomHandIndex];
         drawTable();
-        questionIndex = 0;
 
         loadNextQuestion();
 
@@ -474,7 +474,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function loadNextQuestion() {
-        const question = questions[questionIndex];
         RNGvalue = Math.floor(Math.random() * 101);
         if (question == null) {
             loadNewQuiz();
