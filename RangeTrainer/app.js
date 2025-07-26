@@ -134,6 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (BBDEF_Checkbox.checked) { validQuizTypes.push("BBDEF"); }
         if (SBDEF_Checkbox.checked) { validQuizTypes.push("SBDEF"); }
         if (IP3BET_Checkbox.checked) { validQuizTypes.push("IP3BET"); }
+        if (IP3BET_Checkbox.checked) { validQuizTypes.push("VS3BET"); }
         if (validQuizTypes.length === 0) {
             return;
         }
@@ -507,17 +508,24 @@ document.addEventListener('DOMContentLoaded', () => {
             buttonsDiv.appendChild(btn);
         }
         question.handFreqs.push(x);
-        //Add fold option
-        const btn = document.createElement('button');
-        btn.textContent = "Fold";
-        btn.dataset.isCorrect = foldIsCorrect;
-        btn.style.backgroundColor = 'blue';
-        btn.style.fontWeight = 'bolder';
-        btn.addEventListener('click', () => checkIfCorrectAction(btn));
-        buttonsDiv.appendChild(btn);
-
-
-        buttonsDiv.append();
+        //Add fold option if missing
+        if (!question.actions.includes('Fold')) {
+            const btn = document.createElement('button');
+            btn.textContent = "Fold";
+            btn.dataset.isCorrect = foldIsCorrect;
+            btn.style.backgroundColor = 'blue';
+            btn.style.fontWeight = 'bolder';
+            btn.addEventListener('click', () => checkIfCorrectAction(btn));
+            buttonsDiv.appendChild(btn);
+        } else {
+            const btn = document.createElement('button');
+            btn.textContent = "Not in range";
+            btn.dataset.isCorrect = foldIsCorrect;
+            btn.style.backgroundColor = 'gray';
+            btn.style.fontWeight = 'bolder';
+            btn.addEventListener('click', () => checkIfCorrectAction(btn));
+            buttonsDiv.appendChild(btn);
+        }
     }
 
     function checkIfCorrectAction(clickedButton) {
