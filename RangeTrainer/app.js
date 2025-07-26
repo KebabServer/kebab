@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let popupCurrentHand = {};
 
     let tableSetup = {};
-    
+
     let RNGvalue = 0;
 
     const canvas = document.getElementById('pokerTable');
@@ -158,27 +158,43 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         popupLastHand = structuredClone(popupCurrentHand);
+        let handFreq = [];
+        let actions = [];
+        let globalFreq= [];
+        //Loop over all the actions
         let index = 1;
-        while (randomRow[headers.indexOf("Action" + index)] != "" && randomRow[headers.indexOf("Action" + index)] != undefined) {
+        while (randomRow[headers.indexOf("Action" + index)] != "" && randomRow[headers.indexOf("Action" + index)] != undefined) {            
             const range = randomRow[headers.indexOf("Range" + index)].split(" ");
-            correctFrequency = parseFloat(range[randomHandIndex]);
+            //Add action
+            actions.push(randomRow[headers.indexOf("Action" + index)]);
+
+            //Add hand action frequency
+            handFreq.push(parseFloat(range[randomHandIndex]));
+
+            //Calculate global action frequency
             let globalCombos = 0;
             for (let i = 0; i < range.length; i++) {
                 globalCombos += parseFloat(range[i]);
-
             }
-            let question = {
-                action: randomRow[headers.indexOf("Action" + index)],
-                answerOptions: randomRow[headers.indexOf("Options" + index)],
-                correctFrequency: correctFrequency,
-                correctFreqBucket: (Math.round(correctFrequency * 100 / 25) * 25) + "%",
-                globalCombos: Math.round(globalCombos * 10) / 10,
-            };
-            questions.push(question);
+            globalFreq.push(globalCombos);
+
             popupRanges.push(range);
             popupActions.push(randomRow[headers.indexOf("Action" + index)]);
             index++;
         }
+
+        let question = {
+            action: randomRow[headers.indexOf("Action" + index)],
+            answerOptions: randomRow[headers.indexOf("Options" + index)],
+            correctFrequency: correctFrequency,
+            correctFreqBucket: (Math.round(correctFrequency * 100 / 25) * 25) + "%",
+            globalCombos: Math.round(globalCombos * 10) / 10,
+        };
+
+        popupRanges.push(range);
+        popupActions.push(randomRow[headers.indexOf("Action" + 1)]);
+        questions.push(question);
+
         popupCurrentHand.ranges = popupRanges;
         popupCurrentHand.actions = popupActions;
 
@@ -473,7 +489,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         buttonsDiv.innerHTML = "";
 
-        
+
 
         for (let index = 0; index < answerOptions.length; index++) {
             const btn = document.createElement('button');
