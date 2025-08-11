@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const BBDEF_Checkbox = document.getElementById("BBDEF_Checkbox");
     const SBDEF_Checkbox = document.getElementById("SBDEF_Checkbox");
     const IP3BET_Checkbox = document.getElementById("IP3BET_Checkbox");
-
+    const VS3BET_Checkbox = document.getElementById("VS3BET_Checkbox");
 
 
 
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (BBDEF_Checkbox.checked) { validQuizTypes.push("BBDEF"); }
         if (SBDEF_Checkbox.checked) { validQuizTypes.push("SBDEF"); }
         if (IP3BET_Checkbox.checked) { validQuizTypes.push("IP3BET"); }
-        if (IP3BET_Checkbox.checked) { validQuizTypes.push("VS3BET"); }
+        if (VS3BET_Checkbox.checked) { validQuizTypes.push("VS3BET"); }
         if (validQuizTypes.length === 0) {
             return;
         }
@@ -550,11 +550,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (clickedButton.dataset.isCorrect === "true") {
-            feedback.innerHTML = 'Correct! ' + htmlString + '(RNG: ' + RNGvalue + ") <br>";
+            feedback.innerHTML = '<span style="color: green;">Correct!</span> ' + htmlString + '(RNG: ' + RNGvalue + ") <br>";
             feedback.innerHTML += '<br>Global frequency: ' + htmlString2;
             loadNewQuiz();
         } else {
-            feedback.innerHTML = 'Incorrect. ' + htmlString + '(RNG: ' + RNGvalue + ") <br>";
+            feedback.innerHTML = '<span style="color: Red;">Wrong!</span> ' + htmlString + '(RNG: ' + RNGvalue + ") <br>";
             feedback.innerHTML += '<br>Global frequency: ' + htmlString2;
         }
     }
