@@ -1,0 +1,172 @@
+ body {
+     font-family: 'Inter', sans-serif;
+     background-color: #0f172a;
+     color: #e2e8f0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+     padding: 1rem;
+ }
+
+ .app-container {
+     display: flex;
+     flex-direction: column;
+     gap: 1rem;
+     padding: 1rem;
+     border-radius: 0.75rem;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     background-color: #1f2937;
+     border: 1px solid #374151;
+ }
+
+ .matrix-container {
+     display: flex;
+     flex-direction: column;
+     gap: 1rem;
+ }
+
+ .matrix {
+     display: grid;
+     gap: 2px;
+     width: 100%;
+     border: 2px solid #334155;
+     border-radius: 0.5rem;
+     overflow: hidden;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ }
+
+ .matrix-cell {
+     padding: 0.5rem 0.25rem;
+     background-color: #334155;
+     color: #ffffff;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 0.75rem;
+     font-weight: 600;
+     user-select: none;
+     border-radius: 0.25rem;
+     position: relative;
+     /* For the text overlay */
+ }
+
+ .matrix-cell .cell-text {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     z-index: 10;
+ }
+
+ .matrix-cell:hover {
+     background-color: #475569;
+     transform: scale(1.05);
+ }
+
+ .main-matrix {
+     grid-template-columns: repeat(13, 1fr);
+ }
+
+ .main-matrix .matrix-cell {
+     cursor: pointer;
+     transition: background-color 0.2s, transform 0.1s;
+ }
+
+ .main-matrix .matrix-cell.selected-red {
+     background-color: #dc2626;
+     /* A reddish color */
+     color: #000000;
+     font-weight: 700;
+     border: 1px solid #fee2e2;
+ }
+
+ .small-matrices-container {
+     display: flex;
+     flex-direction: row;
+     gap: 1rem;
+ }
+
+ .small-matrix-wrapper {
+     padding: 0.5rem;
+     background-color: #374151;
+     border-radius: 0.5rem;
+ }
+
+ .matrix-title {
+     text-align: center;
+     font-size: 0.875rem;
+     font-weight: 600;
+     margin-bottom: 0.25rem;
+ }
+
+ /* Specific styles for the small matrices */
+ #matrix-2bet {
+     grid-template-columns: repeat(5, 1fr);
+     min-width: 250px;
+ }
+
+ #matrix-3bet,
+ #matrix-4bet {
+     grid-template-columns: repeat(6, 1fr);
+ }
+
+ #matrix-3bet .matrix-cell,
+ #matrix-4bet .matrix-cell {
+     font-size: 1rem;
+     /* Smaller font size to fit the text */
+     line-height: 1;
+     /* Adjust line height to prevent extra spacing */
+     padding: 0.01rem;
+ }
+
+ /* Responsive styles for smaller screens */
+ @media (min-width: 768px) {
+     .app-container {
+         flex-direction: row;
+         padding: 2rem;
+         gap: 2rem;
+     }
+
+     .main-matrix {
+         width: 600px;
+         height: 600px;
+     }
+
+     .small-matrices-container {
+         flex-direction: column;
+         gap: 1rem;
+     }
+
+     #matrix-2bet {
+         min-width: 300px;
+     }
+
+     #matrix-3bet,
+     #matrix-4bet {
+         width: 300px;
+         height: 300px;
+     }
+ }
+
+ @media (max-width: 767px) {
+     .small-matrices-container {
+         flex-wrap: wrap;
+         justify-content: center;
+         gap: 0.5rem;
+     }
+
+     .small-matrix-wrapper {
+         width: 100%;
+         max-width: 100%;
+     }
+
+     .matrix-cell {
+         font-size: 0.6rem;
+         padding: 0.4rem 0.15rem;
+     }
+
+     #matrix-2bet .matrix-cell {
+         font-size: 0.7rem;
+     }
+ }
