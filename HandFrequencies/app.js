@@ -1,5 +1,3 @@
-//TDL Fix the range K6s in the mp etc
-
 // A list of card ranks, used to generate the hand matrix
 const ranks = ['A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2'];
 const positions = ['UTG', 'MP', 'CO', 'BTN', 'SB', 'BB'];
@@ -7,12 +5,35 @@ const cardOrder = ["2d2c", "2h2c", "2h2d", "2s2c", "2s2d", "2s2h", "3c2c", "3c2d
 const cardOrderX = [12, 12, 12, 12, 12, 12, 11, 12, 12, 12, 12, 11, 12, 12, 11, 12, 12, 11, 12, 11, 11, 12, 12, 12, 11, 11, 11, 11, 10, 12, 12, 12, 10, 11, 11, 11, 12, 10, 12, 12, 11, 10, 11, 11, 10, 12, 12, 10, 12, 11, 11, 10, 11, 10, 10, 12, 12, 12, 10, 11, 11, 11, 10, 10, 10, 10, 9, 12, 12, 12, 9, 11, 11, 11, 9, 10, 10, 10, 12, 9, 12, 12, 11, 9, 11, 11, 10, 9, 10, 10, 9, 12, 12, 9, 12, 11, 11, 9, 11, 10, 10, 9, 10, 9, 9, 12, 12, 12, 9, 11, 11, 11, 9, 10, 10, 10, 9, 9, 9, 9, 8, 12, 12, 12, 8, 11, 11, 11, 8, 10, 10, 10, 8, 9, 9, 9, 12, 8, 12, 12, 11, 8, 11, 11, 10, 8, 10, 10, 9, 8, 9, 9, 8, 12, 12, 8, 12, 11, 11, 8, 11, 10, 10, 8, 10, 9, 9, 8, 9, 8, 8, 12, 12, 12, 8, 11, 11, 11, 8, 10, 10, 10, 8, 9, 9, 9, 8, 8, 8, 8, 7, 12, 12, 12, 7, 11, 11, 11, 7, 10, 10, 10, 7, 9, 9, 9, 7, 8, 8, 8, 12, 7, 12, 12, 11, 7, 11, 11, 10, 7, 10, 10, 9, 7, 9, 9, 8, 7, 8, 8, 7, 12, 12, 7, 12, 11, 11, 7, 11, 10, 10, 7, 10, 9, 9, 7, 9, 8, 8, 7, 8, 7, 7, 12, 12, 12, 7, 11, 11, 11, 7, 10, 10, 10, 7, 9, 9, 9, 7, 8, 8, 8, 7, 7, 7, 7, 6, 12, 12, 12, 6, 11, 11, 11, 6, 10, 10, 10, 6, 9, 9, 9, 6, 8, 8, 8, 6, 7, 7, 7, 12, 6, 12, 12, 11, 6, 11, 11, 10, 6, 10, 10, 9, 6, 9, 9, 8, 6, 8, 8, 7, 6, 7, 7, 6, 12, 12, 6, 12, 11, 11, 6, 11, 10, 10, 6, 10, 9, 9, 6, 9, 8, 8, 6, 8, 7, 7, 6, 7, 6, 6, 12, 12, 12, 6, 11, 11, 11, 6, 10, 10, 10, 6, 9, 9, 9, 6, 8, 8, 8, 6, 7, 7, 7, 6, 6, 6, 6, 5, 12, 12, 12, 5, 11, 11, 11, 5, 10, 10, 10, 5, 9, 9, 9, 5, 8, 8, 8, 5, 7, 7, 7, 5, 6, 6, 6, 12, 5, 12, 12, 11, 5, 11, 11, 10, 5, 10, 10, 9, 5, 9, 9, 8, 5, 8, 8, 7, 5, 7, 7, 6, 5, 6, 6, 5, 12, 12, 5, 12, 11, 11, 5, 11, 10, 10, 5, 10, 9, 9, 5, 9, 8, 8, 5, 8, 7, 7, 5, 7, 6, 6, 5, 6, 5, 5, 12, 12, 12, 5, 11, 11, 11, 5, 10, 10, 10, 5, 9, 9, 9, 5, 8, 8, 8, 5, 7, 7, 7, 5, 6, 6, 6, 5, 5, 5, 5, 4, 12, 12, 12, 4, 11, 11, 11, 4, 10, 10, 10, 4, 9, 9, 9, 4, 8, 8, 8, 4, 7, 7, 7, 4, 6, 6, 6, 4, 5, 5, 5, 12, 4, 12, 12, 11, 4, 11, 11, 10, 4, 10, 10, 9, 4, 9, 9, 8, 4, 8, 8, 7, 4, 7, 7, 6, 4, 6, 6, 5, 4, 5, 5, 4, 12, 12, 4, 12, 11, 11, 4, 11, 10, 10, 4, 10, 9, 9, 4, 9, 8, 8, 4, 8, 7, 7, 4, 7, 6, 6, 4, 6, 5, 5, 4, 5, 4, 4, 12, 12, 12, 4, 11, 11, 11, 4, 10, 10, 10, 4, 9, 9, 9, 4, 8, 8, 8, 4, 7, 7, 7, 4, 6, 6, 6, 4, 5, 5, 5, 4, 4, 4, 4, 3, 12, 12, 12, 3, 11, 11, 11, 3, 10, 10, 10, 3, 9, 9, 9, 3, 8, 8, 8, 3, 7, 7, 7, 3, 6, 6, 6, 3, 5, 5, 5, 3, 4, 4, 4, 12, 3, 12, 12, 11, 3, 11, 11, 10, 3, 10, 10, 9, 3, 9, 9, 8, 3, 8, 8, 7, 3, 7, 7, 6, 3, 6, 6, 5, 3, 5, 5, 4, 3, 4, 4, 3, 12, 12, 3, 12, 11, 11, 3, 11, 10, 10, 3, 10, 9, 9, 3, 9, 8, 8, 3, 8, 7, 7, 3, 7, 6, 6, 3, 6, 5, 5, 3, 5, 4, 4, 3, 4, 3, 3, 12, 12, 12, 3, 11, 11, 11, 3, 10, 10, 10, 3, 9, 9, 9, 3, 8, 8, 8, 3, 7, 7, 7, 3, 6, 6, 6, 3, 5, 5, 5, 3, 4, 4, 4, 3, 3, 3, 3, 2, 12, 12, 12, 2, 11, 11, 11, 2, 10, 10, 10, 2, 9, 9, 9, 2, 8, 8, 8, 2, 7, 7, 7, 2, 6, 6, 6, 2, 5, 5, 5, 2, 4, 4, 4, 2, 3, 3, 3, 12, 2, 12, 12, 11, 2, 11, 11, 10, 2, 10, 10, 9, 2, 9, 9, 8, 2, 8, 8, 7, 2, 7, 7, 6, 2, 6, 6, 5, 2, 5, 5, 4, 2, 4, 4, 3, 2, 3, 3, 2, 12, 12, 2, 12, 11, 11, 2, 11, 10, 10, 2, 10, 9, 9, 2, 9, 8, 8, 2, 8, 7, 7, 2, 7, 6, 6, 2, 6, 5, 5, 2, 5, 4, 4, 2, 4, 3, 3, 2, 3, 2, 2, 12, 12, 12, 2, 11, 11, 11, 2, 10, 10, 10, 2, 9, 9, 9, 2, 8, 8, 8, 2, 7, 7, 7, 2, 6, 6, 6, 2, 5, 5, 5, 2, 4, 4, 4, 2, 3, 3, 3, 2, 2, 2, 2, 1, 12, 12, 12, 1, 11, 11, 11, 1, 10, 10, 10, 1, 9, 9, 9, 1, 8, 8, 8, 1, 7, 7, 7, 1, 6, 6, 6, 1, 5, 5, 5, 1, 4, 4, 4, 1, 3, 3, 3, 1, 2, 2, 2, 12, 1, 12, 12, 11, 1, 11, 11, 10, 1, 10, 10, 9, 1, 9, 9, 8, 1, 8, 8, 7, 1, 7, 7, 6, 1, 6, 6, 5, 1, 5, 5, 4, 1, 4, 4, 3, 1, 3, 3, 2, 1, 2, 2, 1, 12, 12, 1, 12, 11, 11, 1, 11, 10, 10, 1, 10, 9, 9, 1, 9, 8, 8, 1, 8, 7, 7, 1, 7, 6, 6, 1, 6, 5, 5, 1, 5, 4, 4, 1, 4, 3, 3, 1, 3, 2, 2, 1, 2, 1, 1, 12, 12, 12, 1, 11, 11, 11, 1, 10, 10, 10, 1, 9, 9, 9, 1, 8, 8, 8, 1, 7, 7, 7, 1, 6, 6, 6, 1, 5, 5, 5, 1, 4, 4, 4, 1, 3, 3, 3, 1, 2, 2, 2, 1, 1, 1, 1, 0, 12, 12, 12, 0, 11, 11, 11, 0, 10, 10, 10, 0, 9, 9, 9, 0, 8, 8, 8, 0, 7, 7, 7, 0, 6, 6, 6, 0, 5, 5, 5, 0, 4, 4, 4, 0, 3, 3, 3, 0, 2, 2, 2, 0, 1, 1, 1, 12, 0, 12, 12, 11, 0, 11, 11, 10, 0, 10, 10, 9, 0, 9, 9, 8, 0, 8, 8, 7, 0, 7, 7, 6, 0, 6, 6, 5, 0, 5, 5, 4, 0, 4, 4, 3, 0, 3, 3, 2, 0, 2, 2, 1, 0, 1, 1, 0, 12, 12, 0, 12, 11, 11, 0, 11, 10, 10, 0, 10, 9, 9, 0, 9, 8, 8, 0, 8, 7, 7, 0, 7, 6, 6, 0, 6, 5, 5, 0, 5, 4, 4, 0, 4, 3, 3, 0, 3, 2, 2, 0, 2, 1, 1, 0, 1, 0, 0, 12, 12, 12, 0, 11, 11, 11, 0, 10, 10, 10, 0, 9, 9, 9, 0, 8, 8, 8, 0, 7, 7, 7, 0, 6, 6, 6, 0, 5, 5, 5, 0, 4, 4, 4, 0, 3, 3, 3, 0, 2, 2, 2, 0, 1, 1, 1, 0, 0, 0, 0];
 const cardOrderY = [12, 12, 12, 12, 12, 12, 12, 11, 11, 11, 11, 12, 11, 11, 11, 11, 11, 12, 11, 11, 11, 11, 11, 11, 12, 11, 11, 11, 12, 10, 10, 10, 11, 10, 10, 10, 10, 12, 10, 10, 10, 11, 10, 10, 10, 10, 10, 12, 10, 10, 10, 11, 10, 10, 10, 10, 10, 10, 12, 10, 10, 10, 11, 10, 10, 10, 12, 9, 9, 9, 11, 9, 9, 9, 10, 9, 9, 9, 9, 12, 9, 9, 9, 11, 9, 9, 9, 10, 9, 9, 9, 9, 9, 12, 9, 9, 9, 11, 9, 9, 9, 10, 9, 9, 9, 9, 9, 9, 12, 9, 9, 9, 11, 9, 9, 9, 10, 9, 9, 9, 12, 8, 8, 8, 11, 8, 8, 8, 10, 8, 8, 8, 9, 8, 8, 8, 8, 12, 8, 8, 8, 11, 8, 8, 8, 10, 8, 8, 8, 9, 8, 8, 8, 8, 8, 12, 8, 8, 8, 11, 8, 8, 8, 10, 8, 8, 8, 9, 8, 8, 8, 8, 8, 8, 12, 8, 8, 8, 11, 8, 8, 8, 10, 8, 8, 8, 9, 8, 8, 8, 12, 7, 7, 7, 11, 7, 7, 7, 10, 7, 7, 7, 9, 7, 7, 7, 8, 7, 7, 7, 7, 12, 7, 7, 7, 11, 7, 7, 7, 10, 7, 7, 7, 9, 7, 7, 7, 8, 7, 7, 7, 7, 7, 12, 7, 7, 7, 11, 7, 7, 7, 10, 7, 7, 7, 9, 7, 7, 7, 8, 7, 7, 7, 7, 7, 7, 12, 7, 7, 7, 11, 7, 7, 7, 10, 7, 7, 7, 9, 7, 7, 7, 8, 7, 7, 7, 12, 6, 6, 6, 11, 6, 6, 6, 10, 6, 6, 6, 9, 6, 6, 6, 8, 6, 6, 6, 7, 6, 6, 6, 6, 12, 6, 6, 6, 11, 6, 6, 6, 10, 6, 6, 6, 9, 6, 6, 6, 8, 6, 6, 6, 7, 6, 6, 6, 6, 6, 12, 6, 6, 6, 11, 6, 6, 6, 10, 6, 6, 6, 9, 6, 6, 6, 8, 6, 6, 6, 7, 6, 6, 6, 6, 6, 6, 12, 6, 6, 6, 11, 6, 6, 6, 10, 6, 6, 6, 9, 6, 6, 6, 8, 6, 6, 6, 7, 6, 6, 6, 12, 5, 5, 5, 11, 5, 5, 5, 10, 5, 5, 5, 9, 5, 5, 5, 8, 5, 5, 5, 7, 5, 5, 5, 6, 5, 5, 5, 5, 12, 5, 5, 5, 11, 5, 5, 5, 10, 5, 5, 5, 9, 5, 5, 5, 8, 5, 5, 5, 7, 5, 5, 5, 6, 5, 5, 5, 5, 5, 12, 5, 5, 5, 11, 5, 5, 5, 10, 5, 5, 5, 9, 5, 5, 5, 8, 5, 5, 5, 7, 5, 5, 5, 6, 5, 5, 5, 5, 5, 5, 12, 5, 5, 5, 11, 5, 5, 5, 10, 5, 5, 5, 9, 5, 5, 5, 8, 5, 5, 5, 7, 5, 5, 5, 6, 5, 5, 5, 12, 4, 4, 4, 11, 4, 4, 4, 10, 4, 4, 4, 9, 4, 4, 4, 8, 4, 4, 4, 7, 4, 4, 4, 6, 4, 4, 4, 5, 4, 4, 4, 4, 12, 4, 4, 4, 11, 4, 4, 4, 10, 4, 4, 4, 9, 4, 4, 4, 8, 4, 4, 4, 7, 4, 4, 4, 6, 4, 4, 4, 5, 4, 4, 4, 4, 4, 12, 4, 4, 4, 11, 4, 4, 4, 10, 4, 4, 4, 9, 4, 4, 4, 8, 4, 4, 4, 7, 4, 4, 4, 6, 4, 4, 4, 5, 4, 4, 4, 4, 4, 4, 12, 4, 4, 4, 11, 4, 4, 4, 10, 4, 4, 4, 9, 4, 4, 4, 8, 4, 4, 4, 7, 4, 4, 4, 6, 4, 4, 4, 5, 4, 4, 4, 12, 3, 3, 3, 11, 3, 3, 3, 10, 3, 3, 3, 9, 3, 3, 3, 8, 3, 3, 3, 7, 3, 3, 3, 6, 3, 3, 3, 5, 3, 3, 3, 4, 3, 3, 3, 3, 12, 3, 3, 3, 11, 3, 3, 3, 10, 3, 3, 3, 9, 3, 3, 3, 8, 3, 3, 3, 7, 3, 3, 3, 6, 3, 3, 3, 5, 3, 3, 3, 4, 3, 3, 3, 3, 3, 12, 3, 3, 3, 11, 3, 3, 3, 10, 3, 3, 3, 9, 3, 3, 3, 8, 3, 3, 3, 7, 3, 3, 3, 6, 3, 3, 3, 5, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3, 12, 3, 3, 3, 11, 3, 3, 3, 10, 3, 3, 3, 9, 3, 3, 3, 8, 3, 3, 3, 7, 3, 3, 3, 6, 3, 3, 3, 5, 3, 3, 3, 4, 3, 3, 3, 12, 2, 2, 2, 11, 2, 2, 2, 10, 2, 2, 2, 9, 2, 2, 2, 8, 2, 2, 2, 7, 2, 2, 2, 6, 2, 2, 2, 5, 2, 2, 2, 4, 2, 2, 2, 3, 2, 2, 2, 2, 12, 2, 2, 2, 11, 2, 2, 2, 10, 2, 2, 2, 9, 2, 2, 2, 8, 2, 2, 2, 7, 2, 2, 2, 6, 2, 2, 2, 5, 2, 2, 2, 4, 2, 2, 2, 3, 2, 2, 2, 2, 2, 12, 2, 2, 2, 11, 2, 2, 2, 10, 2, 2, 2, 9, 2, 2, 2, 8, 2, 2, 2, 7, 2, 2, 2, 6, 2, 2, 2, 5, 2, 2, 2, 4, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 12, 2, 2, 2, 11, 2, 2, 2, 10, 2, 2, 2, 9, 2, 2, 2, 8, 2, 2, 2, 7, 2, 2, 2, 6, 2, 2, 2, 5, 2, 2, 2, 4, 2, 2, 2, 3, 2, 2, 2, 12, 1, 1, 1, 11, 1, 1, 1, 10, 1, 1, 1, 9, 1, 1, 1, 8, 1, 1, 1, 7, 1, 1, 1, 6, 1, 1, 1, 5, 1, 1, 1, 4, 1, 1, 1, 3, 1, 1, 1, 2, 1, 1, 1, 1, 12, 1, 1, 1, 11, 1, 1, 1, 10, 1, 1, 1, 9, 1, 1, 1, 8, 1, 1, 1, 7, 1, 1, 1, 6, 1, 1, 1, 5, 1, 1, 1, 4, 1, 1, 1, 3, 1, 1, 1, 2, 1, 1, 1, 1, 1, 12, 1, 1, 1, 11, 1, 1, 1, 10, 1, 1, 1, 9, 1, 1, 1, 8, 1, 1, 1, 7, 1, 1, 1, 6, 1, 1, 1, 5, 1, 1, 1, 4, 1, 1, 1, 3, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 12, 1, 1, 1, 11, 1, 1, 1, 10, 1, 1, 1, 9, 1, 1, 1, 8, 1, 1, 1, 7, 1, 1, 1, 6, 1, 1, 1, 5, 1, 1, 1, 4, 1, 1, 1, 3, 1, 1, 1, 2, 1, 1, 1, 12, 0, 0, 0, 11, 0, 0, 0, 10, 0, 0, 0, 9, 0, 0, 0, 8, 0, 0, 0, 7, 0, 0, 0, 6, 0, 0, 0, 5, 0, 0, 0, 4, 0, 0, 0, 3, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 12, 0, 0, 0, 11, 0, 0, 0, 10, 0, 0, 0, 9, 0, 0, 0, 8, 0, 0, 0, 7, 0, 0, 0, 6, 0, 0, 0, 5, 0, 0, 0, 4, 0, 0, 0, 3, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 12, 0, 0, 0, 11, 0, 0, 0, 10, 0, 0, 0, 9, 0, 0, 0, 8, 0, 0, 0, 7, 0, 0, 0, 6, 0, 0, 0, 5, 0, 0, 0, 4, 0, 0, 0, 3, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 11, 0, 0, 0, 10, 0, 0, 0, 9, 0, 0, 0, 8, 0, 0, 0, 7, 0, 0, 0, 6, 0, 0, 0, 5, 0, 0, 0, 4, 0, 0, 0, 3, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0];
 const preflopHandMap = { "22": 0, "33": 14, "44": 44, "55": 90, "66": 152, "77": 230, "88": 324, "99": 434, "32s": 6, "32o": 7, "42s": 28, "42o": 29, "43s": 32, "43o": 33, "52s": 66, "52o": 67, "53s": 70, "53o": 71, "54s": 74, "54o": 75, "62s": 120, "62o": 121, "63s": 124, "63o": 125, "64s": 128, "64o": 129, "65s": 132, "65o": 133, "72s": 190, "72o": 191, "73s": 194, "73o": 195, "74s": 198, "74o": 199, "75s": 202, "75o": 203, "76s": 206, "76o": 207, "82s": 276, "82o": 277, "83s": 280, "83o": 281, "84s": 284, "84o": 285, "85s": 288, "85o": 289, "86s": 292, "86o": 293, "87s": 296, "87o": 297, "92s": 378, "92o": 379, "93s": 382, "93o": 383, "94s": 386, "94o": 387, "95s": 390, "95o": 391, "96s": 394, "96o": 395, "97s": 398, "97o": 399, "98s": 402, "98o": 403, "T2s": 496, "T2o": 497, "T3s": 500, "T3o": 501, "T4s": 504, "T4o": 505, "T5s": 508, "T5o": 509, "T6s": 512, "T6o": 513, "T7s": 516, "T7o": 517, "T8s": 520, "T8o": 521, "T9s": 524, "T9o": 525, "TT": 560, "J2s": 630, "J2o": 631, "J3s": 634, "J3o": 635, "J4s": 638, "J4o": 639, "J5s": 642, "J5o": 643, "J6s": 646, "J6o": 647, "J7s": 650, "J7o": 651, "J8s": 654, "J8o": 655, "J9s": 658, "J9o": 659, "JTs": 662, "JTo": 663, "JJ": 702, "Q2s": 780, "Q2o": 781, "Q3s": 784, "Q3o": 785, "Q4s": 788, "Q4o": 789, "Q5s": 792, "Q5o": 793, "Q6s": 796, "Q6o": 797, "Q7s": 800, "Q7o": 801, "Q8s": 804, "Q8o": 805, "Q9s": 808, "Q9o": 809, "QTs": 812, "QTo": 813, "QJs": 816, "QJo": 817, "QQ": 860, "K2s": 946, "K2o": 947, "K3s": 950, "K3o": 951, "K4s": 954, "K4o": 955, "K5s": 958, "K5o": 959, "K6s": 962, "K6o": 963, "K7s": 966, "K7o": 967, "K8s": 970, "K8o": 971, "K9s": 974, "K9o": 975, "KTs": 978, "KTo": 979, "KJs": 982, "KJo": 983, "KQs": 986, "KQo": 987, "KK": 1034, "A2s": 1128, "A2o": 1129, "A3s": 1132, "A3o": 1133, "A4s": 1136, "A4o": 1137, "A5s": 1140, "A5o": 1141, "A6s": 1144, "A6o": 1145, "A7s": 1148, "A7o": 1149, "A8s": 1152, "A8o": 1153, "A9s": 1156, "A9o": 1157, "ATs": 1160, "ATo": 1161, "AJs": 1164, "AJo": 1165, "AQs": 1168, "AQo": 1169, "AKs": 1172, "AKo": 1173, "AA": 1224 };
-
+const CONFIG = {
+    // Define action colors here
+    actions: {
+        'Fold': '#0011a7ff',
+        'Call': '#027c08ff',
+        'All In': '#4e0000ff',
+        // Add a default raise color
+        'Raise': '#dc2626'
+    },
+    // Define TSV column names
+    columns: {
+        situation: 'Situation',
+        pos1: 'Pos1',
+        pos2: 'Pos2',
+        actionPrefix: 'Action',
+        rangePrefix: 'Range'
+    },
+    // Define UI colors
+    colors: {
+        defaultGradient: '#AAAAAA',
+        unplayed: '#334155'
+    }
+};
 
 let rows;
 let headers;
-
 fetchTSVFile();
+
+
 function fetchTSVFile() {
     const timestamp = new Date().getTime(); // Unique query parameter
     fetch(`https://kebabserver.github.io/kebab/PreflopRanges/Preflop.tsv?ts=${timestamp}`)
@@ -33,48 +54,57 @@ function fetchTSVFile() {
         });
 }
 
-function getHandData(Solve, Hand, Situation, Pos1, Pos2) {
+
+function getHandData(Hand, Situation, Pos1, Pos2) {
     const correctRow = rows.find(row =>
-        row[headers.indexOf('Situation')] === Situation &&
-        row[headers.indexOf('Pos1')] === Pos1 &&
-        row[headers.indexOf('Pos2')] === Pos2
+        row[headers.indexOf(CONFIG.columns.situation)] === Situation &&
+        row[headers.indexOf(CONFIG.columns.pos1)] === Pos1 &&
+        row[headers.indexOf(CONFIG.columns.pos2)] === Pos2
     );
     let handFreqs = [];
     if (correctRow) {
         let index = 1;
-        while (correctRow[headers.indexOf("Action" + index)] != "" && correctRow[headers.indexOf("Action" + index)] != undefined && correctRow[headers.indexOf("Range" + index)] != "") {
-            //Load action's range
-
-            const range = correctRow[headers.indexOf("Range" + index)].split(" ");
-            const action = correctRow[headers.indexOf("Action" + index)];
-            if (action == "Fold") {
-                const freq = parseFloat(range[preflopHandMap[Hand]]);
-                handFreqs.push({ color: '#0011a7ff', freq: freq });
-            } else if (action == "Call") {
-                const freq = parseFloat(range[preflopHandMap[Hand]]);
-                handFreqs.push({ color: '#027c08ff', freq: freq });
-            } else if (action == "All In") {
-                const freq = parseFloat(range[preflopHandMap[Hand]]);
-                handFreqs.push({ color: '#4e0000ff', freq: freq });
-            } else {
-                const freq = parseFloat(range[preflopHandMap[Hand]]);
-                handFreqs.push({ color: '#dc2626', freq: freq });
-            }
-
-            //Add hand action frequency
-            // handFreqs.push(parseFloat(range[preflopHandMap[Hand]]));
+        let actionCol = CONFIG.columns.actionPrefix + index;
+        let rangeCol = CONFIG.columns.rangePrefix + index;
+        while (correctRow[headers.indexOf(actionCol)] != "" && correctRow[headers.indexOf(actionCol)] != undefined && correctRow[headers.indexOf(rangeCol)] != "") {
+            const range = correctRow[headers.indexOf(rangeCol)].split(" ");
+            const action = correctRow[headers.indexOf(actionCol)];
+            const freq = parseFloat(range[preflopHandMap[Hand]]) || 0;
+            const color = CONFIG.actions[action] || CONFIG.actions['Raise'];
+            handFreqs.push({ color: color, freq: freq });
             index++;
+            actionCol = CONFIG.columns.actionPrefix + index;
+            rangeCol = CONFIG.columns.rangePrefix + index;
         }
     }
     return handFreqs;
 }
 
-
-
-
 // Variable to track the last selected cell
 let lastSelectedCell = null;
 
+function clearAllRanges() {
+    // 1. Clear Main Matrix (reset to default unplayed color)
+    const mainMatrixCells = document.getElementById('main-matrix').querySelectorAll('.matrix-cell');
+    mainMatrixCells.forEach(cell => {
+        cell.style.backgroundImage = 'none';
+    });
+
+    // 2. Clear Situation Matrices
+    const situationMatrices = ['matrix-2bet', 'matrix-3bet', 'matrix-4bet'];
+    situationMatrices.forEach(matrixId => {
+        const cells = document.getElementById(matrixId).querySelectorAll('.matrix-cell');
+        cells.forEach(cell => {
+            cell.style.backgroundImage = 'none'; // Just remove the gradient
+        });
+    });
+
+    // 3. Clear selection
+    if (lastSelectedCell) {
+        lastSelectedCell.classList.remove('selected-red');
+        lastSelectedCell = null;
+    }
+}
 /**
  * Generates and populates a hand matrix.
  * @param {HTMLElement} container - The DOM element to populate with the matrix cells.
@@ -85,16 +115,26 @@ let lastSelectedCell = null;
 function generateMatrix(container, cols, rows, onClickHandler, content = null) {
     container.innerHTML = '';
     container.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-    console.log(content);
     for (let i = 0; i < rows; i++) {
         for (let j = 0; j < cols; j++) {
             const cell = document.createElement('div');
             cell.classList.add('matrix-cell');
 
-            if (content) {
-                console.log(content);
+            if (container === document.getElementById('matrix-2bet')) {
                 cell.textContent = content[i * cols + j] || '';
-                cell.dataset.hand = content[i * cols + j] || '';
+                cell.dataset.pos1 = positions[j];
+                cell.dataset.pos2 = positions[j];
+                cell.dataset.spot = "2Bet";
+            } else if (container === document.getElementById('matrix-3bet')) {
+                cell.textContent = content[i * cols + j] || '';
+                cell.dataset.pos1 = positions[i];
+                cell.dataset.pos2 = positions[j];
+                cell.dataset.spot = "3Bet";
+            } else if (container === document.getElementById('matrix-4bet')) {
+                cell.textContent = content[i * cols + j] || '';
+                cell.dataset.pos1 = positions[i];
+                cell.dataset.pos2 = positions[j];
+                cell.dataset.spot = "4Bet";
             } else {
                 let hand;
                 if (i < j) {
@@ -117,21 +157,17 @@ function generateMatrix(container, cols, rows, onClickHandler, content = null) {
 }
 
 function handleHandSelection(hand) {
-    console.log("Hand selected:", hand);
-
     update2BetMatrix(hand);
     update3BetMatrix(hand);
     update4BetMatrix(hand);
-
 }
 
+function updateMainMatrix(cell_data) {
+    const mainMatrix = document.getElementById('main-matrix');
+    const cells = mainMatrix.querySelectorAll('.matrix-cell');
+    cells.forEach((cell) => {
+        const data = getHandData(cell.getAttribute('data-hand'), cell_data.spot, cell_data.pos1, cell_data.pos2);
 
-
-
-function update2BetMatrix(Hand) {
-    const cells = document.getElementById('matrix-2bet').querySelectorAll('.matrix-cell');
-    cells.forEach((cell, index) => {
-        const data = getHandData(null, Hand, "2Bet", positions[index], positions[index]);
         if (data && data.length > 0) {
             let gradientString = 'linear-gradient(to right';
             let currentFreq = 0;
@@ -147,53 +183,55 @@ function update2BetMatrix(Hand) {
 
             gradientString += ')';
             cell.style.backgroundImage = gradientString;
+        } else {
+            // Reset background if no data
+            cell.style.backgroundImage = 'none';
+            cell.style.backgroundColor = '#334155';
         }
+
+    });
+}
+function buildGradientStyle(data) {
+    if (!data || data.length === 0) {
+        return 'none'; // No data, no gradient
+    }
+
+    let gradientString = 'linear-gradient(to right';
+    let currentFreq = 0;
+
+    data.forEach((item) => {
+        const start = currentFreq;
+        const end = currentFreq + item.freq;
+        gradientString += `, ${item.color} ${start * 100}%, ${item.color} ${end * 100}%`;
+        currentFreq = end;
+    });
+
+    // Fill the rest with the default color
+    gradientString += `, ${CONFIG.colors.defaultGradient} ${currentFreq * 100}%, ${CONFIG.colors.defaultGradient} 100%)`;
+    return gradientString;
+}
+
+function update2BetMatrix(Hand) {
+    const cells = document.getElementById('matrix-2bet').querySelectorAll('.matrix-cell');
+    cells.forEach((cell, index) => {
+        const data = getHandData(Hand, "2Bet", positions[index], positions[index]);
+        cell.style.backgroundImage = buildGradientStyle(data);
     });
 }
 
 function update3BetMatrix(Hand) {
     const cells = document.getElementById('matrix-3bet').querySelectorAll('.matrix-cell');
     cells.forEach((cell, index) => {
-        const data = getHandData(null, Hand, "3Bet", positions[Math.floor(index / 6)], positions[index % 6]);
-        if (data && data.length > 0) {
-            let gradientString = 'linear-gradient(to right';
-            let currentFreq = 0;
-
-            data.forEach((item, i) => {
-                const start = currentFreq;
-                const end = currentFreq + item.freq;
-                gradientString += `, ${item.color} ${start * 100}%, ${item.color} ${end * 100}%`;
-                currentFreq = end;
-            });
-
-            gradientString += `, #AAAAAA ${currentFreq * 100}%, #AAAAAA 100%`;
-
-            gradientString += ')';
-            cell.style.backgroundImage = gradientString;
-        }
+        const data = getHandData(Hand, "3Bet", positions[Math.floor(index / 6)], positions[index % 6]);
+        cell.style.backgroundImage = buildGradientStyle(data);
     });
 }
+
 function update4BetMatrix(Hand) {
     const cells = document.getElementById('matrix-4bet').querySelectorAll('.matrix-cell');
     cells.forEach((cell, index) => {
-        // const data = getHandData(null, Hand, "4Bet", positions[(index - 1) % 6], positions[Math.floor((index + 6) / 6)]);
-        const data = getHandData(null, Hand, "4Bet", positions[Math.floor(index / 6)], positions[index % 6]);
-        if (data && data.length > 0) {
-            let gradientString = 'linear-gradient(to right';
-            let currentFreq = 0;
-
-            data.forEach((item, i) => {
-                const start = currentFreq;
-                const end = currentFreq + item.freq;
-                gradientString += `, ${item.color} ${start * 100}%, ${item.color} ${end * 100}%`;
-                currentFreq = end;
-            });
-
-            gradientString += `, #AAAAAA ${currentFreq * 100}%, #AAAAAA 100%`;
-
-            gradientString += ')';
-            cell.style.backgroundImage = gradientString;
-        }
+        const data = getHandData(Hand, "4Bet", positions[Math.floor(index / 6)], positions[index % 6]);
+        cell.style.backgroundImage = buildGradientStyle(data);
     });
 }
 
@@ -202,8 +240,10 @@ function update4BetMatrix(Hand) {
  * This function gets the hand from the clicked cell and passes it to the main handler.
  * @param {Event} event - The click event.
  */
-function handleMatrixClick(event) {
-    const currentCell = event.target;
+function handleHandMatrixClick(event) {
+    clearAllRanges();
+    const currentCell = event.target.closest('.matrix-cell');
+    if (!currentCell) return;
 
     if (lastSelectedCell) {
         lastSelectedCell.classList.remove('selected-red');
@@ -212,8 +252,22 @@ function handleMatrixClick(event) {
     currentCell.classList.add('selected-red');
     lastSelectedCell = currentCell;
 
-    const hand = currentCell.dataset.hand;
-    handleHandSelection(hand);
+    handleHandSelection(currentCell.dataset.hand);
+}
+
+function handleSituationMatrixClick(event) {
+    clearAllRanges();
+    const currentCell = event.target.closest('.matrix-cell');
+    if (!currentCell) return;
+
+    if (lastSelectedCell) {
+        lastSelectedCell.classList.remove('selected-red');
+    }
+
+    currentCell.classList.add('selected-red');
+    lastSelectedCell = currentCell; // Track the new selection
+
+    updateMainMatrix(currentCell.dataset);
 }
 
 // Wait for the DOM to be fully loaded before running the script
@@ -224,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const smallMatrix3 = document.getElementById('matrix-4bet');
 
     // Generate the main 13x13 matrix
-    generateMatrix(mainMatrix, 13, 13, handleMatrixClick);
+    generateMatrix(mainMatrix, 13, 13, handleHandMatrixClick);
 
     const positionsVsPositions = [];
     const positionsVsPositions2 = [];
@@ -243,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     // Generate the small matrices with the new dimensions
-    generateMatrix(smallMatrix1, 5, 1, null, positions);
-    generateMatrix(smallMatrix2, 6, 5, null, positionsVsPositions);
-    generateMatrix(smallMatrix3, 6, 5, null, positionsVsPositions2);
+    generateMatrix(smallMatrix1, 5, 1, handleSituationMatrixClick, positions);
+    generateMatrix(smallMatrix2, 6, 5, handleSituationMatrixClick, positionsVsPositions);
+    generateMatrix(smallMatrix3, 6, 5, handleSituationMatrixClick, positionsVsPositions2);
 });

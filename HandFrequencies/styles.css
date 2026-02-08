@@ -70,10 +70,10 @@
 
  .main-matrix .matrix-cell {
      cursor: pointer;
-     transition: background-color 0.2s, transform 0.1s;
- }
+     /* transition: background-color 0.2s, transform 0.1s;*/
+ } 
 
- .main-matrix .matrix-cell.selected-red {
+ .matrix-cell.selected-red {
      background-color: #dc2626;
      /* A reddish color */
      color: #000000;
