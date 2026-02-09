@@ -6,84 +6,139 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.5">
   <title>Poker Trainer</title>
   <style>
+    :root {
+      --bg-dark: #1c1e22;
+      --table-bg: #2d2d2d;
+      --primary-blue: #4a90e2;
+      --action-green: #27ae60;
+      --text-white: #ffffff;
+      --accent-yellow: #f1c40f;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #282c34;
-      color: white;
+      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+      background: radial-gradient(circle, #353a44 0%, var(--bg-dark) 100%);
+      color: var(--text-white);
       text-align: center;
       margin: 0;
+      padding: 20px;
       user-select: none;
-      /* Make text not selectable */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    #quiz_question {
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     canvas {
       display: block;
-      margin: 20px auto;
-      background-color: #2d2d2d;
-      /* Dark poker table color */
+      margin: 10px auto;
+      background-color: var(--table-bg);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      max-width: 100%;
+      height: auto;
     }
 
-    #quiz_question {
-      font-size: 24px;
-      font-weight: bold
-    }
-
-    .buttons {
-      margin-top: 20px;
-    }
-
-    #rng_div {
-      font-size: 30px;
-      font-weight: bold
+    /* Main Action Buttons (Betting) */
+    #buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      width: 100%;
+      max-width: 580px;
+      margin: 20px 0;
     }
 
     button {
-      margin: 10px;
-      padding: 10px 20px;
-      font-size: 18px;
+      padding: 12px 10px;
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
       cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      background-color: var(--primary-blue);
+      color: white;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 0 #2a5a8f;
     }
 
+    button:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+    }
+
+    button:active {
+      transform: translateY(2px);
+      box-shadow: 0 0 0 transparent;
+    }
+
+    /* Color coding for poker actions */
+    #check {
+      background-color: #5c6370;
+      box-shadow: 0 4px 0 #3e4451;
+    }
+
+    /* Feedback Text */
     #feedback {
-      margin-top: 20px;
-      font-size: 20px;
-      color: yellow;
+      min-height: 30px;
+      margin: 15px 0;
+      font-size: 22px;
+      font-weight: bold;
+      color: var(--accent-yellow);
     }
 
+    /* Utility/Secondary Buttons */
+    #current_hand_range_button,
+    #last_hand_range_button {
+      background-color: #8e44ad;
+      box-shadow: 0 4px 0 #5e2d73;
+      margin: 5px;
+      font-size: 14px;
+    }
 
-    /* Container for Checkboxes */
+    /* Settings Panel */
     #settingsDiv {
-      display: flex;
-      flex-direction: column;
-      /* Aligns items vertically */
-      gap: 10px;
-      /* Space between each checkbox */
+      margin-top: 30px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 12px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      width: fit-content;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* Style for Checkboxes */
-    #settingsDiv input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      margin-right: 5px;
-      /* Space between checkbox and label text */
-      cursor: pointer;
-    }
-
-    /* Style the Label Text */
     #settingsDiv label {
       display: flex;
-      /* Align checkbox and text properly */
       align-items: center;
-      font-size: 24px;
+      font-size: 18px;
       cursor: pointer;
-      font-weight: bolder;
-      color: white;
+      color: #cbd5e0;
     }
 
+    #settingsDiv input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      accent-color: var(--primary-blue);
+    }
+
+    /* RNG Display */
+    #rng_div,
     .rng_div {
-      font-size: 24px;
-      font-weight: bolder;
-      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--accent-yellow);
+      margin: 10px 0;
+      font-family: 'Courier New', Courier, monospace;
     }
   </style>
 </head>
@@ -92,37 +147,21 @@
   <div id="quiz_question"> </div>
   <canvas id="pokerTable" width="568" height="460"></canvas>
   <div id="buttons">
-    <button id="check">Check</button>
-    <button id="bet25">Bet 25%</button>
-    <button id="bet50">Bet 50%</button>
-    <button id="bet100">Bet 100%</button>
+
   </div>
 
   <div id="feedback"></div>
   <button id="current_hand_range_button">Show Current Range</button>
   <button id="last_hand_range_button">Show Last Range</button>
+
   <div id="settingsDiv">
-    <form>
-      <label class="optionsLabel" for="RFI_Checkbox">
-        <input type="checkbox" id="RFI_Checkbox" /> RFI </label>
-    </form>
-    <form>
-      <label class="optionsLabel" for="BBDEF_Checkbox">
-        <input type="checkbox" id="BBDEF_Checkbox" checked /> BB Defense </label>
-    </form>
-    <form>
-      <label class="optionsLabel" for="SBDEF_Checkbox">
-        <input type="checkbox" id="SBDEF_Checkbox" checked /> SB Defense </label>
-    </form>
-    <form>
-      <label class="optionsLabel" for="IP3BET_Checkbox">
-        <input type="checkbox" id="IP3BET_Checkbox" checked /> IP Defense </label>
-    </form>
-    <form>
-      <label class="optionsLabel" for="VS3BET_Checkbox">
-        <input type="checkbox" id="VS3BET_Checkbox" checked /> Facing 3Bet </label>
-    </form>
+    <label class="optionsLabel"><input type="checkbox" id="RFI_Checkbox"> RFI</label>
+    <label class="optionsLabel"><input type="checkbox" id="BBDEF_Checkbox" checked> BB Defense</label>
+    <label class="optionsLabel"><input type="checkbox" id="SBDEF_Checkbox" checked> SB Defense</label>
+    <label class="optionsLabel"><input type="checkbox" id="IP3BET_Checkbox" checked> IP Defense</label>
+    <label class="optionsLabel"><input type="checkbox" id="VS3BET_Checkbox" checked> Facing 3Bet</label>
   </div>
+
   <script src="app.js"></script>
 </body>
 
