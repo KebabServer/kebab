@@ -476,7 +476,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function loadNextQuestion() {
-        RNGvalue = Math.floor(Math.random() * 101);
+        RNGvalue = Math.floor(Math.random() * 100) + 1;
         if (question == null || question.handFreqs.length == 0) {
             loadNewQuiz();
             return;
