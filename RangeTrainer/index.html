@@ -64,7 +64,7 @@
       border: none;
       border-radius: 6px;
       background-color: var(--primary-blue);
-      color: white;
+      color: black;
       transition: all 0.2s ease;
       box-shadow: 0 4px 0 #2a5a8f;
     }
@@ -77,12 +77,6 @@
     button:active {
       transform: translateY(2px);
       box-shadow: 0 0 0 transparent;
-    }
-
-    /* Color coding for poker actions */
-    #check {
-      background-color: #5c6370;
-      box-shadow: 0 4px 0 #3e4451;
     }
 
     /* Feedback Text */
@@ -130,16 +124,6 @@
       margin-right: 10px;
       accent-color: var(--primary-blue);
     }
-
-    /* RNG Display */
-    #rng_div,
-    .rng_div {
-      font-size: 28px;
-      font-weight: bold;
-      color: var(--accent-yellow);
-      margin: 10px 0;
-      font-family: 'Courier New', Courier, monospace;
-    }
   </style>
 </head>
 
@@ -151,6 +135,7 @@
   </div>
 
   <div id="feedback"></div>
+
   <button id="current_hand_range_button">Show Current Range</button>
   <button id="last_hand_range_button">Show Last Range</button>
 
