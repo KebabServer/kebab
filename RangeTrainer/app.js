@@ -43,7 +43,7 @@ const VIEWS = {
 const UI_CONFIG = {
     popup: {
         width: 80,
-        height: 34,
+        height: 40,
         margin: 14,
         bg: '#222',
         stroke: '#FFFFFF',
@@ -144,6 +144,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderTable() {
         // 1. Setup & Background
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
 
         const drawRect = (x, y, w, h, fill, stroke = 'black', lWidth = 2) => {
             ctx.beginPath();
@@ -170,7 +172,6 @@ document.addEventListener('DOMContentLoaded', () => {
             drawRect(200, 260, 200, 80, '#444444', 'white');
             ctx.fillStyle = 'white';
             ctx.font = '20px Arial';
-            ctx.textAlign = 'center';
             ctx.fillText(board, 300, 300);
         }
 
@@ -188,8 +189,6 @@ document.addEventListener('DOMContentLoaded', () => {
             drawRect(lp.x - 45, lp.y - 25, 90, 50, '#333333', 'white');
             ctx.fillStyle = 'white';
             ctx.font = '16px Arial';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
             ctx.fillText(posLabel, lp.x, lp.y);
 
             ctx.strokeStyle = 'black';
@@ -246,12 +245,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // 6. Random Number Pop-up (Bottom Left)
-        drawRect(UI_CONFIG.popup.margin, canvas.height - UI_CONFIG.popup.height - UI_CONFIG.popup.margin, UI_CONFIG.popup.width, UI_CONFIG.popup.height, '#e76f6f', '#000000', 2);
+        drawRect(UI_CONFIG.popup.margin, canvas.height - UI_CONFIG.popup.height - UI_CONFIG.popup.margin, UI_CONFIG.popup.width, UI_CONFIG.popup.height, 'white', '#000000', 2);
         ctx.fillStyle = '#000000';
         ctx.font = 'bold 24px Arial';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(RNGvalue, UI_CONFIG.popup.margin + (UI_CONFIG.popup.width / 2), canvas.height - UI_CONFIG.popup.height - UI_CONFIG.popup.margin + (UI_CONFIG.popup.height / 2));
+        ctx.fillText(RNGvalue, UI_CONFIG.popup.margin + (UI_CONFIG.popup.width / 2) - 10, canvas.height - UI_CONFIG.popup.height - UI_CONFIG.popup.margin + (UI_CONFIG.popup.height / 2));
+        let suit;
+        if (RNGvalue <= 25) suit = 'd';
+        else if (RNGvalue <= 50) suit = 'h';
+        else if (RNGvalue <= 75) suit = 'c';
+        else suit = 's';
+        ctx.fillStyle = suits[suit];
+        ctx.font = 'bold 48px Arial';
+        ctx.fillText(suitsSymbols[suit], UI_CONFIG.popup.margin + (UI_CONFIG.popup.width / 2) + 20, canvas.height - UI_CONFIG.popup.height - UI_CONFIG.popup.margin + (UI_CONFIG.popup.height / 2));
 
     }
     //Draw Range Matrix
