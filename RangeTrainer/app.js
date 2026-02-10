@@ -485,7 +485,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function checkIfCorrectAction(clickedButton) {
         let htmlString = '';
-        let htmlString2 = '';
+        
         question.handFreqs.forEach((number, index) => {
             let color = 'red';
             if (question.actions[index] == "Call" || question.actions[index] == "Check") { color = 'green'; }
@@ -493,19 +493,15 @@ document.addEventListener('DOMContentLoaded', () => {
             else if (typeof question.actions[index] === 'undefined' || question.actions[index] == null) {
                 color = 'gray';
             }
-
             htmlString += `<span style="padding: 4px 4px; background-color: ${color}; color: black; font-weight: bolder; width: 100px;  display: inline-block;  border: 1px solid black;"> ${Math.round(number * 100) / 100} </span> `;
-
-            htmlString2 += `<span style="padding: 4px 4px; background-color: ${color}; color: black; font-weight: bolder; width: 100px;  display: inline-block;  border: 1px solid black;"> ${question.globalCombos[index]}c</span> `;
         });
 
         if (clickedButton.dataset.isCorrect === "true") {
             feedback.innerHTML = '<span style="color: green;">Correct!</span> ' + htmlString + '(RNG: ' + RNGvalue + ") <br>";
-            feedback.innerHTML += '<br>Global frequency: ' + htmlString2;
             loadNewQuiz();
         } else {
             feedback.innerHTML = '<span style="color: Red;">Wrong!</span> ' + htmlString + '(RNG: ' + RNGvalue + ") <br>";
-            feedback.innerHTML += '<br>Global frequency: ' + htmlString2;
+           
         }
     }
 });
