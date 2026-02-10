@@ -89,6 +89,15 @@
     }
 
     /* Utility/Secondary Buttons */
+    #viewDiv {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      width: 100%;
+      max-width: 580px;
+      margin: 20px 0;
+    }
+
     #current_hand_range_button,
     #last_hand_range_button {
       background-color: #8e44ad;
@@ -96,6 +105,7 @@
       margin: 5px;
       font-size: 14px;
     }
+
 
     /* Settings Panel */
     #settingsDiv {
@@ -136,9 +146,10 @@
 
   <div id="feedback"></div>
 
-  <button id="current_hand_range_button">Show Current Range</button>
-  <button id="last_hand_range_button">Show Last Range</button>
-
+  <div id="viewDiv">
+    <button id="current_hand_range_button">Show Current Range</button>
+    <button id="last_hand_range_button">Show Last Range</button>
+  </div>
   <div id="settingsDiv">
     <label class="optionsLabel"><input type="checkbox" id="RFI_Checkbox"> RFI</label>
     <label class="optionsLabel"><input type="checkbox" id="BBDEF_Checkbox" checked> BB Defense</label>

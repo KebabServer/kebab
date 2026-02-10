@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Position Badge
             drawRect(lp.x - 45, lp.y - 25, 90, 50, '#333333', 'white');
             ctx.fillStyle = 'white';
-            ctx.font = '16px Arial';
+            ctx.font = 'bold 24px Arial';
             ctx.fillText(posLabel, lp.x, lp.y);
 
             ctx.strokeStyle = 'black';
@@ -463,7 +463,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (['Call', 'Check'].includes(action)) color = 'green';
             if (['Fold'].includes(action)) color = 'blue';
 
-            Object.assign(btn.style, { backgroundColor: color, fontWeight: 'bolder' });
+            Object.assign(btn.style, { backgroundColor: color, fontWeight: 'bold', fontSize: '20px' });
             btn.onclick = () => checkIfCorrectAction(btn);
 
             buttonsDiv.appendChild(btn);
