@@ -17,7 +17,7 @@ const heightsMax = [[6, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
 [12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 6]];
 
 const labelPositions = [
-    { x: 284, y: 60, chipx: 0, chipy: 80 },
+    { x: 284, y: 60, chipx: 0, chipy: 90 },
     { x: 490, y: 90, chipx: -40, chipy: 80 },
     { x: 490, y: 370, chipx: 10, chipy: -75 },
     { x: 284, y: 420, chipx: -90, chipy: -50 },
@@ -306,6 +306,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         ctx.fillStyle = 'green';
                     } else if (actions[k] == "Fold") {
                         ctx.fillStyle = 'blue';
+                    } else if (actions[k] == "All In") {
+                        ctx.fillStyle = '#5c0707';
                     } else {
                         ctx.fillStyle = 'red';
                     }
@@ -335,6 +337,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 ctx.fillStyle = 'green'; // Dark green for poker table
             } else if (actions[i] == "Fold") {
                 ctx.fillStyle = 'blue';
+            } else if (actions[k] == "All In") {
+                ctx.fillStyle = '#5c0707';
             } else {
                 ctx.fillStyle = 'red'; // Dark green for poker table
             }
@@ -460,6 +464,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Color Logic
             let color = 'red';
+            if (['All In'].includes(action)) color = '#5c0707';
             if (['Call', 'Check'].includes(action)) color = 'green';
             if (['Fold'].includes(action)) color = 'blue';
 
@@ -485,7 +490,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function checkIfCorrectAction(clickedButton) {
         let htmlString = '';
-        
+
         question.handFreqs.forEach((number, index) => {
             let color = 'red';
             if (question.actions[index] == "Call" || question.actions[index] == "Check") { color = 'green'; }
@@ -501,7 +506,7 @@ document.addEventListener('DOMContentLoaded', () => {
             loadNewQuiz();
         } else {
             feedback.innerHTML = '<span style="color: Red;">Wrong!</span> ' + htmlString + '(RNG: ' + RNGvalue + ") <br>";
-           
+
         }
     }
 });
