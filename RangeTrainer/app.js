@@ -59,6 +59,11 @@ const cards = ['A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2'];
 const suits = { 's': 'black', 'c': 'green', 'h': 'red', 'd': 'blue', };
 const suitsSymbols = { 's': '♠', 'c': '♣', 'h': '♥', 'd': '♦', };
 
+const getActionColor = (action) => {
+    const colors = { 'Call': 'green', 'Check': 'green', 'Fold': 'blue', 'All In': '#5c0707' };
+    return colors[action] || 'red'; // Default to red for bets/raises
+};
+
 const canvas = document.getElementById('pokerTable');
 const ctx = canvas.getContext('2d');
 const feedback = document.getElementById('feedback');
@@ -109,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const SBDEF_Checkbox = document.getElementById("SBDEF_Checkbox");
     const IP3BET_Checkbox = document.getElementById("IP3BET_Checkbox");
     const VS3BET_Checkbox = document.getElementById("VS3BET_Checkbox");
+    const SRP_Checkbox = document.getElementById("SRP_Checkbox");
 
     //Load TSV file
     (async () => {
@@ -263,67 +269,41 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderRangeMatrix(ranges, actions) {
         ctx.fillStyle = "#1e1e1e";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        if (ranges == undefined) {
-            return;
-        }
+        if (!ranges) return;
 
-        let colorsf_multi = [[[], [], [], [], [], [], [], [], [], [], [], [], []],
-        [[], [], [], [], [], [], [], [], [], [], [], [], []],
-        [[], [], [], [], [], [], [], [], [], [], [], [], []],
-        [[], [], [], [], [], [], [], [], [], [], [], [], []],
-        [[], [], [], [], [], [], [], [], [], [], [], [], []],
-        [[], [], [], [], [], [], [], [], [], [], [], [], []],
-        [[], [], [], [], [], [], [], [], [], [], [], [], []],
-        [[], [], [], [], [], [], [], [], [], [], [], [], []],
-        [[], [], [], [], [], [], [], [], [], [], [], [], []],
-        [[], [], [], [], [], [], [], [], [], [], [], [], []],
-        [[], [], [], [], [], [], [], [], [], [], [], [], []],
-        [[], [], [], [], [], [], [], [], [], [], [], [], []],
-        [[], [], [], [], [], [], [], [], [], [], [], [], []]];
-        for (let x = 0; x < 13; x++) {
-            for (let y = 0; y < 13; y++) {
-                for (let i = 0; i < actions.length; i++) {
-                    colorsf_multi[y][x].push(0);
-                }
-            }
-        }
+        const colorsf_multi = Array.from({ length: 13 }, () =>
+            Array.from({ length: 13 }, () =>
+                Array(actions.length).fill(0)
+            )
+        );
         for (let i = 0; i < 1326; i++) {
             for (let j = 0; j < ranges.length; j++) {
                 colorsf_multi[cardOrderX[i]][cardOrderY[i]][j] += parseFloat(ranges[j][i]);
             }
         }
 
-
+        const size = 34;
         for (let i = 0; i < 13; i++) {
             for (let j = 0; j < 13; j++) {
+                const x = j * size;
+                const y = i * size;
                 let tempX = 0;
                 ctx.strokeStyle = 'black';
                 ctx.lineWidth = 1; // Set border thickness
-                ctx.strokeRect(j * 34, i * 34, 34, 34);
+                ctx.strokeRect(j * size, i * size, size, size);
                 for (let k = 0; k < actions.length; k++) {
                     const tempWidth = colorsf_multi[i][j][k] / heightsMax[i][j];
-                    if (actions[k] == "Call" || actions[k] == "Check") {
-                        ctx.fillStyle = 'green';
-                    } else if (actions[k] == "Fold") {
-                        ctx.fillStyle = 'blue';
-                    } else if (actions[k] == "All In") {
-                        ctx.fillStyle = '#5c0707';
-                    } else {
-                        ctx.fillStyle = 'red';
-                    }
-                    ctx.fillRect(j * 34 + 1 + Math.ceil(tempX * 32), i * 34 + 1, Math.ceil(32 * tempWidth), 32);
+                    ctx.fillStyle = getActionColor(actions[k]);
+                    ctx.fillRect(x + 1 + Math.ceil(tempX * (size - 2)), y + 1, Math.ceil((size - 2) * tempWidth), (size - 2));
                     tempX += tempWidth;
                 }
+
+                // Logic for Rank Labels (AA, AKs, AKo)
+                let label = (j > i) ? cards[i] + cards[j] + 's' : (i === j) ? cards[i] + cards[j] : cards[j] + cards[i] + 'o';
                 ctx.fillStyle = 'white';
                 ctx.font = '14px Arial';
                 ctx.textAlign = 'center';
-                if (j > i) {
-                    ctx.fillText(cards[i] + cards[j] + 's', j * 34 + 16, i * 34 + 16);
-                } else if (i == j) {
-                    ctx.fillText(cards[j] + cards[i], j * 34 + 16, i * 34 + 16);
-                } else {
-                    ctx.fillText(cards[j] + cards[i] + 'o', j * 34 + 16, i * 34 + 16);
-                }
+                ctx.fillText(label, x + size / 2, y + size / 2);
             }
         }
 
@@ -333,15 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.strokeStyle = 'gray';
             ctx.lineWidth = 2; // Set border thickness
             ctx.strokeRect(446, i * 30 + 7, 118, 26);
-            if (actions[i] == "Call" || actions[i] == "Check") {
-                ctx.fillStyle = 'green'; // Dark green for poker table
-            } else if (actions[i] == "Fold") {
-                ctx.fillStyle = 'blue';
-            } else if (actions[k] == "All In") {
-                ctx.fillStyle = '#5c0707';
-            } else {
-                ctx.fillStyle = 'red'; // Dark green for poker table
-            }
+            ctx.fillStyle = getActionColor(actions[i]);
             ctx.font = 'bold 16px Arial';
             ctx.textAlign = 'center';
             ctx.fillText(actions[i], 500, i * 30 + 22);
@@ -358,7 +330,9 @@ document.addEventListener('DOMContentLoaded', () => {
             { id: 'BBDEF', el: BBDEF_Checkbox },
             { id: 'SBDEF', el: SBDEF_Checkbox },
             { id: 'IP3BET', el: IP3BET_Checkbox },
-            { id: 'VS3BET', el: VS3BET_Checkbox }
+            { id: 'VS3BET', el: VS3BET_Checkbox },
+            { id: 'SRP', el: SRP_Checkbox }
+
         ];
 
         const validQuizTypes = quizCheckboxes
@@ -462,13 +436,8 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.textContent = action;
             btn.dataset.isCorrect = isCorrect;
 
-            // Color Logic
-            let color = 'red';
-            if (['All In'].includes(action)) color = '#5c0707';
-            if (['Call', 'Check'].includes(action)) color = 'green';
-            if (['Fold'].includes(action)) color = 'blue';
 
-            Object.assign(btn.style, { backgroundColor: color, fontWeight: 'bold', fontSize: '20px' });
+            Object.assign(btn.style, { backgroundColor: getActionColor(action), fontWeight: 'bold', fontSize: '20px' });
             btn.onclick = () => checkIfCorrectAction(btn);
 
             buttonsDiv.appendChild(btn);
@@ -488,7 +457,7 @@ document.addEventListener('DOMContentLoaded', () => {
         buttonsDiv.appendChild(extraBtn);
     }
 
-    function checkIfCorrectAction(clickedButton) {
+    function checkIfCorrectAction2(clickedButton) {
         let htmlString = '';
 
         question.handFreqs.forEach((number, index) => {
@@ -508,5 +477,20 @@ document.addEventListener('DOMContentLoaded', () => {
             feedback.innerHTML = '<span style="color: Red;">Wrong!</span> ' + htmlString + '(RNG: ' + RNGvalue + ") <br>";
 
         }
+    }
+    function checkIfCorrectAction(clickedButton) {
+        const isCorrect = clickedButton.dataset.isCorrect === "true";
+
+        const freqDisplay = question.handFreqs.map((freq, i) => {
+            const color = getActionColor(question.actions[i]);
+            return `<span style="padding: 4px; background-color: ${color};color: black; border: 1px solid #000; display: inline-block; width: 60px; text-align: center;">${Math.round(freq)}%</span>`;
+        }).join(' ');
+
+        feedback.innerHTML = `
+        <b style="color: ${isCorrect ? 'green' : 'red'}">${isCorrect ? 'Correct!' : 'Wrong!'}</b> 
+        ${freqDisplay} (RNG: ${RNGvalue})
+    `;
+
+        if (isCorrect) loadNewQuiz();
     }
 });
